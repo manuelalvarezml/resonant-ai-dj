@@ -3,7 +3,7 @@
 **Read this file first.** It replaces the prior chat. Durable logs still win
 on exact experiment numbers; this file is the operating brief.
 
-- **Date:** 2026-09-08
+- **Date:** 2026-09-09
 - **Project root:** `projects/dj-collection-set-builder/`
 - **Workspace:** `music-ai-projects` (DJ engine and parallel playlist package)
 - **Do not start from** `AUDIO_ANALYSIS_TOOLING_REPORT.md` or parent `LOG.md`

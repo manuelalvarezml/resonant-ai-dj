@@ -1373,3 +1373,53 @@ audio was accessed or newly hashed. Earlier preservation/listening/test
 evidence remains historical. Playlist implementation stays paused; local DJ
 headroom/larger-manual-set work stays active. All empirical cloud gates are
 unpassed. No commits or recurring automations were created.
+
+## 2026-09-09 — E031 — Initial private GitHub recovery checkpoint
+
+**Decision:** D044. **Kind:** Version-control setup and preservation checks;
+no engine, playlist, cloud, model, or audio behavior change.
+
+### Repository result
+
+- Created private repository
+  `https://github.com/manuelalvarezml/resonant-ai-dj` under the authenticated
+  `manuelalvarezml` account.
+- Existing project Git root retained on `main`; root commit
+  `b1b5c4d5a1a31de25e452207bc0f364832786878` pushed and verified through the
+  remote branch reference.
+- The initial snapshot contains 139 files. The largest tracked file is the
+  completed collection analysis JSON at 4,121,419 bytes.
+- The dated annotated tag `checkpoint-2026-09-09` identifies the final
+  documented baseline after this verification entry.
+
+### Preservation and exclusion checks
+
+- Re-hashed both local music pools and retained outputs before changing Git
+  state. All ten engine corpus hashes matched `docs/CORPUS.md`; filenames on
+  disk were not modified or normalized.
+- Confirmed both MP3 folders, both virtual environments, caches, rendered WAVs,
+  and disposable work directories are ignored. No MP3, WAV, FLAC, AIFF, M4A,
+  virtual-environment path, `.DS_Store`, or populated `.env` file was staged.
+- Tracked compact JSON/PDF evidence, manifests, plans, logs, schemas, lockfiles,
+  tests, and the cloud research workbook. The accepted 205 MiB v2 WAV remains
+  local and is represented by its plan, manifest, hashes, and D038/E026 result.
+- Scanned staged text for common OpenAI, GitHub, AWS, Google, and private-key
+  credential signatures; none matched. The tracked `.env.example` contains an
+  empty placeholder only.
+
+### Validation
+
+- Engine suite: **54 passed**.
+- Independent prompt-to-playlist suite: **363 passed**.
+- Cloud discovery validator: 45 sources, 36 links, three workbook sheets,
+  three independent arithmetic cases, and zero errors.
+- GitHub reports the repository as private with `main` as its default branch.
+
+### Scope preserved
+
+The repository checkpoint is a recovery and audit mechanism. It does not
+authorize source-audio redistribution, cloud implementation, remote audio,
+automatic MixPlan generation, resumption of playlist development, or changes
+to the accepted v2 transition baseline. Large audio requires its own
+rights-appropriate backup; hashes establish identity but cannot restore lost
+audio bytes.
