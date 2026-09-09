@@ -1,0 +1,134 @@
+{
+  "schema": "dj-engine/render-manifest",
+  "schema_version": "0.1.0",
+  "render_id": "4c8f3df0-5a6b-49e7-8eda-c3d4c8670e6f",
+  "plan_id": "mvp-three-track-133-v2",
+  "renderer": {
+    "name": "ffmpeg-set-renderer",
+    "version": "mvp-1",
+    "ffmpeg_version": "8.0.1"
+  },
+  "source_track_hashes": [
+    {
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "sha256": "c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "source_unchanged": true
+    },
+    {
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "sha256": "8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "source_unchanged": true
+    },
+    {
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "sha256": "b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "source_unchanged": true
+    }
+  ],
+  "executed_operations": [
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "start_downbeat_index": 0,
+        "end_downbeat_index": 128,
+        "start_s": 0.33,
+        "end_s": 233.07
+      }
+    },
+    {
+      "tool": "set_gain",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "gain_db": -5.0
+      }
+    },
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "start_downbeat_index": 32,
+        "end_downbeat_index": 160,
+        "start_s": 58.45,
+        "end_s": 291.18
+      }
+    },
+    {
+      "tool": "set_gain",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "gain_db": -4.9
+      }
+    },
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+        "start_downbeat_index": 152,
+        "end_downbeat_index": 263,
+        "start_s": 276.41,
+        "end_s": 478.22
+      }
+    },
+    {
+      "tool": "house_transition",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "transition_id": "transition-my-paradise-to-rock",
+        "from_track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "to_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "duration_bars": 16,
+        "duration_s": 29.090000000000003,
+        "incoming_grid_duration_s": 29.099999999999994,
+        "grid_drift_s": 0.009999999999990905,
+        "style": "house_eq_v1",
+        "curve": "tri"
+      }
+    },
+    {
+      "tool": "house_transition",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "transition_id": "transition-rock-to-lemon8",
+        "from_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "to_track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+        "duration_bars": 16,
+        "duration_s": 29.090000000000032,
+        "incoming_grid_duration_s": 29.089999999999975,
+        "grid_drift_s": 5.684341886080802e-14,
+        "style": "house_eq_v1",
+        "curve": "tri"
+      }
+    }
+  ],
+  "requested_duration_s": 600.0,
+  "planned_duration_s": 609.0999999999999,
+  "rendered_duration_s": 609.1,
+  "output_path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/output/mvp-three-track-set-v2.wav",
+  "output_sha256": "7b7f7517aae943649ecef1f9911aa88bef3c98379725d6d7235ede66a0f8c21f",
+  "output_measurements": {
+    "integrated_lufs": -13.81,
+    "loudness_range_lu": 3.1,
+    "true_peak_dbtp": 1.04,
+    "sample_rate_hz": 44100
+  },
+  "status": "passed",
+  "warnings": [
+    "Timing, key, and downbeats remain benchmark_estimate values; house_eq_v1 is pending listening validation.",
+    "house-eq-v1: 180 Hz midpoint bass handoff; pending listening validation.",
+    "Rendered true peak is 1.04 dBTP; mastering/headroom is not yet applied."
+  ],
+  "failures": []
+}

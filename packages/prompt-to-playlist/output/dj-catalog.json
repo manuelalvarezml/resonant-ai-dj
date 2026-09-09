@@ -1,0 +1,277 @@
+{
+  "schema": "prompt-playlist/catalog",
+  "schema_version": "0.1.0",
+  "catalog_id": "dj:ed63d449-758f-4bbd-a7d7-99b0867ebcf6",
+  "tracks": [
+    {
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "title": "01 My Paradise - Edit",
+      "artist": null,
+      "bpm": {
+        "value": 133.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"0c0ddd0d-5791-49d6-afe1-4033f7367d59\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 339.576,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"0c0ddd0d-5791-49d6-afe1-4033f7367d59\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098",
+      "title": "02 For The Record",
+      "artist": null,
+      "bpm": {
+        "value": 130.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"465fc28c-0733-463d-8f49-bdb896c7d4f5\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 345.001383,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"465fc28c-0733-463d-8f49-bdb896c7d4f5\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e",
+      "title": "03 Fantazia",
+      "artist": null,
+      "bpm": {
+        "value": 130.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"7d3ad9c3-b98f-479e-bc6a-ce1732b7105e\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 338.496599,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"7d3ad9c3-b98f-479e-bc6a-ce1732b7105e\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12",
+      "title": "Demi Riquísimo - Certified",
+      "artist": null,
+      "bpm": {
+        "value": 125.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"5564925d-0a51-4255-9b30-3101748a06e5\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 405.93,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"5564925d-0a51-4255-9b30-3101748a06e5\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "title": "Demi Riquísimo, The Trip (UK) - Rock The House (Original Mix) 2",
+      "artist": null,
+      "bpm": {
+        "value": 133.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"ecfac332-cd5d-49b7-8720-3d876792ed6f\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 322.133356,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"ecfac332-cd5d-49b7-8720-3d876792ed6f\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161",
+      "title": "Laroze - Wildest Desire [www.slider.kz]",
+      "artist": null,
+      "bpm": {
+        "value": 136.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"b5b54a80-c0cc-4192-8500-39a7997c8330\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 306.063673,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"b5b54a80-c0cc-4192-8500-39a7997c8330\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde",
+      "title": "Life Is Trippy (Original Mix)",
+      "artist": null,
+      "bpm": {
+        "value": 128.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"a3a5212b-5d04-4010-9176-64e868a9247d\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 307.565714,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"a3a5212b-5d04-4010-9176-64e868a9247d\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312",
+      "title": "Demi Riquisimo, CLINT - Love State",
+      "artist": null,
+      "bpm": {
+        "value": 130.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"bfe2bce3-7369-4d04-8860-3f6a5fc9d035\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 424.615397,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"bfe2bce3-7369-4d04-8860-3f6a5fc9d035\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473",
+      "title": "Dj Yellow Ft Marlene - Je Tm",
+      "artist": null,
+      "bpm": {
+        "value": 120.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"ef10c82f-316f-4d5e-a7e4-781cf8b05192\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 509.644127,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"ef10c82f-316f-4d5e-a7e4-781cf8b05192\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    },
+    {
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "title": "Lemon8 - Triple Funk",
+      "artist": null,
+      "bpm": {
+        "value": 133.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"analysis_id\": \"33cf0e9c-468e-4bbc-933f-760824ff40f0\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"tempo.selected_candidate\", \"model_id\": \"harmonix-all\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\", \"source_tool\": \"all-in-one-mlx\", \"tool_version\": \"1.0.6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 479.986667,
+        "authority": "encoded_fact",
+        "source": "{\"analysis_id\": \"33cf0e9c-468e-4bbc-933f-760824ff40f0\", \"collection_id\": \"ed63d449-758f-4bbd-a7d7-99b0867ebcf6\", \"field\": \"stream.duration_s\", \"schema\": \"dj-engine/collection-analysis\", \"schema_version\": \"0.1.0\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\", \"source_tool\": \"ffprobe\", \"tool_version\": \"8.0.1\"}",
+        "status": "passed",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Beat This return order: postprocessor-beats-then-downbeats",
+        "Display title comes from the source filename; artist and semantic tags are unknown.",
+        "Tempo is a benchmark estimate, not a musical fact."
+      ]
+    }
+  ],
+  "warnings": [
+    "Partial failure for Dj Yellow Ft Marlene - Je Tm.mp3: track worker exited -9 for Dj Yellow Ft Marlene - Je Tm.mp3",
+    "RAM policy: worker cap 3584 MB RSS, min reclaimable 2048 MB (now 3966 MB reclaimable, 16.0 GB total)",
+    "Stopped Demi Riquisimo, CLINT - Love State.mp3 to protect host RAM: system reclaimable RAM fell to 467 MB while worker RSS was 9 MB; killed worker to protect the host",
+    "RAM policy: staged workers (ingest → all-in-one → beat-this), RSS cap 4096 MB, min reclaimable 2048 MB for demix, max_tracks=4 (now 5044 MB reclaimable, 2415 MB swap, 16.0 GB total)",
+    "RAM policy: staged workers (ingest → all-in-one → beat-this), RSS cap 4096 MB, min reclaimable 2048 MB for demix, max_tracks=3 (now 10260 MB reclaimable, 1378 MB swap, 16.0 GB total)",
+    "RAM policy: staged workers (ingest → all-in-one → beat-this), RSS cap 7168 MB, min reclaimable 2048 MB for demix, max_tracks=3 (now 9493 MB reclaimable, 1732 MB swap, 16.0 GB total)",
+    "Imported from stored DJ analysis JSON; source audio hashes were not reverified.",
+    "No genre, mood, energy, or vocal tags are inferred from DJ analysis or filenames."
+  ]
+}

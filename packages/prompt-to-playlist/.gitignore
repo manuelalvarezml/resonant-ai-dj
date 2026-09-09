@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+dist/
+.env
+.DS_Store
+
+# Preserve the compact catalog and verification evidence described by the
+# package logs. Source audio remains outside this package and repository.
+output/*
+!output/*.json
+!output/*.py

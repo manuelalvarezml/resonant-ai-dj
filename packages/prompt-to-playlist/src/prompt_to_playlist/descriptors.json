@@ -1,0 +1,21 @@
+{
+  "schema": "prompt-playlist/vocabulary",
+  "schema_version": "0.1.0",
+  "vocabulary_id": "descriptors-v1",
+  "descriptors": [
+    {"id":"genre:house","description":"House, as supplied by a catalog tag source.","aliases":["house"]},
+    {"id":"genre:techno","description":"Techno, as supplied by a catalog tag source.","aliases":["techno"]},
+    {"id":"genre:disco","description":"Disco, as supplied by a catalog tag source.","aliases":["disco"]},
+    {"id":"genre:hip_hop","description":"Hip-hop, as supplied by a catalog tag source.","aliases":["hip-hop","hip hop","rap"]},
+    {"id":"genre:ambient","description":"Ambient, as supplied by a catalog tag source.","aliases":["ambient"]},
+    {"id":"mood:dark","description":"Dark mood; subjective annotation, not inferred from musical key.","aliases":["dark"]},
+    {"id":"mood:uplifting","description":"Uplifting mood; subjective annotation.","aliases":["uplifting"]},
+    {"id":"mood:warm","description":"Warm mood or character; subjective annotation.","aliases":["warm"]},
+    {"id":"mood:melancholic","description":"Melancholic mood; subjective annotation.","aliases":["melancholic","sad"]},
+    {"id":"energy:low","description":"Low perceived energy; never derived from LUFS or tempo alone.","aliases":["low energy","low-energy"]},
+    {"id":"energy:medium","description":"Medium perceived energy; subjective annotation.","aliases":["medium energy","medium-energy"]},
+    {"id":"energy:high","description":"High perceived energy; never derived from LUFS or tempo alone.","aliases":["high energy","high-energy","energetic"]},
+    {"id":"vocals:vocal","description":"Contains vocals according to the catalog source.","aliases":["vocal","vocals"]},
+    {"id":"vocals:instrumental","description":"Instrumental according to the catalog source.","aliases":["instrumental"]}
+  ]
+}

@@ -1,0 +1,877 @@
+{
+  "schema": "prompt-playlist/live-check",
+  "schema_version": "0.1.0",
+  "created_at": "2026-09-07T21:37:26.081897+00:00",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+  "catalog_tracks": 120,
+  "vocabulary_id": "pool-descriptors-v1",
+  "requests_attempted": 5,
+  "passed": true,
+  "cases": [
+    {
+      "id": "count_and_genre",
+      "prompt": "Find up to five tracks. Only include tracks tagged as house.",
+      "passed": true,
+      "checks": {
+        "limit": true,
+        "required_tags": true,
+        "status": true,
+        "catalog_membership": true
+      },
+      "expected_query": {
+        "limit": 5,
+        "required_tags": [
+          "genre:house"
+        ]
+      },
+      "expected_status": "matched",
+      "run": {
+        "schema": "prompt-playlist/run",
+        "schema_version": "0.1.0",
+        "translation": {
+          "schema": "prompt-playlist/translation",
+          "schema_version": "0.1.0",
+          "request_text": "Find up to five tracks. Only include tracks tagged as house.",
+          "query": {
+            "required_tags": [
+              "genre:house"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 5,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "provider": "openai",
+          "model": "gpt-5.4-mini-2026-03-17",
+          "prompt_version": "playlist-query-v2",
+          "vocabulary_id": "pool-descriptors-v1",
+          "authority": "llm_proposal",
+          "unresolved": [],
+          "warnings": []
+        },
+        "result": {
+          "schema": "prompt-playlist/result",
+          "schema_version": "0.1.0",
+          "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+          "vocabulary_id": "pool-descriptors-v1",
+          "query": {
+            "required_tags": [
+              "genre:house"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 5,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "ranking_version": "tag-coverage-v1",
+          "matches": [
+            {
+              "track": {
+                "track_id": "sha256:8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af",
+                "title": "Tell Me",
+                "artist": "Marius Acke",
+                "bpm": null,
+                "duration_s": {
+                  "value": 372.37551,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"372.375510\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:house"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:house"
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23",
+                "title": "Artificial Intelligence",
+                "artist": "Pancratio",
+                "bpm": null,
+                "duration_s": {
+                  "value": 399.597438,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"399.597438\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:house"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:house"
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be",
+                "title": "Rocking You Internally",
+                "artist": "Demi Riquisimo",
+                "bpm": null,
+                "duration_s": {
+                  "value": 531.539592,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"531.539592\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:electro",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+                    "status": "warning",
+                    "confidence": null
+                  },
+                  {
+                    "tag": "genre:techno",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+                    "status": "warning",
+                    "confidence": null
+                  },
+                  {
+                    "tag": "genre:house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:house"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:house"
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+                "title": "Triple Funk",
+                "artist": "Lemon8",
+                "bpm": {
+                  "value": 132.0,
+                  "authority": "benchmark_estimate",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"132\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "duration_s": {
+                  "value": 479.986667,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"479.986667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House, Progressive House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+                    "status": "warning",
+                    "confidence": null
+                  },
+                  {
+                    "tag": "genre:progressive_house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House, Progressive House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "BPM is an embedded annotation; it has not been estimated or verified here.",
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:house"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:house",
+                "Tempo source reports a warning; BPM remains an estimate or supplied annotation."
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c",
+                "title": "Make U Mine",
+                "artist": "Autoflower & Essy",
+                "bpm": null,
+                "duration_s": {
+                  "value": 312.032653,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"312.032653\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:house"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:house"
+              ]
+            }
+          ],
+          "eligible_count": 8,
+          "excluded_count": 112,
+          "warnings": [
+            "Imported container metadata only; no sample decoding, audio analysis, or semantic inference.",
+            "Genre annotations are encoded tags, not reviewed musical facts; no tag axis is complete.",
+            "BPM annotations remain benchmark_estimate; FFprobe duration is not a verified decoded timeline.",
+            "Scores measure descriptor coverage, not musical quality. Candidate order is not a validated DJ mix order."
+          ],
+          "catalog_digest": "8dc3631dfa471ba539ae8c462e40ff0b7b1d5ddbb4ee87e21d44d5f690579835",
+          "vocabulary_digest": "b3c0b90893a60cf731da7686fe7cd35313b8c58576ec49dfd34617b157057f44",
+          "result_id": "sha256:d67e6dc7d9111b101dacea1b9b38428e7d0a8ab2b2902ed6bd3c724b61b6e082"
+        },
+        "status": "matched",
+        "warnings": []
+      },
+      "error": null,
+      "elapsed_s": 2.0
+    },
+    {
+      "id": "spanish_genre",
+      "prompt": "Dame tres canciones. Solo incluye canciones etiquetadas como dembow.",
+      "passed": true,
+      "checks": {
+        "limit": true,
+        "required_tags": true,
+        "status": true,
+        "catalog_membership": true
+      },
+      "expected_query": {
+        "limit": 3,
+        "required_tags": [
+          "genre:dembow"
+        ]
+      },
+      "expected_status": "matched",
+      "run": {
+        "schema": "prompt-playlist/run",
+        "schema_version": "0.1.0",
+        "translation": {
+          "schema": "prompt-playlist/translation",
+          "schema_version": "0.1.0",
+          "request_text": "Dame tres canciones. Solo incluye canciones etiquetadas como dembow.",
+          "query": {
+            "required_tags": [
+              "genre:dembow"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 3,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "provider": "openai",
+          "model": "gpt-5.4-mini-2026-03-17",
+          "prompt_version": "playlist-query-v2",
+          "vocabulary_id": "pool-descriptors-v1",
+          "authority": "llm_proposal",
+          "unresolved": [],
+          "warnings": []
+        },
+        "result": {
+          "schema": "prompt-playlist/result",
+          "schema_version": "0.1.0",
+          "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+          "vocabulary_id": "pool-descriptors-v1",
+          "query": {
+            "required_tags": [
+              "genre:dembow"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 3,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "ranking_version": "tag-coverage-v1",
+          "matches": [
+            {
+              "track": {
+                "track_id": "sha256:0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982",
+                "title": "Apretao'",
+                "artist": "Nick Leon",
+                "bpm": null,
+                "duration_s": {
+                  "value": 224.383583,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"224.383583\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:dembow",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:dembow"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:dembow"
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28",
+                "title": "Bachetrón",
+                "artist": "Nick Leon",
+                "bpm": null,
+                "duration_s": {
+                  "value": 238.356168,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"238.356168\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:dembow",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:dembow"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:dembow"
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317",
+                "title": "Rompediscoteka",
+                "artist": "Nick Leon",
+                "bpm": null,
+                "duration_s": {
+                  "value": 252.328776,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"252.328776\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:dembow",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 1.0,
+              "matched_tags": [
+                "genre:dembow"
+              ],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "Descriptor evidence: genre:dembow"
+              ]
+            }
+          ],
+          "eligible_count": 3,
+          "excluded_count": 117,
+          "warnings": [
+            "Imported container metadata only; no sample decoding, audio analysis, or semantic inference.",
+            "Genre annotations are encoded tags, not reviewed musical facts; no tag axis is complete.",
+            "BPM annotations remain benchmark_estimate; FFprobe duration is not a verified decoded timeline.",
+            "Scores measure descriptor coverage, not musical quality. Candidate order is not a validated DJ mix order."
+          ],
+          "catalog_digest": "8dc3631dfa471ba539ae8c462e40ff0b7b1d5ddbb4ee87e21d44d5f690579835",
+          "vocabulary_digest": "b3c0b90893a60cf731da7686fe7cd35313b8c58576ec49dfd34617b157057f44",
+          "result_id": "sha256:8f0737bc226d07338111e18bd5dea589f9430a33941272e5424f3cbf489816d3"
+        },
+        "status": "matched",
+        "warnings": []
+      },
+      "error": null,
+      "elapsed_s": 1.391
+    },
+    {
+      "id": "tempo_and_order",
+      "prompt": "Give me four tracks between 120 and 130 BPM, sorted from slower to faster.",
+      "passed": true,
+      "checks": {
+        "limit": true,
+        "min_bpm": true,
+        "max_bpm": true,
+        "order": true,
+        "status": true,
+        "catalog_membership": true
+      },
+      "expected_query": {
+        "limit": 4,
+        "min_bpm": 120.0,
+        "max_bpm": 130.0,
+        "order": "bpm_ascending"
+      },
+      "expected_status": "matched",
+      "run": {
+        "schema": "prompt-playlist/run",
+        "schema_version": "0.1.0",
+        "translation": {
+          "schema": "prompt-playlist/translation",
+          "schema_version": "0.1.0",
+          "request_text": "Give me four tracks between 120 and 130 BPM, sorted from slower to faster.",
+          "query": {
+            "required_tags": [],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": 120.0,
+            "max_bpm": 130.0,
+            "limit": 4,
+            "excluded_track_ids": [],
+            "order": "bpm_ascending"
+          },
+          "provider": "openai",
+          "model": "gpt-5.4-mini-2026-03-17",
+          "prompt_version": "playlist-query-v2",
+          "vocabulary_id": "pool-descriptors-v1",
+          "authority": "llm_proposal",
+          "unresolved": [],
+          "warnings": []
+        },
+        "result": {
+          "schema": "prompt-playlist/result",
+          "schema_version": "0.1.0",
+          "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+          "vocabulary_id": "pool-descriptors-v1",
+          "query": {
+            "required_tags": [],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": 120.0,
+            "max_bpm": 130.0,
+            "limit": 4,
+            "excluded_track_ids": [],
+            "order": "bpm_ascending"
+          },
+          "ranking_version": "tag-coverage-v1",
+          "matches": [
+            {
+              "track": {
+                "track_id": "sha256:b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b",
+                "title": "Like No Other",
+                "artist": "Detroit In Effect",
+                "bpm": {
+                  "value": 120.0,
+                  "authority": "benchmark_estimate",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"120\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "duration_s": {
+                  "value": 358.46966,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"358.469660\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:breaks",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Breaks\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "BPM is an embedded annotation; it has not been estimated or verified here.",
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 0.0,
+              "matched_tags": [],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "BPM 120 within requested bounds (benchmark_estimate).",
+                "Tempo source reports a warning; BPM remains an estimate or supplied annotation."
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473",
+                "title": "Je Tm",
+                "artist": "Dj Yellow Ft Marlene",
+                "bpm": {
+                  "value": 121.0,
+                  "authority": "benchmark_estimate",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"121\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "duration_s": {
+                  "value": 509.644127,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"509.644127\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "BPM is an embedded annotation; it has not been estimated or verified here.",
+                  "Some embedded genres have no exact vocabulary alias; see the import manifest."
+                ]
+              },
+              "score": 0.0,
+              "matched_tags": [],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "BPM 121 within requested bounds (benchmark_estimate).",
+                "Tempo source reports a warning; BPM remains an estimate or supplied annotation."
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c",
+                "title": "Una notte da impazzire",
+                "artist": "Pino D’Angiò",
+                "bpm": {
+                  "value": 122.0,
+                  "authority": "benchmark_estimate",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"122\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "duration_s": {
+                  "value": 289.737143,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"289.737143\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:disco",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+                    "status": "warning",
+                    "confidence": null
+                  },
+                  {
+                    "tag": "genre:italo_disco",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "BPM is an embedded annotation; it has not been estimated or verified here.",
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 0.0,
+              "matched_tags": [],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "BPM 122 within requested bounds (benchmark_estimate).",
+                "Tempo source reports a warning; BPM remains an estimate or supplied annotation."
+              ]
+            },
+            {
+              "track": {
+                "track_id": "sha256:ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d",
+                "title": "Take Me High (Mansion mix)",
+                "artist": "Colm III",
+                "bpm": {
+                  "value": 124.0,
+                  "authority": "benchmark_estimate",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"124\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "duration_s": {
+                  "value": 433.792578,
+                  "authority": "encoded_fact",
+                  "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"433.792578\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+                  "status": "warning",
+                  "confidence": null
+                },
+                "tags": [
+                  {
+                    "tag": "genre:acid_house",
+                    "authority": "encoded_fact",
+                    "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Acid House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+                    "status": "warning",
+                    "confidence": null
+                  }
+                ],
+                "complete_tag_axes": [],
+                "warnings": [
+                  "BPM is an embedded annotation; it has not been estimated or verified here.",
+                  "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+                ]
+              },
+              "score": 0.0,
+              "matched_tags": [],
+              "missing_preferred_tags": [],
+              "reasons": [
+                "BPM 124 within requested bounds (benchmark_estimate).",
+                "Tempo source reports a warning; BPM remains an estimate or supplied annotation."
+              ]
+            }
+          ],
+          "eligible_count": 7,
+          "excluded_count": 113,
+          "warnings": [
+            "Imported container metadata only; no sample decoding, audio analysis, or semantic inference.",
+            "Genre annotations are encoded tags, not reviewed musical facts; no tag axis is complete.",
+            "BPM annotations remain benchmark_estimate; FFprobe duration is not a verified decoded timeline.",
+            "Excluded 98 candidates because usable BPM is missing.",
+            "Scores measure descriptor coverage, not musical quality. Candidate order is not a validated DJ mix order."
+          ],
+          "catalog_digest": "8dc3631dfa471ba539ae8c462e40ff0b7b1d5ddbb4ee87e21d44d5f690579835",
+          "vocabulary_digest": "b3c0b90893a60cf731da7686fe7cd35313b8c58576ec49dfd34617b157057f44",
+          "result_id": "sha256:2d151267df5d385b65dd8dddbf37f274ccff382cd03855367185c84df314247a"
+        },
+        "status": "matched",
+        "warnings": []
+      },
+      "error": null,
+      "elapsed_s": 1.676
+    },
+    {
+      "id": "negative_evidence",
+      "prompt": "Find three house tracks with no vocals.",
+      "passed": true,
+      "checks": {
+        "limit": true,
+        "excluded_tags": true,
+        "status": true,
+        "catalog_membership": true
+      },
+      "expected_query": {
+        "limit": 3,
+        "excluded_tags": [
+          "vocals:vocal"
+        ]
+      },
+      "expected_status": "no_matches",
+      "run": {
+        "schema": "prompt-playlist/run",
+        "schema_version": "0.1.0",
+        "translation": {
+          "schema": "prompt-playlist/translation",
+          "schema_version": "0.1.0",
+          "request_text": "Find three house tracks with no vocals.",
+          "query": {
+            "required_tags": [
+              "genre:house"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [
+              "vocals:vocal"
+            ],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 3,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "provider": "openai",
+          "model": "gpt-5.4-mini-2026-03-17",
+          "prompt_version": "playlist-query-v2",
+          "vocabulary_id": "pool-descriptors-v1",
+          "authority": "llm_proposal",
+          "unresolved": [],
+          "warnings": []
+        },
+        "result": {
+          "schema": "prompt-playlist/result",
+          "schema_version": "0.1.0",
+          "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+          "vocabulary_id": "pool-descriptors-v1",
+          "query": {
+            "required_tags": [
+              "genre:house"
+            ],
+            "preferred_tags": [],
+            "excluded_tags": [
+              "vocals:vocal"
+            ],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 3,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "ranking_version": "tag-coverage-v1",
+          "matches": [],
+          "eligible_count": 0,
+          "excluded_count": 120,
+          "warnings": [
+            "Imported container metadata only; no sample decoding, audio analysis, or semantic inference.",
+            "Genre annotations are encoded tags, not reviewed musical facts; no tag axis is complete.",
+            "BPM annotations remain benchmark_estimate; FFprobe duration is not a verified decoded timeline.",
+            "Excluded 8 candidates because negative-tag evidence is incomplete.",
+            "Requested up to 3 tracks; only 0 satisfy all hard constraints.",
+            "Scores measure descriptor coverage, not musical quality. Candidate order is not a validated DJ mix order."
+          ],
+          "catalog_digest": "8dc3631dfa471ba539ae8c462e40ff0b7b1d5ddbb4ee87e21d44d5f690579835",
+          "vocabulary_digest": "b3c0b90893a60cf731da7686fe7cd35313b8c58576ec49dfd34617b157057f44",
+          "result_id": "sha256:ef73114cbefc30e4d7360d5c43888fd844780ed2d4f69a2412a624b053ddbd40"
+        },
+        "status": "no_matches",
+        "warnings": []
+      },
+      "error": null,
+      "elapsed_s": 1.6
+    },
+    {
+      "id": "unsupported_mix",
+      "prompt": "Make a 45-minute continuous mix with beatmatched transitions.",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "catalog_membership": true
+      },
+      "expected_query": {},
+      "expected_status": "needs_clarification",
+      "run": {
+        "schema": "prompt-playlist/run",
+        "schema_version": "0.1.0",
+        "translation": {
+          "schema": "prompt-playlist/translation",
+          "schema_version": "0.1.0",
+          "request_text": "Make a 45-minute continuous mix with beatmatched transitions.",
+          "query": {
+            "required_tags": [],
+            "preferred_tags": [],
+            "excluded_tags": [],
+            "min_bpm": null,
+            "max_bpm": null,
+            "limit": 10,
+            "excluded_track_ids": [],
+            "order": "relevance"
+          },
+          "provider": "openai",
+          "model": "gpt-5.4-mini-2026-03-17",
+          "prompt_version": "playlist-query-v2",
+          "vocabulary_id": "pool-descriptors-v1",
+          "authority": "llm_proposal",
+          "unresolved": [
+            "45-minute continuous mix",
+            "beatmatched transitions"
+          ],
+          "warnings": []
+        },
+        "result": null,
+        "status": "needs_clarification",
+        "warnings": [
+          "Unresolved requirements must be clarified before searching."
+        ]
+      },
+      "error": null,
+      "elapsed_s": 1.198
+    }
+  ],
+  "note": "Bounded live smoke evaluation on this catalog. Not a general quality or injection-resistance benchmark."
+}

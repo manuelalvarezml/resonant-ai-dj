@@ -1,0 +1,11 @@
+# Local AutoDJ playlist profile. Contains references only, never a secret.
+schema_version = "0.1.0"
+provider = "openai"
+catalog = "output/pool-catalog.json"
+vocabulary = "pool-vocabulary.json"
+
+[openai]
+model = "gpt-5.4-mini-2026-03-17"
+api_key_env = "AUTODJ_OPENAI_API_DEV_KEY"
+key_source_file = "~/.zshrc"
+timeout_s = 30.0

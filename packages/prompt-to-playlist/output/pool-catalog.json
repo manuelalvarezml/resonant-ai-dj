@@ -1,0 +1,2804 @@
+{
+  "schema": "prompt-playlist/catalog",
+  "schema_version": "0.1.0",
+  "catalog_id": "folder:sha256:e9706a7705d98dd8f18fab27f3b67b351689373031d4f7cac8f39e79bf439adf",
+  "tracks": [
+    {
+      "track_id": "sha256:003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b",
+      "title": "I Gotta Little Love",
+      "artist": "Angela",
+      "bpm": {
+        "value": 109.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"109\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 404.7,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"404.700000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco / Lo Fi\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:lo_fi",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco / Lo Fi\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb",
+      "title": "Ma quale idea",
+      "artist": "Pino D’Angiò",
+      "bpm": {
+        "value": 114.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"114\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 262.456599,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"262.456599\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:italo_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:02bb752265e79c8251257a191392546c06cb4a7bddad7bb85965246a272c99a4",
+      "title": "Zutzut - Safaera",
+      "artist": "BAD BUNNY, ZUTZUT CLUB WEPON",
+      "bpm": null,
+      "duration_s": {
+        "value": 217.6,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"217.600000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"02bb752265e79c8251257a191392546c06cb4a7bddad7bb85965246a272c99a4\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec",
+      "title": "Bassian Plain (Alex Kassian Remix)",
+      "artist": "Donald's House",
+      "bpm": {
+        "value": 132.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"132\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 483.213333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"483.213333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:deep_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Deep House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df",
+      "title": "Armagan Oruc - Play",
+      "artist": "Armağan Oruç",
+      "bpm": null,
+      "duration_s": {
+        "value": 220.820317,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"220.820317\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:04ecf1831362515d1aa1f675793721bb8fcb09c4b56e0526082a449e2392ef56",
+      "title": "II (Venganza Djembe)",
+      "artist": "1OO1O",
+      "bpm": null,
+      "duration_s": {
+        "value": 245.028571,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"245.028571\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"04ecf1831362515d1aa1f675793721bb8fcb09c4b56e0526082a449e2392ef56\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:techno",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Techno\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"04ecf1831362515d1aa1f675793721bb8fcb09c4b56e0526082a449e2392ef56\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582",
+      "title": "Un concerto da strapazzo",
+      "artist": "Pino D’Angiò",
+      "bpm": {
+        "value": 168.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"168\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 232.714127,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"232.714127\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Some embedded genres have no exact vocabulary alias; see the import manifest."
+      ]
+    },
+    {
+      "track_id": "sha256:059988f6b8a9c9d372d3c888c19b87c774cac74cf85247daaa0b80aa6b1ba454",
+      "title": "Clap Freckles - Papi Chulo",
+      "artist": "Clap Freckles",
+      "bpm": {
+        "value": 130.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"130\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"059988f6b8a9c9d372d3c888c19b87c774cac74cf85247daaa0b80aa6b1ba454\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 192.9665,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"192.966500\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"059988f6b8a9c9d372d3c888c19b87c774cac74cf85247daaa0b80aa6b1ba454\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here."
+      ]
+    },
+    {
+      "track_id": "sha256:06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8",
+      "title": "Move Yo Body",
+      "artist": "Detroit In Effect",
+      "bpm": {
+        "value": 140.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"140\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 314.398186,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"314.398186\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:breaks",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Breaks\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982",
+      "title": "Apretao'",
+      "artist": "Nick Leon",
+      "bpm": null,
+      "duration_s": {
+        "value": 224.383583,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"224.383583\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:dembow",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:06d8f8e1736dfb527799c98e1c05c45235e19abd54b8b035f1ddad0f7ce3ccbe",
+      "title": "Intangivel",
+      "artist": "Dudda",
+      "bpm": null,
+      "duration_s": {
+        "value": 260.63322,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"260.633220\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"06d8f8e1736dfb527799c98e1c05c45235e19abd54b8b035f1ddad0f7ce3ccbe\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"06d8f8e1736dfb527799c98e1c05c45235e19abd54b8b035f1ddad0f7ce3ccbe\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:1279883c17d933f4c6d48bd3a658a5a896827ad87e34fc279618ee065515c4ee",
+      "title": "Cada Día",
+      "artist": "Nightfall in Camp",
+      "bpm": null,
+      "duration_s": {
+        "value": 180.959388,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"180.959388\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"1279883c17d933f4c6d48bd3a658a5a896827ad87e34fc279618ee065515c4ee\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic_pop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic Pop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"1279883c17d933f4c6d48bd3a658a5a896827ad87e34fc279618ee065515c4ee\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:164ea45e6773b2dc1e551cac66b94984994e40c834f06def2a44170906b0775f",
+      "title": "Atanaja",
+      "artist": "Aaron Maple",
+      "bpm": null,
+      "duration_s": {
+        "value": 297.560181,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"297.560181\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"164ea45e6773b2dc1e551cac66b94984994e40c834f06def2a44170906b0775f\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:1786d1ca4c8301831af7dcb0b12209a8278604ad02286d8fb7eec4ddb34c5ac0",
+      "title": "Second Face",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 241.133333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"241.133333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"1786d1ca4c8301831af7dcb0b12209a8278604ad02286d8fb7eec4ddb34c5ac0\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"1786d1ca4c8301831af7dcb0b12209a8278604ad02286d8fb7eec4ddb34c5ac0\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:1e33dfc7dff6ea876fdf88416decc37ed25ce5fc23310da6a1166d4d81b6dc3f",
+      "title": "09 Lobo-guará (feat. Patibull & Dry)",
+      "artist": "LAZA",
+      "bpm": null,
+      "duration_s": {
+        "value": 193.5,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"193.500000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"1e33dfc7dff6ea876fdf88416decc37ed25ce5fc23310da6a1166d4d81b6dc3f\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:2030fd2c21c6b3dac4075f6a035d20aa524204414556e5839fbd4b97be7e4525",
+      "title": "Native House Dance",
+      "artist": "Clint",
+      "bpm": null,
+      "duration_s": {
+        "value": 346.88,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"346.880000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"2030fd2c21c6b3dac4075f6a035d20aa524204414556e5839fbd4b97be7e4525\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:2253f971c7f6530b990dd43d61947abf301412ba585e906218305be2c48e9489",
+      "title": "Bloody Shadows from Afar",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 184.459388,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"184.459388\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"2253f971c7f6530b990dd43d61947abf301412ba585e906218305be2c48e9489\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:28dba06a3ac6dc90b28aca3f988eff5f754e4528ac14cd0244ecb1baecf0c988",
+      "title": "Markos",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 214.098821,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"214.098821\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"28dba06a3ac6dc90b28aca3f988eff5f754e4528ac14cd0244ecb1baecf0c988\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:2dd594b4e2f12ed16263d39ede6728ec09c5d434eef15b553a4228fcda16a314",
+      "title": "Heart Over Head",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 278.186667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"278.186667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"2dd594b4e2f12ed16263d39ede6728ec09c5d434eef15b553a4228fcda16a314\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"2dd594b4e2f12ed16263d39ede6728ec09c5d434eef15b553a4228fcda16a314\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:31f94bcc6c49f82d18eb7a764efa32e1d36e088c5bc42fb3117bd29cb7170aea",
+      "title": "Arca - Klk (Jinn Pr Rmx)",
+      "artist": "Deprerreo",
+      "bpm": null,
+      "duration_s": {
+        "value": 210.612245,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"210.612245\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"31f94bcc6c49f82d18eb7a764efa32e1d36e088c5bc42fb3117bd29cb7170aea\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:36b2c33ebe60afd684c176d5d834b037cc24af14e4df62e87a832cb8ea0361dc",
+      "title": "Habibi",
+      "artist": "Aaron Maple",
+      "bpm": null,
+      "duration_s": {
+        "value": 304.851701,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"304.851701\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"36b2c33ebe60afd684c176d5d834b037cc24af14e4df62e87a832cb8ea0361dc\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:37f7dd2e7e84dcb2dadb743d64a96fe55c1c568fba36ca2fdba8979e0f024df4",
+      "title": "Victim (Nick León Dembow Edit)",
+      "artist": "Bladee, Ecco2K & Thaiboy Digital",
+      "bpm": null,
+      "duration_s": {
+        "value": 165.0,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"165.000000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"37f7dd2e7e84dcb2dadb743d64a96fe55c1c568fba36ca2fdba8979e0f024df4\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:39f2eb86e63c778e3d62060938a144248e82f7e47894fe579f8ff5e7820758fc",
+      "title": "Work Out Tonight",
+      "artist": "Ultraflex",
+      "bpm": null,
+      "duration_s": {
+        "value": 218.575465,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"218.575465\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"39f2eb86e63c778e3d62060938a144248e82f7e47894fe579f8ff5e7820758fc\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Invalid or conflicting embedded BPM annotations; tempo remains unknown."
+      ]
+    },
+    {
+      "track_id": "sha256:3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347",
+      "title": "Rana",
+      "artist": "Zutzut",
+      "bpm": null,
+      "duration_s": {
+        "value": 220.757125,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"220.757125\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:uk_bass",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"UK Bass;Latin Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:latin_electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"UK Bass;Latin Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:3bbd26a7fb9c96e8d8a5c767aa0493e3446511bf4f8913f8201198d5d60ed095",
+      "title": "Genesis (DJ SWISHA remix)",
+      "artist": "Physical Therapy",
+      "bpm": null,
+      "duration_s": {
+        "value": 233.070295,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"233.070295\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"3bbd26a7fb9c96e8d8a5c767aa0493e3446511bf4f8913f8201198d5d60ed095\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:4023ace31116d892de8d5104710a0634a40a0deb6fdbe2ea519ffc54e5d86ab2",
+      "title": "It's Ok To Cry Rkt - Sophie x Plan B",
+      "artist": "Upsammy",
+      "bpm": null,
+      "duration_s": {
+        "value": 237.651678,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"237.651678\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"4023ace31116d892de8d5104710a0634a40a0deb6fdbe2ea519ffc54e5d86ab2\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:4363b5622d813ce7c935ffe51176d23bf72d523c50eb098e7b265498f26184d7",
+      "title": "Love in Summer",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 278.117143,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"278.117143\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"4363b5622d813ce7c935ffe51176d23bf72d523c50eb098e7b265498f26184d7\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:465dafaaf03deee1fb5c8d3b601d257e0c03ad1f0be3ce62a0a6e121d4215bb8",
+      "title": "Little Sister",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 270.64,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"270.640000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"465dafaaf03deee1fb5c8d3b601d257e0c03ad1f0be3ce62a0a6e121d4215bb8\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"465dafaaf03deee1fb5c8d3b601d257e0c03ad1f0be3ce62a0a6e121d4215bb8\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:47a828b22c092c244d7664b8d1a0d43dfcfd8db341476670bbff860690830cb6",
+      "title": "Qu'est Ce Qu'arabe",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 405.020317,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"405.020317\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"47a828b22c092c244d7664b8d1a0d43dfcfd8db341476670bbff860690830cb6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:483736394e91c45ad4257cb6d9b8474cd35efc7fed74ba3d7e8a5fdce103c5b9",
+      "title": "Métele (Bk Beats Remix)",
+      "artist": "Zutzut;BK Beats",
+      "bpm": null,
+      "duration_s": {
+        "value": 222.0,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"222.000000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"483736394e91c45ad4257cb6d9b8474cd35efc7fed74ba3d7e8a5fdce103c5b9\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:hip_hop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Rap/Hip Hop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"483736394e91c45ad4257cb6d9b8474cd35efc7fed74ba3d7e8a5fdce103c5b9\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Invalid or conflicting embedded BPM annotations; tempo remains unknown.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:4d1b398a896faa64804dea2b7ccdc59ac416be35b23bbe84b90e9f1b42d25e24",
+      "title": "Listen Over the Ocean",
+      "artist": "Violet Eves",
+      "bpm": null,
+      "duration_s": {
+        "value": 259.684626,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"259.684626\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"4d1b398a896faa64804dea2b7ccdc59ac416be35b23bbe84b90e9f1b42d25e24\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:pop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Pop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"4d1b398a896faa64804dea2b7ccdc59ac416be35b23bbe84b90e9f1b42d25e24\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:4f46cb22138f43d762635b7d4cf4a1db85fbe6ee8a1d62ba89bd7d0f12ba4716",
+      "title": "<3URNRG",
+      "artist": "Yushh",
+      "bpm": null,
+      "duration_s": {
+        "value": 291.0,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"291.000000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"4f46cb22138f43d762635b7d4cf4a1db85fbe6ee8a1d62ba89bd7d0f12ba4716\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:bass",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Bass\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"4f46cb22138f43d762635b7d4cf4a1db85fbe6ee8a1d62ba89bd7d0f12ba4716\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:515f28adb5a658e70bdcb49ddaacc6cf0cb0af2aaa465da55e93383f450f3123",
+      "title": "Liqueur",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 89.540567,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"89.540567\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"515f28adb5a658e70bdcb49ddaacc6cf0cb0af2aaa465da55e93383f450f3123\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:51d46df762d10633f511e4cc337aaa94ce26547a24076c551fb357ce065a545a",
+      "title": "Noche De Rosas",
+      "artist": "Luca Durán",
+      "bpm": null,
+      "duration_s": {
+        "value": 194.0,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"194.000000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"51d46df762d10633f511e4cc337aaa94ce26547a24076c551fb357ce065a545a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:55f3c9c13cd3ba7fd317bf6ed1807dc1217da218b597aad2de571b34a650db9d",
+      "title": "307 Bzzhound - Sin Medir La Sobadera",
+      "artist": "BZZHOUND",
+      "bpm": null,
+      "duration_s": {
+        "value": 184.844739,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"184.844739\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"55f3c9c13cd3ba7fd317bf6ed1807dc1217da218b597aad2de571b34a650db9d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:5748dd4e5256ab60a75d390f45cfdc3ef6b6b75b96a5ceec9289e392ad6a3ef3",
+      "title": "Ynfynyt Scroll - FYN",
+      "artist": "Ynfynyt Scroll",
+      "bpm": null,
+      "duration_s": {
+        "value": 264.344558,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"264.344558\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5748dd4e5256ab60a75d390f45cfdc3ef6b6b75b96a5ceec9289e392ad6a3ef3\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:59b2fb498ad16faa2b644ef5c1f5000afe9307c8b39484d35e58c28e8efcce01",
+      "title": "SPEAKERS (VIP MIX)",
+      "artist": "Hyas, Pura Pura",
+      "bpm": null,
+      "duration_s": {
+        "value": 196.153469,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"196.153469\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"59b2fb498ad16faa2b644ef5c1f5000afe9307c8b39484d35e58c28e8efcce01\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262",
+      "title": "01 Aperture Sound - Don't Die Yount (Flp Intro)",
+      "artist": "Aperture Sound",
+      "bpm": {
+        "value": 130.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"130\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 109.583675,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"109.583675\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here."
+      ]
+    },
+    {
+      "track_id": "sha256:5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161",
+      "title": "Laroze - Wildest Desire [www.slider.kz]",
+      "artist": null,
+      "bpm": {
+        "value": 135.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"135\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 306.063673,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"306.063673\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here."
+      ]
+    },
+    {
+      "track_id": "sha256:5c9d6ab0385555b8c65802297c5428bddc08f0f65cf95eac49f5c0c32198a5fb",
+      "title": "Nick León & Merca Bae - Modor",
+      "artist": "Nick León & Merca Bae",
+      "bpm": null,
+      "duration_s": {
+        "value": 291.983991,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"291.983991\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5c9d6ab0385555b8c65802297c5428bddc08f0f65cf95eac49f5c0c32198a5fb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28",
+      "title": "Bachetrón",
+      "artist": "Nick Leon",
+      "bpm": null,
+      "duration_s": {
+        "value": 238.356168,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"238.356168\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:dembow",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312",
+      "title": "Love State",
+      "artist": "Demi Riquisimo, CLINT",
+      "bpm": null,
+      "duration_s": {
+        "value": 424.615397,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"424.615397\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c",
+      "title": "Una notte da impazzire",
+      "artist": "Pino D’Angiò",
+      "bpm": {
+        "value": 122.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"122\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 289.737143,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"289.737143\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:italo_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c",
+      "title": "505 Rios - Victory Lap",
+      "artist": "Fred Again.., Skepta",
+      "bpm": {
+        "value": 150.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"150\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 284.842378,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"284.842378\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:bass_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Bass House, Latin\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:latin",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Bass House, Latin\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:62d2f8d483a33faee1d4ab7066ede8f26e5c71cae2f89d629b55f8f65ddc6489",
+      "title": "05 Rios - Deskontrolate",
+      "artist": "RIOS",
+      "bpm": null,
+      "duration_s": {
+        "value": 231.874989,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"231.874989\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"62d2f8d483a33faee1d4ab7066ede8f26e5c71cae2f89d629b55f8f65ddc6489\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:latincore",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Latincore\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"62d2f8d483a33faee1d4ab7066ede8f26e5c71cae2f89d629b55f8f65ddc6489\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:6475c602287d73724a2e0772b3a6a28cdeb5c4822f51d5b3ddada90ede36e3ba",
+      "title": "The Number 9",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 226.211224,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"226.211224\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"6475c602287d73724a2e0772b3a6a28cdeb5c4822f51d5b3ddada90ede36e3ba\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:659256907813f66f8895d10e92f163a0abc0c648ac443693a8e9a8bfe823977a",
+      "title": "WATCH ME",
+      "artist": "Hyas, Pura Pura",
+      "bpm": null,
+      "duration_s": {
+        "value": 217.182041,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"217.182041\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"659256907813f66f8895d10e92f163a0abc0c648ac443693a8e9a8bfe823977a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:65ba6cfa8fedd724b1d1e944443e4e3e38d7df833512e5710ddad9ff0c27a948",
+      "title": "The Facts",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 313.786667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"313.786667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"65ba6cfa8fedd724b1d1e944443e4e3e38d7df833512e5710ddad9ff0c27a948\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"65ba6cfa8fedd724b1d1e944443e4e3e38d7df833512e5710ddad9ff0c27a948\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:6913317911b9970d0b131c15003235dda2b2d359a62a3c8f16c7b632a9fe63d0",
+      "title": "Shut the Door",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 311.426667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"311.426667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"6913317911b9970d0b131c15003235dda2b2d359a62a3c8f16c7b632a9fe63d0\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"6913317911b9970d0b131c15003235dda2b2d359a62a3c8f16c7b632a9fe63d0\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:6b451512f8a34c310cc5ac5db2bc5550a02ff7344c32b5b65efe00f73a4ef5e2",
+      "title": "What's New Pussy Cat?",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 221.531791,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"221.531791\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"6b451512f8a34c310cc5ac5db2bc5550a02ff7344c32b5b65efe00f73a4ef5e2\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:6d0dad377d67860cb558eb7d5e2d454e98d9344ae7081b3571a6543c6d6416e9",
+      "title": "An Unsolved Exercise in Physics",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 237.126463,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"237.126463\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"6d0dad377d67860cb558eb7d5e2d454e98d9344ae7081b3571a6543c6d6416e9\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:6d99fae002a662f02f250579e0da7e1e073c41f2599502db8bf9ca51f21d79fe",
+      "title": "Laila",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 291.924172,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"291.924172\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"6d99fae002a662f02f250579e0da7e1e073c41f2599502db8bf9ca51f21d79fe\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e",
+      "title": "Ruminating",
+      "artist": "Revivis",
+      "bpm": null,
+      "duration_s": {
+        "value": 357.903673,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"357.903673\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b",
+      "title": "Raw Deal Cocaine Kills",
+      "artist": "Emerson",
+      "bpm": null,
+      "duration_s": {
+        "value": 203.95102,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"203.951020\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:7a94199ca8e78da77973e9220aa6020b4005a2120343e5495916df0d43ebed3b",
+      "title": "Ynfynyt Scroll - Notion",
+      "artist": "Ynfynyt Scroll",
+      "bpm": null,
+      "duration_s": {
+        "value": 194.782426,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"194.782426\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"7a94199ca8e78da77973e9220aa6020b4005a2120343e5495916df0d43ebed3b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b",
+      "title": "Work 01",
+      "artist": "Front 242",
+      "bpm": null,
+      "duration_s": {
+        "value": 209.493333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"209.493333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:ebm",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"EBM\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af",
+      "title": "Tell Me",
+      "artist": "Marius Acke",
+      "bpm": null,
+      "duration_s": {
+        "value": 372.37551,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"372.375510\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:840bc59f611065a9c0bb641f4000e41b0ebb487cbea98c6079d8c061e90eab64",
+      "title": "Witches",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 174.920272,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"174.920272\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"840bc59f611065a9c0bb641f4000e41b0ebb487cbea98c6079d8c061e90eab64\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:84f870d6080e07f7e21c22e4959b277167e178d1688441c50e455a4d83a16362",
+      "title": "1001 Tracks of Arabia",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 336.939977,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"336.939977\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"84f870d6080e07f7e21c22e4959b277167e178d1688441c50e455a4d83a16362\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:878f2a060172e935ba9ceb459f1078631b8715cbed046d907f87ca979cc8095b",
+      "title": "Gallop",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 241.294399,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"241.294399\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"878f2a060172e935ba9ceb459f1078631b8715cbed046d907f87ca979cc8095b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317",
+      "title": "Rompediscoteka",
+      "artist": "Nick Leon",
+      "bpm": null,
+      "duration_s": {
+        "value": 252.328776,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"252.328776\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:dembow",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dembow\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75",
+      "title": "LinaPary x Naxxo - Te va a encantar",
+      "artist": "LinaPary x Naxxo",
+      "bpm": {
+        "value": 136.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"136\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 257.073923,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"257.073923\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:club",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Club\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1",
+      "title": "Ritmo Actual (T.NO remix)",
+      "artist": "Toma Kami",
+      "bpm": {
+        "value": 154.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"154\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 267.598367,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"267.598367\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "title": "Rock The House (Original Mix)",
+      "artist": "Demi Riquísimo, The Trip (UK)",
+      "bpm": {
+        "value": 132.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"132\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 322.133356,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"322.133356\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:deep_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Deep House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8da638cf945dda896b5a73389fa48d67cdf49b82499b130c961fc6d511aa1bd9",
+      "title": "Ananda - Carnaval Carioca",
+      "artist": "ANANDA",
+      "bpm": null,
+      "duration_s": {
+        "value": 207.819569,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"207.819569\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8da638cf945dda896b5a73389fa48d67cdf49b82499b130c961fc6d511aa1bd9\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea",
+      "title": "Donna in costruzione",
+      "artist": "Pino D’Angiò",
+      "bpm": {
+        "value": 116.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"116\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 192.770748,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"192.770748\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:italo_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Disco;Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:8f71df2b720f569247b9c451ebbfa2904fb0ba8d8fade831417de2869d9d136d",
+      "title": "Rumanian Immigrants",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 191.581927,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"191.581927\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8f71df2b720f569247b9c451ebbfa2904fb0ba8d8fade831417de2869d9d136d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:8f7d37cbbb2ebc28bba6f5e6a7476c97a01bc1ef27bc0be388dd338c0079318f",
+      "title": "And We Hear \"I Love You\"",
+      "artist": "Lena Platonos",
+      "bpm": null,
+      "duration_s": {
+        "value": 159.153107,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"159.153107\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"8f7d37cbbb2ebc28bba6f5e6a7476c97a01bc1ef27bc0be388dd338c0079318f\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:920c4d4655b568b8fa42e23eddce44d549d13c3ae8d904ba2ccb80d4c5758c94",
+      "title": "02 Joao Lagrima de Ouro - Melo Das Turbinadas",
+      "artist": null,
+      "bpm": null,
+      "duration_s": {
+        "value": 274.285714,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"274.285714\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"920c4d4655b568b8fa42e23eddce44d549d13c3ae8d904ba2ccb80d4c5758c94\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Some embedded genres have no exact vocabulary alias; see the import manifest."
+      ]
+    },
+    {
+      "track_id": "sha256:96279b912960b00d15e1ab690b52e101feb8a570f0149d6f09bf27cca0699213",
+      "title": "How Kif",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 388.94737,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"388.947370\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"96279b912960b00d15e1ab690b52e101feb8a570f0149d6f09bf27cca0699213\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:99c8bf118646e502e61ae7f876e9971d376754df6c85387f511bdf883daabcde",
+      "title": "Sexy Boy (Late Night Dance Mix)",
+      "artist": "Kinga",
+      "bpm": null,
+      "duration_s": {
+        "value": 398.67458,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"398.674580\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"99c8bf118646e502e61ae7f876e9971d376754df6c85387f511bdf883daabcde\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"99c8bf118646e502e61ae7f876e9971d376754df6c85387f511bdf883daabcde\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23",
+      "title": "Artificial Intelligence",
+      "artist": "Pancratio",
+      "bpm": null,
+      "duration_s": {
+        "value": 399.597438,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"399.597438\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:9ed456e727a9b2895d824ca3d14fdfe911d2a635b487be5eba8c0acab7f1b3da",
+      "title": "Ke Tu Kiere?",
+      "artist": "Zutzut",
+      "bpm": null,
+      "duration_s": {
+        "value": 186.579864,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"186.579864\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"9ed456e727a9b2895d824ca3d14fdfe911d2a635b487be5eba8c0acab7f1b3da\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:hip_hop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Rap/Hip Hop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"9ed456e727a9b2895d824ca3d14fdfe911d2a635b487be5eba8c0acab7f1b3da\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Invalid or conflicting embedded BPM annotations; tempo remains unknown.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:a00d31d2cee1b6feb59efe4ff74a85eb150d0b7527c6d12179cb9949840a18bb",
+      "title": "Ynfynyt Scroll - Cochinear",
+      "artist": "Ynfynyt Scroll",
+      "bpm": null,
+      "duration_s": {
+        "value": 207.853333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"207.853333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a00d31d2cee1b6feb59efe4ff74a85eb150d0b7527c6d12179cb9949840a18bb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:a12d0d218adfc6acf1045c571bfc31a0ad95a99cc05d66f25b5e41ab1f084b2a",
+      "title": "Genesis - DJ SWISHA Remix",
+      "artist": "Physical Therapy",
+      "bpm": null,
+      "duration_s": {
+        "value": 233.070333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"233.070333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a12d0d218adfc6acf1045c571bfc31a0ad95a99cc05d66f25b5e41ab1f084b2a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:uk_garage",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Uk Garage\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a12d0d218adfc6acf1045c571bfc31a0ad95a99cc05d66f25b5e41ab1f084b2a\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be",
+      "title": "Rocking You Internally",
+      "artist": "Demi Riquisimo",
+      "bpm": null,
+      "duration_s": {
+        "value": 531.539592,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"531.539592\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:techno",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electro/Techno/House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:a526638ebc881ea197e5d8cc594ab6c9981062ccd7f5ec7df8d4e4fdffeb7aec",
+      "title": "Joanna",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 486.96,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"486.960000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a526638ebc881ea197e5d8cc594ab6c9981062ccd7f5ec7df8d4e4fdffeb7aec\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a526638ebc881ea197e5d8cc594ab6c9981062ccd7f5ec7df8d4e4fdffeb7aec\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:a7298fa5e83e3c5246a3f8855df76eebfe0f8fa7e9536b0abb03d2b17f5406f7",
+      "title": "Yebe Selbik Hu",
+      "artist": "Aaron Maple",
+      "bpm": null,
+      "duration_s": {
+        "value": 276.662857,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"276.662857\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a7298fa5e83e3c5246a3f8855df76eebfe0f8fa7e9536b0abb03d2b17f5406f7\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:a84573861704c0a7e3762703b4f23c0fc5a74cb1c43dfcd8201805c4cb894f60",
+      "title": "I Am So Curious",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 321.68,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"321.680000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"a84573861704c0a7e3762703b4f23c0fc5a74cb1c43dfcd8201805c4cb894f60\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"a84573861704c0a7e3762703b4f23c0fc5a74cb1c43dfcd8201805c4cb894f60\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ac2c0857aeb7f66e18424f72e7d101ed03e948c824a12d36698ff45a4a29722e",
+      "title": "03 Ynfynyt Scroll - Só Dança",
+      "artist": "Ynfynyt Scroll",
+      "bpm": null,
+      "duration_s": {
+        "value": 166.956531,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"166.956531\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ac2c0857aeb7f66e18424f72e7d101ed03e948c824a12d36698ff45a4a29722e\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d",
+      "title": "Take Me High (Mansion mix)",
+      "artist": "Colm III",
+      "bpm": {
+        "value": 124.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"124\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 433.792578,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"433.792578\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:acid_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Acid House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ad77a2839e8a1207867d7a9498b8b7ef192f7a18e2e10581c02129cec71f96cb",
+      "title": "Blood Sisters - Kontravoid Remix",
+      "artist": "Fee Lion/Kontravoid",
+      "bpm": null,
+      "duration_s": {
+        "value": 324.349542,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"324.349542\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ad77a2839e8a1207867d7a9498b8b7ef192f7a18e2e10581c02129cec71f96cb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:darkwave",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Darkwave\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ad77a2839e8a1207867d7a9498b8b7ef192f7a18e2e10581c02129cec71f96cb\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:af64054e4d28d614572098cd5ac9e103e6b7883638430733ed478d9c2cee9f30",
+      "title": "Cheve",
+      "artist": "Siete Catorce",
+      "bpm": null,
+      "duration_s": {
+        "value": 329.596803,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"329.596803\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"af64054e4d28d614572098cd5ac9e103e6b7883638430733ed478d9c2cee9f30\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:af71609dfce5c62c81c37deb3655f78c176b52d9bebc40cf796d27a1ea844d76",
+      "title": "Give Me a Call",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 177.026667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"177.026667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"af71609dfce5c62c81c37deb3655f78c176b52d9bebc40cf796d27a1ea844d76\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"af71609dfce5c62c81c37deb3655f78c176b52d9bebc40cf796d27a1ea844d76\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b0290c23959aaa4819aec0e850657223f3f81d74f383c01b72cba5cb708a785a",
+      "title": "Rahul.mp3 x Hazboy - Girls Gone Wild",
+      "artist": null,
+      "bpm": null,
+      "duration_s": {
+        "value": 183.268141,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"183.268141\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b0290c23959aaa4819aec0e850657223f3f81d74f383c01b72cba5cb708a785a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:b0b15d6e4bd20f14679c3f066e3db6007366c0d7bae0b298e9e262e4af97a2ea",
+      "title": "Wake Up City",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 251.733333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"251.733333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b0b15d6e4bd20f14679c3f066e3db6007366c0d7bae0b298e9e262e4af97a2ea\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b0b15d6e4bd20f14679c3f066e3db6007366c0d7bae0b298e9e262e4af97a2ea\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b0f40a5f636b6ffa327b7dbd55efc6960c98759ccf5897efd308ea72cbf93eb9",
+      "title": "Everybody Needs Somebody (European Mix)",
+      "artist": "Blue",
+      "bpm": null,
+      "duration_s": {
+        "value": 486.415193,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"486.415193\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b0f40a5f636b6ffa327b7dbd55efc6960c98759ccf5897efd308ea72cbf93eb9\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:italo_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Italo-Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b0f40a5f636b6ffa327b7dbd55efc6960c98759ccf5897efd308ea72cbf93eb9\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b18f00e24710edcadaa0bbbc43cd66d1c1199ffa6b81be1d4ff9a3ce8244ba7e",
+      "title": "So Sandy",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 334.165646,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"334.165646\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b18f00e24710edcadaa0bbbc43cd66d1c1199ffa6b81be1d4ff9a3ce8244ba7e\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2",
+      "title": "Listen Over the Ocean",
+      "artist": "Violet Eves",
+      "bpm": null,
+      "duration_s": {
+        "value": 259.684626,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"259.684626\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:pop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Pop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "title": "Triple Funk",
+      "artist": "Lemon8",
+      "bpm": {
+        "value": 132.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"132\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 479.986667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"479.986667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House, Progressive House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:progressive_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House, Progressive House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b2ed1baacf02fe43b7533dae481577bee35a689799b0938740b987d15dc85b2a",
+      "title": "You Could Be More As You Are",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 356.613333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"356.613333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b2ed1baacf02fe43b7533dae481577bee35a689799b0938740b987d15dc85b2a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b2ed1baacf02fe43b7533dae481577bee35a689799b0938740b987d15dc85b2a\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b",
+      "title": "Like No Other",
+      "artist": "Detroit In Effect",
+      "bpm": {
+        "value": 120.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"120\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 358.46966,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"358.469660\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:breaks",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Breaks\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b559b61989e5a8787213266d54ed07cb078f108fff4bb759e1aaa49e44855de7",
+      "title": "In Yo Face",
+      "artist": "Detroit In Effect",
+      "bpm": null,
+      "duration_s": {
+        "value": 294.800544,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"294.800544\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b559b61989e5a8787213266d54ed07cb078f108fff4bb759e1aaa49e44855de7\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:technobass_electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Technobass-Electro\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b559b61989e5a8787213266d54ed07cb078f108fff4bb759e1aaa49e44855de7\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c",
+      "title": "Make U Mine",
+      "artist": "Autoflower & Essy",
+      "bpm": null,
+      "duration_s": {
+        "value": 312.032653,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"312.032653\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e",
+      "title": "Fantazia",
+      "artist": "The Trip",
+      "bpm": null,
+      "duration_s": {
+        "value": 338.496599,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"338.496599\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde",
+      "title": "Life Is Trippy (Original Mix)",
+      "artist": "Nyra",
+      "bpm": {
+        "value": 127.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"127\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 307.565714,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"307.565714\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:nu_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Nu Disco\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:c4473239d9749d0f614af7e646090268ba4f086163867844e13f3a1d683889ba",
+      "title": "06 Anaquia - Calabria",
+      "artist": "Anaquia",
+      "bpm": null,
+      "duration_s": {
+        "value": 225.230771,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"225.230771\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"c4473239d9749d0f614af7e646090268ba4f086163867844e13f3a1d683889ba\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb",
+      "title": "Headhunter V3.0",
+      "artist": "Front 242",
+      "bpm": null,
+      "duration_s": {
+        "value": 285.306667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"285.306667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:ebm",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"EBM\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "title": "My Paradise - Edit",
+      "artist": "The Trip",
+      "bpm": null,
+      "duration_s": {
+        "value": 339.576,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"339.576000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:caad16c14c0f4f1e5fd73b71bd41185d2fc14274f6fc48be57d710ca09fbe14a",
+      "title": "Ich Mag Ethnic Dance",
+      "artist": "Awesome Orientalists From Europa",
+      "bpm": null,
+      "duration_s": {
+        "value": 357.779569,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"357.779569\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"caad16c14c0f4f1e5fd73b71bd41185d2fc14274f6fc48be57d710ca09fbe14a\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:cdca5cf278f25e0b5ed691fa4c835ece23ecff7d8a5858725f4938a578482aea",
+      "title": "Your Touch",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 224.533333,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"224.533333\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"cdca5cf278f25e0b5ed691fa4c835ece23ecff7d8a5858725f4938a578482aea\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"cdca5cf278f25e0b5ed691fa4c835ece23ecff7d8a5858725f4938a578482aea\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b",
+      "title": "Zippycher",
+      "artist": "Spray",
+      "bpm": {
+        "value": 135.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"135\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 342.129592,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"342.129592\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:melodic_house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Melodic House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:cf0de6876a917d889e4fc8e83d331c9406c0c843cd6caef112a9e4a9109f67c7",
+      "title": "More Women",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 310.426667,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"310.426667\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"cf0de6876a917d889e4fc8e83d331c9406c0c843cd6caef112a9e4a9109f67c7\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"cf0de6876a917d889e4fc8e83d331c9406c0c843cd6caef112a9e4a9109f67c7\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:d09a47c8af03864e3574b5de955c0dde7cb961b808ef70a10d0dda176b18b9f9",
+      "title": "BOOM...BOOM ?",
+      "artist": "Hyas, Pura Pura",
+      "bpm": null,
+      "duration_s": {
+        "value": 235.023673,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"235.023673\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d09a47c8af03864e3574b5de955c0dde7cb961b808ef70a10d0dda176b18b9f9\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:d0f3a6725c0d1e5903a1a7f5551f025b7680f3912cf860847c3c7e3f80e04807",
+      "title": "State Of Mind (Slack Mix) Alex Kassian Dream State",
+      "artist": "Peyote Dreams",
+      "bpm": null,
+      "duration_s": {
+        "value": 433.084078,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"433.084078\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d0f3a6725c0d1e5903a1a7f5551f025b7680f3912cf860847c3c7e3f80e04807\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:d152f4a957a4ee071e889e98277fea56a35be7aa74425d7f5f566deef072a5af",
+      "title": "Invitation",
+      "artist": "Saâda Bonaire",
+      "bpm": null,
+      "duration_s": {
+        "value": 321.04,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"321.040000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d152f4a957a4ee071e889e98277fea56a35be7aa74425d7f5f566deef072a5af\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"d152f4a957a4ee071e889e98277fea56a35be7aa74425d7f5f566deef072a5af\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67",
+      "title": "Lunettes De Soleil Même La Nuit",
+      "artist": "Bon Chic",
+      "bpm": null,
+      "duration_s": {
+        "value": 244.359977,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"244.359977\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:electronic",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Electronic\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12",
+      "title": "Certified",
+      "artist": "Demi Riquísimo",
+      "bpm": null,
+      "duration_s": {
+        "value": 405.93,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"405.930000\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:d9e0646b8ac279994f4c7f17d7cb6cbc19f626303ce099971c6a896f6800b4de",
+      "title": "Off The Wall (Extended Version 1986)",
+      "artist": "Chicano",
+      "bpm": null,
+      "duration_s": {
+        "value": 381.340833,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"381.340833\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"d9e0646b8ac279994f4c7f17d7cb6cbc19f626303ce099971c6a896f6800b4de\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:dcb3c76734ccda7082a7621c4294b13b2a8d0a1e3691c7e1921cd5843fd0e63e",
+      "title": "Duco & Waddle - Milky Shakers",
+      "artist": "low income $quad",
+      "bpm": null,
+      "duration_s": {
+        "value": 240.45161,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"240.451610\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"dcb3c76734ccda7082a7621c4294b13b2a8d0a1e3691c7e1921cd5843fd0e63e\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac",
+      "title": "Nurse Coven Rides Again",
+      "artist": "Looky Looky",
+      "bpm": null,
+      "duration_s": {
+        "value": 394.988934,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"394.988934\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:italo_disco",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Italo-Disco/Electro/House/Techno\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:electro",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Italo-Disco/Electro/House/Techno\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Italo-Disco/Electro/House/Techno\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac\"}",
+          "status": "warning",
+          "confidence": null
+        },
+        {
+          "tag": "genre:techno",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Italo-Disco/Electro/House/Techno\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:e4f20ec3009bfeb6d2859d8ada9efaecd19390f500c4b1ecc7ecde2106242623",
+      "title": "Ynfynyt Scroll - Papito Chulo",
+      "artist": "Ynfynyt Scroll",
+      "bpm": null,
+      "duration_s": {
+        "value": 202.314059,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"202.314059\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"e4f20ec3009bfeb6d2859d8ada9efaecd19390f500c4b1ecc7ecde2106242623\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:e57c98c9885d1484c4ea8b68c961ad8d19de4904168208e753e439776499c03d",
+      "title": "Kyoto - Venetian Blinds",
+      "artist": null,
+      "bpm": {
+        "value": 113.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"113\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"e57c98c9885d1484c4ea8b68c961ad8d19de4904168208e753e439776499c03d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 273.874671,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"273.874671\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"e57c98c9885d1484c4ea8b68c961ad8d19de4904168208e753e439776499c03d\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here."
+      ]
+    },
+    {
+      "track_id": "sha256:e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6",
+      "title": "Italiani (Remix)",
+      "artist": "Pino D'Angiò",
+      "bpm": {
+        "value": 104.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"104\", \"field\": \"ffprobe.format.tags.BPM\", \"sha256\": \"e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 286.290431,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"286.290431\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:pop",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Pop\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ee4c833736aa429ebc8930d4b3f46608b161694f949962a10101e05b132b04de",
+      "title": "Crrdr - Papi Duro",
+      "artist": "CRRDR",
+      "bpm": null,
+      "duration_s": {
+        "value": 196.235306,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"196.235306\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ee4c833736aa429ebc8930d4b3f46608b161694f949962a10101e05b132b04de\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:dance",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"Dance\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ee4c833736aa429ebc8930d4b3f46608b161694f949962a10101e05b132b04de\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098",
+      "title": "For The Record",
+      "artist": "The Trip",
+      "bpm": null,
+      "duration_s": {
+        "value": 345.001383,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"345.001383\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "encoded_fact",
+          "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"House\", \"field\": \"ffprobe.format.tags.genre\", \"sha256\": \"ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098\"}",
+          "status": "warning",
+          "confidence": null
+        }
+      ],
+      "complete_tag_axes": [],
+      "warnings": [
+        "Genre tags reproduce embedded annotations; they are not reviewed musical labels."
+      ]
+    },
+    {
+      "track_id": "sha256:f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473",
+      "title": "Je Tm",
+      "artist": "Dj Yellow Ft Marlene",
+      "bpm": {
+        "value": 121.0,
+        "authority": "benchmark_estimate",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"121\", \"field\": \"ffprobe.format.tags.TBPM\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "duration_s": {
+        "value": 509.644127,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"509.644127\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": [
+        "BPM is an embedded annotation; it has not been estimated or verified here.",
+        "Some embedded genres have no exact vocabulary alias; see the import manifest."
+      ]
+    },
+    {
+      "track_id": "sha256:f2a3b300f8504642b5077e7fbb2285678023100b83ee9b63fbe792a443cb3da4",
+      "title": "WALK OF SHAME",
+      "artist": "Hyas, Pura Pura",
+      "bpm": null,
+      "duration_s": {
+        "value": 224.626939,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"224.626939\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"f2a3b300f8504642b5077e7fbb2285678023100b83ee9b63fbe792a443cb3da4\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:fa1f9f5859dfa667286521de5ed261657f1cb254c9ce8ce140e83632d9d5dccd",
+      "title": "@MEH (tom huna Edit)",
+      "artist": "Playboi Carti",
+      "bpm": null,
+      "duration_s": {
+        "value": 317.538481,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"317.538481\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"fa1f9f5859dfa667286521de5ed261657f1cb254c9ce8ce140e83632d9d5dccd\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    },
+    {
+      "track_id": "sha256:fe6ebcf4b28876b8b0a4c336787827250c69d808a47cec6264006008fb603075",
+      "title": "CLOSE THE DOOR",
+      "artist": "Hyas, Pura Pura",
+      "bpm": null,
+      "duration_s": {
+        "value": 209.789388,
+        "authority": "encoded_fact",
+        "source": "{\"adapter\": \"mp3-metadata-v1\", \"encoded_value\": \"209.789388\", \"field\": \"ffprobe.format.duration\", \"sha256\": \"fe6ebcf4b28876b8b0a4c336787827250c69d808a47cec6264006008fb603075\"}",
+        "status": "warning",
+        "confidence": null
+      },
+      "tags": [],
+      "complete_tag_axes": [],
+      "warnings": []
+    }
+  ],
+  "warnings": [
+    "Imported container metadata only; no sample decoding, audio analysis, or semantic inference.",
+    "Genre annotations are encoded tags, not reviewed musical facts; no tag axis is complete.",
+    "BPM annotations remain benchmark_estimate; FFprobe duration is not a verified decoded timeline."
+  ]
+}

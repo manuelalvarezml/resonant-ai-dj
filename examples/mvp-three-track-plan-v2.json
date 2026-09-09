@@ -1,0 +1,91 @@
+{
+  "schema": "dj-engine/mix-plan",
+  "schema_version": "0.1.0",
+  "plan_id": "mvp-three-track-133-v2",
+  "planner": {
+    "provider": "manual",
+    "model": "manual",
+    "prompt_version": "manual-v2"
+  },
+  "brief": {
+    "schema": "dj-engine/mix-brief",
+    "schema_version": "0.1.0",
+    "request_text": "Create a simple approximately ten-minute house mix with roughly thirty-second, downbeat-aligned transitions.",
+    "target_duration_minutes": 10.0,
+    "style_terms": [
+      "house"
+    ],
+    "story_template": "compatible-subset",
+    "hard_constraints": {
+      "allowed_track_ids": [
+        "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682"
+      ],
+      "excluded_track_ids": [],
+      "max_time_stretch_percent": 4.0,
+      "harmonic_policy": "rekordbox-related-2"
+    }
+  },
+  "ordered_track_ids": [
+    "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+    "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+    "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682"
+  ],
+  "segments": [
+    {
+      "segment_id": "segment-my-paradise",
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "start_downbeat_index": 0,
+      "end_downbeat_index": 128,
+      "target_bpm": null,
+      "gain_db": -5.0,
+      "reason": "Extend the outgoing tail by eight bars so the transition can last sixteen bars without shortening the set."
+    },
+    {
+      "segment_id": "segment-rock-the-house",
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "start_downbeat_index": 32,
+      "end_downbeat_index": 160,
+      "target_bpm": null,
+      "gain_db": -4.9,
+      "reason": "Keep the original incoming cue and extend the outgoing tail for the second sixteen-bar transition."
+    },
+    {
+      "segment_id": "segment-lemon8",
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "start_downbeat_index": 152,
+      "end_downbeat_index": 263,
+      "target_bpm": null,
+      "gain_db": 0.0,
+      "reason": "Keep the original instrumental entry and analyzed ending."
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "transition-my-paradise-to-rock",
+      "from_track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "to_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "duration_bars": 16,
+      "style": "house_eq_v1",
+      "curve": "tri",
+      "reason": "Sixteen detected bars with a midpoint bass handoff; same-key 2A to 2A."
+    },
+    {
+      "transition_id": "transition-rock-to-lemon8",
+      "from_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "to_track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "duration_bars": 16,
+      "style": "house_eq_v1",
+      "curve": "tri",
+      "reason": "Sixteen detected bars with a midpoint bass handoff; relative-key 2A to 2B."
+    }
+  ],
+  "requested_duration_s": 600.0,
+  "estimated_duration_s": 609.1,
+  "validation_status": "not_run",
+  "warnings": [
+    "Timing, key, and downbeats remain benchmark_estimate values; house_eq_v1 is pending listening validation."
+  ],
+  "explanation": "Second listening plan: about 29.09 seconds per transition, aligned from stored downbeat timestamps with a deterministic bass handoff."
+}

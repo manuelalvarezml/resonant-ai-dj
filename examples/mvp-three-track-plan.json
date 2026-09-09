@@ -1,0 +1,89 @@
+{
+  "schema": "dj-engine/mix-plan",
+  "schema_version": "0.1.0",
+  "plan_id": "mvp-three-track-133-v1",
+  "planner": {
+    "provider": "manual",
+    "model": "manual",
+    "prompt_version": "manual-v1"
+  },
+  "brief": {
+    "schema": "dj-engine/mix-brief",
+    "schema_version": "0.1.0",
+    "request_text": "Create a simple approximately ten-minute house mix from the safest 133 BPM compatibility cluster.",
+    "target_duration_minutes": 10.0,
+    "style_terms": [
+      "house"
+    ],
+    "story_template": "compatible-subset",
+    "hard_constraints": {
+      "allowed_track_ids": [
+        "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682"
+      ],
+      "excluded_track_ids": [],
+      "max_time_stretch_percent": 4.0,
+      "harmonic_policy": "rekordbox-related-2"
+    }
+  },
+  "ordered_track_ids": [
+    "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+    "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+    "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682"
+  ],
+  "segments": [
+    {
+      "segment_id": "segment-my-paradise",
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "start_downbeat_index": 0,
+      "end_downbeat_index": 120,
+      "target_bpm": null,
+      "gain_db": -5.0,
+      "reason": "Open from the first detected downbeat and leave headroom near the quietest selected track."
+    },
+    {
+      "segment_id": "segment-rock-the-house",
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "start_downbeat_index": 32,
+      "end_downbeat_index": 152,
+      "target_bpm": null,
+      "gain_db": -4.9,
+      "reason": "Use a section-aligned middle excerpt at the same estimated BPM and key."
+    },
+    {
+      "segment_id": "segment-lemon8",
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "start_downbeat_index": 152,
+      "end_downbeat_index": 263,
+      "target_bpm": null,
+      "gain_db": 0.0,
+      "reason": "Enter on an instrumental section and keep the analyzed ending."
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "transition-my-paradise-to-rock",
+      "from_track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "to_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "duration_bars": 8,
+      "curve": "tri",
+      "reason": "Eight-bar same-key crossfade at the shared 133 BPM estimate."
+    },
+    {
+      "transition_id": "transition-rock-to-lemon8",
+      "from_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "to_track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "duration_bars": 8,
+      "curve": "tri",
+      "reason": "Eight-bar relative-key crossfade from Camelot 2A to 2B."
+    }
+  ],
+  "requested_duration_s": 600.0,
+  "estimated_duration_s": 609.3178195488721,
+  "validation_status": "not_run",
+  "warnings": [
+    "This is a hand-authored first-listening plan over benchmark_estimate timing and key inputs."
+  ],
+  "explanation": "A minimal no-stretch vertical slice using the strongest 133 BPM compatibility cluster."
+}

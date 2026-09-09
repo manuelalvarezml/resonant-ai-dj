@@ -1,0 +1,698 @@
+{
+  "as_of": "2026-09-08",
+  "selected_case": 2,
+  "snapshots": [
+    {
+      "case": "Small pilot",
+      "model_values": [
+        [
+          "Paying users",
+          10,
+          "users"
+        ],
+        [
+          "Original stored bytes",
+          250,
+          "decimal GB"
+        ],
+        [
+          "Derivatives and retained mixes",
+          73.616,
+          "decimal GB"
+        ],
+        [
+          "Total primary average storage",
+          323.616,
+          "decimal GB"
+        ],
+        [
+          "Playback delivery",
+          14.399999999999999,
+          "GB/month"
+        ],
+        [
+          "Mix downloads",
+          2.88,
+          "GB/month"
+        ],
+        [
+          "Worker reads and original exports",
+          37.50000000000001,
+          "GB/month"
+        ],
+        [
+          "Total origin outbound",
+          54.78,
+          "GB/month"
+        ],
+        [
+          "First upload duration per user",
+          3.9682539682539684,
+          "hours"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Provider alternative",
+          "Monthly USD",
+          "Estimate type"
+        ],
+        [
+          "R2 Standard",
+          4.91274,
+          "Marginal estimate"
+        ],
+        [
+          "B2 pay-go",
+          2.2491312,
+          "Marginal estimate"
+        ],
+        [
+          "Spaces Standard",
+          6.027817726135253,
+          "Bundle estimate"
+        ],
+        [
+          "Supabase Pro Storage",
+          29.7630208,
+          "Bundle estimate"
+        ],
+        [
+          "Wasabi pay-go",
+          7.99,
+          "Storage base only"
+        ],
+        [
+          "AWS S3 Standard",
+          "n.a.",
+          "Quote needed"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Wasabi recurring egress fit",
+          "Within volume guide",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Service scenario using B2",
+          "Monthly USD",
+          "Basis"
+        ],
+        [
+          "Primary storage and origin delivery",
+          2.2491312,
+          "Provider estimate above"
+        ],
+        [
+          "Backup original copy",
+          1.7374999999999998,
+          "One retained copy"
+        ],
+        [
+          "New-track analysis",
+          4.791666666666667,
+          "Unmeasured runtime"
+        ],
+        [
+          "Mix rendering",
+          2.875,
+          "Unmeasured runtime"
+        ],
+        [
+          "Worker outbound writes",
+          2.1704399999999997,
+          "Separate cloud transfer"
+        ],
+        [
+          "Language model requests",
+          1.425,
+          "Token scenario"
+        ],
+        [
+          "Support",
+          33.333333333333336,
+          "Unmeasured workload"
+        ],
+        [
+          "Variable subtotal",
+          48.5820712,
+          ""
+        ],
+        [
+          "Contingency",
+          9.71641424,
+          "Editable risk allowance"
+        ],
+        [
+          "Fixed operations",
+          100,
+          "Unquoted allowance"
+        ],
+        [
+          "Recurring cost before payments",
+          158.29848544,
+          "Excludes legal/license/tax"
+        ],
+        [
+          "Gross subscription revenue",
+          90,
+          "Hypothetical price"
+        ],
+        [
+          "Payment expense",
+          6.15,
+          "Unquoted merchant rate"
+        ],
+        [
+          "Recurring contribution",
+          -74.44848544000001,
+          "Before acquisition/setup"
+        ],
+        [
+          "Recurring contribution margin",
+          -0.8272053937777779,
+          "Not validated"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Initial analysis cash cost",
+          479.16666666666663,
+          "One time, not monthly"
+        ],
+        [
+          "Acquisition cash cost",
+          200,
+          "One time, unmeasured"
+        ],
+        [
+          "Monthly acquisition/setup allocation",
+          56.59722222222222,
+          "Amortization assumption"
+        ],
+        [
+          "Contribution after allocation",
+          -131.04570766222224,
+          "Not accounting profit"
+        ],
+        [
+          "Monthly per-user cost with allocation",
+          22.104570766222224,
+          "Scenario only"
+        ],
+        [
+          "Upfront acquisition + initial analysis",
+          679.1666666666666,
+          "Cash requirement"
+        ]
+      ]
+    },
+    {
+      "case": "Medium library",
+      "model_values": [
+        [
+          "Paying users",
+          100,
+          "users"
+        ],
+        [
+          "Original stored bytes",
+          10000,
+          "decimal GB"
+        ],
+        [
+          "Derivatives and retained mixes",
+          2472.3199999999997,
+          "decimal GB"
+        ],
+        [
+          "Total primary average storage",
+          12472.32,
+          "decimal GB"
+        ],
+        [
+          "Playback delivery",
+          720,
+          "GB/month"
+        ],
+        [
+          "Mix downloads",
+          57.599999999999994,
+          "GB/month"
+        ],
+        [
+          "Worker reads and original exports",
+          1500.0000000000002,
+          "GB/month"
+        ],
+        [
+          "Total origin outbound",
+          2277.6000000000004,
+          "GB/month"
+        ],
+        [
+          "First upload duration per user",
+          15.873015873015873,
+          "hours"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Provider alternative",
+          "Monthly USD",
+          "Estimate type"
+        ],
+        [
+          "R2 Standard",
+          187.6698,
+          "Marginal estimate"
+        ],
+        [
+          "B2 pay-go",
+          86.68262399999999,
+          "Marginal estimate"
+        ],
+        [
+          "Spaces Standard",
+          243.2868664360046,
+          "Bundle estimate"
+        ],
+        [
+          "Supabase Pro Storage",
+          395.186416,
+          "Bundle estimate"
+        ],
+        [
+          "Wasabi pay-go",
+          90.63463658094405,
+          "Storage base only"
+        ],
+        [
+          "AWS S3 Standard",
+          "n.a.",
+          "Quote needed"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Wasabi recurring egress fit",
+          "Within volume guide",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Service scenario using B2",
+          "Monthly USD",
+          "Basis"
+        ],
+        [
+          "Primary storage and origin delivery",
+          86.68262399999999,
+          "Provider estimate above"
+        ],
+        [
+          "Backup original copy",
+          69.5,
+          "One retained copy"
+        ],
+        [
+          "New-track analysis",
+          239.58333333333331,
+          "Unmeasured runtime"
+        ],
+        [
+          "Mix rendering",
+          57.49999999999999,
+          "Unmeasured runtime"
+        ],
+        [
+          "Worker outbound writes",
+          44.758799999999994,
+          "Separate cloud transfer"
+        ],
+        [
+          "Language model requests",
+          14.25,
+          "Token scenario"
+        ],
+        [
+          "Support",
+          333.33333333333337,
+          "Unmeasured workload"
+        ],
+        [
+          "Variable subtotal",
+          845.6080906666667,
+          ""
+        ],
+        [
+          "Contingency",
+          169.12161813333336,
+          "Editable risk allowance"
+        ],
+        [
+          "Fixed operations",
+          100,
+          "Unquoted allowance"
+        ],
+        [
+          "Recurring cost before payments",
+          1114.7297088,
+          "Excludes legal/license/tax"
+        ],
+        [
+          "Gross subscription revenue",
+          1900,
+          "Hypothetical price"
+        ],
+        [
+          "Payment expense",
+          96.5,
+          "Unquoted merchant rate"
+        ],
+        [
+          "Recurring contribution",
+          688.7702912,
+          "Before acquisition/setup"
+        ],
+        [
+          "Recurring contribution margin",
+          0.36251067957894734,
+          "Not validated"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Initial analysis cash cost",
+          19166.666666666668,
+          "One time, not monthly"
+        ],
+        [
+          "Acquisition cash cost",
+          2000,
+          "One time, unmeasured"
+        ],
+        [
+          "Monthly acquisition/setup allocation",
+          1763.888888888889,
+          "Amortization assumption"
+        ],
+        [
+          "Contribution after allocation",
+          -1075.118597688889,
+          "Not accounting profit"
+        ],
+        [
+          "Monthly per-user cost with allocation",
+          29.75118597688889,
+          "Scenario only"
+        ],
+        [
+          "Upfront acquisition + initial analysis",
+          21166.666666666668,
+          "Cash requirement"
+        ]
+      ]
+    },
+    {
+      "case": "Large DJ library",
+      "model_values": [
+        [
+          "Paying users",
+          100,
+          "users"
+        ],
+        [
+          "Original stored bytes",
+          50000,
+          "decimal GB"
+        ],
+        [
+          "Derivatives and retained mixes",
+          12361.6,
+          "decimal GB"
+        ],
+        [
+          "Total primary average storage",
+          62361.6,
+          "decimal GB"
+        ],
+        [
+          "Playback delivery",
+          2880,
+          "GB/month"
+        ],
+        [
+          "Mix downloads",
+          288,
+          "GB/month"
+        ],
+        [
+          "Worker reads and original exports",
+          7500.000000000001,
+          "GB/month"
+        ],
+        [
+          "Total origin outbound",
+          10668,
+          "GB/month"
+        ],
+        [
+          "First upload duration per user",
+          79.36507936507937,
+          "hours"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Provider alternative",
+          "Monthly USD",
+          "Estimate type"
+        ],
+        [
+          "R2 Standard",
+          936.009,
+          "Marginal estimate"
+        ],
+        [
+          "B2 pay-go",
+          433.41312,
+          "Marginal estimate"
+        ],
+        [
+          "Spaces Standard",
+          1250.6888096427915,
+          "Bundle estimate"
+        ],
+        [
+          "Supabase Pro Storage",
+          1961.25208,
+          "Bundle estimate"
+        ],
+        [
+          "Wasabi pay-go",
+          453.17318290472025,
+          "Storage base only"
+        ],
+        [
+          "AWS S3 Standard",
+          "n.a.",
+          "Quote needed"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Wasabi recurring egress fit",
+          "Within volume guide",
+          null
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Service scenario using B2",
+          "Monthly USD",
+          "Basis"
+        ],
+        [
+          "Primary storage and origin delivery",
+          433.41312,
+          "Provider estimate above"
+        ],
+        [
+          "Backup original copy",
+          347.5,
+          "One retained copy"
+        ],
+        [
+          "New-track analysis",
+          1197.9166666666667,
+          "Unmeasured runtime"
+        ],
+        [
+          "Mix rendering",
+          287.5,
+          "Unmeasured runtime"
+        ],
+        [
+          "Worker outbound writes",
+          223.79399999999995,
+          "Separate cloud transfer"
+        ],
+        [
+          "Language model requests",
+          14.25,
+          "Token scenario"
+        ],
+        [
+          "Support",
+          333.33333333333337,
+          "Unmeasured workload"
+        ],
+        [
+          "Variable subtotal",
+          2837.70712,
+          ""
+        ],
+        [
+          "Contingency",
+          567.541424,
+          "Editable risk allowance"
+        ],
+        [
+          "Fixed operations",
+          100,
+          "Unquoted allowance"
+        ],
+        [
+          "Recurring cost before payments",
+          3505.248544,
+          "Excludes legal/license/tax"
+        ],
+        [
+          "Gross subscription revenue",
+          2900,
+          "Hypothetical price"
+        ],
+        [
+          "Payment expense",
+          131.5,
+          "Unquoted merchant rate"
+        ],
+        [
+          "Recurring contribution",
+          -736.748544,
+          "Before acquisition/setup"
+        ],
+        [
+          "Recurring contribution margin",
+          -0.2540512220689655,
+          "Not validated"
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          "Initial analysis cash cost",
+          95833.33333333331,
+          "One time, not monthly"
+        ],
+        [
+          "Acquisition cash cost",
+          2000,
+          "One time, unmeasured"
+        ],
+        [
+          "Monthly acquisition/setup allocation",
+          8152.7777777777765,
+          "Amortization assumption"
+        ],
+        [
+          "Contribution after allocation",
+          -8889.526321777776,
+          "Not accounting profit"
+        ],
+        [
+          "Monthly per-user cost with allocation",
+          117.89526321777775,
+          "Scenario only"
+        ],
+        [
+          "Upfront acquisition + initial analysis",
+          97833.33333333331,
+          "Cash requirement"
+        ]
+      ]
+    }
+  ],
+  "checks": {
+    "case_recalculation": true,
+    "changed_storage_driver": true,
+    "zero_revenue_guard": true,
+    "formula_error_scan": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+  },
+  "upload_hours": [
+    {
+      "gb": 25,
+      "at_5_mbps": 15.873015873015873,
+      "at_20_mbps": 3.9682539682539684,
+      "at_100_mbps": 0.7936507936507936
+    },
+    {
+      "gb": 100,
+      "at_5_mbps": 63.492063492063494,
+      "at_20_mbps": 15.873015873015873,
+      "at_100_mbps": 3.1746031746031744
+    },
+    {
+      "gb": 500,
+      "at_5_mbps": 317.46031746031747,
+      "at_20_mbps": 79.36507936507937,
+      "at_100_mbps": 15.873015873015873
+    },
+    {
+      "gb": 1000,
+      "at_5_mbps": 634.9206349206349,
+      "at_20_mbps": 158.73015873015873,
+      "at_100_mbps": 31.746031746031747
+    }
+  ]
+}

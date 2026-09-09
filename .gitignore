@@ -1,0 +1,32 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.DS_Store
+
+# Virtual environments
+.venv/
+
+# Local source audio and temporary work never belong in Git
+test_folder_10_house_tracks/
+test_tracks_folder_mp3/
+tmp/
+.dj-engine-work/
+demix/
+spec/
+.pytest_cache/
+
+# Keep compact evidence needed to reproduce the documented checkpoint, while
+# excluding rendered/listening audio and disposable analyzer work.
+output/*
+!output/*.json
+!output/*.pdf
+!output/pdf/
+!output/pdf/*.pdf
+!output/allin1-debug/
+output/allin1-debug/*
+!output/allin1-debug/out/
+!output/allin1-debug/out/*.json

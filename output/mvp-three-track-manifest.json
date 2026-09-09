@@ -1,0 +1,127 @@
+{
+  "schema": "dj-engine/render-manifest",
+  "schema_version": "0.1.0",
+  "render_id": "3b14326d-c7af-4dd7-823d-6bb22fc9a14d",
+  "plan_id": "mvp-three-track-133-v1",
+  "renderer": {
+    "name": "ffmpeg-set-renderer",
+    "version": "mvp-1",
+    "ffmpeg_version": "8.0.1"
+  },
+  "source_track_hashes": [
+    {
+      "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "sha256": "c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "source_unchanged": true
+    },
+    {
+      "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "sha256": "8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "source_unchanged": true
+    },
+    {
+      "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "sha256": "b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "source_unchanged": true
+    }
+  ],
+  "executed_operations": [
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "start_downbeat_index": 0,
+        "end_downbeat_index": 120,
+        "start_s": 0.33,
+        "end_s": 218.53
+      }
+    },
+    {
+      "tool": "set_gain",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "gain_db": -5.0
+      }
+    },
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "start_downbeat_index": 32,
+        "end_downbeat_index": 152,
+        "start_s": 58.45,
+        "end_s": 276.63
+      }
+    },
+    {
+      "tool": "set_gain",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "gain_db": -4.9
+      }
+    },
+    {
+      "tool": "load_track",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+        "start_downbeat_index": 152,
+        "end_downbeat_index": 263,
+        "start_s": 276.41,
+        "end_s": 478.22
+      }
+    },
+    {
+      "tool": "crossfade",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "transition_id": "transition-my-paradise-to-rock",
+        "from_track_id": "sha256:c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+        "to_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "duration_bars": 8,
+        "duration_s": 14.436090225563909,
+        "curve": "tri"
+      }
+    },
+    {
+      "tool": "crossfade",
+      "tool_contract_version": "1",
+      "authority": "executed_action",
+      "arguments": {
+        "transition_id": "transition-rock-to-lemon8",
+        "from_track_id": "sha256:8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+        "to_track_id": "sha256:b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+        "duration_bars": 8,
+        "duration_s": 14.436090225563909,
+        "curve": "tri"
+      }
+    }
+  ],
+  "requested_duration_s": 600.0,
+  "planned_duration_s": 609.3178195488722,
+  "rendered_duration_s": 609.3178,
+  "output_path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/output/mvp-three-track-set.wav",
+  "output_sha256": "878a35590d7429a88c6990f2035e2696c8f77da374d90d19d9220b4f381c5c16",
+  "output_measurements": {
+    "integrated_lufs": -13.91,
+    "loudness_range_lu": 3.2,
+    "true_peak_dbtp": -0.16,
+    "sample_rate_hz": 44100
+  },
+  "status": "passed",
+  "warnings": [
+    "This is a hand-authored first-listening plan over benchmark_estimate timing and key inputs.",
+    "Rendered true peak is -0.16 dBTP; mastering/headroom is not yet applied."
+  ],
+  "failures": []
+}

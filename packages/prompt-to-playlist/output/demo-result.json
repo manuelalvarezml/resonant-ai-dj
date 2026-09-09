@@ -1,0 +1,283 @@
+{
+  "schema": "prompt-playlist/run",
+  "schema_version": "0.1.0",
+  "translation": {
+    "schema": "prompt-playlist/translation",
+    "schema_version": "0.1.0",
+    "request_text": "require house; prefer dark; bpm 120-130; count 3",
+    "query": {
+      "required_tags": [
+        "genre:house"
+      ],
+      "preferred_tags": [
+        "mood:dark"
+      ],
+      "excluded_tags": [],
+      "min_bpm": 120.0,
+      "max_bpm": 130.0,
+      "limit": 3,
+      "excluded_track_ids": [],
+      "order": "relevance"
+    },
+    "provider": "rules",
+    "model": "explicit-grammar",
+    "prompt_version": "explicit-clauses-v1",
+    "vocabulary_id": "descriptors-v1",
+    "authority": "llm_proposal",
+    "unresolved": [],
+    "warnings": [
+      "Offline rules use semicolon-separated clauses: require house; prefer dark; exclude vocal; bpm 120-130; count 5; order bpm_ascending; avoid track-id. Tag and track-ID lists use commas. Only exact vocabulary tags/aliases and these clauses are supported; ordinary free text needs the OpenAI provider."
+    ]
+  },
+  "result": {
+    "schema": "prompt-playlist/result",
+    "schema_version": "0.1.0",
+    "catalog_id": "synthetic-demo-v1",
+    "vocabulary_id": "descriptors-v1",
+    "query": {
+      "required_tags": [
+        "genre:house"
+      ],
+      "preferred_tags": [
+        "mood:dark"
+      ],
+      "excluded_tags": [],
+      "min_bpm": 120.0,
+      "max_bpm": 130.0,
+      "limit": 3,
+      "excluded_track_ids": [],
+      "order": "relevance"
+    },
+    "ranking_version": "tag-coverage-v1",
+    "matches": [
+      {
+        "track": {
+          "track_id": "synthetic:night-grid",
+          "title": "Night Grid (Fictional Demo)",
+          "artist": "Demo Artist A",
+          "bpm": {
+            "value": 124.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "duration_s": {
+            "value": 330.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "tags": [
+            {
+              "tag": "genre:house",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "mood:dark",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "energy:medium",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "vocals:instrumental",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            }
+          ],
+          "complete_tag_axes": [
+            "genre",
+            "mood",
+            "energy",
+            "vocals"
+          ],
+          "warnings": [
+            "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+          ]
+        },
+        "score": 1.0,
+        "matched_tags": [
+          "genre:house",
+          "mood:dark"
+        ],
+        "missing_preferred_tags": [],
+        "reasons": [
+          "Descriptor evidence: genre:house",
+          "Descriptor evidence: mood:dark",
+          "BPM 124 within requested bounds (user_verified)."
+        ]
+      },
+      {
+        "track": {
+          "track_id": "synthetic:warehouse-lantern",
+          "title": "Warehouse Lantern (Fictional Demo)",
+          "artist": "Demo Artist B",
+          "bpm": {
+            "value": 128.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "duration_s": {
+            "value": 360.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "tags": [
+            {
+              "tag": "genre:house",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "mood:dark",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "energy:high",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "vocals:instrumental",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            }
+          ],
+          "complete_tag_axes": [
+            "genre",
+            "mood",
+            "energy",
+            "vocals"
+          ],
+          "warnings": [
+            "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+          ]
+        },
+        "score": 1.0,
+        "matched_tags": [
+          "genre:house",
+          "mood:dark"
+        ],
+        "missing_preferred_tags": [],
+        "reasons": [
+          "Descriptor evidence: genre:house",
+          "Descriptor evidence: mood:dark",
+          "BPM 128 within requested bounds (user_verified)."
+        ]
+      },
+      {
+        "track": {
+          "track_id": "synthetic:sunroom",
+          "title": "Sunroom (Fictional Demo)",
+          "artist": "Demo Artist C",
+          "bpm": {
+            "value": 122.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "duration_s": {
+            "value": 300.0,
+            "authority": "user_verified",
+            "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+            "status": "passed",
+            "confidence": null
+          },
+          "tags": [
+            {
+              "tag": "genre:house",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "mood:uplifting",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "energy:medium",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            },
+            {
+              "tag": "vocals:vocal",
+              "authority": "user_verified",
+              "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed",
+              "status": "passed",
+              "confidence": null
+            }
+          ],
+          "complete_tag_axes": [
+            "genre",
+            "mood",
+            "energy",
+            "vocals"
+          ],
+          "warnings": [
+            "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+          ]
+        },
+        "score": 0.0,
+        "matched_tags": [
+          "genre:house"
+        ],
+        "missing_preferred_tags": [
+          "mood:dark"
+        ],
+        "reasons": [
+          "Descriptor evidence: genre:house",
+          "BPM 122 within requested bounds (user_verified).",
+          "Preferred descriptors without usable evidence: mood:dark"
+        ]
+      }
+    ],
+    "eligible_count": 3,
+    "excluded_count": 3,
+    "warnings": [
+      "SYNTHETIC DEMONSTRATION ONLY: all tracks, artists, numeric values and semantic tags are fictional. user_verified represents authored fixture metadata, not verification of real audio.",
+      "Scores measure descriptor coverage, not musical quality. Candidate order is not a validated DJ mix order.",
+      "Some candidates do not satisfy every soft preference; inspect missing_preferred_tags."
+    ],
+    "catalog_digest": "9b31b4a99d2ee28b1cbcf8ff452e493c9d59146637589990bc1ce6f698d673ed",
+    "vocabulary_digest": "7a4a7d1759bf55444cb47a881ac882cca87af3a61c995b0b876d8a4a043598d8",
+    "result_id": "sha256:0cd19ce7d732a720c9d6026bc294011ff67f5ee42bf074c73c036783c3ae7310"
+  },
+  "status": "matched",
+  "warnings": [
+    "Offline rules use semicolon-separated clauses: require house; prefer dark; exclude vocal; bpm 120-130; count 5; order bpm_ascending; avoid track-id. Tag and track-ID lists use commas. Only exact vocabulary tags/aliases and these clauses are supported; ordinary free text needs the OpenAI provider."
+  ]
+}

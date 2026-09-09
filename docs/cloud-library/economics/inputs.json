@@ -1,0 +1,433 @@
+{
+  "version": "1.0",
+  "as_of": "2026-09-08",
+  "currency": "USD",
+  "selected_case": 2,
+  "cases": [
+    "Small pilot",
+    "Medium library",
+    "Large DJ library"
+  ],
+  "drivers": [
+    [
+      "users",
+      "Paying users",
+      "count",
+      [
+        10,
+        100,
+        100
+      ]
+    ],
+    [
+      "original_gb",
+      "Original library per user",
+      "decimal GB",
+      [
+        25,
+        100,
+        500
+      ]
+    ],
+    [
+      "initial_tracks",
+      "Initial tracks per user",
+      "count",
+      [
+        2000,
+        8000,
+        40000
+      ]
+    ],
+    [
+      "listening_hours",
+      "Listening per user per month",
+      "hours",
+      [
+        10,
+        50,
+        200
+      ]
+    ],
+    [
+      "mixes",
+      "Mixes per user per month",
+      "count",
+      [
+        2,
+        4,
+        20
+      ]
+    ],
+    [
+      "new_tracks",
+      "New tracks per user per month",
+      "count",
+      [
+        20,
+        100,
+        500
+      ]
+    ],
+    [
+      "price",
+      "Price per user per month",
+      "USD",
+      [
+        9,
+        19,
+        29
+      ]
+    ],
+    [
+      "uplink",
+      "Upload connection",
+      "Mbps",
+      [
+        20,
+        20,
+        20
+      ]
+    ]
+  ],
+  "assumptions": [
+    [
+      "derivative_ratio",
+      "Derivative / original storage",
+      0.2,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "backup_ratio",
+      "Backup / original storage",
+      1,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "audio_gb_hour",
+      "320kbps audio per hour",
+      0.144,
+      "GB",
+      "Arithmetic"
+    ],
+    [
+      "mix_gb",
+      "Retained 1-hour compressed mix",
+      0.144,
+      "GB",
+      "Arithmetic"
+    ],
+    [
+      "worker_read_ratio",
+      "Worker reads / original GB monthly",
+      0.1,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "export_ratio",
+      "Original export / original GB monthly",
+      0.05,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "analysis_minutes",
+      "Analysis minutes per track",
+      5,
+      "minutes",
+      "Unmeasured"
+    ],
+    [
+      "render_minutes",
+      "Worker minutes per 1-hour mix",
+      30,
+      "minutes",
+      "Unmeasured"
+    ],
+    [
+      "worker_rate",
+      "Worker price per hour",
+      0.25,
+      "USD/hour",
+      "Unquoted assumption"
+    ],
+    [
+      "retry_factor",
+      "Compute retry multiplier",
+      1.15,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "worker_egress_rate",
+      "Worker outbound price",
+      0.09,
+      "USD/GB",
+      "Unquoted assumption"
+    ],
+    [
+      "fixed_ops",
+      "DB/auth/API/queue/logs monthly",
+      100,
+      "USD",
+      "Unquoted assumption"
+    ],
+    [
+      "support_minutes",
+      "Support minutes per user monthly",
+      10,
+      "minutes",
+      "Unmeasured"
+    ],
+    [
+      "support_rate",
+      "Support hourly rate",
+      20,
+      "USD/hour",
+      "Assumption"
+    ],
+    [
+      "calls",
+      "Translation calls per user monthly",
+      50,
+      "count",
+      "Assumption"
+    ],
+    [
+      "input_tokens",
+      "Input tokens per call",
+      2000,
+      "tokens",
+      "Assumption"
+    ],
+    [
+      "output_tokens",
+      "Output tokens per call",
+      300,
+      "tokens",
+      "Assumption"
+    ],
+    [
+      "input_rate",
+      "Model input per million tokens",
+      0.75,
+      "USD",
+      "S045"
+    ],
+    [
+      "output_rate",
+      "Model output per million tokens",
+      4.5,
+      "USD",
+      "S045"
+    ],
+    [
+      "payment_pct",
+      "Payment percentage fee",
+      0.035,
+      "ratio",
+      "Unquoted assumption"
+    ],
+    [
+      "payment_fixed",
+      "Payment fixed fee / user-month",
+      0.3,
+      "USD",
+      "Unquoted assumption"
+    ],
+    [
+      "contingency",
+      "Variable cost contingency",
+      0.2,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "retained_months",
+      "Initial analysis amortization",
+      12,
+      "months",
+      "Unmeasured"
+    ],
+    [
+      "acquisition",
+      "Acquisition cost per user",
+      20,
+      "USD",
+      "Unmeasured"
+    ],
+    [
+      "upload_efficiency",
+      "Useful upload efficiency",
+      0.7,
+      "ratio",
+      "Assumption"
+    ],
+    [
+      "class_a",
+      "R2 monthly writes per user",
+      500,
+      "count",
+      "Assumption"
+    ],
+    [
+      "class_b",
+      "R2 monthly reads per user",
+      10000,
+      "count",
+      "Assumption"
+    ],
+    [
+      "supabase_hit",
+      "Supabase cached fraction",
+      0.5,
+      "ratio",
+      "Unmeasured"
+    ],
+    [
+      "r2_storage",
+      "R2 GB-month",
+      0.015,
+      "USD",
+      "S001"
+    ],
+    [
+      "r2_a",
+      "R2 million Class A",
+      4.5,
+      "USD",
+      "S001"
+    ],
+    [
+      "r2_b",
+      "R2 million Class B",
+      0.36,
+      "USD",
+      "S001"
+    ],
+    [
+      "b2_storage",
+      "B2 GB-month",
+      0.00695,
+      "USD",
+      "S002"
+    ],
+    [
+      "b2_allowance",
+      "B2 egress / average storage",
+      3,
+      "ratio",
+      "S002"
+    ],
+    [
+      "b2_egress",
+      "B2 excess egress GB",
+      0.01,
+      "USD",
+      "S002"
+    ],
+    [
+      "spaces_base",
+      "Spaces monthly bundle",
+      5,
+      "USD",
+      "S009"
+    ],
+    [
+      "spaces_storage_allow",
+      "Spaces storage allowance",
+      250,
+      "GiB",
+      "S009"
+    ],
+    [
+      "spaces_transfer_allow",
+      "Spaces transfer allowance",
+      1024,
+      "GiB",
+      "S009"
+    ],
+    [
+      "spaces_storage",
+      "Spaces excess storage GiB",
+      0.02,
+      "USD",
+      "S009"
+    ],
+    [
+      "spaces_egress",
+      "Spaces excess transfer GiB",
+      0.01,
+      "USD",
+      "S009"
+    ],
+    [
+      "supabase_base",
+      "Supabase Pro base",
+      25,
+      "USD",
+      "S010"
+    ],
+    [
+      "supabase_storage_allow",
+      "Supabase storage allowance",
+      100,
+      "GB",
+      "S010"
+    ],
+    [
+      "supabase_storage",
+      "Supabase excess storage GB",
+      0.0213,
+      "USD",
+      "S010"
+    ],
+    [
+      "supabase_transfer_allow",
+      "Supabase each egress allowance",
+      250,
+      "GB",
+      "S011"
+    ],
+    [
+      "supabase_cached",
+      "Supabase cached egress GB",
+      0.03,
+      "USD",
+      "S011"
+    ],
+    [
+      "supabase_uncached",
+      "Supabase uncached egress GB",
+      0.09,
+      "USD",
+      "S011"
+    ],
+    [
+      "wasabi_base",
+      "Wasabi retained TiB-month",
+      7.99,
+      "USD",
+      "S004"
+    ],
+    [
+      "master_gb",
+      "Retained 48kHz/24-bit mix master",
+      1.0368,
+      "GB/hour",
+      "Arithmetic assumption"
+    ]
+  ],
+  "limitations": [
+    "Compute/support/retention/CAC are assumptions, not measured actuals.",
+    "Licenses, taxes, legal/security review and maintenance engineering excluded; assess separately.",
+    "R2/B2 free tiers excluded; R2 request result is marginal, excludes billing-unit rounding.",
+    "Wasabi row excludes early-delete charges and is unsuitable when recurring egress exceeds active storage.",
+    "S3 selected-region rate quote unavailable.",
+    "One-month mix retention; no customer churn or time-varying storage occupancy forecast.",
+    "Selected workload is one common scenario for all provider alternatives."
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema": "prompt-playlist/desktop-check",
+  "passed": true,
+  "checks": {
+    "busy_input_locked": true,
+    "export_disabled_while_waiting": true,
+    "one_service_call_for_duplicate_submit": true,
+    "eight_result_rows": true,
+    "energy_gap_visible": true,
+    "natural_language_preserved": true,
+    "house_required_visible": true,
+    "input_ready_after_result": true,
+    "no_percent_confidence_column": true,
+    "all_controls_within_window": true,
+    "long_clarification_compact_and_full_details": true,
+    "long_clarification_controls_fit": true,
+    "failed_new_request_clears_export_and_old_results": true,
+    "failure_visible_and_retry_enabled": true,
+    "full_error_available_in_details": true
+  },
+  "layouts": [
+    {
+      "geometry": "1200x840",
+      "details": false,
+      "bounds": {
+        "prompt": [
+          53,
+          226,
+          294,
+          144
+        ],
+        "search": [
+          53,
+          382,
+          294,
+          44
+        ],
+        "criteria": [
+          53,
+          513,
+          227,
+          76
+        ],
+        "notice": [
+          413,
+          207,
+          734,
+          56
+        ],
+        "table": [
+          413,
+          275,
+          724,
+          378
+        ],
+        "evidence_button": [
+          413,
+          722,
+          155,
+          38
+        ],
+        "export": [
+          1040,
+          103,
+          107,
+          38
+        ]
+      },
+      "visible": {
+        "prompt": true,
+        "search": true,
+        "criteria": true,
+        "notice": true,
+        "table": true,
+        "evidence_button": true,
+        "export": true
+      }
+    },
+    {
+      "geometry": "1200x840",
+      "details": true,
+      "bounds": {
+        "prompt": [
+          53,
+          226,
+          294,
+          144
+        ],
+        "search": [
+          53,
+          382,
+          294,
+          44
+        ],
+        "criteria": [
+          53,
+          513,
+          227,
+          76
+        ],
+        "notice": [
+          413,
+          207,
+          734,
+          56
+        ],
+        "table": [
+          413,
+          275,
+          724,
+          219
+        ],
+        "evidence_button": [
+          413,
+          563,
+          149,
+          38
+        ],
+        "export": [
+          1040,
+          103,
+          107,
+          38
+        ],
+        "details": [
+          413,
+          613,
+          719,
+          147
+        ]
+      },
+      "visible": {
+        "prompt": true,
+        "search": true,
+        "criteria": true,
+        "notice": true,
+        "table": true,
+        "evidence_button": true,
+        "export": true,
+        "details": true
+      }
+    },
+    {
+      "geometry": "1000x700",
+      "details": false,
+      "bounds": {
+        "prompt": [
+          53,
+          226,
+          294,
+          144
+        ],
+        "search": [
+          53,
+          382,
+          294,
+          44
+        ],
+        "criteria": [
+          53,
+          513,
+          227,
+          76
+        ],
+        "notice": [
+          413,
+          207,
+          534,
+          56
+        ],
+        "table": [
+          413,
+          275,
+          524,
+          238
+        ],
+        "evidence_button": [
+          413,
+          582,
+          155,
+          38
+        ],
+        "export": [
+          840,
+          103,
+          107,
+          38
+        ]
+      },
+      "visible": {
+        "prompt": true,
+        "search": true,
+        "criteria": true,
+        "notice": true,
+        "table": true,
+        "evidence_button": true,
+        "export": true
+      }
+    },
+    {
+      "geometry": "1000x700",
+      "details": true,
+      "bounds": {
+        "prompt": [
+          53,
+          226,
+          294,
+          144
+        ],
+        "search": [
+          53,
+          382,
+          294,
+          44
+        ],
+        "criteria": [
+          53,
+          513,
+          227,
+          76
+        ],
+        "notice": [
+          413,
+          207,
+          534,
+          56
+        ],
+        "table": [
+          413,
+          275,
+          524,
+          79
+        ],
+        "evidence_button": [
+          413,
+          423,
+          149,
+          38
+        ],
+        "export": [
+          840,
+          103,
+          107,
+          38
+        ],
+        "details": [
+          413,
+          473,
+          519,
+          147
+        ]
+      },
+      "visible": {
+        "prompt": true,
+        "search": true,
+        "criteria": true,
+        "notice": true,
+        "table": true,
+        "evidence_button": true,
+        "export": true,
+        "details": true
+      }
+    }
+  ],
+  "live_api_requests": 0,
+  "note": "Real Tk widgets replaying the saved successful OpenAI translation. Geometry and state checks; not screenshot QA."
+}

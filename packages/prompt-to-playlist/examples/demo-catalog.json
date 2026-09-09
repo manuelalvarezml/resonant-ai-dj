@@ -1,0 +1,322 @@
+{
+  "schema": "prompt-playlist/catalog",
+  "schema_version": "0.1.0",
+  "catalog_id": "synthetic-demo-v1",
+  "tracks": [
+    {
+      "track_id": "synthetic:night-grid",
+      "title": "Night Grid (Fictional Demo)",
+      "artist": "Demo Artist A",
+      "bpm": {
+        "value": 124.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 330.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:dark",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:medium",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:instrumental",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    },
+    {
+      "track_id": "synthetic:warehouse-lantern",
+      "title": "Warehouse Lantern (Fictional Demo)",
+      "artist": "Demo Artist B",
+      "bpm": {
+        "value": 128.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 360.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:dark",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:high",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:instrumental",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    },
+    {
+      "track_id": "synthetic:sunroom",
+      "title": "Sunroom (Fictional Demo)",
+      "artist": "Demo Artist C",
+      "bpm": {
+        "value": 122.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 300.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:house",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:uplifting",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:medium",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:vocal",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    },
+    {
+      "track_id": "synthetic:chrome-signal",
+      "title": "Chrome Signal (Fictional Demo)",
+      "artist": "Demo Artist D",
+      "bpm": {
+        "value": 132.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 390.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:techno",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:dark",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:high",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:instrumental",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    },
+    {
+      "track_id": "synthetic:quiet-orbit",
+      "title": "Quiet Orbit (Fictional Demo)",
+      "artist": "Demo Artist E",
+      "bpm": {
+        "value": 88.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 240.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:ambient",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:warm",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:low",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:instrumental",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    },
+    {
+      "track_id": "synthetic:velvet-disco",
+      "title": "Velvet Disco (Fictional Demo)",
+      "artist": "Demo Artist F",
+      "bpm": {
+        "value": 118.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "duration_s": {
+        "value": 310.0,
+        "authority": "user_verified",
+        "status": "passed",
+        "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+      },
+      "tags": [
+        {
+          "tag": "genre:disco",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "mood:uplifting",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "energy:medium",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        },
+        {
+          "tag": "vocals:vocal",
+          "authority": "user_verified",
+          "status": "passed",
+          "source": "synthetic-fixture: explicitly authored metadata for fictional demo tracks; no audio was analyzed"
+        }
+      ],
+      "complete_tag_axes": [
+        "genre",
+        "mood",
+        "energy",
+        "vocals"
+      ],
+      "warnings": [
+        "Fictional demo track with explicitly authored metadata. No underlying audio or listening verification exists."
+      ]
+    }
+  ],
+  "warnings": [
+    "SYNTHETIC DEMONSTRATION ONLY: all tracks, artists, numeric values and semantic tags are fictional. user_verified represents authored fixture metadata, not verification of real audio."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-08",
+  "scope": "documents, registers and cost workbook only",
+  "source_count": 45,
+  "record_counts": {
+    "gates": 10,
+    "questions": 16,
+    "risks": 20,
+    "paths": 17,
+    "decisions": 12,
+    "experiments": 7,
+    "tasks": 24,
+    "failures": 5
+  },
+  "events": 5,
+  "relative_links_checked": 36,
+  "dependency_cycles": false,
+  "independent_arithmetic": [
+    {
+      "case": "Small pilot",
+      "checked_rows": [
+        11,
+        15,
+        19,
+        20,
+        21,
+        22,
+        23,
+        39,
+        42,
+        45,
+        48
+      ],
+      "recurring_contribution": -74.44848544000001,
+      "after_initial_allocation": -131.04570766222224
+    },
+    {
+      "case": "Medium library",
+      "checked_rows": [
+        11,
+        15,
+        19,
+        20,
+        21,
+        22,
+        23,
+        39,
+        42,
+        45,
+        48
+      ],
+      "recurring_contribution": 688.7702912,
+      "after_initial_allocation": -1075.118597688889
+    },
+    {
+      "case": "Large DJ library",
+      "checked_rows": [
+        11,
+        15,
+        19,
+        20,
+        21,
+        22,
+        23,
+        39,
+        42,
+        45,
+        48
+      ],
+      "recurring_contribution": -736.748544,
+      "after_initial_allocation": -8889.526321777776
+    }
+  ],
+  "saved_workbook": {
+    "sheets": 3,
+    "formulas": 46,
+    "key_cached_values_verified": true
+  },
+  "native_excel_tested": false,
+  "cloud_or_audio_tests_run": false,
+  "errors": []
+}

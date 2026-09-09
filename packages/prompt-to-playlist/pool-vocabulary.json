@@ -1,0 +1,289 @@
+{
+  "schema": "prompt-playlist/vocabulary",
+  "schema_version": "0.1.0",
+  "vocabulary_id": "pool-descriptors-v1",
+  "descriptors": [
+    {
+      "id": "genre:house",
+      "description": "House, as supplied by a catalog tag source.",
+      "aliases": [
+        "house"
+      ]
+    },
+    {
+      "id": "genre:techno",
+      "description": "Techno, as supplied by a catalog tag source.",
+      "aliases": [
+        "techno"
+      ]
+    },
+    {
+      "id": "genre:disco",
+      "description": "Disco, as supplied by a catalog tag source.",
+      "aliases": [
+        "disco"
+      ]
+    },
+    {
+      "id": "genre:hip_hop",
+      "description": "Hip-hop, as supplied by a catalog tag source.",
+      "aliases": [
+        "hip-hop",
+        "hip hop",
+        "rap",
+        "Rap/Hip Hop"
+      ]
+    },
+    {
+      "id": "genre:ambient",
+      "description": "Ambient, as supplied by a catalog tag source.",
+      "aliases": [
+        "ambient"
+      ]
+    },
+    {
+      "id": "mood:dark",
+      "description": "Dark mood; subjective annotation, not inferred from musical key.",
+      "aliases": [
+        "dark"
+      ]
+    },
+    {
+      "id": "mood:uplifting",
+      "description": "Uplifting mood; subjective annotation.",
+      "aliases": [
+        "uplifting"
+      ]
+    },
+    {
+      "id": "mood:warm",
+      "description": "Warm mood or character; subjective annotation.",
+      "aliases": [
+        "warm"
+      ]
+    },
+    {
+      "id": "mood:melancholic",
+      "description": "Melancholic mood; subjective annotation.",
+      "aliases": [
+        "melancholic",
+        "sad"
+      ]
+    },
+    {
+      "id": "energy:low",
+      "description": "Low perceived energy; never derived from LUFS or tempo alone.",
+      "aliases": [
+        "low energy",
+        "low-energy"
+      ]
+    },
+    {
+      "id": "energy:medium",
+      "description": "Medium perceived energy; subjective annotation.",
+      "aliases": [
+        "medium energy",
+        "medium-energy"
+      ]
+    },
+    {
+      "id": "energy:high",
+      "description": "High perceived energy; never derived from LUFS or tempo alone.",
+      "aliases": [
+        "high energy",
+        "high-energy",
+        "energetic"
+      ]
+    },
+    {
+      "id": "vocals:vocal",
+      "description": "Contains vocals according to the catalog source.",
+      "aliases": [
+        "vocal",
+        "vocals"
+      ]
+    },
+    {
+      "id": "vocals:instrumental",
+      "description": "Instrumental according to the catalog source.",
+      "aliases": [
+        "instrumental"
+      ]
+    },
+    {
+      "id": "genre:electronic",
+      "description": "Catalog genre label Electronic; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Electronic"
+      ]
+    },
+    {
+      "id": "genre:electronic_pop",
+      "description": "Catalog genre label Electronic Pop; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Electronic Pop"
+      ]
+    },
+    {
+      "id": "genre:breaks",
+      "description": "Catalog genre label Breaks; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Breaks"
+      ]
+    },
+    {
+      "id": "genre:dembow",
+      "description": "Catalog genre label Dembow; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Dembow"
+      ]
+    },
+    {
+      "id": "genre:electro",
+      "description": "Catalog genre label Electro; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Electro"
+      ]
+    },
+    {
+      "id": "genre:uk_garage",
+      "description": "Catalog genre label UK Garage; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "UK Garage"
+      ]
+    },
+    {
+      "id": "genre:melodic_house",
+      "description": "Catalog genre label Melodic House; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Melodic House"
+      ]
+    },
+    {
+      "id": "genre:pop",
+      "description": "Catalog genre label Pop; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Pop"
+      ]
+    },
+    {
+      "id": "genre:bass",
+      "description": "Catalog genre label Bass; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Bass"
+      ]
+    },
+    {
+      "id": "genre:ebm",
+      "description": "Catalog genre label EBM; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "EBM"
+      ]
+    },
+    {
+      "id": "genre:acid_house",
+      "description": "Catalog genre label Acid House; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Acid House"
+      ]
+    },
+    {
+      "id": "genre:italo_disco",
+      "description": "Catalog genre label Italo-Disco; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Italo-Disco"
+      ]
+    },
+    {
+      "id": "genre:lo_fi",
+      "description": "Catalog genre label Lo Fi; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Lo Fi"
+      ]
+    },
+    {
+      "id": "genre:dance",
+      "description": "Catalog genre label Dance; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Dance"
+      ]
+    },
+    {
+      "id": "genre:deep_house",
+      "description": "Catalog genre label Deep House; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Deep House"
+      ]
+    },
+    {
+      "id": "genre:technobass_electro",
+      "description": "Catalog genre label Technobass-Electro; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Technobass-Electro"
+      ]
+    },
+    {
+      "id": "genre:darkwave",
+      "description": "Catalog genre label Darkwave; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Darkwave"
+      ]
+    },
+    {
+      "id": "genre:bass_house",
+      "description": "Catalog genre label Bass House; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Bass House"
+      ]
+    },
+    {
+      "id": "genre:latin",
+      "description": "Catalog genre label Latin; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Latin"
+      ]
+    },
+    {
+      "id": "genre:progressive_house",
+      "description": "Catalog genre label Progressive House; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Progressive House"
+      ]
+    },
+    {
+      "id": "genre:nu_disco",
+      "description": "Catalog genre label Nu Disco; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Nu Disco"
+      ]
+    },
+    {
+      "id": "genre:club",
+      "description": "Catalog genre label Club; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Club"
+      ]
+    },
+    {
+      "id": "genre:latincore",
+      "description": "Catalog genre label Latincore; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Latincore"
+      ]
+    },
+    {
+      "id": "genre:uk_bass",
+      "description": "Catalog genre label UK Bass; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "UK Bass"
+      ]
+    },
+    {
+      "id": "genre:latin_electronic",
+      "description": "Catalog genre label Latin Electronic; retain supplied annotation provenance. No audio-based classification or parent-genre expansion.",
+      "aliases": [
+        "Latin Electronic"
+      ]
+    }
+  ]
+}

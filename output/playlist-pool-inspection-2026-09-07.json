@@ -1,0 +1,3698 @@
+{
+  "schema": "prompt-playlist/pool-inspection",
+  "schema_version": "0.1.0",
+  "source_folder": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3",
+  "files": [
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/(1-1)DON'T DIE YOUNG (FLP INTRO).mp3",
+      "sha256_before": "5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262",
+      "sha256_after": "5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "109.583675",
+          "tags": {
+            "TBPM": "130",
+            "artist": "Aperture Sound",
+            "title": "01 Aperture Sound - Don't Die Yount (Flp Intro)"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TBPM",
+        "TKEY",
+        "artist",
+        "date",
+        "encoded_by",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/(3) It's ok to cry rkt - sophie x plan b.mp3",
+      "sha256_before": "4023ace31116d892de8d5104710a0634a40a0deb6fdbe2ea519ffc54e5d86ab2",
+      "sha256_after": "4023ace31116d892de8d5104710a0634a40a0deb6fdbe2ea519ffc54e5d86ab2",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "237.651678",
+          "tags": {
+            "title": "It's Ok To Cry Rkt - Sophie x Plan B",
+            "artist": "Upsammy"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/(4-2)Deprerreo - ARCA -KLK(JINN_PR DOBLEPASO RMX).mp3",
+      "sha256_before": "31f94bcc6c49f82d18eb7a764efa32e1d36e088c5bc42fb3117bd29cb7170aea",
+      "sha256_after": "31f94bcc6c49f82d18eb7a764efa32e1d36e088c5bc42fb3117bd29cb7170aea",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "210.612245",
+          "tags": {
+            "artist": "Deprerreo",
+            "title": "Arca - Klk (Jinn Pr Rmx)"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 - An Unsolved Exercise in Physics.mp3",
+      "sha256_before": "6d0dad377d67860cb558eb7d5e2d454e98d9344ae7081b3571a6543c6d6416e9",
+      "sha256_after": "6d0dad377d67860cb558eb7d5e2d454e98d9344ae7081b3571a6543c6d6416e9",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "237.126463",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "An Unsolved Exercise in Physics"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 - Cheve.mp3",
+      "sha256_before": "af64054e4d28d614572098cd5ac9e103e6b7883638430733ed478d9c2cee9f30",
+      "sha256_after": "af64054e4d28d614572098cd5ac9e103e6b7883638430733ed478d9c2cee9f30",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "329.596803",
+          "tags": {
+            "title": "Cheve",
+            "artist": "Siete Catorce"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "DISCTOTAL",
+        "TKEY",
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "copyright",
+        "date",
+        "disc",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 - Rana.mp3",
+      "sha256_before": "3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347",
+      "sha256_after": "3b7c196f672c0895a100b9160c46204234fb170485fb5c4dd9f492ce1d6e1347",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "220.757125",
+          "tags": {
+            "title": "Rana",
+            "artist": "Zutzut",
+            "genre": "UK Bass;Latin Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ALBUMARTISTNOSORT",
+        "ALBUMARTISTS",
+        "ALBUMARTISTSORTORDER",
+        "ARTISTNOSORT",
+        "ARTISTS",
+        "ARTISTSORTORDER",
+        "CATALOGNUMBER",
+        "INFLUENCE",
+        "MEDIA TYPE",
+        "MUSICBRAINZ_ALBUMARTISTID",
+        "MUSICBRAINZ_ALBUMID",
+        "MUSICBRAINZ_ARTISTID",
+        "MUSICBRAINZ_LABELID",
+        "MUSICBRAINZ_RECORDINGID",
+        "MUSICBRAINZ_RELEASEGROUPID",
+        "MUSICBRAINZ_RELEASETRACKID",
+        "ORGANIZATION",
+        "RELEASE TYPE",
+        "RELEASELENGTH",
+        "TKEY",
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 - you could be more as you are.mp3",
+      "sha256_before": "b2ed1baacf02fe43b7533dae481577bee35a689799b0938740b987d15dc85b2a",
+      "sha256_after": "b2ed1baacf02fe43b7533dae481577bee35a689799b0938740b987d15dc85b2a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "356.613333",
+          "tags": {
+            "title": "You Could Be More As You Are",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 My Paradise - Edit.mp3",
+      "sha256_before": "c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "sha256_after": "c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "339.576000",
+          "tags": {
+            "title": "My Paradise - Edit",
+            "artist": "The Trip"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TSRC",
+        "album",
+        "artist",
+        "date",
+        "n",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 Nightfall In Camp - Cada Dia.mp3",
+      "sha256_before": "1279883c17d933f4c6d48bd3a658a5a896827ad87e34fc279618ee065515c4ee",
+      "sha256_after": "1279883c17d933f4c6d48bd3a658a5a896827ad87e34fc279618ee065515c4ee",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "180.959388",
+          "tags": {
+            "artist": "Nightfall in Camp",
+            "title": "Cada Día",
+            "genre": "Electronic Pop"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "genre",
+        "title",
+        "track",
+        "trash"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01 move yo body.mp3",
+      "sha256_before": "06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8",
+      "sha256_after": "06466dc22fc697aae7cd77282e20549cc679b0eb4ea3eb4d34150d822462b3e8",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "314.398186",
+          "tags": {
+            "artist": "Detroit In Effect",
+            "TBPM": "140",
+            "genre": "Breaks",
+            "title": "Move Yo Body"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "EnergyLevel",
+        "TBPM",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "copyright",
+        "date",
+        "disc",
+        "genre",
+        "id3v2_priv.mailto:uits@7digital.com",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01-1oo1o-ii_(venganza_djembe)-8360e2f2.mp3",
+      "sha256_before": "04ecf1831362515d1aa1f675793721bb8fcb09c4b56e0526082a449e2392ef56",
+      "sha256_after": "04ecf1831362515d1aa1f675793721bb8fcb09c4b56e0526082a449e2392ef56",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "245.028571",
+          "tags": {
+            "title": "II (Venganza Djembe)",
+            "artist": "1OO1O",
+            "genre": "Techno"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01-kinga-sexy_boy_(late_night_dance_mix).mp3",
+      "sha256_before": "99c8bf118646e502e61ae7f876e9971d376754df6c85387f511bdf883daabcde",
+      "sha256_after": "99c8bf118646e502e61ae7f876e9971d376754df6c85387f511bdf883daabcde",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "398.674580",
+          "tags": {
+            "title": "Sexy Boy (Late Night Dance Mix)",
+            "artist": "Kinga",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "ID3v1 Comment",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "SCRIPT",
+        "TDOR",
+        "TMED",
+        "TSO2",
+        "album",
+        "album_artist",
+        "artist",
+        "artist-sort",
+        "comment",
+        "date",
+        "disc",
+        "genre",
+        "originalyear",
+        "publisher",
+        "title",
+        "track",
+        "xxx"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01. Hyas, Pura Pura - BOOM...BOOM -.mp3",
+      "sha256_before": "d09a47c8af03864e3574b5de955c0dde7cb961b808ef70a10d0dda176b18b9f9",
+      "sha256_after": "d09a47c8af03864e3574b5de955c0dde7cb961b808ef70a10d0dda176b18b9f9",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "235.023673",
+          "tags": {
+            "title": "BOOM...BOOM ?",
+            "artist": "Hyas, Pura Pura"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01. Luca Durán - Noche De Rosas.mp3",
+      "sha256_before": "51d46df762d10633f511e4cc337aaa94ce26547a24076c551fb357ce065a545a",
+      "sha256_after": "51d46df762d10633f511e4cc337aaa94ce26547a24076c551fb357ce065a545a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "194.000000",
+          "tags": {
+            "title": "Noche De Rosas",
+            "artist": "Luca Durán"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ALBUMARTISTSORT",
+        "BARCODE",
+        "CATALOGNUMBER",
+        "COUNTRY",
+        "LENGTH",
+        "STYLE",
+        "TKEY",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "copyright",
+        "date",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/01. Nick Leon - Apretao'.mp3",
+      "sha256_before": "0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982",
+      "sha256_after": "0649ffd2636395bd5dbe82ef4dbcaac5b3c66cb6ada0f6fa085e37e6cd725982",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "224.383583",
+          "tags": {
+            "artist": "Nick Leon",
+            "title": "Apretao'",
+            "genre": "Dembow"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "CATALOGNUMBER",
+        "ORGANIZATION",
+        "SOURCE",
+        "SOURCEID",
+        "TKEY",
+        "TLEN",
+        "TRACKTOTAL",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 - Intangivel.mp3",
+      "sha256_before": "06d8f8e1736dfb527799c98e1c05c45235e19abd54b8b035f1ddad0f7ce3ccbe",
+      "sha256_after": "06d8f8e1736dfb527799c98e1c05c45235e19abd54b8b035f1ddad0f7ce3ccbe",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "260.633220",
+          "tags": {
+            "title": "Intangivel",
+            "artist": "Dudda",
+            "genre": "Electro"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "ISRC",
+        "LENGTH",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "encoder",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 - Physical Therapy-Nick León-DJ Swisha - Genesis - DJ SWISHA Remix.mp3",
+      "sha256_before": "a12d0d218adfc6acf1045c571bfc31a0ad95a99cc05d66f25b5e41ab1f084b2a",
+      "sha256_after": "a12d0d218adfc6acf1045c571bfc31a0ad95a99cc05d66f25b5e41ab1f084b2a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "233.070333",
+          "tags": {
+            "artist": "Physical Therapy",
+            "title": "Genesis - DJ SWISHA Remix",
+            "genre": "Uk Garage"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "copyright",
+        "date",
+        "disc",
+        "encoder",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 - What's New Pussy Cat.mp3",
+      "sha256_before": "6b451512f8a34c310cc5ac5db2bc5550a02ff7344c32b5b65efe00f73a4ef5e2",
+      "sha256_after": "6b451512f8a34c310cc5ac5db2bc5550a02ff7344c32b5b65efe00f73a4ef5e2",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "221.531791",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "What's New Pussy Cat?"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 - invitation.mp3",
+      "sha256_before": "d152f4a957a4ee071e889e98277fea56a35be7aa74425d7f5f566deef072a5af",
+      "sha256_after": "d152f4a957a4ee071e889e98277fea56a35be7aa74425d7f5f566deef072a5af",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "321.040000",
+          "tags": {
+            "title": "Invitation",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 For The Record.mp3",
+      "sha256_before": "ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098",
+      "sha256_after": "ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "345.001383",
+          "tags": {
+            "title": "For The Record",
+            "artist": "The Trip",
+            "genre": "House"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 Work Out Tonight.mp3",
+      "sha256_before": "39f2eb86e63c778e3d62060938a144248e82f7e47894fe579f8ff5e7820758fc",
+      "sha256_after": "39f2eb86e63c778e3d62060938a144248e82f7e47894fe579f8ff5e7820758fc",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "218.575465",
+          "tags": {
+            "title": "Work Out Tonight",
+            "artist": "Ultraflex",
+            "TBPM": "0"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ALBUMARTISTS",
+        "ALBUMARTISTSORT",
+        "ALBUMARTISTS_CREDIT",
+        "ALBUMARTISTS_SORT",
+        "ALBUM_ARTISTS",
+        "ARTISTS",
+        "ARTISTS_CREDIT",
+        "ARTISTS_SORT",
+        "Album Artist Credit",
+        "Artist Credit",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "Script",
+        "TBPM",
+        "TDOR",
+        "TIPL",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "artist-sort",
+        "comment",
+        "compilation",
+        "date",
+        "disc",
+        "language",
+        "lyrics-XXX",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02 like no other.mp3",
+      "sha256_before": "b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b",
+      "sha256_after": "b4951ab790a45ff8115065245c2be24c6e6bbb14bdc8b6b91ec5a4ba869a248b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "358.469660",
+          "tags": {
+            "artist": "Detroit In Effect",
+            "TBPM": "120",
+            "genre": "Breaks",
+            "title": "Like No Other"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "EnergyLevel",
+        "TBPM",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "copyright",
+        "date",
+        "disc",
+        "genre",
+        "id3v2_priv.mailto:uits@7digital.com",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02. Chicano - Off The Wall (Extended Version 1986).mp3",
+      "sha256_before": "d9e0646b8ac279994f4c7f17d7cb6cbc19f626303ce099971c6a896f6800b4de",
+      "sha256_after": "d9e0646b8ac279994f4c7f17d7cb6cbc19f626303ce099971c6a896f6800b4de",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "381.340833",
+          "tags": {
+            "title": "Off The Wall (Extended Version 1986)",
+            "artist": "Chicano"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/02. Nick Leon - Bachetrón.mp3",
+      "sha256_before": "5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28",
+      "sha256_after": "5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "238.356168",
+          "tags": {
+            "artist": "Nick Leon",
+            "title": "Bachetrón",
+            "genre": "Dembow"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "CATALOGNUMBER",
+        "ORGANIZATION",
+        "SOURCE",
+        "SOURCEID",
+        "TKEY",
+        "TLEN",
+        "TRACKTOTAL",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03 - And We Hear I Love You.mp3",
+      "sha256_before": "8f7d37cbbb2ebc28bba6f5e6a7476c97a01bc1ef27bc0be388dd338c0079318f",
+      "sha256_after": "8f7d37cbbb2ebc28bba6f5e6a7476c97a01bc1ef27bc0be388dd338c0079318f",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "159.153107",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "And We Hear \"I Love You\""
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03 - little sister.mp3",
+      "sha256_before": "465dafaaf03deee1fb5c8d3b601d257e0c03ad1f0be3ce62a0a6e121d4215bb8",
+      "sha256_after": "465dafaaf03deee1fb5c8d3b601d257e0c03ad1f0be3ce62a0a6e121d4215bb8",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "270.640000",
+          "tags": {
+            "title": "Little Sister",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03 Fantazia.mp3",
+      "sha256_before": "ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e",
+      "sha256_after": "ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "338.496599",
+          "tags": {
+            "title": "Fantazia",
+            "artist": "The Trip",
+            "genre": "House"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03 Spray - Zippycher.mp3",
+      "sha256_before": "ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b",
+      "sha256_after": "ce3409cea5f7ca3d0a5a975ad43e31872091954a489692eb8adad3ed334ebb0b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "342.129592",
+          "tags": {
+            "title": "Zippycher",
+            "artist": "Spray",
+            "genre": "Melodic House",
+            "TBPM": "135"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "CATALOGNUMBER",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "REPLAYGAIN_ALBUM_GAIN",
+        "REPLAYGAIN_ALBUM_PEAK",
+        "REPLAYGAIN_TRACK_GAIN",
+        "REPLAYGAIN_TRACK_PEAK",
+        "SCRIPT",
+        "SERATO_PLAYCOUNT",
+        "TBPM",
+        "TDOR",
+        "TKEY",
+        "TLEN",
+        "TMED",
+        "TSO2",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "artist-sort",
+        "composer",
+        "date",
+        "disc",
+        "encoder",
+        "genre",
+        "originalyear",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03 State Of Mind (Slack Mix) Alex Kassian Dream State.mp3",
+      "sha256_before": "d0f3a6725c0d1e5903a1a7f5551f025b7680f3912cf860847c3c7e3f80e04807",
+      "sha256_after": "d0f3a6725c0d1e5903a1a7f5551f025b7680f3912cf860847c3c7e3f80e04807",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "433.084078",
+          "tags": {
+            "artist": "Peyote Dreams",
+            "title": "State Of Mind (Slack Mix) Alex Kassian Dream State"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TBP",
+        "album",
+        "artist",
+        "encoded_by",
+        "iTunNORM",
+        "iTunPGAP",
+        "iTunSMPB",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03-autoflower_and_essy-make_u_mine.mp3",
+      "sha256_before": "b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c",
+      "sha256_after": "b645e5304781c6e1a2c14b6440868b5de9fa65c9571b01441912dc7e79900d2c",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "312.032653",
+          "tags": {
+            "title": "Make U Mine",
+            "artist": "Autoflower & Essy",
+            "genre": "House"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "REPLAYGAIN_TRACK_GAIN",
+        "REPLAYGAIN_TRACK_PEAK",
+        "album",
+        "artist",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03. Hyas, Pura Pura - WALK OF SHAME.mp3",
+      "sha256_before": "f2a3b300f8504642b5077e7fbb2285678023100b83ee9b63fbe792a443cb3da4",
+      "sha256_after": "f2a3b300f8504642b5077e7fbb2285678023100b83ee9b63fbe792a443cb3da4",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "224.626939",
+          "tags": {
+            "title": "WALK OF SHAME",
+            "artist": "Hyas, Pura Pura"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/03. Nick Leon - Rompediscoteka.mp3",
+      "sha256_before": "88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317",
+      "sha256_after": "88619c684e6e6443b1f2aa5a1e2a3af9bdc0143cd435ee87621748038e180317",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "252.328776",
+          "tags": {
+            "artist": "Nick Leon",
+            "title": "Rompediscoteka",
+            "genre": "Dembow"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "CATALOGNUMBER",
+        "ORGANIZATION",
+        "SOURCE",
+        "SOURCEID",
+        "TKEY",
+        "TLEN",
+        "TRACKTOTAL",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04 - Markos.mp3",
+      "sha256_before": "28dba06a3ac6dc90b28aca3f988eff5f754e4528ac14cd0244ecb1baecf0c988",
+      "sha256_after": "28dba06a3ac6dc90b28aca3f988eff5f754e4528ac14cd0244ecb1baecf0c988",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "214.098821",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Markos"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04 - more women.mp3",
+      "sha256_before": "cf0de6876a917d889e4fc8e83d331c9406c0c843cd6caef112a9e4a9109f67c7",
+      "sha256_after": "cf0de6876a917d889e4fc8e83d331c9406c0c843cd6caef112a9e4a9109f67c7",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "310.426667",
+          "tags": {
+            "title": "More Women",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04 Listen Over the Ocean.mp3",
+      "sha256_before": "b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2",
+      "sha256_after": "b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "259.684626",
+          "tags": {
+            "title": "Listen Over the Ocean",
+            "artist": "Violet Eves",
+            "genre": "Pop"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "artist",
+        "comment",
+        "composer",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04 Raw Deal Cocaine Kills.mp3",
+      "sha256_before": "724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b",
+      "sha256_after": "724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "203.951020",
+          "tags": {
+            "title": "Raw Deal Cocaine Kills",
+            "genre": "Disco",
+            "artist": "Emerson"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Artists",
+        "BARCODE",
+        "COMPILATION",
+        "EXPLICIT",
+        "INVOLVEDPEOPLE",
+        "ISRC",
+        "LABEL",
+        "LYRICIST",
+        "MIXARTIST",
+        "RELEASETYPE",
+        "SOURCE",
+        "SOURCEID",
+        "TDAT",
+        "TLEN",
+        "TMED",
+        "album",
+        "album_artist",
+        "artist",
+        "composer",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04. Hyas, Pura Pura - WATCH ME.mp3",
+      "sha256_before": "659256907813f66f8895d10e92f163a0abc0c648ac443693a8e9a8bfe823977a",
+      "sha256_after": "659256907813f66f8895d10e92f163a0abc0c648ac443693a8e9a8bfe823977a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "217.182041",
+          "tags": {
+            "title": "WATCH ME",
+            "artist": "Hyas, Pura Pura"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/04. Violet Eves - Listen Over the Ocean.mp3",
+      "sha256_before": "4d1b398a896faa64804dea2b7ccdc59ac416be35b23bbe84b90e9f1b42d25e24",
+      "sha256_after": "4d1b398a896faa64804dea2b7ccdc59ac416be35b23bbe84b90e9f1b42d25e24",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "259.684626",
+          "tags": {
+            "title": "Listen Over the Ocean",
+            "artist": "Violet Eves",
+            "genre": "Pop"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "artist",
+        "comment",
+        "composer",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/05 - Ke Tu Kiere_.mp3",
+      "sha256_before": "9ed456e727a9b2895d824ca3d14fdfe911d2a635b487be5eba8c0acab7f1b3da",
+      "sha256_after": "9ed456e727a9b2895d824ca3d14fdfe911d2a635b487be5eba8c0acab7f1b3da",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "186.579864",
+          "tags": {
+            "title": "Ke Tu Kiere?",
+            "artist": "Zutzut",
+            "genre": "Rap/Hip Hop",
+            "BPM": "0"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "BPM",
+        "DISCTOTAL",
+        "ISRC",
+        "LENGTH",
+        "TKEY",
+        "TRACKTOTAL",
+        "YEAR",
+        "album",
+        "album_artist",
+        "artist",
+        "disc",
+        "encoder",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/05 - Love in Summer.mp3",
+      "sha256_before": "4363b5622d813ce7c935ffe51176d23bf72d523c50eb098e7b265498f26184d7",
+      "sha256_after": "4363b5622d813ce7c935ffe51176d23bf72d523c50eb098e7b265498f26184d7",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "278.117143",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Love in Summer"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/05 - i am so curious.mp3",
+      "sha256_before": "a84573861704c0a7e3762703b4f23c0fc5a74cb1c43dfcd8201805c4cb894f60",
+      "sha256_after": "a84573861704c0a7e3762703b4f23c0fc5a74cb1c43dfcd8201805c4cb894f60",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "321.680000",
+          "tags": {
+            "title": "I Am So Curious",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/05-yushh-3urnrg-7394c315.mp3",
+      "sha256_before": "4f46cb22138f43d762635b7d4cf4a1db85fbe6ee8a1d62ba89bd7d0f12ba4716",
+      "sha256_after": "4f46cb22138f43d762635b7d4cf4a1db85fbe6ee8a1d62ba89bd7d0f12ba4716",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "291.000000",
+          "tags": {
+            "title": "<3URNRG",
+            "artist": "Yushh",
+            "genre": "Bass"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BITRATE",
+        "CATALOG #",
+        "CATALOGNUMBER",
+        "CODEC",
+        "COMMENT",
+        "DATE FORMAT",
+        "FILESIZE",
+        "LABEL",
+        "MODE",
+        "MOOD",
+        "Rip Date",
+        "SAMPLERATE",
+        "Source",
+        "TKEY",
+        "TMED",
+        "WWW",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoded_by",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/05. Hyas, Pura Pura - SPEAKERS (VIP MIX).mp3",
+      "sha256_before": "59b2fb498ad16faa2b644ef5c1f5000afe9307c8b39484d35e58c28e8efcce01",
+      "sha256_after": "59b2fb498ad16faa2b644ef5c1f5000afe9307c8b39484d35e58c28e8efcce01",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "196.153469",
+          "tags": {
+            "title": "SPEAKERS (VIP MIX)",
+            "artist": "Hyas, Pura Pura"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/06 - Rumanian Immigrants.mp3",
+      "sha256_before": "8f71df2b720f569247b9c451ebbfa2904fb0ba8d8fade831417de2869d9d136d",
+      "sha256_after": "8f71df2b720f569247b9c451ebbfa2904fb0ba8d8fade831417de2869d9d136d",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "191.581927",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Rumanian Immigrants"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/06 - second face.mp3",
+      "sha256_before": "1786d1ca4c8301831af7dcb0b12209a8278604ad02286d8fb7eec4ddb34c5ac0",
+      "sha256_after": "1786d1ca4c8301831af7dcb0b12209a8278604ad02286d8fb7eec4ddb34c5ac0",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "241.133333",
+          "tags": {
+            "title": "Second Face",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/06. Hyas, Pura Pura - CLOSE THE DOOR.mp3",
+      "sha256_before": "fe6ebcf4b28876b8b0a4c336787827250c69d808a47cec6264006008fb603075",
+      "sha256_after": "fe6ebcf4b28876b8b0a4c336787827250c69d808a47cec6264006008fb603075",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "209.789388",
+          "tags": {
+            "title": "CLOSE THE DOOR",
+            "artist": "Hyas, Pura Pura"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/07 - Liqueur.mp3",
+      "sha256_before": "515f28adb5a658e70bdcb49ddaacc6cf0cb0af2aaa465da55e93383f450f3123",
+      "sha256_after": "515f28adb5a658e70bdcb49ddaacc6cf0cb0af2aaa465da55e93383f450f3123",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "89.540567",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Liqueur"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/07 - heart over head.mp3",
+      "sha256_before": "2dd594b4e2f12ed16263d39ede6728ec09c5d434eef15b553a4228fcda16a314",
+      "sha256_after": "2dd594b4e2f12ed16263d39ede6728ec09c5d434eef15b553a4228fcda16a314",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "278.186667",
+          "tags": {
+            "title": "Heart Over Head",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/07 Headhunter V3.0.mp3",
+      "sha256_before": "c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb",
+      "sha256_after": "c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "285.306667",
+          "tags": {
+            "artist": "Front 242",
+            "genre": "EBM",
+            "title": "Headhunter V3.0"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "artist",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/08 - Witches.mp3",
+      "sha256_before": "840bc59f611065a9c0bb641f4000e41b0ebb487cbea98c6079d8c061e90eab64",
+      "sha256_after": "840bc59f611065a9c0bb641f4000e41b0ebb487cbea98c6079d8c061e90eab64",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "174.920272",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Witches"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/08 - shut the door.mp3",
+      "sha256_before": "6913317911b9970d0b131c15003235dda2b2d359a62a3c8f16c7b632a9fe63d0",
+      "sha256_after": "6913317911b9970d0b131c15003235dda2b2d359a62a3c8f16c7b632a9fe63d0",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "311.426667",
+          "tags": {
+            "title": "Shut the Door",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/08 Ritmo Actual (T.NO remix).mp3",
+      "sha256_before": "8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1",
+      "sha256_after": "8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "267.598367",
+          "tags": {
+            "title": "Ritmo Actual (T.NO remix)",
+            "artist": "Toma Kami",
+            "genre": "Electronic",
+            "TBPM": "154"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "CATALOGNUMBER",
+        "TBPM",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "genre",
+        "id3v2_priv.TRAKTOR4",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/08 Work 01.mp3",
+      "sha256_before": "80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b",
+      "sha256_after": "80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "209.493333",
+          "tags": {
+            "artist": "Front 242",
+            "genre": "EBM",
+            "title": "Work 01"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "artist",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/09 - The Number 9.mp3",
+      "sha256_before": "6475c602287d73724a2e0772b3a6a28cdeb5c4822f51d5b3ddada90ede36e3ba",
+      "sha256_after": "6475c602287d73724a2e0772b3a6a28cdeb5c4822f51d5b3ddada90ede36e3ba",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "226.211224",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "The Number 9"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/09 - the facts.mp3",
+      "sha256_before": "65ba6cfa8fedd724b1d1e944443e4e3e38d7df833512e5710ddad9ff0c27a948",
+      "sha256_after": "65ba6cfa8fedd724b1d1e944443e4e3e38d7df833512e5710ddad9ff0c27a948",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "313.786667",
+          "tags": {
+            "title": "The Facts",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/09 Play.mp3",
+      "sha256_before": "044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df",
+      "sha256_after": "044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "220.820317",
+          "tags": {
+            "title": "Armagan Oruc - Play",
+            "artist": "Armağan Oruç",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "account_id",
+        "album",
+        "album_artist",
+        "artist",
+        "compatible_brands",
+        "compilation",
+        "composer",
+        "copyright",
+        "creation_time",
+        "date",
+        "disc",
+        "encoder",
+        "gapless_playback",
+        "genre",
+        "iTunNORM",
+        "iTunSMPB",
+        "major_brand",
+        "media_type",
+        "minor_version",
+        "purchase_date",
+        "rating",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/10 - Bloody Shadows from Afar.mp3",
+      "sha256_before": "2253f971c7f6530b990dd43d61947abf301412ba585e906218305be2c48e9489",
+      "sha256_after": "2253f971c7f6530b990dd43d61947abf301412ba585e906218305be2c48e9489",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "184.459388",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Bloody Shadows from Afar"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/10 - give me a call.mp3",
+      "sha256_before": "af71609dfce5c62c81c37deb3655f78c176b52d9bebc40cf796d27a1ea844d76",
+      "sha256_after": "af71609dfce5c62c81c37deb3655f78c176b52d9bebc40cf796d27a1ea844d76",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "177.026667",
+          "tags": {
+            "title": "Give Me a Call",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/11 - Gallop.mp3",
+      "sha256_before": "878f2a060172e935ba9ceb459f1078631b8715cbed046d907f87ca979cc8095b",
+      "sha256_after": "878f2a060172e935ba9ceb459f1078631b8715cbed046d907f87ca979cc8095b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "241.294399",
+          "tags": {
+            "artist": "Lena Platonos",
+            "title": "Gallop"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TRACKTOTAL",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/11 - Italiani (Remix).mp3",
+      "sha256_before": "e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6",
+      "sha256_after": "e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "286.290431",
+          "tags": {
+            "title": "Italiani (Remix)",
+            "artist": "Pino D'Angiò",
+            "genre": "Pop",
+            "BPM": "104"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "BPM",
+        "ISRC",
+        "LENGTH",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "encoder",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/11 - wake up city.mp3",
+      "sha256_before": "b0b15d6e4bd20f14679c3f066e3db6007366c0d7bae0b298e9e262e4af97a2ea",
+      "sha256_after": "b0b15d6e4bd20f14679c3f066e3db6007366c0d7bae0b298e9e262e4af97a2ea",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "251.733333",
+          "tags": {
+            "title": "Wake Up City",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/11. Clint - Native House Dance.mp3",
+      "sha256_before": "2030fd2c21c6b3dac4075f6a035d20aa524204414556e5839fbd4b97be7e4525",
+      "sha256_after": "2030fd2c21c6b3dac4075f6a035d20aa524204414556e5839fbd4b97be7e4525",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "346.880000",
+          "tags": {
+            "title": "Native House Dance",
+            "artist": "Clint"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "EnergyLevel",
+        "TKEY",
+        "TLEN",
+        "album",
+        "artist",
+        "comment",
+        "compilation",
+        "composer",
+        "date",
+        "disc",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/12 - Métele (Bk Beats Remix).mp3",
+      "sha256_before": "483736394e91c45ad4257cb6d9b8474cd35efc7fed74ba3d7e8a5fdce103c5b9",
+      "sha256_after": "483736394e91c45ad4257cb6d9b8474cd35efc7fed74ba3d7e8a5fdce103c5b9",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "222.000000",
+          "tags": {
+            "title": "Métele (Bk Beats Remix)",
+            "artist": "Zutzut;BK Beats",
+            "genre": "Rap/Hip Hop",
+            "BPM": "0"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "BPM",
+        "DISCTOTAL",
+        "ISRC",
+        "LENGTH",
+        "TKEY",
+        "TRACKTOTAL",
+        "YEAR",
+        "album",
+        "album_artist",
+        "artist",
+        "disc",
+        "encoder",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/12 - joanna.mp3",
+      "sha256_before": "a526638ebc881ea197e5d8cc594ab6c9981062ccd7f5ec7df8d4e4fdffeb7aec",
+      "sha256_after": "a526638ebc881ea197e5d8cc594ab6c9981062ccd7f5ec7df8d4e4fdffeb7aec",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "486.960000",
+          "tags": {
+            "title": "Joanna",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/13 - your touch.mp3",
+      "sha256_before": "cdca5cf278f25e0b5ed691fa4c835ece23ecff7d8a5858725f4938a578482aea",
+      "sha256_after": "cdca5cf278f25e0b5ed691fa4c835ece23ecff7d8a5858725f4938a578482aea",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "224.533333",
+          "tags": {
+            "title": "Your Touch",
+            "artist": "Saâda Bonaire",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "genre",
+        "replaygain_track_gain",
+        "replaygain_track_peak",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/15_bon_chic_-_lunettes_de_soleil_meme_la_nuit-mwn.mp3",
+      "sha256_before": "d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67",
+      "sha256_after": "d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "244.359977",
+          "tags": {
+            "title": "Lunettes De Soleil Même La Nuit",
+            "artist": "Bon Chic",
+            "genre": "Electronic"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "artist",
+        "comment",
+        "date",
+        "disc",
+        "genre",
+        "language",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/17 - Take Me High (Mansion mix).mp3",
+      "sha256_before": "ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d",
+      "sha256_after": "ac49567c3e3a2e60a75e4401287311b2f86b1d0245fc00b2440377ad7112ce9d",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "433.792578",
+          "tags": {
+            "title": "Take Me High (Mansion mix)",
+            "artist": "Colm III",
+            "genre": "Acid House",
+            "TBPM": "124"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ALBUMARTISTSORT",
+        "Album Artist Credit",
+        "Artist Credit",
+        "CATALOGNUMBER",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "R128_ALBUM_GAIN",
+        "R128_TRACK_GAIN",
+        "Script",
+        "TBPM",
+        "TDOR",
+        "TIPL",
+        "TKEY",
+        "TMED",
+        "album",
+        "album_artist",
+        "artist",
+        "artist-sort",
+        "compilation",
+        "date",
+        "disc",
+        "genre",
+        "language",
+        "lyrics-XXX",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/2 Nurse Coven Rides Again.mp3",
+      "sha256_before": "dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac",
+      "sha256_after": "dd1cd29edd3545f1100372e952b10354cbeb01920281d1648018ac30876e6aac",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "394.988934",
+          "tags": {
+            "title": "Nurse Coven Rides Again",
+            "artist": "Looky Looky",
+            "genre": "Italo-Disco/Electro/House/Techno"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "COUNTRY",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "language",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/2 duco & Waddle - MILKY SHAKERS.mp3",
+      "sha256_before": "dcb3c76734ccda7082a7621c4294b13b2a8d0a1e3691c7e1921cd5843fd0e63e",
+      "sha256_after": "dcb3c76734ccda7082a7621c4294b13b2a8d0a1e3691c7e1921cd5843fd0e63e",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "240.451610",
+          "tags": {
+            "title": "Duco & Waddle - Milky Shakers",
+            "artist": "low income $quad"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/A. Everybody Needs Somebody (European Mix).mp3",
+      "sha256_before": "b0f40a5f636b6ffa327b7dbd55efc6960c98759ccf5897efd308ea72cbf93eb9",
+      "sha256_after": "b0f40a5f636b6ffa327b7dbd55efc6960c98759ccf5897efd308ea72cbf93eb9",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "486.415193",
+          "tags": {
+            "title": "Everybody Needs Somebody (European Mix)",
+            "artist": "Blue",
+            "genre": "Italo-Disco"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ALBUMARTIST",
+        "COMMENT",
+        "ENCODER",
+        "album",
+        "artist",
+        "date",
+        "genre",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/ANANDA - Carnaval Carioca.mp3",
+      "sha256_before": "8da638cf945dda896b5a73389fa48d67cdf49b82499b130c961fc6d511aa1bd9",
+      "sha256_after": "8da638cf945dda896b5a73389fa48d67cdf49b82499b130c961fc6d511aa1bd9",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "207.819569",
+          "tags": {
+            "title": "Ananda - Carnaval Carioca",
+            "artist": "ANANDA"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Anaquia - Calabria.mp3",
+      "sha256_before": "c4473239d9749d0f614af7e646090268ba4f086163867844e13f3a1d683889ba",
+      "sha256_after": "c4473239d9749d0f614af7e646090268ba4f086163867844e13f3a1d683889ba",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "225.230771",
+          "tags": {
+            "title": "06 Anaquia - Calabria",
+            "artist": "Anaquia"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "TSRC",
+        "artist",
+        "comment",
+        "date",
+        "lyrics-eng",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Angela - I Gotta Little Love.mp3",
+      "sha256_before": "003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b",
+      "sha256_after": "003e2f641d9231d47af7422c2a640413c03e6582de52adeee49542a4d751ad2b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "404.700000",
+          "tags": {
+            "TBPM": "109",
+            "title": "I Gotta Little Love",
+            "artist": "Angela",
+            "genre": "Disco / Lo Fi"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "AnalysisDate",
+        "Beats",
+        "BeatsAlgorithm",
+        "DanceabilityAlgorithm",
+        "InstrumentationAlgorithm",
+        "KeyAlgorithm",
+        "MOOD_ACOUSTIC",
+        "MOOD_DANCEABILITY",
+        "MOOD_ELECTRONIC",
+        "Meter",
+        "MusicBrainz Artist Id",
+        "TBPM",
+        "TKEY",
+        "TimeSignatureAlgorithm",
+        "Tuning",
+        "TuningAlgorithm",
+        "artist",
+        "beaTunesPrint",
+        "beaTunes_COLOR",
+        "beaTunes_SPECTRUM",
+        "beaTunes_tempo_COLOR",
+        "beaTunes_tempo_SPECTRUM",
+        "beaTunes_tempo_timbre_COLOR",
+        "genre",
+        "id3v2_priv.TRAKTOR4",
+        "tags",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 1 - 01 - Qu'est Ce Qu'arabe.mp3",
+      "sha256_before": "47a828b22c092c244d7664b8d1a0d43dfcfd8db341476670bbff860690830cb6",
+      "sha256_after": "47a828b22c092c244d7664b8d1a0d43dfcfd8db341476670bbff860690830cb6",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "405.020317",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "Qu'est Ce Qu'arabe"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 1 - 02 - How Kif.mp3",
+      "sha256_before": "96279b912960b00d15e1ab690b52e101feb8a570f0149d6f09bf27cca0699213",
+      "sha256_after": "96279b912960b00d15e1ab690b52e101feb8a570f0149d6f09bf27cca0699213",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "388.947370",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "How Kif"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 1 - 03 - Ich Mag Ethnic Dance.mp3",
+      "sha256_before": "caad16c14c0f4f1e5fd73b71bd41185d2fc14274f6fc48be57d710ca09fbe14a",
+      "sha256_after": "caad16c14c0f4f1e5fd73b71bd41185d2fc14274f6fc48be57d710ca09fbe14a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "357.779569",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "Ich Mag Ethnic Dance"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 2 - 01 - Miro Miroe - Nights Of Arabia.mp3",
+      "sha256_before": "84f870d6080e07f7e21c22e4959b277167e178d1688441c50e455a4d83a16362",
+      "sha256_after": "84f870d6080e07f7e21c22e4959b277167e178d1688441c50e455a4d83a16362",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "336.939977",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "1001 Tracks of Arabia"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 2 - 02 - Sandy Marton - Camel By Camel.mp3",
+      "sha256_before": "b18f00e24710edcadaa0bbbc43cd66d1c1199ffa6b81be1d4ff9a3ce8244ba7e",
+      "sha256_after": "b18f00e24710edcadaa0bbbc43cd66d1c1199ffa6b81be1d4ff9a3ce8244ba7e",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "334.165646",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "So Sandy"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 2 - 03 - Laila.mp3",
+      "sha256_before": "6d99fae002a662f02f250579e0da7e1e073c41f2599502db8bf9ca51f21d79fe",
+      "sha256_after": "6d99fae002a662f02f250579e0da7e1e073c41f2599502db8bf9ca51f21d79fe",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "291.924172",
+          "tags": {
+            "artist": "Awesome Orientalists From Europa",
+            "title": "Laila"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 3 - 01 - Mezdeke - Yebe Selbik Hu (Aaron Maple remix).mp3",
+      "sha256_before": "a7298fa5e83e3c5246a3f8855df76eebfe0f8fa7e9536b0abb03d2b17f5406f7",
+      "sha256_after": "a7298fa5e83e3c5246a3f8855df76eebfe0f8fa7e9536b0abb03d2b17f5406f7",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "276.662857",
+          "tags": {
+            "artist": "Aaron Maple",
+            "title": "Yebe Selbik Hu"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 3 - 02 - Amira Saqati - El Aloua (Aaron Maple remix).mp3",
+      "sha256_before": "36b2c33ebe60afd684c176d5d834b037cc24af14e4df62e87a832cb8ea0361dc",
+      "sha256_after": "36b2c33ebe60afd684c176d5d834b037cc24af14e4df62e87a832cb8ea0361dc",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "304.851701",
+          "tags": {
+            "artist": "Aaron Maple",
+            "title": "Habibi"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Awesome Orientalists From Europa - Vol. 3 - 03 - Aaron Maple - Atanaja.mp3",
+      "sha256_before": "164ea45e6773b2dc1e551cac66b94984994e40c834f06def2a44170906b0775f",
+      "sha256_after": "164ea45e6773b2dc1e551cac66b94984994e40c834f06def2a44170906b0775f",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "297.560181",
+          "tags": {
+            "artist": "Aaron Maple",
+            "title": "Atanaja"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Comment",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "encoder",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/BAD BUNNY, ZUTZUT CLUB WEPON - SAFAERA.mp3",
+      "sha256_before": "02bb752265e79c8251257a191392546c06cb4a7bddad7bb85965246a272c99a4",
+      "sha256_after": "02bb752265e79c8251257a191392546c06cb4a7bddad7bb85965246a272c99a4",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "217.600000",
+          "tags": {
+            "title": "Zutzut - Safaera",
+            "artist": "BAD BUNNY, ZUTZUT CLUB WEPON"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "artist",
+        "comment",
+        "date",
+        "encoder",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/BZZHOUND - SIN MEDIR LA SOBADERA-SOBAQUESOBA.mp3",
+      "sha256_before": "55f3c9c13cd3ba7fd317bf6ed1807dc1217da218b597aad2de571b34a650db9d",
+      "sha256_after": "55f3c9c13cd3ba7fd317bf6ed1807dc1217da218b597aad2de571b34a650db9d",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "184.844739",
+          "tags": {
+            "title": "307 Bzzhound - Sin Medir La Sobadera",
+            "artist": "BZZHOUND"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "artist",
+        "comment",
+        "date",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Bladee, Ecco2K & Thaiboy Digital - Victim (Nick León Dembow Edit).mp3",
+      "sha256_before": "37f7dd2e7e84dcb2dadb743d64a96fe55c1c568fba36ca2fdba8979e0f024df4",
+      "sha256_after": "37f7dd2e7e84dcb2dadb743d64a96fe55c1c568fba36ca2fdba8979e0f024df4",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "165.000000",
+          "tags": {
+            "title": "Victim (Nick León Dembow Edit)",
+            "artist": "Bladee, Ecco2K & Thaiboy Digital"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/CRRDR - PAPI DURO (3200 kbps).mp3",
+      "sha256_before": "ee4c833736aa429ebc8930d4b3f46608b161694f949962a10101e05b132b04de",
+      "sha256_after": "ee4c833736aa429ebc8930d4b3f46608b161694f949962a10101e05b132b04de",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "196.235306",
+          "tags": {
+            "title": "Crrdr - Papi Duro",
+            "artist": "CRRDR",
+            "genre": "Dance"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Demi Riquisimo - Rocking You Internally.mp3",
+      "sha256_before": "a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be",
+      "sha256_after": "a2cf7a95d44b35748659beff9fef6e3163a3c65060c04c02bdd5eea60af6c4be",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "531.539592",
+          "tags": {
+            "title": "Rocking You Internally",
+            "artist": "Demi Riquisimo",
+            "genre": "Electro/Techno/House"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "EnergyLevel",
+        "TKEY",
+        "TLEN",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Demi Riquisimo, CLINT - Love State.mp3",
+      "sha256_before": "61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312",
+      "sha256_after": "61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "424.615397",
+          "tags": {
+            "title": "Love State",
+            "artist": "Demi Riquisimo, CLINT",
+            "genre": "Electro"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ARTISTS",
+        "BARCODE",
+        "ITUNESADVISORY",
+        "TLEN",
+        "TSRC",
+        "album",
+        "artist",
+        "composer",
+        "copyright",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Demi Riquísimo - Certified.mp3",
+      "sha256_before": "d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12",
+      "sha256_after": "d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "405.930000",
+          "tags": {
+            "title": "Certified",
+            "artist": "Demi Riquísimo"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "compatible_brands",
+        "date",
+        "encoder",
+        "major_brand",
+        "minor_version",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Demi Riquísimo, The Trip (UK) - Rock The House (Original Mix) 2.mp3",
+      "sha256_before": "8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "sha256_after": "8d978efd1aa0445c320ceb95fde91f04cd2a7bdc02fc194556a6b7cd7f8d317c",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "322.133356",
+          "tags": {
+            "title": "Rock The House (Original Mix)",
+            "artist": "Demi Riquísimo, The Trip (UK)",
+            "genre": "Deep House",
+            "TBPM": "132"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "HTTPS://ELECTRONICFRESH.COM",
+        "SERATO_PLAYCOUNT",
+        "TBPM",
+        "TKEY",
+        "TYER",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "composer",
+        "genre",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Detroit In Effect - In Yo Face.mp3",
+      "sha256_before": "b559b61989e5a8787213266d54ed07cb078f108fff4bb759e1aaa49e44855de7",
+      "sha256_after": "b559b61989e5a8787213266d54ed07cb078f108fff4bb759e1aaa49e44855de7",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "294.800544",
+          "tags": {
+            "title": "In Yo Face",
+            "artist": "Detroit In Effect",
+            "genre": "Technobass-Electro"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "copyright",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Dj Yellow Ft Marlene - Je Tm.mp3",
+      "sha256_before": "f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473",
+      "sha256_after": "f195c619b1141d4bbe9fc480bef20196f327936e3e4bc6986c016e297fb2b473",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "509.644127",
+          "tags": {
+            "artist": "Dj Yellow Ft Marlene",
+            "title": "Je Tm",
+            "TBPM": "121",
+            "genre": "Bar House Deep"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "Catalog #",
+        "Release type",
+        "Rip date",
+        "Ripping tool",
+        "Source",
+        "Supplier",
+        "TBPM",
+        "TKEY",
+        "TLEN",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "encoded_by",
+        "encoder",
+        "genre",
+        "id3v2_priv.http://www.cdtag.com",
+        "language",
+        "publisher",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Donald's House - Bassian Plain (Alex Kassian Remix).mp3",
+      "sha256_before": "02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec",
+      "sha256_after": "02fd39f07455a0e0c10e0aff84276d46a994f534b775e7b46d3b1692395ea4ec",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "483.213333",
+          "tags": {
+            "artist": "Donald's House",
+            "TBPM": "132",
+            "genre": "Deep House",
+            "title": "Bassian Plain (Alex Kassian Remix)"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BEATPORT_RELEASE_ID",
+        "BEATPORT_TRACK_ID",
+        "CATALOGNUMBER",
+        "TBPM",
+        "TKEY",
+        "TPE4",
+        "TSRC",
+        "TYER",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Fee Lion, Kontravoid - Blood Sisters - Kontravoid Remix.mp3",
+      "sha256_before": "ad77a2839e8a1207867d7a9498b8b7ef192f7a18e2e10581c02129cec71f96cb",
+      "sha256_after": "ad77a2839e8a1207867d7a9498b8b7ef192f7a18e2e10581c02129cec71f96cb",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "324.349542",
+          "tags": {
+            "artist": "Fee Lion/Kontravoid",
+            "genre": "Darkwave",
+            "title": "Blood Sisters - Kontravoid Remix"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TSRC",
+        "TYER",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "copyright",
+        "disc",
+        "encoded_by",
+        "encoder",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Fred Again.., Skepta - Victory Lap (Rios Edit) (Dirty) 8A 150.mp3",
+      "sha256_before": "622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c",
+      "sha256_after": "622b5c46adcff47d0834fa3f6b4727833b78337c86d5e6b2e4a853769f9b706c",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "284.842378",
+          "tags": {
+            "artist": "Fred Again.., Skepta",
+            "TBPM": "150",
+            "genre": "Bass House, Latin",
+            "title": "505 Rios - Victory Lap"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "EnergyLevel",
+        "SERATO_PLAYCOUNT",
+        "TBPM",
+        "TKEY",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/LAZA - ☆ Lobo-guará (feat. PATIBULL & dry) ☆.mp3",
+      "sha256_before": "1e33dfc7dff6ea876fdf88416decc37ed25ce5fc23310da6a1166d4d81b6dc3f",
+      "sha256_after": "1e33dfc7dff6ea876fdf88416decc37ed25ce5fc23310da6a1166d4d81b6dc3f",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "193.500000",
+          "tags": {
+            "title": "09 Lobo-guará (feat. Patibull & Dry) ",
+            "artist": "LAZA"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Laroze - Wildest Desire [www.slider.kz].mp3",
+      "sha256_before": "5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161",
+      "sha256_after": "5c14ad63ead29257845ca73b14f926f876594378b9b8d38c5283f9c2b1cc2161",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "306.063673",
+          "tags": {
+            "title": "Laroze - Wildest Desire [www.slider.kz]",
+            "TBPM": "135"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "SERATO_PLAYCOUNT",
+        "TBPM",
+        "TKEY",
+        "encoder",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Lemon8 - Triple Funk.mp3",
+      "sha256_before": "b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "sha256_after": "b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "479.986667",
+          "tags": {
+            "title": "Triple Funk",
+            "artist": "Lemon8",
+            "genre": "House, Progressive House",
+            "TBPM": "132"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "CATALOGNUMBER",
+        "ID3v1 Comment",
+        "LABEL",
+        "MOOD",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "TBPM",
+        "TDOR",
+        "TIPL",
+        "TKEY",
+        "TMED",
+        "album",
+        "album_artist",
+        "artist",
+        "category",
+        "comment",
+        "compilation",
+        "country",
+        "date",
+        "disc",
+        "encoded_by",
+        "genre",
+        "grouping",
+        "id",
+        "lyrics-XXX",
+        "online_id",
+        "publisher",
+        "style",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Life Is Trippy (Original Mix).mp3",
+      "sha256_before": "c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde",
+      "sha256_after": "c3db9c0d5e51987bbf15394b6fda1447843c222881d3fdec12974f04a89dedde",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "307.565714",
+          "tags": {
+            "title": "Life Is Trippy (Original Mix)",
+            "artist": "Nyra",
+            "genre": "Nu Disco",
+            "TBPM": "127"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "EnergyLevel",
+        "Key",
+        "TBPM",
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "id3v2_priv.TRAKTOR4",
+        "publisher",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/LinaPary x Naxxo - Te va a encantar.mp3",
+      "sha256_before": "8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75",
+      "sha256_after": "8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "257.073923",
+          "tags": {
+            "title": "LinaPary x Naxxo - Te va a encantar",
+            "artist": "LinaPary x Naxxo",
+            "genre": "Club",
+            "TBPM": "136"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "ID3v1 Comment",
+        "TBPM",
+        "TKEY",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "id3v2_priv.TRAKTOR4",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/MELÔ DAS TURBINADAS (FREE DOWNLOAD).mp3",
+      "sha256_before": "920c4d4655b568b8fa42e23eddce44d549d13c3ae8d904ba2ccb80d4c5758c94",
+      "sha256_after": "920c4d4655b568b8fa42e23eddce44d549d13c3ae8d904ba2ccb80d4c5758c94",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "274.285714",
+          "tags": {
+            "title": "02 Joao Lagrima de Ouro - Melo Das Turbinadas",
+            "genre": "LAGRIMA DE OURO"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "comment",
+        "encoder",
+        "genre",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Marius Acke - Tell Me.mp3",
+      "sha256_before": "8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af",
+      "sha256_after": "8391705a467437496f66115ca72fc40118984627487841eb054d3b60c90d00af",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "372.375510",
+          "tags": {
+            "title": "Tell Me",
+            "artist": "Marius Acke",
+            "genre": "House"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "EnergyLevel",
+        "TKEY",
+        "album",
+        "artist",
+        "comment",
+        "genre",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Nick León & Merca Bae - ☆ Modor ☆.mp3",
+      "sha256_before": "5c9d6ab0385555b8c65802297c5428bddc08f0f65cf95eac49f5c0c32198a5fb",
+      "sha256_after": "5c9d6ab0385555b8c65802297c5428bddc08f0f65cf95eac49f5c0c32198a5fb",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "291.983991",
+          "tags": {
+            "title": "Nick León & Merca Bae - Modor",
+            "artist": "Nick León & Merca Bae"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Pancratio-artificial_intelligence.mp3",
+      "sha256_before": "9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23",
+      "sha256_after": "9a0b7e4a2ee927b640919f5ba4f2866bdb8c47190a14492c471a34e69aa7fb23",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "399.597438",
+          "tags": {
+            "genre": "House",
+            "title": "Artificial Intelligence",
+            "artist": "Pancratio"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "album",
+        "artist",
+        "comment",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Papi Chulo - Clap Freckles Remix.mp3",
+      "sha256_before": "059988f6b8a9c9d372d3c888c19b87c774cac74cf85247daaa0b80aa6b1ba454",
+      "sha256_after": "059988f6b8a9c9d372d3c888c19b87c774cac74cf85247daaa0b80aa6b1ba454",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "192.966500",
+          "tags": {
+            "TBPM": "130",
+            "title": "Clap Freckles - Papi Chulo ",
+            "artist": "Clap Freckles"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TBPM",
+        "TKEY",
+        "artist",
+        "date",
+        "encoded_by",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Physical Therapy - Genesis - 02 - Genesis (DJ SWISHA remix).mp3",
+      "sha256_before": "3bbd26a7fb9c96e8d8a5c767aa0493e3446511bf4f8913f8201198d5d60ed095",
+      "sha256_after": "3bbd26a7fb9c96e8d8a5c767aa0493e3446511bf4f8913f8201198d5d60ed095",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "233.070295",
+          "tags": {
+            "title": "Genesis (DJ SWISHA remix)",
+            "artist": "Physical Therapy"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BITRATE",
+        "CATALOG #",
+        "CATALOGNUMBER",
+        "CODEC",
+        "COMMENT",
+        "DATE FORMAT",
+        "FILESIZE",
+        "LABEL",
+        "MODE",
+        "MOOD",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "Rip Date",
+        "SAMPLERATE",
+        "Source",
+        "TMED",
+        "TORY",
+        "WWW",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "encoded_by",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Pino D’Angiò - Balla! - 01 - Un concerto da strapazzo.mp3",
+      "sha256_before": "057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582",
+      "sha256_after": "057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "232.714127",
+          "tags": {
+            "title": "Un concerto da strapazzo",
+            "artist": "Pino D’Angiò",
+            "genre": "Disco Italo-Disco",
+            "TBPM": "168"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "TBPM",
+        "TDOR",
+        "TKEY",
+        "TLEN",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Pino D’Angiò - Balla! - 02 - Una notte da impazzire.mp3",
+      "sha256_before": "61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c",
+      "sha256_after": "61ad6ef659daa0badf5d5440bc20003ea36a72c3ff3d994369d23010f67d5b2c",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "289.737143",
+          "tags": {
+            "title": "Una notte da impazzire",
+            "artist": "Pino D’Angiò",
+            "genre": "Disco;Italo-Disco",
+            "TBPM": "122"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "TBPM",
+        "TDOR",
+        "TKEY",
+        "TLEN",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Pino D’Angiò - Balla! - 09 - Donna in costruzione.mp3",
+      "sha256_before": "8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea",
+      "sha256_after": "8eb7b1bd1e00d07e30d1c94db797e8e3c223b675bf4969c26ed77265cd227dea",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "192.770748",
+          "tags": {
+            "title": "Donna in costruzione",
+            "artist": "Pino D’Angiò",
+            "genre": "Disco;Italo-Disco",
+            "TBPM": "116"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "TBPM",
+        "TDOR",
+        "TKEY",
+        "TLEN",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Pino D’Angiò - Balla! - 10 - Ma quale idea.mp3",
+      "sha256_before": "01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb",
+      "sha256_after": "01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "262.456599",
+          "tags": {
+            "title": "Ma quale idea",
+            "artist": "Pino D’Angiò",
+            "genre": "Disco;Italo-Disco",
+            "TBPM": "114"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "MusicBrainz Album Artist Id",
+        "MusicBrainz Album Id",
+        "MusicBrainz Album Release Country",
+        "MusicBrainz Album Status",
+        "MusicBrainz Album Type",
+        "MusicBrainz Artist Id",
+        "MusicBrainz Release Group Id",
+        "MusicBrainz Release Track Id",
+        "TBPM",
+        "TDOR",
+        "TKEY",
+        "TLEN",
+        "TMED",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Playboi Carti - @MEH (tom huna Edit).mp3",
+      "sha256_before": "fa1f9f5859dfa667286521de5ed261657f1cb254c9ce8ce140e83632d9d5dccd",
+      "sha256_after": "fa1f9f5859dfa667286521de5ed261657f1cb254c9ce8ce140e83632d9d5dccd",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "317.538481",
+          "tags": {
+            "title": "@MEH (tom huna Edit)",
+            "artist": "Playboi Carti"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Rahul.mp3 x Hazboy - Girls Gone Wild (MASTER).mp3",
+      "sha256_before": "b0290c23959aaa4819aec0e850657223f3f81d74f383c01b72cba5cb708a785a",
+      "sha256_after": "b0290c23959aaa4819aec0e850657223f3f81d74f383c01b72cba5cb708a785a",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "183.268141",
+          "tags": {
+            "title": "Rahul.mp3 x Hazboy - Girls Gone Wild"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "encoder",
+        "title"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Revivis - Surrender The Body EP - 04 - Ruminating.mp3",
+      "sha256_before": "70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e",
+      "sha256_after": "70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "357.903673",
+          "tags": {
+            "title": "Ruminating",
+            "artist": "Revivis",
+            "genre": "Electro"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "BARCODE",
+        "TKEY",
+        "TLEN",
+        "TSRC",
+        "album",
+        "album_artist",
+        "artist",
+        "date",
+        "disc",
+        "genre",
+        "publisher",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Various Artists - RIOS - DESKONTROLATE.mp3",
+      "sha256_before": "62d2f8d483a33faee1d4ab7066ede8f26e5c71cae2f89d629b55f8f65ddc6489",
+      "sha256_after": "62d2f8d483a33faee1d4ab7066ede8f26e5c71cae2f89d629b55f8f65ddc6489",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "231.874989",
+          "tags": {
+            "title": "05 Rios - Deskontrolate",
+            "artist": "RIOS",
+            "genre": "Latincore"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "genre",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Ynfynyt Scroll - YSX - 02 Só Dança.mp3",
+      "sha256_before": "ac2c0857aeb7f66e18424f72e7d101ed03e948c824a12d36698ff45a4a29722e",
+      "sha256_after": "ac2c0857aeb7f66e18424f72e7d101ed03e948c824a12d36698ff45a4a29722e",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "166.956531",
+          "tags": {
+            "title": "03 Ynfynyt Scroll - Só Dança",
+            "artist": "Ynfynyt Scroll"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Ynfynyt Scroll - YSX - 08 FYN.mp3",
+      "sha256_before": "5748dd4e5256ab60a75d390f45cfdc3ef6b6b75b96a5ceec9289e392ad6a3ef3",
+      "sha256_after": "5748dd4e5256ab60a75d390f45cfdc3ef6b6b75b96a5ceec9289e392ad6a3ef3",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "264.344558",
+          "tags": {
+            "title": "Ynfynyt Scroll - FYN",
+            "artist": "Ynfynyt Scroll"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Ynfynyt Scroll - YSX - 105 Papito Chulo.mp3",
+      "sha256_before": "e4f20ec3009bfeb6d2859d8ada9efaecd19390f500c4b1ecc7ecde2106242623",
+      "sha256_after": "e4f20ec3009bfeb6d2859d8ada9efaecd19390f500c4b1ecc7ecde2106242623",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "202.314059",
+          "tags": {
+            "title": "Ynfynyt Scroll - Papito Chulo",
+            "artist": "Ynfynyt Scroll"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Ynfynyt Scroll - YSX - 96 Cochinear.mp3",
+      "sha256_before": "a00d31d2cee1b6feb59efe4ff74a85eb150d0b7527c6d12179cb9949840a18bb",
+      "sha256_after": "a00d31d2cee1b6feb59efe4ff74a85eb150d0b7527c6d12179cb9949840a18bb",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "207.853333",
+          "tags": {
+            "title": "Ynfynyt Scroll - Cochinear",
+            "artist": "Ynfynyt Scroll"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/Ynfynyt Scroll - Ynfynyt Scroll Summer '25 Mixtape - 04 Notion.mp3",
+      "sha256_before": "7a94199ca8e78da77973e9220aa6020b4005a2120343e5495916df0d43ebed3b",
+      "sha256_after": "7a94199ca8e78da77973e9220aa6020b4005a2120343e5495916df0d43ebed3b",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "194.782426",
+          "tags": {
+            "title": "Ynfynyt Scroll - Notion",
+            "artist": "Ynfynyt Scroll"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TKEY",
+        "album",
+        "album_artist",
+        "artist",
+        "comment",
+        "date",
+        "title",
+        "track"
+      ]
+    },
+    {
+      "path": "/Users/manuelalvarez/Documents/Projects/music-ai-projects/projects/dj-collection-set-builder/test_tracks_folder_mp3/kyoto - venetian blinds.mp3",
+      "sha256_before": "e57c98c9885d1484c4ea8b68c961ad8d19de4904168208e753e439776499c03d",
+      "sha256_after": "e57c98c9885d1484c4ea8b68c961ad8d19de4904168208e753e439776499c03d",
+      "returncode": 0,
+      "probe": {
+        "format": {
+          "duration": "273.874671",
+          "tags": {
+            "title": "Kyoto - Venetian Blinds",
+            "TBPM": "113"
+          }
+        }
+      },
+      "error": null,
+      "tag_keys": [
+        "TBPM",
+        "TKEY",
+        "encoder",
+        "id3v2_priv.TRAKTOR4",
+        "title"
+      ]
+    }
+  ]
+}

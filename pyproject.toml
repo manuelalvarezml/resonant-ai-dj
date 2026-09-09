@@ -1,0 +1,35 @@
+[project]
+name = "dj-collection-set-builder"
+version = "0.1.0"
+description = "Local DJ engine: analyze owned MP3s, then plan and render mixes."
+readme = "README.md"
+authors = [
+    { name = "Manuel Alvarez", email = "manuelalvarezml.dev@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "all-in-one-mlx>=1.0.6",
+    "beat-this>=1.1.0",
+    "demucs-mlx[convert]>=1.4.6",
+    "essentia==2.1b6.dev1389",
+    "librosa>=1.0.0",
+    "numpy>=2.5.2",
+    "pydantic>=2.13.5",
+    "pyloudnorm>=0.2.0",
+    "pytest>=9.1.1",
+    "soundfile>=0.14.0",
+    "typer>=0.27.2",
+]
+
+[project.scripts]
+dj-collection-set-builder = "dj_collection_set_builder.cli:app"
+dj-analyze = "dj_collection_set_builder.cli:app"
+dj-score = "dj_collection_set_builder.score_cli:app"
+dj-render = "dj_collection_set_builder.render_cli:app"
+
+[build-system]
+requires = ["uv_build>=0.10.8,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

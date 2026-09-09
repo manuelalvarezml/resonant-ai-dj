@@ -1,0 +1,1608 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-09-08",
+  "revision": "1.0",
+  "recommendation": "continue_discovery_no_full_build",
+  "authorization": {
+    "research": true,
+    "documentation": true,
+    "cloud_implementation": false,
+    "remote_audio": false,
+    "automatic_mixplan": false,
+    "playlist_development": "paused",
+    "outreach": false,
+    "spend": false,
+    "source": "D043"
+  },
+  "gates": [
+    {
+      "id": "G001",
+      "title": "Demand",
+      "status": "not_passed",
+      "owner": "Product owner",
+      "dependencies": [],
+      "evidence_needed": "EX001; dated customer evidence",
+      "pass_criteria": "At least 8/15 recurring DJ problem reports and 5/15 concrete follow-ups; then pilot retention/payment evidence",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G002",
+      "title": "Upload tolerance",
+      "status": "not_passed",
+      "owner": "Product/engineering",
+      "dependencies": [
+        "G001"
+      ],
+      "evidence_needed": "EX002; EX003",
+      "pass_criteria": "8/10 selected-crate activation; 95% interrupted recovery; no accepted corruption",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G003",
+      "title": "Storage and playback",
+      "status": "not_passed",
+      "owner": "Engineering",
+      "dependencies": [],
+      "evidence_needed": "EX003; EX004; provider quote",
+      "pass_criteria": "Private playback p95 start ≤3s and seek ≤2s on defined profile; acceptable bill",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G004",
+      "title": "Rights and license path",
+      "status": "not_passed",
+      "owner": "Owner with qualified counsel",
+      "dependencies": [],
+      "evidence_needed": "Written use/jurisdiction matrix and component review",
+      "pass_criteria": "Permitted launch uses and affordable component/model compliance path; no unresolved blocking license",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G005",
+      "title": "Analysis portability",
+      "status": "not_passed",
+      "owner": "Audio engineering",
+      "dependencies": [
+        "G004"
+      ],
+      "evidence_needed": "EX005",
+      "pass_criteria": "Pinned target worker succeeds within approved memory/time/cost and preserves estimate provenance",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G006",
+      "title": "Mix quality and reproducibility",
+      "status": "not_passed",
+      "owner": "Audio/product",
+      "dependencies": [
+        "G004",
+        "G005"
+      ],
+      "evidence_needed": "EX006; local headroom milestone",
+      "pass_criteria": "Approved headroom policy, broader blinded listening and same-environment reproducibility",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G007",
+      "title": "Security and deletion",
+      "status": "not_passed",
+      "owner": "Security reviewer",
+      "dependencies": [],
+      "evidence_needed": "EX004; EX007",
+      "pass_criteria": "Zero unauthorized access in two-tenant matrix; deletion/restore tombstones verified",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G008",
+      "title": "Economics",
+      "status": "not_passed",
+      "owner": "Owner/finance",
+      "dependencies": [
+        "G003",
+        "G005"
+      ],
+      "evidence_needed": "Measured workload and refreshed model",
+      "pass_criteria": "Agreed target margin, p95 quota economics and acquisition payback; all costs disclosed",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G009",
+      "title": "Operational readiness",
+      "status": "not_passed",
+      "owner": "Operations owner",
+      "dependencies": [
+        "G007"
+      ],
+      "evidence_needed": "EX007; runbook review",
+      "pass_criteria": "Budget stop, monitoring, recovery and support ownership rehearsed",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Evidence may be collected only within separately authorized scope"
+    },
+    {
+      "id": "G010",
+      "title": "Implementation authorization",
+      "status": "not_passed",
+      "owner": "Project owner",
+      "dependencies": [
+        "G001",
+        "G002",
+        "G003",
+        "G004",
+        "G007",
+        "G008",
+        "G009"
+      ],
+      "evidence_needed": "Explicit scope and budget decision",
+      "pass_criteria": "Named approved capabilities, provider, fixtures, caps and stop conditions; gates reviewed",
+      "observed_result": null,
+      "threshold_status": "proposed",
+      "scope_note": "Full-mix build additionally requires G006; spike authorization is a separate bounded decision"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "What legal entity and first customer countries are intended?",
+      "owner": "Owner",
+      "impact": "Rights, privacy, region and payment decisions",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q002",
+      "question": "Is the first paid value remote auditioning, crate preparation or finished mixes?",
+      "owner": "Owner/product",
+      "impact": "MVP and demand protocol",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q003",
+      "question": "What discovery/spike cash cap and operating budget are acceptable?",
+      "owner": "Owner",
+      "impact": "No expenditure currently authorized",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q004",
+      "question": "Which pilot cohort and browser/device should be supported first?",
+      "owner": "Owner/product",
+      "impact": "Recruitment and compatibility matrix",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q005",
+      "question": "What are actual library bytes, formats and additions for reachable customers?",
+      "owner": "Product research",
+      "impact": "Storage tail and upload design",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q006",
+      "question": "How much uploaded audio may be processed or retained by third-party workers?",
+      "owner": "Owner/privacy",
+      "impact": "Processor selection",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q007",
+      "question": "What commercial license strategy is viable for Essentia and all model/dependency artifacts?",
+      "owner": "Legal/audio",
+      "impact": "Analysis gate",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q008",
+      "question": "Which target OS/architecture can run approved analysis within cost and memory caps?",
+      "owner": "Audio engineering",
+      "impact": "Portability gate",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q009",
+      "question": "What final-bus true-peak/loudness policy will be accepted?",
+      "owner": "Owner/audio",
+      "impact": "Local engine and future delivery gate",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q010",
+      "question": "Which regions meet real client playback/upload targets?",
+      "owner": "Engineering",
+      "impact": "Provider comparison",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q011",
+      "question": "What source/mix/backup retention and deletion promise is acceptable?",
+      "owner": "Owner/legal",
+      "impact": "Cost, reproducibility and recovery",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q012",
+      "question": "What are actual worker minutes, retry rate, scratch peak and support minutes?",
+      "owner": "Engineering/operations",
+      "impact": "Economics",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q013",
+      "question": "What paid prices and quotas will customers accept?",
+      "owner": "Product",
+      "impact": "Demand and margin",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q014",
+      "question": "Are cue points/DJ format interoperability required for activation?",
+      "owner": "Product",
+      "impact": "Integration scope",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q015",
+      "question": "Can a regional S3 quote or existing credits change the shortlist?",
+      "owner": "Owner/engineering",
+      "impact": "Provider decision",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q016",
+      "question": "What descriptor annotation source can improve coverage with appropriate rights?",
+      "owner": "Audio/product",
+      "impact": "Semantic quality without fabrication",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Does not block independent desk research; blocks the dependent decision only"
+    }
+  ],
+  "risks": [
+    {
+      "id": "R001",
+      "title": "Weak differentiation",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Customer already satisfied by existing tools",
+      "mitigation": "EX001, compare actual alternative",
+      "gate": "G001",
+      "status": "open",
+      "owner": "Product research",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S027",
+        "S029",
+        "S031",
+        "S032",
+        "S033"
+      ]
+    },
+    {
+      "id": "R002",
+      "title": "Initial upload abandonment",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Long full-library transfer before value",
+      "mitigation": "Small crate first, resumable verified files",
+      "gate": "G002",
+      "status": "open",
+      "owner": "Product/engineering",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "economics/calculated.json"
+      ]
+    },
+    {
+      "id": "R003",
+      "title": "Rights to cloud copies/mixes unresolved",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "Private ownership mistaken for blanket rights",
+      "mitigation": "Use/jurisdiction legal matrix",
+      "gate": "G004",
+      "status": "open",
+      "owner": "Owner and counsel",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S040",
+        "S041",
+        "S042"
+      ]
+    },
+    {
+      "id": "R004",
+      "title": "Commercial dependency/model restrictions",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "License or artifact chain not cleared",
+      "mitigation": "SBOM + weight provenance + review",
+      "gate": "G004",
+      "status": "open",
+      "owner": "Owner and counsel",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S035",
+        "S036",
+        "S037",
+        "S038",
+        "S039"
+      ]
+    },
+    {
+      "id": "R005",
+      "title": "MLX cloud portability failure",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Local Apple path fails on target workers",
+      "mitigation": "Bounded target-runtime benchmark",
+      "gate": "G005",
+      "status": "open",
+      "owner": "Audio engineering",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S039",
+        "../../V1_ENGINE_PLAN.md"
+      ]
+    },
+    {
+      "id": "R006",
+      "title": "Memory/time amplification",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Compressed audio expands; internal demix exhausts resources",
+      "mitigation": "Process limits, capped fixtures, profiling",
+      "gate": "G005",
+      "status": "open",
+      "owner": "Audio engineering",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "../../V1_ENGINE_PLAN.md"
+      ]
+    },
+    {
+      "id": "R007",
+      "title": "Insufficient semantic evidence",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Prompt matches claim unknown mood/energy/vocals",
+      "mitigation": "Coverage reports and hard-filter semantics",
+      "gate": "G006",
+      "status": "open",
+      "owner": "Audio/product",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "../../DECISION_LOG.md"
+      ]
+    },
+    {
+      "id": "R008",
+      "title": "Mix clips or sounds poor",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Existing +1.04 dBTP and narrow listening evidence",
+      "mitigation": "Local headroom and broader listening gate",
+      "gate": "G006",
+      "status": "open",
+      "owner": "Audio/product",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "../../EXPERIMENT_LOG.md"
+      ]
+    },
+    {
+      "id": "R009",
+      "title": "Tenant data exposure",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "IDOR, signed link or cached object leaks",
+      "mitigation": "Two-tenant matrix, scoped capabilities",
+      "gate": "G007",
+      "status": "open",
+      "owner": "Security engineering",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S012",
+        "S043"
+      ]
+    },
+    {
+      "id": "R010",
+      "title": "Deletion races and resurrection",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "Worker/backup republishes deleted data",
+      "mitigation": "Fencing + tombstone restore rehearsal",
+      "gate": "G007",
+      "status": "open",
+      "owner": "Security/operations",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "OPERATIONS.md"
+      ]
+    },
+    {
+      "id": "R011",
+      "title": "Heavy-user economics",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Storage, streaming or renders exceed price",
+      "mitigation": "Byte/job quotas and p95 scenario",
+      "gate": "G008",
+      "status": "open",
+      "owner": "Owner/finance",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "economics/calculated.json"
+      ]
+    },
+    {
+      "id": "R012",
+      "title": "Upfront analysis cash cost",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Full collection processed before payment",
+      "mitigation": "Selective analysis; paid/limited onboarding",
+      "gate": "G008",
+      "status": "open",
+      "owner": "Owner/finance",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "economics/calculated.json"
+      ]
+    },
+    {
+      "id": "R013",
+      "title": "Double execution/billing",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Queue replay or ambiguous completion",
+      "mitigation": "Idempotency plus ledger reconciliation",
+      "gate": "G009",
+      "status": "open",
+      "owner": "Engineering/finance",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "CONTRACTS.md"
+      ]
+    },
+    {
+      "id": "R014",
+      "title": "Vendor suspension/outage",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Terms misuse, billing failure or region outage",
+      "mitigation": "Provider terms review and export/restore plan",
+      "gate": "G009",
+      "status": "open",
+      "owner": "Operations",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S006"
+      ]
+    },
+    {
+      "id": "R015",
+      "title": "Browser background limits",
+      "severity": "medium",
+      "likelihood": "unmeasured",
+      "trigger": "Sleep/restart prevents persistent sync",
+      "mitigation": "Explicit batch-import promises",
+      "gate": "G002",
+      "status": "open",
+      "owner": "Frontend engineering",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "PRODUCT_VALIDATION.md"
+      ]
+    },
+    {
+      "id": "R016",
+      "title": "Codec/seek incompatibility",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Direct original fails on target browser",
+      "mitigation": "Bounded codec matrix and derivatives",
+      "gate": "G003",
+      "status": "open",
+      "owner": "Frontend/audio",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S023",
+        "S024"
+      ]
+    },
+    {
+      "id": "R017",
+      "title": "Bad cost source or unit conversion",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Old rates, account allowances multiplied per user",
+      "mitigation": "Dated sources and formula audit",
+      "gate": "G008",
+      "status": "open",
+      "owner": "Research/finance",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "S001",
+        "S002",
+        "S003",
+        "S009",
+        "S010"
+      ]
+    },
+    {
+      "id": "R018",
+      "title": "Scope/authorization drift",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "Proposed contracts treated as approved build",
+      "mitigation": "D043, STATUS and gate record",
+      "gate": "G010",
+      "status": "open",
+      "owner": "Project owner",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "../../DECISION_LOG.md"
+      ]
+    },
+    {
+      "id": "R019",
+      "title": "Support load dominates margin",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Long uploads and data-loss anxiety need manual work",
+      "mitigation": "Measure support effort and scope promise",
+      "gate": "G008",
+      "status": "open",
+      "owner": "Product/operations",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "economics/inputs.json"
+      ]
+    },
+    {
+      "id": "R020",
+      "title": "Loss of originals or metadata",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "No recoverable backup or inconsistent reference",
+      "mitigation": "Independent restore and manifest verification",
+      "gate": "G009",
+      "status": "open",
+      "owner": "Operations",
+      "observations": [],
+      "review_trigger": "Relevant experiment, new evidence, scope change or gate review",
+      "evidence_refs": [
+        "OPERATIONS.md"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "id": "P001",
+      "path": "Full build immediately",
+      "status": "deferred",
+      "reason": "Unpassed demand, rights, security, portability and economics gates",
+      "reopen_condition": "All relevant gates and explicit implementation scope",
+      "gate": "G010",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "D043",
+        "STATUS.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P002",
+      "path": "Mandatory full-library upload before value",
+      "status": "not_recommended",
+      "reason": "Large transfer burden and no early benefit",
+      "reopen_condition": "Observed customers complete it and require full catalog initially",
+      "gate": "G002",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "economics/calculated.json"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P003",
+      "path": "Wasabi default active playback/scratch",
+      "status": "not_recommended",
+      "reason": "Recurring egress fit and minimum-duration costs conflict with churn/temporary artifacts",
+      "reopen_condition": "Written suitable terms and measured compliant traffic",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P004",
+      "path": "Archive tier for immediate playback",
+      "status": "not_recommended",
+      "reason": "Retrieval delay/fees undermine interactive service",
+      "reopen_condition": "Cold-only vault with separate hot working set",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S001",
+        "STORAGE_COMPARISON.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P005",
+      "path": "Public bucket or shared-link library",
+      "status": "rejected_for_scope",
+      "reason": "Breaks private product boundary and increases rights/security surface",
+      "reopen_condition": "Separate product/legal decision and threat model",
+      "gate": "G007",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "D042",
+        "SECURITY_RIGHTS.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P006",
+      "path": "Consumer Drive/Dropbox as pooled backend",
+      "status": "not_recommended",
+      "reason": "Consumer account, quota, OAuth and delivery assumptions unverified",
+      "reopen_condition": "Explicit commercial terms and adapter experiment",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "STORAGE_COMPARISON.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P007",
+      "path": "Long media job in request function",
+      "status": "not_recommended",
+      "reason": "Runtime/resource limits and request failure lifecycle",
+      "reopen_condition": "Measured bounded job below limits and safe retry semantics",
+      "gate": "G005",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S025",
+        "S026"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P008",
+      "path": "Unchanged MLX image on Linux",
+      "status": "unproven",
+      "reason": "Apple-specific runtime has no verified portability path",
+      "reopen_condition": "Pinned target architecture benchmark",
+      "gate": "G005",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S039"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P009",
+      "path": "Unlimited storage and renders",
+      "status": "not_recommended",
+      "reason": "No empirical tail-cost or abuse evidence",
+      "reopen_condition": "Measured economics and enforceable transparent limits",
+      "gate": "G008",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "economics/calculated.json"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P010",
+      "path": "Cross-user hash deduplication",
+      "status": "rejected_for_scope",
+      "reason": "Privacy/existence inference and ownership complexity",
+      "reopen_condition": "Separate privacy proof and material savings evidence",
+      "gate": "G007",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "SECURITY_RIGHTS.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P011",
+      "path": "HLS for every track at launch",
+      "status": "deferred",
+      "reason": "More artifacts and operational work before need is measured",
+      "reopen_condition": "Browser/network benchmark demonstrates benefit",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S023",
+        "S024"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P012",
+      "path": "Desktop/mobile sync application",
+      "status": "deferred",
+      "reason": "Explicit roadmap deferral and larger platform maintenance burden",
+      "reopen_condition": "Owner resumes app scope after web validation",
+      "gate": "G010",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "D042"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P013",
+      "path": "Automatic MixPlan generation now",
+      "status": "deferred",
+      "reason": "Explicit existing hold; renderer quality/integration gates unfinished",
+      "reopen_condition": "Separate owner authorization and G006",
+      "gate": "G006",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "D038",
+        "D042"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P014",
+      "path": "AI invents missing descriptors",
+      "status": "rejected_for_scope",
+      "reason": "Would violate evidence/provenance and hard constraints",
+      "reopen_condition": "Never for fabricated facts; licensed evaluated annotations are a distinct path",
+      "gate": "G006",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "D003",
+        "D014",
+        "D039",
+        "D040",
+        "D041"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P015",
+      "path": "Kubernetes, microservices, vector cluster first",
+      "status": "deferred",
+      "reason": "No measured scaling or relevance need",
+      "reopen_condition": "Resource/organization/retrieval evidence justifies complexity",
+      "gate": "G009",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "ARCHITECTURE.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P016",
+      "path": "Server analysis with end-to-end encryption claim",
+      "status": "rejected_for_scope",
+      "reason": "Server clear-audio processing contradicts that privacy promise",
+      "reopen_condition": "Distinct client-only/private-compute design with verified guarantees",
+      "gate": "G007",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "SECURITY_RIGHTS.md"
+      ],
+      "date": "2026-09-08"
+    },
+    {
+      "id": "P017",
+      "path": "Local-first / selective cloud",
+      "status": "retained_alternative",
+      "reason": "Reduces transfer friction when full library demand is weak",
+      "reopen_condition": "Activate if full-cloud upload/demand gates fail",
+      "gate": "G001",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "PRODUCT_VALIDATION.md"
+      ],
+      "date": "2026-09-08"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "CD001",
+      "title": "Keep cloud implementation deferred",
+      "status": "accepted_scope",
+      "evidence": "D043 and user task",
+      "rationale": "Desk research only; empirical gates unpassed",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": "D043 or stated inherited decision"
+    },
+    {
+      "id": "CD002",
+      "title": "DJ-first hypothesis, geography open",
+      "status": "proposed",
+      "evidence": "D042",
+      "rationale": "Minimize market scope without inventing geography",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD003",
+      "title": "B2/R2 shortlist with Spaces alternative",
+      "status": "proposed",
+      "evidence": "S001,S002,S009",
+      "rationale": "Cost/traffic tradeoff; no provider chosen",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD004",
+      "title": "Small crate before full library",
+      "status": "proposed",
+      "evidence": "Calculated upload scenarios",
+      "rationale": "Value before multi-day transfer",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD005",
+      "title": "Separate control plane and bounded workers",
+      "status": "proposed",
+      "evidence": "S025,S026; local runtime",
+      "rationale": "Different resource and failure requirements",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD006",
+      "title": "Immutable sources and tenant-local dedup",
+      "status": "proposed",
+      "evidence": "Existing preservation policy",
+      "rationale": "Integrity, provenance and privacy",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD007",
+      "title": "Private range playback before HLS",
+      "status": "proposed",
+      "evidence": "S023,S024",
+      "rationale": "Simpler tested path first",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD008",
+      "title": "Independent library and mix release gates",
+      "status": "proposed",
+      "evidence": "D038,D042",
+      "rationale": "Mix quality and rights carry separate risk",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD009",
+      "title": "No invented semantic evidence",
+      "status": "accepted_inherited",
+      "evidence": "D003,D014,D039,D040,D041",
+      "rationale": "Preserve exact authority and unknown semantics",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": "D043 or stated inherited decision"
+    },
+    {
+      "id": "CD010",
+      "title": "Append-only events with current register",
+      "status": "accepted_documentation",
+      "evidence": "Current research request",
+      "rationale": "Record steers, motives and supersessions without chat reconstruction",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": "D043 or stated inherited decision"
+    },
+    {
+      "id": "CD011",
+      "title": "Commercial license review before cloud analysis",
+      "status": "proposed",
+      "evidence": "S035-S039",
+      "rationale": "Local prototype is not deployment clearance",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    },
+    {
+      "id": "CD012",
+      "title": "Meter storage and processing separately",
+      "status": "proposed",
+      "evidence": "Economics scenario",
+      "rationale": "Bound tail cost and upfront processing exposure",
+      "date": "2026-09-08",
+      "supersedes": [],
+      "consequences": "See linked domain report and gate before implementation",
+      "approval_ref": null
+    }
+  ],
+  "experiments": [
+    {
+      "id": "EX001",
+      "title": "Customer workflow interviews",
+      "protocol": "PRODUCT_VALIDATION.md",
+      "owner": "Product owner",
+      "sample": "15 DJs + 5 collectors, two channels",
+      "limitation": "No outreach authorization; not run",
+      "gate": "G001",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX002",
+      "title": "Observed crate onboarding",
+      "protocol": "PRODUCT_VALIDATION.md",
+      "owner": "Product/UX",
+      "sample": "10 authorized participants; instrument abandonment/reselect",
+      "limitation": "Needs pilot scope and consent; not run",
+      "gate": "G002",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX003",
+      "title": "Storage upload/resume comparison",
+      "protocol": "STORAGE_COMPARISON.md",
+      "owner": "Engineering",
+      "sample": "Two shortlisted providers, capped licensed/generated fixtures",
+      "limitation": "No accounts or uploads authorized; not run",
+      "gate": "G003",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX004",
+      "title": "Playback and tenant authorization",
+      "protocol": "CONTRACTS.md",
+      "owner": "Engineering/security",
+      "sample": "Two tenants, ranges/codecs/TTL/cache matrix",
+      "limitation": "Needs bounded spike authorization; not run",
+      "gate": "G007",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX005",
+      "title": "Licensed analysis target-runtime benchmark",
+      "protocol": "ARCHITECTURE.md",
+      "owner": "Audio engineering",
+      "sample": "Pinned candidates; runtime/RAM/accuracy/cost manifests",
+      "limitation": "No remote analysis or model change authorized; not run",
+      "gate": "G005",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX006",
+      "title": "Render quality and reproducibility",
+      "protocol": "CONTRACTS.md",
+      "owner": "Audio/product",
+      "sample": "Headroom, bounded plans, repeated render, blinded listening",
+      "limitation": "Automatic planning and corpus renders remain held; not run",
+      "gate": "G006",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    },
+    {
+      "id": "EX007",
+      "title": "Failure injection and restore/deletion",
+      "protocol": "OPERATIONS.md",
+      "owner": "Operations/security",
+      "sample": "Replay jobs, crash, delete during job, restore tombstones",
+      "limitation": "Needs authorized environment; not run",
+      "gate": "G009",
+      "status": "not_run",
+      "authorization_ref": null,
+      "results": null,
+      "budget_cap": null,
+      "fixtures": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T001",
+      "title": "Storage desk comparison",
+      "dependencies": [],
+      "gates": [
+        "G003"
+      ],
+      "artifact": "STORAGE_COMPARISON.md",
+      "status": "done_research",
+      "owner": "unassigned",
+      "authorization_ref": "D043",
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T002",
+      "title": "Current source and gap inventory",
+      "dependencies": [
+        "T001"
+      ],
+      "gates": [],
+      "artifact": "SOURCES.md",
+      "status": "done_research",
+      "owner": "unassigned",
+      "authorization_ref": "D043",
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T003",
+      "title": "MVP and interview protocol",
+      "dependencies": [
+        "T001"
+      ],
+      "gates": [
+        "G001"
+      ],
+      "artifact": "PRODUCT_VALIDATION.md",
+      "status": "done_research",
+      "owner": "unassigned",
+      "authorization_ref": "D043",
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T004",
+      "title": "Resolve entity/geography/audience/budget",
+      "dependencies": [
+        "T003"
+      ],
+      "gates": [
+        "G004",
+        "G010"
+      ],
+      "artifact": "STATUS.md",
+      "status": "open",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T005",
+      "title": "Rights and component review packet",
+      "dependencies": [
+        "T004"
+      ],
+      "gates": [
+        "G004"
+      ],
+      "artifact": "SECURITY_RIGHTS.md",
+      "status": "draft_ready",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T006",
+      "title": "Architecture and contract draft",
+      "dependencies": [
+        "T001"
+      ],
+      "gates": [
+        "G003",
+        "G007"
+      ],
+      "artifact": "CONTRACTS.md",
+      "status": "done_research",
+      "owner": "unassigned",
+      "authorization_ref": "D043",
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T007",
+      "title": "Formula cost model and sensitivity",
+      "dependencies": [
+        "T001"
+      ],
+      "gates": [
+        "G008"
+      ],
+      "artifact": "UNIT_ECONOMICS.md",
+      "status": "done_research",
+      "owner": "unassigned",
+      "authorization_ref": "D043",
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T008",
+      "title": "Interviews and demand readout",
+      "dependencies": [
+        "T003",
+        "T004"
+      ],
+      "gates": [
+        "G001"
+      ],
+      "artifact": "PRODUCT_VALIDATION.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T009",
+      "title": "Authorize capped technical spike",
+      "dependencies": [
+        "T004",
+        "T005"
+      ],
+      "gates": [],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T010",
+      "title": "Provider upload/resume experiment",
+      "dependencies": [
+        "T009"
+      ],
+      "gates": [
+        "G002",
+        "G003"
+      ],
+      "artifact": "STORAGE_COMPARISON.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T011",
+      "title": "Private playback/security experiment",
+      "dependencies": [
+        "T010"
+      ],
+      "gates": [
+        "G003",
+        "G007"
+      ],
+      "artifact": "CONTRACTS.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T012",
+      "title": "License clearance and target analysis spike",
+      "dependencies": [
+        "T005",
+        "T009"
+      ],
+      "gates": [
+        "G004",
+        "G005"
+      ],
+      "artifact": "SECURITY_RIGHTS.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T013",
+      "title": "Local headroom and manual-set evidence",
+      "dependencies": [],
+      "gates": [
+        "G006"
+      ],
+      "artifact": "../../AGENTS.md",
+      "status": "separate_active_track",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T014",
+      "title": "Bounded render reproducibility/listening spike",
+      "dependencies": [
+        "T012",
+        "T013"
+      ],
+      "gates": [
+        "G006"
+      ],
+      "artifact": "CONTRACTS.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T015",
+      "title": "Recovery, failure injection and billing checks",
+      "dependencies": [
+        "T010",
+        "T011"
+      ],
+      "gates": [
+        "G007",
+        "G009"
+      ],
+      "artifact": "OPERATIONS.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T016",
+      "title": "Observed onboarding and paid pilot evaluation",
+      "dependencies": [
+        "T008",
+        "T011",
+        "T015"
+      ],
+      "gates": [
+        "G001",
+        "G002"
+      ],
+      "artifact": "PRODUCT_VALIDATION.md",
+      "status": "requires_authorization",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T017",
+      "title": "Measured economics and build/no-build memo",
+      "dependencies": [
+        "T007",
+        "T012",
+        "T016"
+      ],
+      "gates": [
+        "G008",
+        "G010"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "blocked_by_evidence",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T018",
+      "title": "Future account/library foundation",
+      "dependencies": [
+        "T017"
+      ],
+      "gates": [
+        "G010"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T019",
+      "title": "Future upload, browse and private playback",
+      "dependencies": [
+        "T018"
+      ],
+      "gates": [
+        "G003",
+        "G007"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T020",
+      "title": "Future descriptor/correction integration",
+      "dependencies": [
+        "T019",
+        "T012"
+      ],
+      "gates": [
+        "G005"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T021",
+      "title": "Future playlist integration",
+      "dependencies": [
+        "T020"
+      ],
+      "gates": [],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T022",
+      "title": "Future approved-plan rendering service",
+      "dependencies": [
+        "T020",
+        "T014"
+      ],
+      "gates": [
+        "G006"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T023",
+      "title": "Future automatic-plan proposal integration",
+      "dependencies": [
+        "T021",
+        "T022"
+      ],
+      "gates": [
+        "G006"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    },
+    {
+      "id": "T024",
+      "title": "Future external beta and launch readiness",
+      "dependencies": [
+        "T019",
+        "T015",
+        "T017"
+      ],
+      "gates": [
+        "G009",
+        "G010"
+      ],
+      "artifact": "DELIVERY_PLAN.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "estimate": null
+    }
+  ],
+  "failures": [
+    {
+      "id": "F001",
+      "date": "2026-09-08",
+      "category": "research_access",
+      "attempt": "Extract exact selected-region S3 prices",
+      "observed": "Dynamic rate cells did not yield a reliable selected-region quote",
+      "cause": "Dynamic/region-dependent content; not diagnosed beyond extraction",
+      "impact": "S3 cost remains unavailable",
+      "resolution": "Use official price quote/calculator after region is selected",
+      "status": "open",
+      "is_product_failure": false
+    },
+    {
+      "id": "F002",
+      "date": "2026-09-08",
+      "category": "research_access",
+      "attempt": "Extract Wasabi interactive pricing",
+      "observed": "Page displayed zero placeholders",
+      "cause": "Dynamic calculator",
+      "impact": "Cannot use placeholder as price",
+      "resolution": "Used dated official minimum-charge policy example at $7.99",
+      "status": "resolved_for_screening",
+      "is_product_failure": false
+    },
+    {
+      "id": "F003",
+      "date": "2026-09-08",
+      "category": "research_access",
+      "attempt": "Extract Lexicon paid plan amounts",
+      "observed": "Features present but dynamic amounts missing",
+      "cause": "Not established",
+      "impact": "No precise Lexicon price claim",
+      "resolution": "Retain feature comparison; verify checkout before price benchmarking",
+      "status": "open",
+      "is_product_failure": false
+    },
+    {
+      "id": "F004",
+      "date": "2026-09-08",
+      "category": "source_conflict",
+      "attempt": "Reconcile B2 pricing",
+      "observed": "Older sources quote $6/TB; current official page $6.95",
+      "cause": "Pricing changed",
+      "impact": "Old cost model understated storage",
+      "resolution": "S002/S003 adopted; old price rejected",
+      "status": "resolved",
+      "is_product_failure": false
+    },
+    {
+      "id": "F005",
+      "date": "2026-09-08",
+      "category": "source_conflict",
+      "attempt": "Reconcile Supabase storage rate",
+      "observed": "Billing overview rounds to $0.021; pricing page says $0.0213",
+      "cause": "Displayed precision differs; contractual invoice unverified",
+      "impact": "Use more precise current price with invoice caveat",
+      "resolution": "S010 controls current scenario",
+      "status": "resolved_for_screening",
+      "is_product_failure": false
+    }
+  ]
+}
