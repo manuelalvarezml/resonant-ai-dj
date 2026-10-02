@@ -115,3 +115,40 @@ def test_explicit_native_import_and_reject_wrong_input(tmp_path, capsys):
     analysis.write_text("[]")
     assert main(["import-dj", "--analysis", str(analysis), "--out", str(tmp_path / "invalid.json")]) == 2
     assert "must be a JSON object" in capsys.readouterr().err
+
+
+def test_analyze_folder_default_is_one_and_all_requires_explicit_flag(tmp_path, monkeypatch, capsys):
+    from types import SimpleNamespace
+    from prompt_to_playlist import analysis_pipeline
+
+    calls = []
+
+    def fake_analyze(**kwargs):
+        calls.append(kwargs)
+        output = tmp_path / "result.json"
+        return (
+            SimpleNamespace(
+                run_id="test-run",
+                selected_track_count=1,
+                failure_count=0,
+                source_hashes_unchanged=True,
+                source_inventory_unchanged=True,
+            ),
+            {"descriptors": output, "performance_json": output, "performance_markdown": output},
+        )
+
+    monkeypatch.setattr(analysis_pipeline, "analyze_folder", fake_analyze)
+    folder = tmp_path / "music"
+    folder.mkdir()
+    first_output = tmp_path / "one"
+    prior_output = tmp_path / "prior"
+    assert main([
+        "analyze-folder", "--folder", str(folder), "--output-dir", str(first_output),
+        "--reuse-from", str(prior_output),
+    ]) == 0
+    assert calls[-1]["max_tracks"] == 1
+    assert calls[-1]["reuse_from"] == [prior_output]
+    capsys.readouterr()
+    all_output = tmp_path / "all"
+    assert main(["analyze-folder", "--folder", str(folder), "--output-dir", str(all_output), "--all-tracks"]) == 0
+    assert calls[-1]["max_tracks"] is None

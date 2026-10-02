@@ -1,0 +1,391 @@
+{
+  "assets": [
+    {
+      "path": "voice_instrumental-msd-musicnn-1.pb",
+      "url": "https://essentia.upf.edu/models/classification-heads/voice_instrumental/voice_instrumental-msd-musicnn-1.pb",
+      "sha256": "eb762cc7ee6751b2ea32179d3716e2d60a1d1a9e615b7e3b8be8a6f79d71675e",
+      "size_bytes": 82458,
+      "stages": [
+        "vocal_musicnn"
+      ]
+    },
+    {
+      "path": "voice_instrumental-msd-musicnn-1.json",
+      "url": "https://essentia.upf.edu/models/classification-heads/voice_instrumental/voice_instrumental-msd-musicnn-1.json",
+      "sha256": "404e43517bbbe211c4fdb3d29febbfee86fecf8e4671ad630f9c1004e4cb8662",
+      "size_bytes": 1972,
+      "stages": [
+        "vocal_musicnn"
+      ]
+    },
+    {
+      "path": "mood_aggressive-audioset-vggish-1.pb",
+      "url": "https://essentia.upf.edu/models/classification-heads/mood_aggressive/mood_aggressive-audioset-vggish-1.pb",
+      "sha256": "134b529056c2ff7a62158c942cbcb636fb171a6ac2e7fc36f4bb5f5cbf855237",
+      "size_bytes": 53658,
+      "stages": [
+        "aggression_vggish"
+      ]
+    },
+    {
+      "path": "mood_aggressive-audioset-vggish-1.json",
+      "url": "https://essentia.upf.edu/models/classification-heads/mood_aggressive/mood_aggressive-audioset-vggish-1.json",
+      "sha256": "cbc9a070523294528e56e734be1dbbbf83aa4a8d8b57ad6bd9caf337e7bae321",
+      "size_bytes": 2354,
+      "stages": [
+        "aggression_vggish"
+      ]
+    },
+    {
+      "path": "audioset-vggish-3.pb",
+      "url": "https://essentia.upf.edu/models/feature-extractors/vggish/audioset-vggish-3.pb",
+      "sha256": "609458111eae0f1f608627be21b041d4bcf8eff98dcaaa4e55380b6e0ea5e2d0",
+      "size_bytes": 288596230,
+      "stages": [
+        "aggression_vggish"
+      ]
+    },
+    {
+      "path": "audioset-vggish-3.json",
+      "url": "https://essentia.upf.edu/models/feature-extractors/vggish/audioset-vggish-3.json",
+      "sha256": "21582679109409c18c1933a730d5156b8fa512abde260ff7678a1747c750cf32",
+      "size_bytes": 1798,
+      "stages": [
+        "aggression_vggish"
+      ]
+    },
+    {
+      "path": "msd-musicnn-1.pb",
+      "url": "https://essentia.upf.edu/models/feature-extractors/musicnn/msd-musicnn-1.pb",
+      "sha256": "cdea0722bcee7f731286843f2233e3aa69887bb5c3e2dce011eff55f38d04f3e",
+      "size_bytes": 3197999,
+      "stages": [
+        "vocal_musicnn"
+      ]
+    },
+    {
+      "path": "msd-musicnn-1.json",
+      "url": "https://essentia.upf.edu/models/feature-extractors/musicnn/msd-musicnn-1.json",
+      "sha256": "8e6b3b509f0610c0e65dce467fd459d6777509388eaddb13ed138d8ac1341ffe",
+      "size_bytes": 3299,
+      "stages": [
+        "vocal_musicnn"
+      ]
+    },
+    {
+      "path": "openmic-passt.pt",
+      "url": "https://github.com/kkoutini/PaSST/releases/download/v0.0.5/openmic-passt-s-f128-10sec-p16-s10-ap.85.pt",
+      "sha256": "dc229428753176e8be0373d25887116fc15b490af86f671cecf9ed76a0f287da",
+      "size_bytes": 341546630,
+      "stages": [
+        "instrument_passt"
+      ]
+    },
+    {
+      "path": "sheetsage/__init__.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/__init__.py",
+      "sha256": "19539a965cabf22d08231688efc15547d005e6345745f48684c2f02d010f82fd",
+      "size_bytes": 39,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/audio_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/audio_sheetsage2.py",
+      "sha256": "ecce56e7bb8a08cbca9eb27a74d9aeff17f55e80efcc7c48f7436440f610ccc1",
+      "size_bytes": 4289,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/benchmark_results.json",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/benchmark_results.json",
+      "sha256": "6a96828d333824c53ffd4b10c06a4565c4582dad01eb06fa328508f9db2b8ab1",
+      "size_bytes": 12330,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/chord_spelling_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/chord_spelling_sheetsage2.py",
+      "sha256": "5a673e3c8caa6d0a4cda19227ce5587c611a2bf85343f6bc623e3d66d99ed8b1",
+      "size_bytes": 9330,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/config.json",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/config.json",
+      "sha256": "a986e63f5d831ecb823c11d19cfb371d763f25ae2e614ec9acd714c0b8bb87fd",
+      "size_bytes": 2060,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/configuration_mert2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/configuration_mert2.py",
+      "sha256": "77b53ec9d7ee31a599d744fb006e812c7eeaf7390deb46e2f460cf8c17b00bd6",
+      "size_bytes": 3860,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/configuration_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/configuration_sheetsage2.py",
+      "sha256": "36d174331b3721d984608252830179bf3516d77b7225f413acc85bdf5efb3bec",
+      "size_bytes": 4119,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/durations_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/durations_sheetsage2.py",
+      "sha256": "abbc297b70b63a86f8509b1db74d0e85d7b46dcb83867cf33741c43f9d49db83",
+      "size_bytes": 296,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/exports_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/exports_sheetsage2.py",
+      "sha256": "11782cff50f96dac1bf1eedefed86b3cd60222e31b8456bee366eeb373b6a7e5",
+      "size_bytes": 10405,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/generation_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/generation_sheetsage2.py",
+      "sha256": "b58dbbfaebfba2a441a79b8c36183f0e4956acdd3aaf7c655c559933b4c20afd",
+      "size_bytes": 24722,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/infer.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/infer.py",
+      "sha256": "20e6b23c910bfdecf012a8ee8d45efcb31cb6cb21351da5921d95fb877e70de6",
+      "size_bytes": 4253,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/io_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/io_sheetsage2.py",
+      "sha256": "afb5b4d4a52b513b11cfdad40e7b9d2286dd4ff6585b89688dbb31b3d5376da6",
+      "size_bytes": 1830,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/labels_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/labels_sheetsage2.py",
+      "sha256": "4a80870695dd91da6070e7d8d0ce6b50f3bf71c3f629417a86cf12f4ef4f97e0",
+      "size_bytes": 978,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/midi_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/midi_sheetsage2.py",
+      "sha256": "32f80d13592c669e56683ebb4c415f13bf8278c8ad1fe43afa500347bed35099",
+      "size_bytes": 4230,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/model.safetensors",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/model.safetensors",
+      "sha256": "b235f68091a5f5b644000f2b5acb57d1e70432aca2b34ab1b9cf27236e1f4274",
+      "size_bytes": 228738564,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/modeling_mert2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/modeling_mert2.py",
+      "sha256": "b1a3174e5649c4b26b0c90d8626f0adacfbbba111a58ed3bb72ad651945a2f5c",
+      "size_bytes": 17081,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/modeling_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/modeling_sheetsage2.py",
+      "sha256": "df36bec866e4bd1f0a08e79369405c9a1bd86214a1c48559e75e3e567f43bbc4",
+      "size_bytes": 24602,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/notation_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/notation_sheetsage2.py",
+      "sha256": "f75f0e8b268cd9e9c622d791d3fd77d2e68ad355a4e67018c7e15aeb2bc05af7",
+      "size_bytes": 55775,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/pipeline_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/pipeline_sheetsage2.py",
+      "sha256": "0ae572554ca375323e2aa4ea1fb25ba27e7f4d520c0ba5b101d74930c0a66c33",
+      "size_bytes": 15022,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/processing_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/processing_sheetsage2.py",
+      "sha256": "b8dfa9f344ea7efab3ac9ec61f4c3bd0345f7a65d39a5c2c8b8a803689fdc393",
+      "size_bytes": 5346,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/processor_config.json",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/processor_config.json",
+      "sha256": "1eed73513a74029fe74c71faba70f8cff002ae7be23ac1c926125846d1b29817",
+      "size_bytes": 277,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/render.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/render.py",
+      "sha256": "446b18e0ba7250c8584c14bda241f8d063083cd10b1432de82c3cf56736af9de",
+      "size_bytes": 1927,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/rendering_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/rendering_sheetsage2.py",
+      "sha256": "ddbcaf314139d67727cb5df6840d7d60d671d5c67f6b185a26b840df1e2d9288",
+      "size_bytes": 15862,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/schema_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/schema_sheetsage2.py",
+      "sha256": "3ee069f0d4dcfb8080f730c43676318d471ab6b3cfef86c6c225aa63a9db182f",
+      "size_bytes": 3893,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/setup_render.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/setup_render.py",
+      "sha256": "8ee1004067f8e50443005a761d86435337f6ee71eeabf447d543eb5f3ad5561d",
+      "size_bytes": 1540,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/tensors_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/tensors_sheetsage2.py",
+      "sha256": "51f72b51ed5a22c751d5adf915198490b1a95ec8959fcf9a38ee71b4444fc8b3",
+      "size_bytes": 4645,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "sheetsage/tokenization_sheetsage2.py",
+      "url": "https://huggingface.co/m-a-p/SheetSage2/resolve/55bfe14e32d8b663629b3a86b0f3285c2ca5da0b/tokenization_sheetsage2.py",
+      "sha256": "2ad9f7734e3d9f750fe575f22fd9ec03a9a4ab52497a6314e76f53ed9024fa75",
+      "size_bytes": 30043,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/config.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/config.json",
+      "sha256": "f2e194895f58be3ddba327255db129ff0e3bee550cc0ecf08e4d22d79ce3bca3",
+      "size_bytes": 882,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/configuration_mert2.py",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/configuration_mert2.py",
+      "sha256": "77b53ec9d7ee31a599d744fb006e812c7eeaf7390deb46e2f460cf8c17b00bd6",
+      "size_bytes": 3860,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/marble_results.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/marble_results.json",
+      "sha256": "ced741a3d9684b551a2569c2206ba86911addd07a42df72d65b74e4288d4bd0e",
+      "size_bytes": 8997,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/model.safetensors",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/model.safetensors",
+      "sha256": "e6dd2ab187d6dd62b6521cd7d8f932e237acf0c5757745a7232082e28391350d",
+      "size_bytes": 2529812848,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/modeling_mert2.py",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/modeling_mert2.py",
+      "sha256": "b1a3174e5649c4b26b0c90d8626f0adacfbbba111a58ed3bb72ad651945a2f5c",
+      "size_bytes": 17081,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/preprocessor_config.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/preprocessor_config.json",
+      "sha256": "fc7337f113b71062b8efd03f8a43a07aa769ce85c6a53fdc0b3bb90c299fe63f",
+      "size_bytes": 215,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    },
+    {
+      "path": "mert-parent/weights_manifest.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v2-FullSong/resolve/d8ba1c745e733b3908ce6ad16ebeb17ac7600a42/weights_manifest.json",
+      "sha256": "413e2ddfa71ae5bb364bfd15364e221249111e14c2f0843ea6162afb776a8300",
+      "size_bytes": 241,
+      "stages": [
+        "key_sheetsage2"
+      ]
+    }
+  ]
+}

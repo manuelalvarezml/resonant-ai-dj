@@ -38,7 +38,7 @@ def test_configured_prompt_selects_specific_key_model_and_catalog(tmp_path, monk
     assert main(["prompt", "--config", str(config), "--text", "Two house tracks"]) == 0
     result = json.loads(capsys.readouterr().out)
     assert result["status"] == "matched" and len(result["result"]["matches"]) == 2
-    assert calls == [{"api_key": "fictional-test-key", "model": "fictional-model", "timeout_s": 30.0}]
+    assert calls == [{"api_key": "fictional-test-key", "model": "fictional-model", "timeout_s": 30.0, "intent_reasoning_effort": None}]
 
 
 def test_rules_override_does_not_read_configured_secret(tmp_path, monkeypatch, capsys):

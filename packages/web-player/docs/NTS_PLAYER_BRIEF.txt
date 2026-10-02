@@ -1,0 +1,43 @@
+The music player aesthetic is extremely restrained, editorial, and spatially confident. It feels less like a conventional streaming application and more like an independent digital radio interface or contemporary cultural publication that happens to play music.
+
+The overall composition relies heavily on open space, hard alignment, oversized typography, monochrome surfaces, and a deliberately sparse information hierarchy. The interface avoids the rounded cards, gradients, soft shadows, floating panels, glass effects, and dense control clusters associated with mainstream streaming apps. Elements generally sit directly on the page rather than appearing inside decorative containers.
+
+The player occupies a persistent architectural position within the interface rather than behaving like a temporary widget. Playback feels embedded into the layout itself. The listening state remains visually present while the surrounding page changes, creating the impression that the player is part of the application's structural frame.
+
+The live-player area is divided into clearly separated channel states. Each channel is identified with a very simple numerical or textual label, followed by the currently playing program or track information. Switching between channels feels closer to tuning between radio frequencies than choosing songs from a conventional library.
+
+Spatially, the interface favors horizontal organization. Playback information, channel identification, artwork, status text, and controls are distributed across the available width rather than compressed into a small centralized module. Large amounts of negative space separate functional areas. This makes individual pieces of information feel unusually prominent despite the small number of elements on screen.
+
+Typography provides most of the visual hierarchy. Large, bold sans-serif text identifies the primary listening state, while smaller utilitarian text communicates secondary information. Text alignment is strict and grid-based. There is little visual decoration around typography; scale, weight, spacing, and capitalization perform nearly all of the hierarchy.
+
+Artwork is treated as a strong geometric object rather than decorative background imagery. Images generally appear as clean rectangles or squares with hard edges and no shadows, corner rounding, overlays, or elaborate framing. The artwork can act as a visual counterweight to the text-heavy player, but it does not dominate the composition.
+
+Playback controls are intentionally minimal. The play/pause interaction is visually obvious but not embellished. Controls resemble functional interface symbols rather than polished media-player chrome. Icons and buttons maintain the same flat, graphic language as the rest of the page.
+
+The player communicates state very directly: live status, channel number, program title, track information, upcoming programming, and playback controls appear as independent typographic elements instead of being bundled into a conventional metadata card. Information therefore feels editorially typeset onto the page.
+
+Separators are usually created through alignment, whitespace, thin rules, or abrupt changes in block positioning rather than containers. Sections often meet with strong rectangular boundaries. The resulting visual rhythm resembles magazine layout, broadcast graphics, record-store ephemera, or early web interfaces interpreted through contemporary typography.
+
+The page uses a strong grid, but the grid does not feel symmetrical or conventionally centered. Important elements can sit close to edges, occupy unexpected amounts of horizontal space, or leave apparently excessive empty regions. This controlled imbalance contributes substantially to the visual identity.
+
+The visual hierarchy generally follows this order:
+
+1. Current listening state or program title.
+2. Channel identity and playback action.
+3. Artwork.
+4. Track or contextual metadata.
+5. Secondary listening information such as what is coming next.
+
+The interface feels intentionally raw without looking unfinished. It borrows some characteristics from utilitarian web design: plain backgrounds, visible structure, direct labels, rigid geometry, minimal transitions, and straightforward interaction states. These qualities are balanced by sophisticated spacing and typography, preventing the interface from becoming genuinely brutalist or amateur.
+
+Color plays a secondary role to composition. Much of the identity can survive entirely in black and white. When imagery introduces color, the surrounding UI remains restrained, allowing the artwork itself to become the primary color event.
+
+The player avoids the visual conventions of Spotify- or Apple Music-style applications. There is no prominent rounded bottom playback bar, no glossy album presentation, no dense row of transport controls, no decorative waveform dominating the screen, and no interface filled with miniature cards. Instead, playback information occupies real architectural space within the application.
+
+A key characteristic is the relationship between scale and scarcity: very few interface elements are visible at once, but those elements are given substantial room. A single title, image, channel number, or play symbol can occupy an unusually important position in the composition.
+
+The interface should feel like a digital radio station first and a software product second: immediate, culturally driven, slightly austere, highly typographic, and intentionally resistant to generic streaming-app aesthetics.
+
+The desired spatial impression is a large editorial canvas containing a persistent player system: generous empty space, strong left and edge alignment, large typographic anchors, rectangular artwork, extremely limited controls, clear separation between live channels, and metadata distributed through the page rather than enclosed inside a single player card.
+
+The resulting atmosphere is minimal but not sterile, experimental but highly legible, contemporary while retaining subtle references to independent radio, print publishing, record sleeves, broadcast systems, and early internet design.

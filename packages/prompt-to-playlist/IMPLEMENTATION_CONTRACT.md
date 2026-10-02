@@ -5,12 +5,23 @@ Historical build coordination. Implementation is complete; use `AGENTS.md`,
 run envelope is versioned `prompt-playlist/run`, and `ui` launches an optional
 native Tkinter desktop form.
 
-Standalone Python distribution, runtime dependency Pydantic v2 only. No imports
-from the DJ engine, no audio IO, no automatic MixPlan. Root owns models.py,
+The product is named PlaylistIQ as of P009 (2026-09-10). This historical
+contract retains the technical `prompt-playlist` identifiers. P012/P-E006 now
+implement a separate descriptor-extraction contract in package 0.3.0; it does
+not alter the historical catalog/query/search contract below.
+
+Standalone Python distribution; Pydantic v2 remains the only core dependency.
+Audio IO/model dependencies are isolated in the 0.3 `analysis` extra. No imports
+from the DJ engine and no automatic MixPlan. Root owns models.py,
 vocabulary.py, search.py, tools.py, service.py, tests for those, package setup
 and local interface. Provider agent owns translators.py and its tests.
 Adapter agent owns adapters.py, cli.py, examples and their tests. Documentation
 agent owns parent DJ/workspace documentation only.
+
+P-E007 adds SoundFile 0.14.0 explicitly to that extra because Beat This 1.1
+needs it as the lightweight MP3 fallback when Torchaudio 2.11 has no TorchCodec.
+The repair preserves the core Pydantic-only install and migrates otherwise
+valid pre-repair checkpoints during `--resume`.
 
 ## Python contract (root implements these)
 
@@ -98,3 +109,34 @@ avoid integration timing problems.
 Validation commands while developing: DJ .venv/bin/python -m pytest with
 PYTHONPATH pointing at standalone src. Root will create independent uv env and
 lockfile and run full suites. No real API calls, no corpus renders/reanalysis.
+
+## Descriptor extraction added after this historical contract
+
+Package 0.3.0 adds `analysis_models.py`, `model_assets.py`,
+`analysis_worker.py`, and `analysis_pipeline.py` plus the `analyze-folder` CLI.
+It writes a strict versioned sidecar and performance reports outside a selected
+source folder, uses sequential short-lived workers, and supports verified
+resume plus explicit verified cross-output reuse. `--reuse-from` requires a
+prior run whose source gates passed and imports only checkpoints matching audio
+hash, pipeline/tool/model/CPU identity into the new output. All-In-One is
+excluded. It does not merge estimates into `CatalogTrack`
+or change deterministic search. Current contracts and metrics are documented in
+[`docs/SCHEMAS.md`](docs/SCHEMAS.md) and
+[`docs/AUDIO_FEATURES.md`](docs/AUDIO_FEATURES.md); P-E006 records the bounded
+two-track result.
+
+## 2026-09-19 — PlaylistIQ Iteration 1 delivered
+
+Python 0.4.0 / player 0.3.0 now integrate `playlist-intent-v1.3` (configured low reasoning), `intent-compiler-v1.1`, `maest-intent-v1` ranking and `discogs-parents-v1`. Required genres use MAEST support; creative prompts use directional soft priorities. Genre OR/family matching, original-request clarification, per-track contributions and twenty-prompt review evidence are available. New result/catalog/translation/run writes use schema 0.2.0 and read historical 0.1.0.
+
+422 Python tests and 50 web tests pass. Final compiler replay passes all 20 intent/constraint checks; live revision failures are preserved, and final optional/HTTP checks pass. Human listening acceptance remains pending. No new audio analysis or cloud work; YAML is still a consideration task.
+
+See [implementation, prompt, contracts and verification](docs/ITERATION_1.md). This current checkpoint supersedes older descriptions of v3-only translation, flat genre ties and missing parent matching; dated older sections remain historical evidence.
+
+## 2026-09-25 — Selectable supervised feature estimators
+
+Music2Emo (MERT-95M + BTC/chord/key + J_all, corrected mode) and MusiCNN danceability are implemented as optional direct-feature challengers. The specialist reference remains default; MAEST top-six, MuQ and ranking weights are preserved. Complete compatible catalog coverage is required per challenger; otherwise everyone retains the reference. Two authorized sources passed six matched-window stages and zero-inference retries. Final checks: 481 Python tests, 80 web tests, 45 JS syntax modules, 28-file build, 40 exact fixed-query replays and one final successful live replay. One prior live intent proposal was rejected; no new listening judgments or superiority claim.
+
+Exactly two local cache records have both challengers. Original Chrome was observed at 109 unique tracks; its final updated display was not confirmed because native interaction was interrupted by active use. The new reload migration attaches richer same-hash optional caches to completed reference records. Isolated browser acceptance verified real values, retry, profile/scope, saved-result reopening, App Status and 390/320px controls. No batch/new-corpus inference, audio upload, cloud work, commit or format migration.
+
+Read [research, commands, failures, coverage and continuation](docs/SUPERVISED_ESTIMATORS.md). Historical sections/publication cutoffs below remain evidence for their original dates.

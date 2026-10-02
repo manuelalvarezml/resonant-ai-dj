@@ -1,0 +1,125 @@
+{
+  "version": "playlistiq-iteration1-v1",
+  "cases": [
+    {
+      "id": "P01",
+      "kind": "Sparse",
+      "prompt": "House.",
+      "check": "Does one word produce a useful interpretation without inventing extra constraints?"
+    },
+    {
+      "id": "P02",
+      "kind": "Simple",
+      "prompt": "Give me 8 house tracks.",
+      "check": "Check requested count and genre relevance; fewer is valid if the catalog cannot supply eight."
+    },
+    {
+      "id": "P03",
+      "kind": "Broad genre",
+      "prompt": "Give me 6 rock tracks.",
+      "check": "Check broad rock coverage across subgenres."
+    },
+    {
+      "id": "P04",
+      "kind": "Mood only",
+      "prompt": "Something relaxed and happy for a slow Sunday afternoon.",
+      "check": "Check whether mood stays a preference and the context is interpreted sensibly."
+    },
+    {
+      "id": "P05",
+      "kind": "Hard bounds",
+      "prompt": "Give me 8 house tracks between 120 and 128 BPM.",
+      "check": "Every returned tempo should respect the bounds; inspect empty or short results."
+    },
+    {
+      "id": "P06",
+      "kind": "Several preferences",
+      "prompt": "Give me 6 reggaeton tracks, preferably energetic and danceable.",
+      "check": "Check genre eligibility separately from the strength of energy/danceability ranking."
+    },
+    {
+      "id": "P07",
+      "kind": "Negative constraint",
+      "prompt": "Give me 6 house tracks, but no techno.",
+      "check": "Check exclusion handling and explanations; unknown negative evidence may legitimately restrict results."
+    },
+    {
+      "id": "P08",
+      "kind": "Casual Spanish",
+      "prompt": "Ponme unas 8 canciones de reggaetón para bailar, alegres pero no demasiado agresivas.",
+      "check": "Check language, quantity, mood and negative preference interpretation."
+    },
+    {
+      "id": "P09",
+      "kind": "Contradictory",
+      "prompt": "Give me 10 tracks that are below 100 BPM and above 130 BPM at the same time.",
+      "check": "Should explain the contradiction or ask for clarification, never silently ignore one bound."
+    },
+    {
+      "id": "P10",
+      "kind": "Out of scope",
+      "prompt": "Make a 30-minute journey from ambient into peak-time techno, with smooth harmonic transitions and no repeated artists.",
+      "check": "Check honest handling of duration, sequencing, harmonic mixing and artist-diversity requests that are not fully supported."
+    },
+    {
+      "id": "P11",
+      "kind": "Picnic",
+      "prompt": "Playlist for a picnic with my girlfriend.",
+      "check": "Soft relaxed context; no invented genre, BPM or personal taste."
+    },
+    {
+      "id": "P12",
+      "kind": "Night party",
+      "prompt": "Playlist for my birthday party in the night to make the room dance.",
+      "check": "Prioritize danceability and energy, without invented BPM bounds."
+    },
+    {
+      "id": "P13",
+      "kind": "Heartbreak",
+      "prompt": "Heartbroken music after a breakup.",
+      "check": "Sad acoustic mood; do not promise breakup lyrics."
+    },
+    {
+      "id": "P14",
+      "kind": "Recipient",
+      "prompt": "Music for my mom.",
+      "check": "Ask one useful taste/mood question; no demographic stereotype."
+    },
+    {
+      "id": "P15",
+      "kind": "Alternatives",
+      "prompt": "Give me 8 rock or pop tracks.",
+      "check": "One OR genre group, not both genres required on each track."
+    },
+    {
+      "id": "P16",
+      "kind": "Lower intensity",
+      "prompt": "Something relaxed, less aggressive, for reading.",
+      "check": "Decrease aggression; unknown evidence must not count as low aggression."
+    },
+    {
+      "id": "P17",
+      "kind": "Lyrics",
+      "prompt": "Only songs with lyrics about breaking up.",
+      "check": "Unsupported explicit lyric requirement blocks retrieval."
+    },
+    {
+      "id": "P18",
+      "kind": "Spanish context",
+      "prompt": "Música para un picnic tranquilo con mi novia.",
+      "check": "A soft contextual interpretation in Spanish."
+    },
+    {
+      "id": "P19",
+      "kind": "Explicit ordering",
+      "prompt": "Give me 5 house tracks from 120 to 130 BPM, ordered by increasing BPM.",
+      "check": "Preserve genre, count, bounds and requested tempo ordering."
+    },
+    {
+      "id": "P20",
+      "kind": "Optional unknown",
+      "prompt": "Relaxed music, preferably familiar favorites.",
+      "check": "Disclose missing familiarity evidence; a supported draft may still be offered."
+    }
+  ]
+}

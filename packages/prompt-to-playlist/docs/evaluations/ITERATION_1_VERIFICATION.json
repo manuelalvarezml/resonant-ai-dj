@@ -1,0 +1,298 @@
+{
+  "date": "2026-09-19",
+  "suite": "playlistiq-iteration1-v1",
+  "catalog_tracks": 108,
+  "model": "gpt-5.4-mini-2026-03-17",
+  "prompt_version": "playlist-intent-v1.3",
+  "reasoning_effort": "low",
+  "compiler_version": "intent-compiler-v1.1",
+  "ranking_version": "maest-intent-v1",
+  "taxonomy_version": "discogs-parents-v1",
+  "live_suite_before_duplicate_normalization": {
+    "passed": 19,
+    "cases": 20,
+    "failure": "P20 duplicate soft preferences; stopped by compiler"
+  },
+  "final_compiler_replay": {
+    "passed": 20,
+    "cases": 20,
+    "source": "output/iteration1-final-compiler-replay.json"
+  },
+  "final_live_optional": {
+    "passed": true,
+    "failures": [],
+    "scope": "contract/intent checks only; human listening pending"
+  },
+  "http_bridge": "passed; original request + answer, two ranked results, schema 0.2.0",
+  "unit_tests": {
+    "python": 422,
+    "web": 50,
+    "parent": 54
+  },
+  "browser": {
+    "flow": "clarification → answer → explained draft → save IDs → generated-audio playback → reload persistence",
+    "fixture": "isolated recorded-plan fixture; no listening-quality claim",
+    "widths": [
+      1280,
+      390,
+      320
+    ],
+    "mobile_document_overflow": false
+  },
+  "listening_acceptance": "pending human verdicts",
+  "genre_ablation": {
+    "genres_with_two_or_more_candidates": 85,
+    "top10_order_changed": 70
+  },
+  "live_latency_seconds": {
+    "median": 2.921,
+    "maximum": 9.646
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "prompt": "House.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P02",
+      "prompt": "Give me 8 house tracks.",
+      "status": "matched",
+      "matches": 8,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P03",
+      "prompt": "Give me 6 rock tracks.",
+      "status": "matched",
+      "matches": 6,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P04",
+      "prompt": "Something relaxed and happy for a slow Sunday afternoon.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P05",
+      "prompt": "Give me 8 house tracks between 120 and 128 BPM.",
+      "status": "matched",
+      "matches": 8,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P06",
+      "prompt": "Give me 6 reggaeton tracks, preferably energetic and danceable.",
+      "status": "matched",
+      "matches": 6,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P07",
+      "prompt": "Give me 6 house tracks, but no techno.",
+      "status": "no_matches",
+      "matches": 0,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P08",
+      "prompt": "Ponme unas 8 canciones de reggaetón para bailar, alegres pero no demasiado agresivas.",
+      "status": "matched",
+      "matches": 8,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P09",
+      "prompt": "Give me 10 tracks that are below 100 BPM and above 130 BPM at the same time.",
+      "status": "needs_clarification",
+      "matches": 0,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P10",
+      "prompt": "Make a 30-minute journey from ambient into peak-time techno, with smooth harmonic transitions and no repeated artists.",
+      "status": "needs_clarification",
+      "matches": 0,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P11",
+      "prompt": "Playlist for a picnic with my girlfriend.",
+      "status": "partial_support",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P12",
+      "prompt": "Playlist for my birthday party in the night to make the room dance.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P13",
+      "prompt": "Heartbroken music after a breakup.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P14",
+      "prompt": "Music for my mom.",
+      "status": "needs_clarification",
+      "matches": 0,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P15",
+      "prompt": "Give me 8 rock or pop tracks.",
+      "status": "matched",
+      "matches": 8,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P16",
+      "prompt": "Something relaxed, less aggressive, for reading.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P17",
+      "prompt": "Only songs with lyrics about breaking up.",
+      "status": "needs_clarification",
+      "matches": 0,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P18",
+      "prompt": "Música para un picnic tranquilo con mi novia.",
+      "status": "matched",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P19",
+      "prompt": "Give me 5 house tracks from 120 to 130 BPM, ordered by increasing BPM.",
+      "status": "matched",
+      "matches": 5,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    },
+    {
+      "id": "P20",
+      "prompt": "Relaxed music, preferably familiar favorites.",
+      "status": "partial_support",
+      "matches": 10,
+      "checks": {
+        "passed": true,
+        "failures": [],
+        "scope": "contract/intent checks only; human listening pending"
+      },
+      "listening_verdict": null
+    }
+  ],
+  "builds": {
+    "python": "0.4.0 wheel and source distribution built offline",
+    "web": "0.3.0 production manifest verified; 23 files; no source audio",
+    "syntax_modules": 32
+  }
+}

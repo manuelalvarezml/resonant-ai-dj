@@ -1,0 +1,47 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-13",
+  "package_version": "0.1.2",
+  "decision": "D059",
+  "experiment": "E048",
+  "unit_tests": {
+    "passed": 30,
+    "failed": 0,
+    "duration_ms": 121.807625
+  },
+  "syntax_modules": 13,
+  "production_http_checks": 15,
+  "build_files": 13,
+  "build_bytes": 232122,
+  "build_manifest_sha256": "11762b548184b32e686c498c67956bd21f82e17475c17d5f130c00565d219291",
+  "browser": "Codex in-app browser",
+  "responsive_widths_checked": [
+    1280,
+    390,
+    320
+  ],
+  "document_width_matches_viewport": true,
+  "local_import_rerun": false,
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false,
+  "actual_mobile_devices_tested": false,
+  "previous_verification": "verification-0.1.1.json",
+  "font_license": "OFL-1.1",
+  "runtime_remote_font_requests": false,
+  "local_revision": "R3",
+  "visible_font_minimum_px": 16,
+  "track_title_px": 18,
+  "shuffle_collection_verified": true,
+  "shuffle_filtered_collection_verified": true,
+  "shuffle_empty_disabled": true,
+  "library_information_verified": true,
+  "contained_scroll": {
+    "desktop_list_scroll": 161,
+    "mobile_list_scroll": 116,
+    "page_scroll": 0,
+    "list_height_at_320": 133,
+    "list_height_at_390": 237
+  },
+  "generated_demo_play_pause_verified": true
+}

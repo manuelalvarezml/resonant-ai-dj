@@ -1,0 +1,3 @@
+export const RELEASE_STAGES=['metadata','loudness','rhythm','semantic','genre_maest','semantic_audio','emotion_music2emo','vocal_musicnn','aggression_vggish','instrument_passt','key_sheetsage2'];
+export function fullyAnalyzed(f){return f?.feature_version==='selected-estimators-v3-character120'&&f.status==='complete'&&f.policy==='maest-top6-v1'&&RELEASE_STAGES.every(id=>f.algorithms?.some(a=>a.algorithm_id===id&&['passed','warning'].includes(a.status)))&&f.algorithms.some(a=>a.algorithm_id==='metadata'&&a.values?.codec==='mp3');}
+export function releaseFront(edition,requested){return edition==='web'||requested==='radio'||requested==='radio-wide'?'radio-wide':'studio';}

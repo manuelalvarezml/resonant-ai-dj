@@ -1,0 +1,648 @@
+{
+  "date": "2026-09-25",
+  "judgments": 0,
+  "candidate_count": 2,
+  "protocol": "seven fixed diagnostic scenes plus three recorded provider queries; no tuning",
+  "cases": [
+    {
+      "profile": "reference",
+      "case": "calm-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.237709
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.19093
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "energetic-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.568599
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.283582
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "intimate-evening",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.185573
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.129565
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "picnic",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.373696
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.288891
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "heartbreak",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.238323
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.136759
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "celebration",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.082933
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.067927
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "dance-party",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.809395
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.414665
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "recorded-plan-1",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.632031
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.208556
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "recorded-plan-2",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.342055
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.320309
+        }
+      ]
+    },
+    {
+      "profile": "reference",
+      "case": "recorded-plan-3",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.791576
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.365266
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "calm-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.498352
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.149398
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "energetic-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.725009
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.288757
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "intimate-evening",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.369888
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.097498
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "picnic",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.477629
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.388277
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "heartbreak",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.46586
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.13837
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "celebration",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.589595
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.155643
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "dance-party",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.869787
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.384081
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "recorded-plan-1",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.649158
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.174736
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "recorded-plan-2",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.425078
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.320809
+        }
+      ]
+    },
+    {
+      "profile": "music2emo",
+      "case": "recorded-plan-3",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.833851
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.343857
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "calm-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.237709
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.19093
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "energetic-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.560299
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.499348
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "intimate-evening",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.185573
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.129565
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "picnic",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.373696
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.288891
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "heartbreak",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.238323
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.136759
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "celebration",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.082933
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.067927
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "dance-party",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.796945
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.738314
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "recorded-plan-1",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.632031
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.208556
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "recorded-plan-2",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.342055
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.320309
+        }
+      ]
+    },
+    {
+      "profile": "musicnn-dance",
+      "case": "recorded-plan-3",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.782862
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.59182
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "calm-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.498352
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.149398
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "energetic-beach",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.716709
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.504523
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "intimate-evening",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.369888
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.097498
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "picnic",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.477629
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.388277
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "heartbreak",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.46586
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.13837
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "celebration",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.589595
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.155643
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "dance-party",
+      "exact_replay": true,
+      "ranking": "maest-intent-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.857337
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.70773
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "recorded-plan-1",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.649158
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.174736
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "recorded-plan-2",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.425078
+        },
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.320809
+        }
+      ]
+    },
+    {
+      "profile": "supervised",
+      "case": "recorded-plan-3",
+      "exact_replay": true,
+      "ranking": "hybrid-semantic-v1",
+      "matches": [
+        {
+          "track_id": "smoke-paradise",
+          "score": 0.825136
+        },
+        {
+          "track_id": "smoke-ocean",
+          "score": 0.570411
+        }
+      ]
+    }
+  ]
+}

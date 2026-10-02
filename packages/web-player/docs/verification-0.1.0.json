@@ -1,0 +1,35 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-12",
+  "package_version": "0.1.0",
+  "decision": "D054",
+  "experiment": "E042",
+  "local_experiment": "EX008",
+  "unit_tests": {
+    "passed": 30,
+    "failed": 0,
+    "duration_ms": 130.086583
+  },
+  "syntax_modules": 13,
+  "production_http_checks": 12,
+  "build_files": 10,
+  "build_bytes": 88376,
+  "build_manifest_sha256": "ebbcb2d8d2ff29ab5d122441cea1b193742f3e5ccd17dd4f799ecece2935c3ac",
+  "browser": "Codex in-app browser",
+  "responsive_widths_checked": [
+    1280,
+    390,
+    320
+  ],
+  "generated_audio_import": {
+    "saved": 1,
+    "rejected_corrupt": 1,
+    "playable_after_reload": true
+  },
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false,
+  "actual_mobile_devices_tested": false,
+  "export_payload_and_download_anchor_verified": true,
+  "filesystem_download_completion_verified": false
+}

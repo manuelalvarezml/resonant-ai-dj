@@ -1,0 +1,725 @@
+{
+  "version": "musical-character-v2-120",
+  "concepts": [
+    {
+      "id": "wistful",
+      "label": "wistful",
+      "dimension": "emotion",
+      "description": "Music with a wistful sense of longing for something absent."
+    },
+    {
+      "id": "melancholic",
+      "label": "melancholic",
+      "dimension": "emotion",
+      "description": "Music with a gently melancholy emotional character."
+    },
+    {
+      "id": "bittersweet",
+      "label": "bittersweet",
+      "dimension": "emotion",
+      "description": "Music that blends sweetness with an undercurrent of sadness."
+    },
+    {
+      "id": "nostalgic",
+      "label": "nostalgic",
+      "dimension": "emotion",
+      "description": "Music that evokes affectionate memories and a feeling of looking back."
+    },
+    {
+      "id": "tender",
+      "label": "tender",
+      "dimension": "emotion",
+      "description": "Music with a tender, caring emotional expression."
+    },
+    {
+      "id": "romantic",
+      "label": "romantic",
+      "dimension": "emotion",
+      "description": "Music with an affectionate romantic mood."
+    },
+    {
+      "id": "sensual",
+      "label": "sensual",
+      "dimension": "emotion",
+      "description": "Music with a sensual, alluring emotional character."
+    },
+    {
+      "id": "intimate",
+      "label": "intimate",
+      "dimension": "emotion",
+      "description": "Music with a close, personal and emotionally intimate atmosphere."
+    },
+    {
+      "id": "serene",
+      "label": "serene",
+      "dimension": "emotion",
+      "description": "Music with a serene feeling of inner peace."
+    },
+    {
+      "id": "contented",
+      "label": "contented",
+      "dimension": "emotion",
+      "description": "Music with a settled, quietly contented mood."
+    },
+    {
+      "id": "hopeful",
+      "label": "hopeful",
+      "dimension": "emotion",
+      "description": "Music with a hopeful sense of possibility."
+    },
+    {
+      "id": "uplifting",
+      "label": "uplifting",
+      "dimension": "emotion",
+      "description": "Music with an encouraging, emotionally uplifting character."
+    },
+    {
+      "id": "joyful",
+      "label": "joyful",
+      "dimension": "emotion",
+      "description": "Music expressing uncomplicated joy and delight."
+    },
+    {
+      "id": "euphoric",
+      "label": "euphoric",
+      "dimension": "emotion",
+      "description": "Music with an ecstatic, euphoric emotional quality."
+    },
+    {
+      "id": "celebratory",
+      "label": "celebratory",
+      "dimension": "emotion",
+      "description": "Music with a festive mood of shared celebration."
+    },
+    {
+      "id": "playful",
+      "label": "playful",
+      "dimension": "emotion",
+      "description": "Music with a playful, mischievous emotional character."
+    },
+    {
+      "id": "confident",
+      "label": "confident",
+      "dimension": "emotion",
+      "description": "Music with a confident, self-assured attitude."
+    },
+    {
+      "id": "triumphant",
+      "label": "triumphant",
+      "dimension": "emotion",
+      "description": "Music with a feeling of victory and triumph."
+    },
+    {
+      "id": "solemn",
+      "label": "solemn",
+      "dimension": "emotion",
+      "description": "Music with a solemn, serious emotional tone."
+    },
+    {
+      "id": "mournful",
+      "label": "mournful",
+      "dimension": "emotion",
+      "description": "Music with a grieving, mournful emotional expression."
+    },
+    {
+      "id": "lonely",
+      "label": "lonely",
+      "dimension": "emotion",
+      "description": "Music conveying loneliness and emotional isolation."
+    },
+    {
+      "id": "vulnerable",
+      "label": "vulnerable",
+      "dimension": "emotion",
+      "description": "Music with an exposed, emotionally vulnerable character."
+    },
+    {
+      "id": "yearning",
+      "label": "yearning",
+      "dimension": "emotion",
+      "description": "Music expressing an insistent desire or emotional yearning."
+    },
+    {
+      "id": "reflective",
+      "label": "reflective",
+      "dimension": "emotion",
+      "description": "Music with a thoughtful, inward-looking emotional character."
+    },
+    {
+      "id": "detached",
+      "label": "detached",
+      "dimension": "emotion",
+      "description": "Music with an emotionally distant, detached attitude."
+    },
+    {
+      "id": "brooding",
+      "label": "brooding",
+      "dimension": "emotion",
+      "description": "Music with a dark, brooding emotional atmosphere."
+    },
+    {
+      "id": "uneasy",
+      "label": "uneasy",
+      "dimension": "emotion",
+      "description": "Music with an unsettled, uneasy emotional feeling."
+    },
+    {
+      "id": "suspenseful",
+      "label": "suspenseful",
+      "dimension": "emotion",
+      "description": "Music that creates suspense and anticipation."
+    },
+    {
+      "id": "angry",
+      "label": "angry",
+      "dimension": "emotion",
+      "description": "Music expressing anger and confrontation."
+    },
+    {
+      "id": "defiant",
+      "label": "defiant",
+      "dimension": "emotion",
+      "description": "Music with a rebellious, defiant emotional attitude."
+    },
+    {
+      "id": "straight_pulse",
+      "label": "straight pulse",
+      "dimension": "groove",
+      "description": "Music with an even, straight rhythmic pulse."
+    },
+    {
+      "id": "four_on_the_floor",
+      "label": "four on the floor",
+      "dimension": "groove",
+      "description": "Music with a kick drum marking every beat in a steady dance groove."
+    },
+    {
+      "id": "offbeat_pulse",
+      "label": "offbeat pulse",
+      "dimension": "groove",
+      "description": "Music with prominent accents between the main beats."
+    },
+    {
+      "id": "syncopated",
+      "label": "syncopated",
+      "dimension": "groove",
+      "description": "Music with rhythmic accents that play against the expected beat."
+    },
+    {
+      "id": "swinging",
+      "label": "swinging",
+      "dimension": "groove",
+      "description": "Music with a swinging rhythm and unevenly spaced subdivisions."
+    },
+    {
+      "id": "shuffling",
+      "label": "shuffling",
+      "dimension": "groove",
+      "description": "Music with a continuous shuffle feel in its rhythmic subdivisions."
+    },
+    {
+      "id": "bouncy",
+      "label": "bouncy",
+      "dimension": "groove",
+      "description": "Music with a buoyant, springy rhythmic groove."
+    },
+    {
+      "id": "rolling",
+      "label": "rolling",
+      "dimension": "groove",
+      "description": "Music with a smoothly rolling rhythmic groove."
+    },
+    {
+      "id": "loping",
+      "label": "loping",
+      "dimension": "groove",
+      "description": "Music with a loping rhythm that rocks forward in long, uneven strides."
+    },
+    {
+      "id": "strutting",
+      "label": "strutting",
+      "dimension": "groove",
+      "description": "Music with a swaggering, strutting rhythmic feel."
+    },
+    {
+      "id": "laid_back",
+      "label": "laid back",
+      "dimension": "groove",
+      "description": "Music with a laid-back groove that feels behind the beat."
+    },
+    {
+      "id": "propulsive",
+      "label": "propulsive",
+      "dimension": "groove",
+      "description": "Music with a rhythm that insistently pushes forward."
+    },
+    {
+      "id": "stomping",
+      "label": "stomping",
+      "dimension": "groove",
+      "description": "Music with a heavy, stamping rhythmic pulse."
+    },
+    {
+      "id": "skipping",
+      "label": "skipping",
+      "dimension": "groove",
+      "description": "Music with a light, skipping rhythmic pattern."
+    },
+    {
+      "id": "jerky",
+      "label": "jerky",
+      "dimension": "groove",
+      "description": "Music with an angular, stop-start rhythmic feel."
+    },
+    {
+      "id": "broken_beat",
+      "label": "broken beat",
+      "dimension": "groove",
+      "description": "Music with a broken drum pattern rather than an even kick on every beat."
+    },
+    {
+      "id": "half_time",
+      "label": "half time",
+      "dimension": "groove",
+      "description": "Music with a spacious half-time drum feel and widely separated backbeats."
+    },
+    {
+      "id": "backbeat",
+      "label": "backbeat",
+      "dimension": "groove",
+      "description": "Music with a clearly accented snare backbeat."
+    },
+    {
+      "id": "polyrhythmic",
+      "label": "polyrhythmic",
+      "dimension": "groove",
+      "description": "Music with interlocking rhythmic patterns that suggest different pulses."
+    },
+    {
+      "id": "hand_percussion_groove",
+      "label": "hand percussion groove",
+      "dimension": "groove",
+      "description": "Music whose groove is carried by interlocking hand percussion."
+    },
+    {
+      "id": "repetitive_groove",
+      "label": "repetitive groove",
+      "dimension": "groove",
+      "description": "Music with a persistent rhythmic pattern repeated with small variations."
+    },
+    {
+      "id": "fluid_rhythm",
+      "label": "fluid rhythm",
+      "dimension": "groove",
+      "description": "Music with a fluid rhythm that changes naturally rather than repeating rigidly."
+    },
+    {
+      "id": "free_rhythm",
+      "label": "free rhythm",
+      "dimension": "groove",
+      "description": "Music with freely unfolding timing and no regular rhythmic pulse."
+    },
+    {
+      "id": "waltzing",
+      "label": "waltzing",
+      "dimension": "groove",
+      "description": "Music with a swaying rhythm grouped into three beats."
+    },
+    {
+      "id": "dancefloor",
+      "label": "dancefloor",
+      "dimension": "groove",
+      "description": "Music with a pronounced groove that invites sustained dancing."
+    },
+    {
+      "id": "dreamy",
+      "label": "dreamy",
+      "dimension": "texture",
+      "description": "Music with soft, dreamlike sonic textures."
+    },
+    {
+      "id": "shimmering",
+      "label": "shimmering",
+      "dimension": "texture",
+      "description": "Music with shimmering, glistening high-frequency textures."
+    },
+    {
+      "id": "hazy",
+      "label": "hazy",
+      "dimension": "texture",
+      "description": "Music with blurred, hazy sonic edges."
+    },
+    {
+      "id": "airy",
+      "label": "airy",
+      "dimension": "texture",
+      "description": "Music with light, airy instrumental textures."
+    },
+    {
+      "id": "warm",
+      "label": "warm",
+      "dimension": "texture",
+      "description": "Music with warm, rounded timbres."
+    },
+    {
+      "id": "bright",
+      "label": "bright",
+      "dimension": "texture",
+      "description": "Music with bright, clear-edged timbres."
+    },
+    {
+      "id": "dark_toned",
+      "label": "dark toned",
+      "dimension": "texture",
+      "description": "Music with dark, low-toned instrumental colors."
+    },
+    {
+      "id": "metallic",
+      "label": "metallic",
+      "dimension": "texture",
+      "description": "Music with ringing, metallic timbres."
+    },
+    {
+      "id": "glassy",
+      "label": "glassy",
+      "dimension": "texture",
+      "description": "Music with clear, glass-like synthetic tones."
+    },
+    {
+      "id": "velvety",
+      "label": "velvety",
+      "dimension": "texture",
+      "description": "Music with smooth, velvety instrumental tones."
+    },
+    {
+      "id": "gritty",
+      "label": "gritty",
+      "dimension": "texture",
+      "description": "Music with a grainy, gritty sonic texture."
+    },
+    {
+      "id": "distorted",
+      "label": "distorted",
+      "dimension": "texture",
+      "description": "Music with audibly distorted instrumental sounds."
+    },
+    {
+      "id": "fuzzy",
+      "label": "fuzzy",
+      "dimension": "texture",
+      "description": "Music with a fuzzy, softly saturated sound."
+    },
+    {
+      "id": "crisp",
+      "label": "crisp",
+      "dimension": "texture",
+      "description": "Music with crisp, sharply defined sound attacks."
+    },
+    {
+      "id": "soft_edged",
+      "label": "soft edged",
+      "dimension": "texture",
+      "description": "Music with softened attacks and gently rounded sound edges."
+    },
+    {
+      "id": "woody",
+      "label": "woody",
+      "dimension": "texture",
+      "description": "Music with resonant, woody instrumental timbres."
+    },
+    {
+      "id": "breathy",
+      "label": "breathy",
+      "dimension": "texture",
+      "description": "Music with audible breath and breathy instrumental or vocal tones."
+    },
+    {
+      "id": "acoustic",
+      "label": "acoustic",
+      "dimension": "texture",
+      "description": "Music dominated by the resonances of acoustic instruments."
+    },
+    {
+      "id": "electronic",
+      "label": "electronic",
+      "dimension": "texture",
+      "description": "Music with synthesized electronic textures and programmed sounds."
+    },
+    {
+      "id": "analog_synth",
+      "label": "analog synth",
+      "dimension": "texture",
+      "description": "Music with rounded, gently drifting analog synthesizer tones."
+    },
+    {
+      "id": "plucked",
+      "label": "plucked",
+      "dimension": "texture",
+      "description": "Music with prominent plucked-string textures and short resonant decays."
+    },
+    {
+      "id": "bowed",
+      "label": "bowed",
+      "dimension": "texture",
+      "description": "Music with sustained bowed-string textures."
+    },
+    {
+      "id": "percussive",
+      "label": "percussive",
+      "dimension": "texture",
+      "description": "Music whose sonic texture emphasizes struck and percussive sounds."
+    },
+    {
+      "id": "bass_rich",
+      "label": "bass rich",
+      "dimension": "texture",
+      "description": "Music with a prominent, full low-frequency texture."
+    },
+    {
+      "id": "choral",
+      "label": "choral",
+      "dimension": "texture",
+      "description": "Music with blended, sustained layers of human voices."
+    },
+    {
+      "id": "restrained",
+      "label": "restrained",
+      "dimension": "intensity",
+      "description": "Music with a restrained level of force and emphasis."
+    },
+    {
+      "id": "gentle",
+      "label": "gentle",
+      "dimension": "intensity",
+      "description": "Music played with gentle force and delicate emphasis."
+    },
+    {
+      "id": "calm",
+      "label": "calm",
+      "dimension": "intensity",
+      "description": "Music with a calm, unhurried level of activity."
+    },
+    {
+      "id": "sedate",
+      "label": "sedate",
+      "dimension": "intensity",
+      "description": "Music with very little kinetic energy or urgency."
+    },
+    {
+      "id": "moderate_energy",
+      "label": "moderate energy",
+      "dimension": "intensity",
+      "description": "Music with a moderate, steady level of energy."
+    },
+    {
+      "id": "animated",
+      "label": "animated",
+      "dimension": "intensity",
+      "description": "Music with an animated, lively level of activity."
+    },
+    {
+      "id": "energetic",
+      "label": "energetic",
+      "dimension": "intensity",
+      "description": "Music with vigorous, sustained energy."
+    },
+    {
+      "id": "explosive",
+      "label": "explosive",
+      "dimension": "intensity",
+      "description": "Music with sudden explosive bursts of force."
+    },
+    {
+      "id": "fierce",
+      "label": "fierce",
+      "dimension": "intensity",
+      "description": "Music delivered with fierce, forceful intensity."
+    },
+    {
+      "id": "relentless",
+      "label": "relentless",
+      "dimension": "intensity",
+      "description": "Music that maintains unrelenting intensity with little respite."
+    },
+    {
+      "id": "urgent",
+      "label": "urgent",
+      "dimension": "intensity",
+      "description": "Music with a strong sense of urgency."
+    },
+    {
+      "id": "leisurely",
+      "label": "leisurely",
+      "dimension": "intensity",
+      "description": "Music that unfolds at a leisurely pace without pressure."
+    },
+    {
+      "id": "simmering",
+      "label": "simmering",
+      "dimension": "intensity",
+      "description": "Music with contained intensity that feels ready to rise."
+    },
+    {
+      "id": "surging",
+      "label": "surging",
+      "dimension": "intensity",
+      "description": "Music whose intensity repeatedly swells and recedes."
+    },
+    {
+      "id": "building",
+      "label": "building",
+      "dimension": "intensity",
+      "description": "Music that gradually increases in intensity."
+    },
+    {
+      "id": "subsiding",
+      "label": "subsiding",
+      "dimension": "intensity",
+      "description": "Music that gradually settles and loses intensity."
+    },
+    {
+      "id": "even_intensity",
+      "label": "even intensity",
+      "dimension": "intensity",
+      "description": "Music that maintains a consistent level of intensity."
+    },
+    {
+      "id": "contrasting_dynamics",
+      "label": "contrasting dynamics",
+      "dimension": "intensity",
+      "description": "Music with strong contrasts between restrained and forceful passages."
+    },
+    {
+      "id": "light_touch",
+      "label": "light touch",
+      "dimension": "intensity",
+      "description": "Music performed with a light touch and little physical weight."
+    },
+    {
+      "id": "heavy_impact",
+      "label": "heavy impact",
+      "dimension": "intensity",
+      "description": "Music with weighty attacks and a strong sense of physical impact."
+    },
+    {
+      "id": "sparse",
+      "label": "sparse",
+      "dimension": "space_arrangement",
+      "description": "Music with few simultaneous parts and substantial gaps between sounds."
+    },
+    {
+      "id": "dense",
+      "label": "dense",
+      "dimension": "space_arrangement",
+      "description": "Music with many simultaneous parts filling the arrangement."
+    },
+    {
+      "id": "minimal",
+      "label": "minimal",
+      "dimension": "space_arrangement",
+      "description": "Music built from a small number of recurring musical elements."
+    },
+    {
+      "id": "layered",
+      "label": "layered",
+      "dimension": "space_arrangement",
+      "description": "Music with several clearly overlapping instrumental layers."
+    },
+    {
+      "id": "lush",
+      "label": "lush",
+      "dimension": "space_arrangement",
+      "description": "Music with rich, enveloping layers of harmony."
+    },
+    {
+      "id": "spacious",
+      "label": "spacious",
+      "dimension": "space_arrangement",
+      "description": "Music with a pronounced sense of space around individual sounds."
+    },
+    {
+      "id": "close_dry",
+      "label": "close dry",
+      "dimension": "space_arrangement",
+      "description": "Music with close, dry sounds and little audible reverberation."
+    },
+    {
+      "id": "reverberant",
+      "label": "reverberant",
+      "dimension": "space_arrangement",
+      "description": "Music with long reverberant tails around voices or instruments."
+    },
+    {
+      "id": "echoing",
+      "label": "echoing",
+      "dimension": "space_arrangement",
+      "description": "Music with clearly audible repeating echoes."
+    },
+    {
+      "id": "distant",
+      "label": "distant",
+      "dimension": "space_arrangement",
+      "description": "Music with sounds that seem distant and set back in the arrangement."
+    },
+    {
+      "id": "foreground_vocal",
+      "label": "foreground vocal",
+      "dimension": "space_arrangement",
+      "description": "Music with the lead voice prominently forward in the arrangement."
+    },
+    {
+      "id": "blended_vocal",
+      "label": "blended vocal",
+      "dimension": "space_arrangement",
+      "description": "Music with vocals blended into the instrumental background."
+    },
+    {
+      "id": "call_and_response",
+      "label": "call and response",
+      "dimension": "space_arrangement",
+      "description": "Music arranged as alternating calls and answering musical phrases."
+    },
+    {
+      "id": "drone_based",
+      "label": "drone based",
+      "dimension": "space_arrangement",
+      "description": "Music organized around a continuous sustained drone."
+    },
+    {
+      "id": "arpeggiated",
+      "label": "arpeggiated",
+      "dimension": "space_arrangement",
+      "description": "Music with repeating arpeggios outlining its harmonies."
+    },
+    {
+      "id": "chordal",
+      "label": "chordal",
+      "dimension": "space_arrangement",
+      "description": "Music organized around sustained or repeated blocks of chords."
+    },
+    {
+      "id": "interlocking_lines",
+      "label": "interlocking lines",
+      "dimension": "space_arrangement",
+      "description": "Music with separate melodic lines that interlock and answer one another."
+    },
+    {
+      "id": "long_sustained_tones",
+      "label": "long sustained tones",
+      "dimension": "space_arrangement",
+      "description": "Music with an arrangement dominated by long, sustained tones."
+    },
+    {
+      "id": "short_detached_notes",
+      "label": "short detached notes",
+      "dimension": "space_arrangement",
+      "description": "Music with an arrangement dominated by short, separated notes."
+    },
+    {
+      "id": "evolving_arrangement",
+      "label": "evolving arrangement",
+      "dimension": "space_arrangement",
+      "description": "Music whose arrangement gradually changes as parts enter and leave."
+    }
+  ]
+}

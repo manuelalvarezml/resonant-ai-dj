@@ -1,0 +1,97 @@
+{
+  "updated": "2026-10-01",
+  "summary": "Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimators. Musical character now compares 120 prepared descriptions against cached audio embeddings; a bank refresh reuses compatible audio vectors. Listening quality remains under evaluation.",
+  "sections": [
+    {
+      "title": "Available now",
+      "items": [
+        "Browser-saved audio, library search and sorting, favorites, playlists, queue, playback and live visualizations. Title, artist and album use embedded tags when available, with filename and Unknown artist fallbacks. Existing MP3s are refreshed on load with bounded ID3 reads; other formats use tags captured by analysis. App status shows metadata coverage for the loaded library.",
+        "Three interface options. Option 3 gives Your Library a larger visualization and a narrower song list; it otherwise follows Option 2. The compact Analysis player banner is shared by every other tab. Analysis puts playback, search and sort controls in its heading row; App status fills the available width with an asymmetric dashboard.",
+        "Analysis tab and optional feature columns show genres, BPM, key, loudness, arousal, mood, vocals, danceability and missing features.",
+        "Imports collect duplicates into one review: Replace, Keep both or Omit. Identical content and matching filenames are flagged. Replacement retains playlist references; changed audio clears old analysis.",
+        "PlaylistIQ Iteration 1 understands creative occasions and moods, asks a short clarification when taste is missing, explains its interpretation and assumptions, and saves results as playable playlists. Its listening lab has 24 prompts (the original twenty plus four scene cases) and captures original requests, answers, plans, queries, scores, candidates, timing and human verdicts.",
+        "Your Library and Analysis share session filters: inclusive manual BPM bounds, any selected top-six genres, key, analysis status and favorites. A live preview counts matches; missing requested features are excluded. Order by date added, title, artist, duration, BPM, Camelot key, top genre, LUFS or arousal, ascending or descending; missing values stay last. These browsing filters do not change the PlaylistIQ candidate pool or saved playlist order.",
+        "Analysis and PlaylistIQ use one entry per identical audio hash, preferring the most complete saved analysis. Existing library copies and saved playlist references are preserved. Every PlaylistIQ match has a Play button that starts it in the main player, with the matching results as its queue.",
+        "Every PlaylistIQ match explains its musical fit in plain language, its strongest contributions and main trade-off, eligibility, and rank. The score breakdown shows evidence, request or inferred priority, preference fit, weight and earned points on a 0–100 scale. Lower-is-better objectives, missing evidence, genre alternatives, tempo ordering and rounded totals are explained from the saved scoring record; no extra explanation-model request is needed.",
+        "Why this track also connects the original prompt and saved scene interpretation to possible listening roles for the scored audio qualities. It separates inferred occasion preferences from explicit requests and explains why matching calm/happy features can still miss the desired setting. Listening-notebook attempts can reopen their exact saved results without a new model request.",
+        "DJ mixes now renders saved or imported manual MixPlans from the existing DJ analysis collection. Listen while a single render prepares a lossless WAV and AAC listening copy. Completed mixes support seeking, download and verified cache reuse. Source hashes, duration and master/AAC peaks are checked. This local service does not automatically turn a PlaylistIQ playlist into a MixPlan.",
+        "Quality-selected specialist profile, one-track upgrade/retry, source-hash cache restoration and a specialist-only candidate scope. PaSST adds 20 separately attributed OpenMIC scores, including five additional instrument names. Exactly two authorized tracks have complete specialist coverage; no new bulk analysis was run.",
+        "Default pipeline acceptance on 2026-10-01: two tracks passed 22/22 fresh stages in 2:09 and 3:02, with peak worker RSS 3.6 GiB and zero-inference retries. HTTP analysis and Chrome display were verified. This is bounded execution evidence, not a guarantee for every source or a listening-quality verdict."
+      ]
+    },
+    {
+      "title": "Analysis models and tools",
+      "items": [
+        "Genre — MAEST Discogs519: discogs-maest-30s-pw-519l-2. Thirty-second patches; independent label scores averaged over patches. Match top 6, show top 3 expandable to 6, store all 519. No probability threshold and no human overrides.",
+        "Tempo, beats and downbeats — Beat This, final0.ckpt, CPU inference without DBN. Tempo and beat positions are estimates.",
+        "Expanded mood/theme and instruments — 56 Jamendo mood/theme labels and 40 instrument labels share Discogs-EffNet embeddings. All independent support scores and patch p10/p90 summaries are retained. Themes are not all emotions, and scores do not sum to 100%.",
+        "Musical character — pinned MuQ-MuLan audio embeddings from up to three ten-second windows, compared with 120 prepared text descriptions in five dimensions. Bank refreshes reuse compatible audio vectors and run only similarity arithmetic. Analysis shows two strongest matches per dimension; Details retains all scores and sample ranges. These display probes do not feed playlist ranking, and cosines are not probabilities.",
+        "Default direct estimators — pinned Music2Emo (MERT-95M, BTC chords/key, J_all multitask head with corrected mode) supplies 56 theme scores and raw 1–9 valence/arousal. Previous EffNet moods remain for comparison. MusiCNN danceability is a separate optional experiment. Full scores, windows, coverage and model versions remain visible.",
+        "Mood — quality selection retains EffNet happy/sad/relaxed and selects VGGish for aggression. Music2Emo supplies the selected 56 theme scores and raw valence/arousal; this does not add new emotion labels or prove better listening relevance.",
+        "Vocals and danceability — the quality profile selects the MusiCNN vocal head while retaining the stronger published EffNet danceability head. Per-target coverage must be complete across the compared candidates; otherwise everyone retains the reference for that target.",
+        "Arousal / energy — new analysis uses Music2Emo; older DEAM results remain readable but are no longer computed by Analyze Tracks. The quality profile requires compatible candidate coverage. Raw valence/arousal and their provisional 1–9 preference mappings remain auditable.",
+        "Key — SheetSage2 with MERT-v2 FullSong supplies the selected key, timed intervals and Camelot mapping when available. Whole-song CPU inference is implemented; the earlier Essentia EDMA result remains inspectable. Beat This remains the coherent beat/downbeat/tempo stage.",
+        "Loudness — FFmpeg loudnorm measures integrated LUFS, loudness range and true peak. Metadata and duration — ffprobe. These are tools rather than learned models.",
+        "The old Jamendo genre head is preserved as historical evidence and is excluded from the current genre path. All-In-One is not part of PlaylistIQ analysis.",
+        "PaSST OpenMIC instruments — released 20-class checkpoint, hear21passt 0.0.26, ten-second inputs within three sampled excerpts. Scores retain their own taxonomy and provenance; no averaging with Jamendo probabilities."
+      ]
+    },
+    {
+      "title": "How PlaylistIQ understands a prompt",
+      "ordered": true,
+      "items": [
+        "Loaded tracks with cached genre analysis become an evidence catalog. The vocabulary includes Discogs parent families and continuous mood, danceability, vocals and energy estimates.",
+        "One bounded OpenAI request per submission uses gpt-5.4-mini-2026-03-17 and playlist-intent-v1.6 with low reasoning. It receives your original prompt, clarification answers, vocabulary and aggregate evidence counts. Audio, track titles, IDs and feature vectors stay local.",
+        "A typed musical intent records occasion, activity, recipient, emotional goal, explicit hard requirements, directional soft preferences, priorities, assumptions and evidence gaps. Local intent-compiler-v1.2 validates source quotes and compiles the structured query.",
+        "The plan also preserves a concise English musical description and separate explicit negative descriptions. Spanish requests retain their scene interpretation and assumptions in Spanish. A local text encoder compares the descriptions with cached audio embeddings; no audio is sent to the planner.",
+        "A supported request produces a draft. Missing taste can trigger one question; answers retain the original request. Unsupported hard requirements stop retrieval. Optional evidence gaps can yield a clearly limited draft.",
+        "Hard eligibility preserves top-six MAEST genre membership, explicit BPM bounds and strict exclusions. Explicit genre alternatives use OR groups; broad Discogs families include their selected top-six descendants. Missing labels cannot prove an exclusion.",
+        "maest-intent-v1 ranks requested genres by MAEST support, including required genres. It uses the maximum matching style or family support. Directional preferences have primary/secondary/optional priorities. Missing evidence earns no credit. Genre/feature blend 65/35 and priority weights 3/2/1 are provisional; probabilities are not thresholds.",
+        "hybrid-semantic-v1 keeps hard eligibility first and explicit BPM ordering. With complete compatible eligible coverage, relative semantic rank contributes 30% and structured evidence 70%; semantic-only requests use relative rank alone. Negative descriptions are soft contrasts. New mood/theme, instrument and valence objectives are omitted for every candidate when eligible coverage is incomplete, so upgrading a subset cannot give it an unfair advantage. Missing coverage or encoding failure visibly retains structured ranking. These weights are provisional.",
+        "Results retain per-track score contributions, source labels, versions, digests and eligible IDs. Explicit BPM ordering is respected before truncation. Save playlist keeps ranked track IDs for ordinary playback. Listening quality still needs your review.",
+        "Feature estimators and candidate set are explicit controls. Quality-selected specialists is the default profile; All analyzed tracks is the default scope. Specialist tracks only selects complete specialist records. Each selected target requires compatible coverage across every candidate or everyone retains its reference. OpenMIC scores use a separate taxonomy. Weights remain unchanged; the notebook saves the exact profile, scope and results."
+      ]
+    },
+    {
+      "title": "Storage and recovery",
+      "items": [
+        "Audio and track features are saved in this browser’s IndexedDB. Playlists and preferences are browser-local. The same browser profile, hostname and port are required to see the same library.",
+        "The local Python service also saves feature JSON by source SHA-256 under output/web-features. All 519 genre scores remain there and in the browser record. Model files are pinned and hash-verified.",
+        "Audio is copied temporarily to the local service on this computer; original files remain untouched. Completed analysis checkpoints survive later failures and can be reused on retry.",
+        "Analyze tracks skips records complete under the current estimator version; old complete records receive an upgrade. Duplicate audio is processed once per batch. Track options can upgrade one track. Compatible stages are reused; failed upgrades preserve prior usable evidence and record the error. Loading or importing audio restores matching cached analysis when available. Restore saved batch scans all test_music subfolders, including new_albums, restores audio with or without analysis, skips identical files already loaded, verifies SHA-256, and attaches saved analysis where available without model inference. Missing analysis stays visibly absent. Original audio is preserved during recovery; the conversion button handles historical M4A separately.",
+        "PlaylistIQ uses the existing server-side API configuration. Credentials are not sent to the player. Browser storage is not a backup of your original files.",
+        "New feature records use selected-estimators-v3-character120; catalog/query results use schema 0.3.0 with older records readable. Cache history retains prior feature JSON when stages change. Semantic model identity, sampling policy, query vectors and score contributions support local replay.",
+        "Analyze Tracks runs all selected estimators sequentially. Music2Emo and previous EffNet moods are retained separately. MusiCNN danceability remains an optional Details experiment. Compatible stages are reused; failures preserve prior evidence and retry only missing or stale stages. Inference is offline."
+      ]
+    },
+    {
+      "title": "Visualization reference",
+      "items": [
+        "Isometric, Front, Mountain and Falling use live Web Audio FFT data; they do not read the saved analysis features. The axis labels use 11px theme typography with frequency ticks on a logarithmic Hz scale.",
+        "The vertical reference is FFT-bin magnitude in dBFS, displayed from −90 to 0. It is not LUFS or a sample/true-peak meter. Web Audio uses a Blackman window and temporal smoothing; two FFTs split at 350 Hz: 8192 samples below (~5–6 Hz spacing), 2048 samples at and above (~21.5–23.4 Hz, the nearest standard FFT setting to 20 Hz). Narrow display bands interpolate dB values between bins; wider bands retain peaks with interpolated boundaries. The bass window spans about 171–186 ms; the upper range spans 43–46 ms. The crossover is a display boundary, not an audio filter.",
+        "The dBFS scale references the newest slice. Historical perspective, falling motion and pause/start animation reposition older slices. Previous artistic magnitude taper has been removed so numeric dBFS labels correspond to the sampled spectrum.",
+        "Points use the restored 1.6× original baseline size, with no additional increment. Normal views retain 64 time slices, Falling 83. Vertical drawing span retains the 1.3× expansion where it fits, with headroom to keep the newest 0 dBFS reference on canvas."
+      ]
+    },
+    {
+      "title": "Known limits",
+      "items": [
+        "This is a local integration, not a deployed cloud service. Shared accounts, cloud audio storage and remote analysis are not connected.",
+        "The historical 37-track MAEST run had 33 results and four RAM-limit failures. These are historical experiment counts, not the current browser library’s status. Existing acoustic stages retain a 4096 MiB worker limit; the separately monitored MuQ worker uses 6000 MiB, one worker at a time.",
+        "The fresh genre-export crash was fixed; prior temporary results discarded by that crash require a retry. Invalid worker output is now reported as a failed stage instead of aborting the whole track.",
+        "Model estimates and preference scores are not calibrated certainty. Strict vocal/energy requirements and negative genre constraints may return no matches. Playlist order is not a validated DJ mix order.",
+        "Three sampled windows do not describe every moment. Similarity cannot establish lyrics, personal taste or scene acceptance. Models and fusion have not been calibrated against listening judgments. MuQ weights require a separate licensing review before commercial use."
+      ]
+    },
+    {
+      "title": "Next steps",
+      "items": [
+        "Finish reviewing the loaded library’s analysis and retry incomplete tracks; use the Analysis table to inspect exceptions.",
+        "Review the twenty-prompt PlaylistIQ lab on a fixed analyzed library, including picnic, birthday dancing, breakup mood and recipient clarification. Export your listening verdicts. Software checks do not replace musical-quality acceptance.",
+        "Prepare the private web/cloud trial after its hosting, storage, authentication and execution decisions are approved. Deployment and remote audio need a separate implementation step.",
+        "Keep MAEST top-six genre matching as the working policy. Revisiting the rule is a low-priority Later task, not a launch blocker.",
+        "Compare both retained mood estimators on listening prompts. Music2Emo selection does not prove listening superiority. FIGMA remains a future challenger. YAML versus JSON, diversity and personalization remain separate follow-ups."
+      ]
+    }
+  ]
+}

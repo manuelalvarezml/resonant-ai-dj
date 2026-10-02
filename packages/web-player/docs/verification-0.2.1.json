@@ -1,0 +1,30 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-13",
+  "package_version": "0.2.1",
+  "decision": "D062",
+  "experiment": "E050",
+  "syntax_modules": 13,
+  "production_http_checks": 15,
+  "unit_tests_rerun": false,
+  "previous_unit_test_evidence": "verification-0.2.0.json",
+  "build_files": 14,
+  "build_bytes": 248095,
+  "build_manifest_sha256": "e11478ae9b4c0e4ccdd3a83846d50648a9ef6e283c0ca81edb59593c78226965",
+  "browser_qa_performed": true,
+  "responsive_widths_checked": [
+    1280,
+    390,
+    320
+  ],
+  "live_front_switch_preserves_playback": true,
+  "radio_background_rgb": [
+    25,
+    25,
+    25
+  ],
+  "actual_mobile_devices_tested": false,
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false
+}

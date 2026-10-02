@@ -29,7 +29,7 @@ TOOLS = {
 
 
 def list_tools() -> list[dict]:
-    return [{"name": name, "version": "1", "description": description,
+    return [{"name": name, "version": "2" if name == "search_tracks" else "1", "description": description,
              "parameters": model.model_json_schema(), "read_only": True}
             for name, (model, description) in TOOLS.items()]
 

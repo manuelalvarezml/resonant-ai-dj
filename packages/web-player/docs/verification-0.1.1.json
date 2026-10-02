@@ -1,0 +1,44 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-12",
+  "package_version": "0.1.1",
+  "decision": "D057",
+  "experiment": "E045",
+  "local_experiment": "EX009",
+  "unit_tests": {
+    "passed": 30,
+    "failed": 0,
+    "duration_ms": 135.965458
+  },
+  "syntax_modules": 13,
+  "production_http_checks": 15,
+  "build_files": 13,
+  "build_bytes": 227407,
+  "build_manifest_sha256": "22e618b77c25de82b5fe0f3011e29fd702ff1c76662db7bcde4085f4debedaa7",
+  "browser": "Codex in-app browser",
+  "responsive_widths_checked": [
+    1280,
+    390,
+    320
+  ],
+  "document_width_matches_viewport": true,
+  "generated_demo_play_pause_seek_verified": true,
+  "playlist_creation_addition_persistence_verified": true,
+  "search_favorites_queue_verified": true,
+  "local_import_rerun": false,
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false,
+  "actual_mobile_devices_tested": false,
+  "previous_verification": "verification-0.1.0.json",
+  "font_license": "OFL-1.1",
+  "runtime_remote_font_requests": false,
+  "documentation_checks": {
+    "cloud_sources": 64,
+    "cloud_relative_links": 108,
+    "player_relative_links": 23,
+    "readiness_protocol_tests_passed": 20,
+    "errors": 0,
+    "git_diff_check": "passed"
+  }
+}

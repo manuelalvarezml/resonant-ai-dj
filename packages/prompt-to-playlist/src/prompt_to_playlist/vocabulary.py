@@ -32,6 +32,8 @@ def validate_query(query: PlaylistQuery, vocabulary: Vocabulary) -> PlaylistQuer
     query = PlaylistQuery.model_validate(query.model_dump())
     known = {item.id for item in vocabulary.descriptors}
     requested = set(query.required_tags + query.preferred_tags + query.excluded_tags)
+    requested.update(t for group in query.any_tag_groups for t in group)
+    requested.update(p.tag for p in query.preferences)
     if requested - known:
         raise ValueError(f"Unknown descriptor IDs: {', '.join(sorted(requested - known))}")
     return query

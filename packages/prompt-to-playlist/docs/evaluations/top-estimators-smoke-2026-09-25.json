@@ -1,0 +1,160 @@
+[
+  {
+    "track": "ocean",
+    "stage": "aggression_vggish",
+    "wall_s": 17.192252999986522,
+    "rss_mib": 3685.84375,
+    "swap_start_mib": 3383.875,
+    "swap_peak_mib": 3501.8125,
+    "output": [
+      [
+        "not_aggressive",
+        0.9611980517705282
+      ],
+      [
+        "aggressive",
+        0.03880192836125692
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "aggression_vggish-v1:47849f071f5ccb3dcf614069a1f5e6fd02e73ab47b8ed5831b22c7e9cc9a290f"
+  },
+  {
+    "track": "ocean",
+    "stage": "instrument_passt",
+    "wall_s": 12.944276791997254,
+    "rss_mib": 1284.65625,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": [
+      [
+        "synthesizer",
+        0.5077501502301958
+      ],
+      [
+        "cymbals",
+        0.30073173178566825
+      ],
+      [
+        "mallet_percussion",
+        0.18699517432186338
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "instrument_passt-v1:2db5f70bfabc1c727078cc6479a6e13e8a9a420d438072e697a84d7dff1d2842"
+  },
+  {
+    "track": "ocean",
+    "stage": "key_sheetsage2",
+    "wall_s": 58.049667667015456,
+    "rss_mib": 3341.78125,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": "C minor",
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "key_sheetsage2-v1:029505f2763a437131b16809f0d80baf0c350427db60b30d1253912cba8a1741"
+  },
+  {
+    "track": "ocean",
+    "stage": "vocal_musicnn",
+    "wall_s": 4.07842575001996,
+    "rss_mib": 653.953125,
+    "swap_start_mib": 3383.875,
+    "swap_peak_mib": 3383.875,
+    "output": [
+      [
+        "voice",
+        0.6093092262744904
+      ],
+      [
+        "instrumental",
+        0.3906907628600796
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "vocal_musicnn-v1:ce12a8bdaa856ef6cf2c0907bab87066d0c061bb0a862b0328e846888d04111e"
+  },
+  {
+    "track": "paradise",
+    "stage": "aggression_vggish",
+    "wall_s": 16.582333250087686,
+    "rss_mib": 3624.734375,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": [
+      [
+        "aggressive",
+        0.5056348343690237
+      ],
+      [
+        "not_aggressive",
+        0.4943651060263316
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "aggression_vggish-v1:47849f071f5ccb3dcf614069a1f5e6fd02e73ab47b8ed5831b22c7e9cc9a290f"
+  },
+  {
+    "track": "paradise",
+    "stage": "instrument_passt",
+    "wall_s": 12.720362582942471,
+    "rss_mib": 1282.28125,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": [
+      [
+        "synthesizer",
+        0.7360149953100417
+      ],
+      [
+        "drums",
+        0.308360835744275
+      ],
+      [
+        "cymbals",
+        0.22710377971331278
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "instrument_passt-v1:2db5f70bfabc1c727078cc6479a6e13e8a9a420d438072e697a84d7dff1d2842"
+  },
+  {
+    "track": "paradise",
+    "stage": "key_sheetsage2",
+    "wall_s": 112.0021978749428,
+    "rss_mib": 3407.0,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": "D# minor",
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "key_sheetsage2-v1:029505f2763a437131b16809f0d80baf0c350427db60b30d1253912cba8a1741"
+  },
+  {
+    "track": "paradise",
+    "stage": "vocal_musicnn",
+    "wall_s": 4.023767124977894,
+    "rss_mib": 690.171875,
+    "swap_start_mib": 3501.8125,
+    "swap_peak_mib": 3501.8125,
+    "output": [
+      [
+        "voice",
+        0.907738188902537
+      ],
+      [
+        "instrumental",
+        0.09226183486316586
+      ]
+    ],
+    "source_unchanged": true,
+    "inventory_unchanged": true,
+    "model_id": "vocal_musicnn-v1:ce12a8bdaa856ef6cf2c0907bab87066d0c061bb0a862b0328e846888d04111e"
+  }
+]

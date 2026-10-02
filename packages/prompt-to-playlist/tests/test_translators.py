@@ -207,7 +207,7 @@ def test_openai_request_schema_and_local_provenance(monkeypatch, vocabulary, pro
     assert query_schema["properties"]["required_tags"]["items"]["enum"] == [
         "genre:house", "mood:dark", "vocals:vocal",
     ]
-    assert result.query.model_dump() == proposal["query"]
+    assert result.query.model_dump(exclude={"any_tag_groups", "preferences", "genre_scope", "semantic"}) == proposal["query"]
     assert result.provider == "openai"
     assert result.authority == "llm_proposal"
     assert result.model == "explicit-test-model"

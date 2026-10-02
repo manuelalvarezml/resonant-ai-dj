@@ -11,7 +11,7 @@ from queue import Empty, Queue
 from threading import Thread
 from typing import TYPE_CHECKING
 
-from .models import Catalog, PlaylistRun, Vocabulary
+from .models import Catalog, ClarificationAnswer, PlaylistRun, Vocabulary
 from .service import build_playlist
 
 if TYPE_CHECKING:
@@ -46,6 +46,11 @@ def describe_run(run: PlaylistRun) -> str:
              "Excluded: " + (", ".join(query.excluded_tags) or "none"),
              f"BPM bounds: {query.min_bpm if query.min_bpm is not None else 'open'} to {query.max_bpm if query.max_bpm is not None else 'open'}",
              f"Up to {query.limit} tracks · Order: {query.order}"]
+    if run.translation.plan:
+        lines += ["Interpretation: " + run.translation.plan.interpretation,
+                  "Assumptions: " + "; ".join(run.translation.plan.assumptions)]
+    lines += ["Alternative genres: " + " AND ".join(" OR ".join(g) for g in query.any_tag_groups),
+              "Weighted preferences: " + "; ".join(f"{p.direction} {p.tag} ({p.importance}, {p.origin})" for p in query.preferences)]
     if query.excluded_track_ids:
         lines.append("Excluded IDs: " + ", ".join(query.excluded_track_ids))
     if run.translation.unresolved:
@@ -81,7 +86,9 @@ def compact_text(text: str, limit: int = 320) -> str:
 
 def criteria_summary(run: PlaylistRun) -> str:
     query = run.translation.query
-    lines = []
+    lines = [run.translation.plan.interpretation] if run.translation.plan else []
+    lines += ["Either  ·  " + " or ".join(map(tag_label, group)) for group in query.any_tag_groups]
+    lines += [f"{p.direction.capitalize()}  ·  {tag_label(p.tag)} ({p.importance})" for p in query.preferences]
     for label, tags in (("Must match", query.required_tags), ("Prefer", query.preferred_tags), ("Avoid", query.excluded_tags)):
         if tags:
             lines.append(f"{label}  ·  " + ", ".join(map(tag_label, tags)))
@@ -98,6 +105,8 @@ def criteria_summary(run: PlaylistRun) -> str:
 
 def result_notice(run: PlaylistRun, catalog: Catalog) -> str:
     """Keep consequential evidence gaps visible even with details collapsed."""
+    if run.translation.plan and run.translation.plan.clarification:
+        return run.translation.plan.clarification
     if run.translation.unresolved:
         return "Please clarify: " + " · ".join(run.translation.unresolved)
     usable_tags = {e.tag for track in catalog.tracks for e in track.tags if e.status in {"passed", "warning"}}
@@ -153,7 +162,7 @@ class PlaylistApp:
         self.placeholder = "e.g. house dj set energetic"
         self.has_placeholder = True
         self.colors = c = dict(bg="#F3F5F6", card="#FFFFFF", ink="#172B32", muted="#60747B", line="#DFE6E8", accent="#087F72", soft="#E7F3EF", amber="#FFF3D8")
-        root.title(f"Prompt to Playlist · OpenAI · {len(catalog.tracks)} tracks")
+        root.title(f"PlaylistIQ · OpenAI · {len(catalog.tracks)} tracks")
         root.geometry("1200x840")
         root.minsize(1000, 700)
         root.configure(bg=c["bg"])
@@ -184,7 +193,7 @@ class PlaylistApp:
         brand.pack(side="left", padx=(0, 12))
         for x, y in [(2, 12), (9, 5), (16, 1), (23, 9)]:
             brand.create_line(x + 2, y + 2, x + 2, 30 - y // 2, width=4, fill=c["accent"], capstyle="round")
-        label(header, "Prompt to Playlist", size=21, bold=True).pack(side="left")
+        label(header, "PlaylistIQ", size=21, bold=True).pack(side="left")
         label(header, "OpenAI", size=12, color=c["accent"], bg=c["soft"], padx=12, pady=7).pack(side="right")
         label(header, f"{len(catalog.tracks)} TRACKS  /  LOCAL LIBRARY", size=10, color=c["muted"]).pack(side="right", padx=18)
 
@@ -259,7 +268,7 @@ class PlaylistApp:
         footer = tk.Frame(shell, bg=c["bg"])
         footer.grid(row=2, column=0, sticky="ew", pady=(16, 0))
         label(footer, catalog_coverage(catalog), size=10, color=c["muted"]).pack(side="left")
-        label(footer, "Playlist selection · Mix planning is separate", size=10, color=c["muted"]).pack(side="right")
+        label(footer, "PlaylistIQ selection · Mix planning is separate", size=10, color=c["muted"]).pack(side="right")
         results.bind("<Configure>", lambda event: self._resize_results(event.width))
         root.bind("<Command-Return>", self._keyboard_submit)
         root.bind("<Control-Return>", self._keyboard_submit)
@@ -295,9 +304,10 @@ class PlaylistApp:
         self.details.insert("1.0", text)
         self.details.configure(state="disabled")
 
-    def _worker(self, text):
+    def _worker(self, text, answers=None):
         try:
-            self.completion.put((build_playlist(text, self.catalog, self.vocabulary, self.translator), None))
+            from .semantic_audio import encode_query
+            self.completion.put((build_playlist(text, self.catalog, self.vocabulary, self.translator, clarifications=answers or [], query_encoder=encode_query), None))
         except (ValueError, OSError) as exc:
             self.completion.put((None, str(exc)))
         except Exception:
@@ -311,6 +321,18 @@ class PlaylistApp:
             self.status.set("Describe your playlist in 1–4000 characters.")
             self.prompt.focus_set()
             return
+        answers = []
+        previous = self.latest
+        if previous and previous.status == "needs_clarification" and previous.translation.plan and text == previous.translation.request_text:
+            from tkinter import simpledialog
+            question = previous.translation.plan.clarification
+            answer = simpledialog.askstring("PlaylistIQ — one detail", question, parent=self.root)
+            if answer is None:
+                return
+            if not answer.strip() or len(answer) > 1000:
+                self.status.set("Enter an answer between 1 and 1000 characters.")
+                return
+            answers = [*previous.translation.clarifications, ClarificationAnswer(question=question, answer=answer)]
         self.busy = True
         self.latest = None
         self.prompt.configure(state="disabled")
@@ -325,7 +347,7 @@ class PlaylistApp:
         self._set_details("")
         self.status.set("Interpreting your request…")
         self.progress.start(12)
-        Thread(target=self._worker, args=(text,), daemon=True).start()
+        Thread(target=self._worker, args=(text, answers), daemon=True).start()
 
     def _poll(self):
         try:
@@ -369,7 +391,7 @@ class PlaylistApp:
         if run.status == "no_matches":
             self.status.set("No matches with the available evidence.")
         elif run.status == "needs_clarification":
-            self.status.set("A little more detail is needed. Edit your description and try again.")
+            self.status.set("A little more detail is needed. Press Find tracks to answer, or edit your description.")
         self._set_details('Submitted description\n' + run.translation.request_text + '\n\n' + describe_run(run))
 
     def _select_track(self, event=None):

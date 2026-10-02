@@ -1,0 +1,31 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-13",
+  "package_version": "0.2.0",
+  "decision": "D060",
+  "experiment": "E049",
+  "local_revision": "R4",
+  "unit_tests": {
+    "passed": 30,
+    "failed": 0,
+    "duration_ms": 129.922041
+  },
+  "syntax_modules": 13,
+  "production_http_checks": 15,
+  "additional_http_checks": {
+    "radio_query_entry": 200,
+    "radio_stylesheet": 200
+  },
+  "build_files": 14,
+  "build_bytes": 246439,
+  "build_manifest_sha256": "2c37e5d74a7f56d7abf224f3a815e75a482c8c71d5ea5fc6ec6379414612fa32",
+  "option1_snapshot_files_verified": 34,
+  "option1_snapshot": "../checkpoints/option-1-0.1.2/snapshot.json",
+  "previous_verification": "verification-0.1.2.json",
+  "browser_qa_performed": false,
+  "browser_qa_reason": "Current Sites workflow requires explicit browser testing request",
+  "actual_mobile_devices_tested": false,
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false
+}

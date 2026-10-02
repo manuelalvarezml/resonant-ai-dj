@@ -54,7 +54,9 @@ def main(argv: list[str] | None = None) -> int:
         for case_id, prompt, expected_query, expected_status in CASES:
             started = monotonic()
             try:
-                run = build_playlist(prompt, catalog, vocabulary, translator)
+                # This historical v3 suite intentionally preserves flat-query baseline behavior.
+                from types import SimpleNamespace
+                run = build_playlist(prompt, catalog, vocabulary, SimpleNamespace(translate=translator.translate))
                 query = run.translation.query.model_dump()
                 checks = {field: query[field] == expected for field, expected in expected_query.items()}
                 checks["status"] = run.status == expected_status

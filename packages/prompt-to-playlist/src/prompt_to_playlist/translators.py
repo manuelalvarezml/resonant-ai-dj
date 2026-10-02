@@ -17,7 +17,7 @@ from typing import Annotated, Any, Literal, Protocol
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from .models import PlaylistQuery, Tag, Text, Translation, Vocabulary
 from .vocabulary import normalize_descriptors, validate_query
@@ -149,6 +149,13 @@ class RulesTranslator:
 class _QueryDTO(PlaylistQuery):
     """Require every wire field while retaining the domain's validators."""
 
+    @model_validator(mode="before")
+    @classmethod
+    def legacy_fields_only(cls, data):
+        if isinstance(data, dict) and {"any_tag_groups", "preferences", "genre_scope"} & data.keys():
+            raise ValueError("The v3 wire proposal only accepts its original query fields")
+        return data
+
     required_tags: list[Tag] = Field(..., max_length=50)
     preferred_tags: list[Tag] = Field(..., max_length=50)
     excluded_tags: list[Tag] = Field(..., max_length=50)
@@ -174,6 +181,9 @@ def _proposal_schema(vocabulary: Vocabulary) -> dict[str, Any]:
     schema = _ProposalDTO.model_json_schema()
     tag_ids = [descriptor.id for descriptor in vocabulary.descriptors]
     query_properties = schema["$defs"]["_QueryDTO"]["properties"]
+    for field in ("any_tag_groups", "preferences", "genre_scope"):
+        query_properties.pop(field, None)
+    schema["$defs"].pop("Preference", None)
     for field in ("required_tags", "preferred_tags", "excluded_tags"):
         if tag_ids:
             query_properties[field]["items"]["enum"] = tag_ids
@@ -235,7 +245,7 @@ def _strict_json(text: str | bytes) -> Any:
     return json.loads(text, object_pairs_hook=object_without_duplicates, parse_constant=reject_constant)
 
 
-def _extract_proposal(response: Any) -> _ProposalDTO:
+def _extract_proposal(response: Any, proposal_type=_ProposalDTO):
     if not isinstance(response, dict):
         raise TranslationError("OpenAI returned an invalid response envelope.")
     if response.get("status") != "completed":
@@ -264,7 +274,7 @@ def _extract_proposal(response: Any) -> _ProposalDTO:
     if len(text_parts) != 1:
         raise TranslationError("OpenAI must return exactly one structured translation.")
     try:
-        return _ProposalDTO.model_validate(_strict_json(text_parts[0]))
+        return proposal_type.model_validate(_strict_json(text_parts[0]))
     except (ValueError, TypeError, RecursionError):
         raise TranslationError("OpenAI returned an invalid structured playlist proposal.") from None
 
@@ -272,8 +282,9 @@ def _extract_proposal(response: Any) -> _ProposalDTO:
 class OpenAITranslator:
     """One Responses API call with explicit credentials and model selection.
 
-    Only instructions, the user request, and the descriptor vocabulary are sent.
-    No audio, catalog, filesystem paths, or track evidence is available here.
+    The intent route sends instructions, request/answers, vocabulary and aggregate
+    catalog capabilities. The v3 baseline sends only request and vocabulary.
+    No audio, track metadata, filesystem paths or per-track feature vectors are sent.
     ``store=False`` disables response storage for later API retrieval; it does not
     represent a claim about the provider's wider retention policies. There are no
     retries or silent provider fallbacks. HTTP failures never expose response bodies.
@@ -284,6 +295,7 @@ class OpenAITranslator:
         api_key: str | None = None,
         model: str | None = None,
         timeout_s: float = 30,
+        intent_reasoning_effort: str | None = None,
     ) -> None:
         key = api_key if api_key is not None else os.environ.get("OPENAI_API_KEY")
         selected_model = model if model is not None else os.environ.get("OPENAI_MODEL")
@@ -300,6 +312,9 @@ class OpenAITranslator:
             or not math.isfinite(timeout_s) or not 0 < timeout_s <= 120
         ):
             raise TranslationError("OpenAI timeout must be a finite number in (0, 120] seconds.")
+        if intent_reasoning_effort not in {None, "none", "low", "medium", "high", "xhigh"}:
+            raise TranslationError("Invalid intent reasoning effort")
+        self.intent_reasoning_effort = intent_reasoning_effort
         self._api_key = key
         self.model = selected_model
         self.timeout_s = float(timeout_s)
@@ -324,6 +339,21 @@ class OpenAITranslator:
                 "schema": _proposal_schema(vocabulary),
             }},
         }
+        envelope = self._request(payload)
+        proposal = _extract_proposal(envelope)
+        query = _validated_query(proposal.query.model_dump(), vocabulary)
+        return Translation(
+            request_text=prompt,
+            query=query,
+            provider="openai",
+            model=self.model,
+            prompt_version=OPENAI_PROMPT_VERSION,
+            vocabulary_id=vocabulary.vocabulary_id,
+            unresolved=proposal.unresolved,
+            warnings=proposal.warnings,
+        )
+
+    def _request(self, payload):
         request = Request(
             _ENDPOINT,
             data=json.dumps(payload, ensure_ascii=False, allow_nan=False).encode("utf-8"),
@@ -343,15 +373,31 @@ class OpenAITranslator:
             envelope = _strict_json(body)
         except (ValueError, UnicodeError, RecursionError):
             raise TranslationError("OpenAI returned an invalid JSON response.") from None
-        proposal = _extract_proposal(envelope)
-        query = _validated_query(proposal.query.model_dump(), vocabulary)
-        return Translation(
-            request_text=prompt,
-            query=query,
-            provider="openai",
-            model=self.model,
-            prompt_version=OPENAI_PROMPT_VERSION,
-            vocabulary_id=vocabulary.vocabulary_id,
-            unresolved=proposal.unresolved,
-            warnings=proposal.warnings,
-        )
+        return envelope
+
+    def translate_intent(self, prompt, vocabulary, capabilities, clarifications=None):
+        from .intent import INSTRUCTIONS, compile_plan, plan_schema
+        from .models import IntentPlan
+        _validate_prompt(prompt)
+        vocabulary = _validated_vocabulary(vocabulary)
+        answers = clarifications or []
+        payload = {
+            "model": self.model, "store": False, "max_output_tokens": 4096,
+            "instructions": INSTRUCTIONS,
+            "input": [{"role": "user", "content": json.dumps({
+                "request": prompt, "clarifications": [a.model_dump() for a in answers],
+                "vocabulary": vocabulary.model_dump(mode="json", by_alias=True),
+                "capabilities": capabilities}, ensure_ascii=False, allow_nan=False)}],
+            "text": {"format": {"type": "json_schema", "name": "playlist_intent",
+                "strict": True, "schema": plan_schema(vocabulary, capabilities)}},
+        }
+        if self.intent_reasoning_effort is not None:
+            payload["reasoning"] = {"effort": self.intent_reasoning_effort}
+        plan = _extract_proposal(self._request(payload), IntentPlan)
+        try:
+            counts = capabilities.get("descriptor_track_counts", {})
+            if any(counts.get(pref.tag, 0) <= 0 for pref in plan.preferences):
+                raise ValueError("Soft preferences require available catalog evidence")
+            return compile_plan(prompt, plan, vocabulary, model=self.model, clarifications=answers, reasoning_effort=self.intent_reasoning_effort)
+        except (ValueError, TypeError):
+            raise TranslationError("The musical plan failed local validation; no query was accepted.") from None

@@ -1,4 +1,13 @@
-# Architecture
+# PlaylistIQ architecture
+
+PlaylistIQ is the product name. The technical package, command, import, and
+`prompt-playlist/*` schema identifiers remain unchanged.
+
+Parent D058 names Resonant as the future consumer: it may persist/reorder the
+returned candidates, play the resulting playlist and package eligible files.
+Those host actions are outside this pipeline. In particular, source playability
+does not become download authority and PlaylistIQ never receives archive or
+render tools.
 
 ## One small pipeline
 
@@ -19,6 +28,9 @@ flowchart LR
 The translator never sees the catalog. It emits criteria, not track IDs to
 include, functions to invoke, or rendering operations. The service makes one
 interpretation call, checks the proposal and applies the deterministic query.
+This boundary **lets us audit why each track matched**: a result retains the
+validated query, matched/missing evidence, provenance, versions, digests, and
+stable IDs instead of accepting an unexplained model-selected list.
 Consumers wanting their own agent loop can expose the three read-only tools
 in `tools.py`; this package does not need an agent framework to perform its
 fixed pipeline. A future host must translate these generic tool schemas into
@@ -36,9 +48,20 @@ its provider's tool-envelope format and maintain its own call budget.
 | `service.py` | Translate once, clarify or search | Workflow changes |
 | `adapters.py` | Native JSON and read-only DJ artifact import/export | Music data source changes |
 | `folder_catalog.py` | Bounded local metadata/hash import and source manifest | Folder metadata source changes |
+| `analysis_models.py` | Strict descriptor and performance contracts | Extraction schema changes |
+| `model_assets.py` | Pinned model URLs, hashes and bounded cache | Model selection/version changes |
+| `analysis_worker.py` | One algorithm on one track in an isolated process | Feature algorithm changes |
+| `analysis_pipeline.py` | Discovery, safety, telemetry, checkpoints, projections and reports | Analyzer orchestration changes |
 | `config.py`, `playlist.toml` | Explicit project profile and credential references | Host/model/catalog changes |
 | `live_check.py` | Explicit six-request live smoke evaluation | Evaluated requirements change |
 | `cli.py`, `desktop.py` | Input/output only | Interface changes |
+
+Beat This 1.1 reads through Torchaudio first. With Torchaudio 2.11, file loading
+requires TorchCodec; PlaylistIQ deliberately uses Beat This's lighter SoundFile
+fallback instead. `soundfile` is therefore an explicit `analysis` dependency
+and preflight check, not an accidental transitive package. Resume accepts and
+migrates the original 0.3.0 checkpoints that predate the recorded SoundFile
+version so unrelated successful stages are not recomputed.
 
 The JSON vocabulary is deliberately small. Add canonical `axis:value` entries
 with descriptions and unique aliases, bump its identity, and supply it with
@@ -144,10 +167,74 @@ The OpenAI authorization header is the only network use of the key.
 
 ## Dependency choice
 
-Only Pydantic is required at runtime. Standard-library HTTP provides a small
+Only Pydantic is required for search, translation, and the UI. Standard-library HTTP provides a small
 isolated OpenAI adapter; `Translator` is a Python protocol suitable for local
 models or another provider. Tkinter is optional and loaded only by `ui`; CLI
 and imports work on systems without it. The wheel includes the default
 vocabulary. DJ analyzer versions and its lockfile are independent.
 Folder import optionally requires the installed FFprobe executable; imports,
-search and the UI do not need it after the catalog snapshot exists.
+search and the UI do not need it after the catalog snapshot exists. The
+explicit `analysis` extra pins Beat This, `essentia-tensorflow`, PyTorch,
+Torchaudio, NumPy and psutil. FFmpeg/FFprobe remain host
+executables. All-In-One MLX is absent. Analysis models live in a verified local
+cache and are never package-data or core-runtime dependencies.
+
+## Implemented descriptor-extraction boundary
+
+The current folder adapter is metadata-only and must stay that way. The resumed
+second-test direction adds a separate `analyze-folder` command, not hidden work
+inside prompt translation. It reads one explicitly selected folder and writes a
+versioned descriptor run, reports, work files and checkpoints outside it.
+Workers are sequential and short-lived; source identity and full inventory are
+checked before/after. All-In-One is excluded. See
+[`AUDIO_FEATURES.md`](AUDIO_FEATURES.md) for selected/deferred fields, candidate
+models, future commercial-viability notes, and the evaluation gate.
+
+The extraction artifact deliberately is not a catalog and does not change
+search behavior. Raw model outputs, estimates, warnings and telemetry remain
+available for threshold/accuracy review. A later adapter may create a new
+catalog snapshot, but must preserve source identity, probability provenance,
+abstention, and the structured reason trail.
+
+Local `--resume` reads checkpoints from the current output. Repeatable
+`--reuse-from PRIOR_OUTPUT_DIR` supports a distinct corpus output without
+overwriting the prior report: the prior descriptor must have passed both source
+preservation gates, and each imported stage must match the current audio
+SHA-256, pipeline version, algorithm, tool versions, model hashes, and requested
+CPU-thread configuration. Compatible results are copied atomically into the new
+checkpoint directory; incompatible or absent entries are recomputed. Filename
+equality alone never authorizes reuse.
+
+## Planned retrieval-comparison boundary
+
+After the descriptor artifact is stable, a separate experiment may compare the
+structured baseline with CLAP audio–text similarity, TF-IDF/BM25 over normalized
+descriptor documents, lightweight text embeddings of those documents, and a
+hybrid structured-filter-plus-similarity ranker. None belongs inside audio
+analysis or prompt translation. Each is a versioned retrieval adapter consuming
+the same immutable descriptor snapshot and returning scores/provenance suitable
+for replay and comparison. The structured eligible set and explanation record
+remain available even when learned similarity participates in ranking.
+
+## 2026-09-19 — PlaylistIQ Iteration 1 delivered
+
+Python 0.4.0 / player 0.3.0 now integrate `playlist-intent-v1.3` (configured low reasoning), `intent-compiler-v1.1`, `maest-intent-v1` ranking and `discogs-parents-v1`. Required genres use MAEST support; creative prompts use directional soft priorities. Genre OR/family matching, original-request clarification, per-track contributions and twenty-prompt review evidence are available. New result/catalog/translation/run writes use schema 0.2.0 and read historical 0.1.0.
+
+422 Python tests and 50 web tests pass. Final compiler replay passes all 20 intent/constraint checks; live revision failures are preserved, and final optional/HTTP checks pass. Human listening acceptance remains pending. No new audio analysis or cloud work; YAML is still a consideration task.
+
+See [implementation, prompt, contracts and verification](ITERATION_1.md). This current checkpoint supersedes older descriptions of v3-only translation, flat genre ties and missing parent matching; dated older sections remain historical evidence.
+
+## 2026-09-25 — Selectable supervised feature estimators
+
+Music2Emo (MERT-95M + BTC/chord/key + J_all, corrected mode) and MusiCNN danceability are implemented as optional direct-feature challengers. The specialist reference remains default; MAEST top-six, MuQ and ranking weights are preserved. Complete compatible catalog coverage is required per challenger; otherwise everyone retains the reference. Two authorized sources passed six matched-window stages and zero-inference retries. Final checks: 481 Python tests, 80 web tests, 45 JS syntax modules, 28-file build, 40 exact fixed-query replays and one final successful live replay. One prior live intent proposal was rejected; no new listening judgments or superiority claim.
+
+Exactly two local cache records have both challengers. Original Chrome was observed at 109 unique tracks; its final updated display was not confirmed because native interaction was interrupted by active use. The new reload migration attaches richer same-hash optional caches to completed reference records. Isolated browser acceptance verified real values, retry, profile/scope, saved-result reopening, App Status and 390/320px controls. No batch/new-corpus inference, audio upload, cloud work, commit or format migration.
+
+Read [research, commands, failures, coverage and continuation](SUPERVISED_ESTIMATORS.md). Historical sections/publication cutoffs below remain evidence for their original dates.
+
+
+## 2026-09-25 — Quality-first estimator research and implementation
+
+Quality-first non-genre research and the selected available specialists are delivered locally. The web default selects Music2Emo theme/VA, MusiCNN vocals, VGGish aggression and independent PaSST OpenMIC instrument evidence, retaining EffNet happy/sad/relaxed/danceability. SheetSage2 supplies selected key evidence. MAEST, MuQ and planner weights remain unchanged. Two authorized sources passed 8/8 new stages; retries execute zero stages. Richer nuanced-emotion prediction and listening superiority remain unresolved; do not present encoder-only releases or the same 56 tags as solving that objective.
+
+[Implementation, two research reports, setup, model contracts and verification](TOP_ESTIMATORS_IMPLEMENTATION.md). Final validation: 502 Python tests, 83 web tests, 45 syntax modules, 28-file build, eight successful final audio stages and 26 exact fixed-query replays. No new provider calls or listener judgments. The new optional specialist stages and quality/openmic vocabulary identity preserve reference records and saved-profile replay.

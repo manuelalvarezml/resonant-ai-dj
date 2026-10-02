@@ -1,0 +1,34 @@
+{
+  "schema_version": "resonant-player/verification/1",
+  "date": "2026-09-14",
+  "package_version": "0.2.1",
+  "decision": "D062",
+  "experiment": "E050",
+  "syntax_modules": 14,
+  "production_http_checks": 15,
+  "unit_tests_rerun": false,
+  "previous_unit_test_evidence": "verification-0.2.0.json",
+  "build_files": 15,
+  "build_bytes": 257763,
+  "build_manifest_sha256": "e11478ae9b4c0e4ccdd3a83846d50648a9ef6e283c0ca81edb59593c78226965",
+  "browser_qa_performed": false,
+  "responsive_widths_checked": [
+    1280,
+    390,
+    320
+  ],
+  "actual_mobile_devices_tested": false,
+  "source_corpus_accessed": false,
+  "cloud_execution": false,
+  "deployed": false,
+  "manifest_sha256": "16d1f77629013b3a78d9f12421ff4f90e66531ba4036cb900b77cc96b41612db",
+  "navigation_patch": "2026-09-13 Playlists directory; prior visual evidence in verification-0.2.1.json",
+  "browser_widths": [
+    1280
+  ],
+  "spectrum_accent": "Live local/demo FFT history; desktop playback/pause/front switching inspected; supersedes static SVG",
+  "axis_padding": "Reverted; original unpadded domain",
+  "spectrogram_projection": "Isometric / Front / Mountain / Falling (62 planes)",
+  "browser_qa_scope": "Pause descent source-inspected; no new browser run",
+  "pause_behavior": "2.8-second fall; 1.6-second rise on Play"
+}

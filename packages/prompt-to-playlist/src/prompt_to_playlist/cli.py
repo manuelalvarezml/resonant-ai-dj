@@ -12,7 +12,7 @@ from pydantic import BaseModel, RootModel
 
 
 def _parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Translate a set description into a validated catalog playlist.")
+    parser = argparse.ArgumentParser(description="PlaylistIQ: translate a description into validated local-library candidates.")
     commands = parser.add_subparsers(dest="command", required=True)
     vocab = commands.add_parser("vocabulary", help="Print the supported descriptors")
     vocab.add_argument("--vocabulary", type=Path)
@@ -25,6 +25,37 @@ def _parser() -> argparse.ArgumentParser:
     folder.add_argument("--out", required=True, type=Path)
     folder.add_argument("--manifest", required=True, type=Path)
     folder.add_argument("--vocabulary", type=Path)
+    analyzer = commands.add_parser(
+        "analyze-folder",
+        help="Extract no-All-In-One audio descriptors with per-algorithm performance telemetry",
+    )
+    analyzer.add_argument("--folder", required=True, type=Path)
+    analyzer.add_argument("--output-dir", required=True, type=Path)
+    analyzer.add_argument("--recursive", action="store_true", help="Include supported audio in subfolders")
+    selection = analyzer.add_mutually_exclusive_group()
+    selection.add_argument("--max-tracks", type=int, default=1, help="Safety default: analyze one track")
+    selection.add_argument("--all-tracks", action="store_true", help="Explicitly process every discovered track")
+    analyzer.add_argument(
+        "--algorithms",
+        nargs="+",
+        choices=("metadata", "loudness", "key", "rhythm", "semantic", "energy", "genre_maest", "semantic_audio"),
+        default=["metadata", "loudness", "key", "rhythm", "semantic", "energy", "genre_maest"],
+    )
+    analyzer.add_argument("--model-dir", type=Path)
+    analyzer.add_argument("--resume", action="store_true", help="Reuse hash/version-verified stage checkpoints")
+    analyzer.add_argument(
+        "--reuse-from",
+        action="append",
+        type=Path,
+        default=[],
+        metavar="PRIOR_OUTPUT_DIR",
+        help="Import matching hash/config/version-verified checkpoints from a prior descriptor output; repeatable",
+    )
+    analyzer.add_argument("--cpu-threads", type=int, default=4, help="CPU threads allowed per sequential worker")
+    analyzer.add_argument("--max-worker-rss-mb", type=float, default=4096)
+    analyzer.add_argument("--min-available-ram-mb", type=float, default=1024)
+    analyzer.add_argument("--worker-timeout-s", type=float, default=1800)
+    analyzer.add_argument("--telemetry-interval-s", type=float, default=0.2)
     search = commands.add_parser("search", help="Search a catalog with a validated JSON query")
     search.add_argument("--catalog", type=Path)
     search.add_argument("--query", required=True, type=Path, help="Path to a PlaylistQuery JSON file")
@@ -32,6 +63,7 @@ def _parser() -> argparse.ArgumentParser:
     prompt = commands.add_parser("prompt", help="Build a playlist from a text description")
     prompt.add_argument("--catalog", type=Path)
     prompt.add_argument("--text", help="Description; when omitted, ask interactively")
+    prompt.add_argument("--clarifications", type=Path, help="JSON array of up to three question/answer pairs; keep --text as the original request")
     prompt.add_argument("--provider", choices=("rules", "openai"),
                         help="Default: OpenAI. Select rules only for the offline developer clause grammar.")
     prompt.add_argument("--vocabulary", type=Path)
@@ -123,7 +155,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 if config.openai is None:
                     raise ValueError("The selected profile has no OpenAI settings.")
                 return OpenAITranslator(api_key=read_api_key(config.openai), model=config.openai.model,
-                                        timeout_s=config.openai.timeout_s)
+                                        timeout_s=config.openai.timeout_s, intent_reasoning_effort=config.openai.intent_reasoning_effort)
             return OpenAITranslator()
 
         if args.command == "import-dj":
@@ -143,6 +175,38 @@ def main(argv: Sequence[str] | None = None) -> int:
             if not manifest.source_hashes_unchanged or not manifest.source_inventory_unchanged:
                 raise ValueError("Source files changed during import. A diagnostic manifest was saved; no catalog was published.")
             _emit(catalog, args.out)
+        elif args.command == "analyze-folder":
+            try:
+                from .analysis_pipeline import analyze_folder
+            except ModuleNotFoundError as exc:
+                raise ValueError(
+                    "Audio analysis dependencies are missing. Run: uv sync --extra analysis"
+                ) from exc
+            run, paths = analyze_folder(
+                folder=args.folder,
+                output_dir=args.output_dir,
+                recursive=args.recursive,
+                max_tracks=None if args.all_tracks else args.max_tracks,
+                algorithms=args.algorithms,
+                model_dir=args.model_dir,
+                resume=args.resume,
+                reuse_from=args.reuse_from,
+                cpu_threads=args.cpu_threads,
+                max_worker_rss_mb=args.max_worker_rss_mb,
+                min_available_ram_mb=args.min_available_ram_mb,
+                worker_timeout_s=args.worker_timeout_s,
+                telemetry_interval_s=args.telemetry_interval_s,
+                progress=lambda message: print(message, file=sys.stderr, flush=True),
+            )
+            print(json.dumps({
+                "run_id": run.run_id,
+                "tracks": run.selected_track_count,
+                "failures": run.failure_count,
+                "source_hashes_unchanged": run.source_hashes_unchanged,
+                "source_inventory_unchanged": run.source_inventory_unchanged,
+                "outputs": {key: str(value) for key, value in paths.items()},
+            }, indent=2))
+            return 0 if run.failure_count == 0 and run.source_hashes_unchanged and run.source_inventory_unchanged else 1
         elif args.command == "tools":
             _emit(list_tools(), args.out)
         else:
@@ -170,7 +234,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                         print("Describe your set: ", end="", file=sys.stderr, flush=True)
                         prompt = input()
                     translator = make_translator()
-                    result = build_playlist(prompt, catalog, vocabulary, translator)
+                    from .models import ClarificationAnswer
+                    answers = [ClarificationAnswer.model_validate(a) for a in json.loads(args.clarifications.read_text())] if args.clarifications else []
+                    from .semantic_audio import encode_query
+                    result = build_playlist(prompt, catalog, vocabulary, translator, clarifications=answers, query_encoder=encode_query)
                 _emit(result, args.out)
     except (ValueError, OSError, EOFError) as exc:
         print(f"prompt-playlist: {exc}", file=sys.stderr)

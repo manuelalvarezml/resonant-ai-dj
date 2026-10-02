@@ -1,0 +1,228 @@
+{
+  "$defs": {
+    "EstimateWindow": {
+      "additionalProperties": false,
+      "properties": {
+        "start_s": {
+          "minimum": 0,
+          "title": "Start S",
+          "type": "number"
+        },
+        "end_s": {
+          "exclusiveMinimum": 0,
+          "title": "End S",
+          "type": "number"
+        },
+        "scores": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Scores",
+          "type": "object"
+        },
+        "valence": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valence"
+        },
+        "arousal": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Arousal"
+        },
+        "detected_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detected Key"
+        },
+        "detected_mode": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detected Mode"
+        },
+        "encoded_mode": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Encoded Mode"
+        },
+        "chord_events": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chord Events"
+        }
+      },
+      "required": [
+        "start_s",
+        "end_s",
+        "scores"
+      ],
+      "title": "EstimateWindow",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "supervised-estimates-v1",
+      "default": "supervised-estimates-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "model_id": {
+      "title": "Model Id",
+      "type": "string"
+    },
+    "sampling_policy": {
+      "const": "supervised-3x30s-v1",
+      "default": "supervised-3x30s-v1",
+      "title": "Sampling Policy",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "music2emo",
+        "musicnn-dance"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "duration_s": {
+      "exclusiveMinimum": 0,
+      "title": "Duration S",
+      "type": "number"
+    },
+    "sampled_seconds": {
+      "exclusiveMinimum": 0,
+      "title": "Sampled Seconds",
+      "type": "number"
+    },
+    "coverage_fraction": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Coverage Fraction",
+      "type": "number"
+    },
+    "labels": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Labels",
+      "type": "array"
+    },
+    "scores": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Scores",
+      "type": "object"
+    },
+    "valence_mean": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valence Mean"
+    },
+    "arousal_mean": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Arousal Mean"
+    },
+    "segments": {
+      "items": {
+        "$ref": "#/$defs/EstimateWindow"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Segments",
+      "type": "array"
+    },
+    "score_kind": {
+      "const": "uncalibrated_classifier_support",
+      "default": "uncalibrated_classifier_support",
+      "title": "Score Kind",
+      "type": "string"
+    },
+    "regression_units": {
+      "const": "raw_1_to_9_unclipped",
+      "default": "raw_1_to_9_unclipped",
+      "title": "Regression Units",
+      "type": "string"
+    },
+    "aggregation": {
+      "const": "duration_weighted_mean_of_excerpt_outputs",
+      "default": "duration_weighted_mean_of_excerpt_outputs",
+      "title": "Aggregation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_id",
+    "kind",
+    "duration_s",
+    "sampled_seconds",
+    "coverage_fraction",
+    "labels",
+    "scores",
+    "segments"
+  ],
+  "title": "SampledEstimates",
+  "type": "object"
+}

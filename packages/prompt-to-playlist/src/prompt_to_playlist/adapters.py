@@ -25,7 +25,7 @@ _AUDIO_SUFFIXES = frozenset(
     ".opus .wma .alac .ape .dsf .dff .mid .midi .au .snd .caf .mp4 .webm".split()
 )
 _MUSIC_DIRECTORIES = frozenset(
-    {"music", "audio", "songs", "tracks", "test_folder_10_house_tracks", "test_tracks_folder_mp3"}
+    {"music", "audio", "songs", "tracks", "test_music", "new_albums", "test_folder_10_house_tracks", "test_tracks_folder_mp3"}
 )
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 

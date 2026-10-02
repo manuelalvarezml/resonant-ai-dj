@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "as_of": "2026-09-08",
-  "revision": "1.0",
+  "as_of": "2026-10-02",
+  "revision": "1.4",
   "recommendation": "continue_discovery_no_full_build",
   "authorization": {
     "research": true,
@@ -9,10 +9,13 @@
     "cloud_implementation": false,
     "remote_audio": false,
     "automatic_mixplan": false,
-    "playlist_development": "paused",
+    "playlist_development": "local_active_D046_cloud_integration_unauthorized",
     "outreach": false,
     "spend": false,
-    "source": "D043"
+    "source": "D043; D045 lean planning constraint; D046 local PlaylistIQ only; D055 completes readiness documents without external execution authority; D054 scoped local web-player implementation; D057 local design/launch planning; D058 unified product scope without cloud execution",
+    "owner_spike_execution": false,
+    "local_web_player": true,
+    "local_web_player_scope": "D054: independent local browser player and static deployment preparation only; no provider execution"
   },
   "gates": [
     {
@@ -48,7 +51,7 @@
       "owner": "Engineering",
       "dependencies": [],
       "evidence_needed": "EX003; EX004; provider quote",
-      "pass_criteria": "Private playback p95 start ≤3s and seek ≤2s on defined profile; acceptable bill",
+      "pass_criteria": "Private playback p95 start \u22643s and seek \u22642s on defined profile; acceptable bill",
       "observed_result": null,
       "threshold_status": "proposed",
       "scope_note": "Evidence may be collected only within separately authorized scope"
@@ -185,7 +188,8 @@
       "status": "open",
       "answer": null,
       "blocking": false,
-      "notes": "Does not block independent desk research; blocks the dependent decision only"
+      "notes": "Does not block independent desk research; blocks the dependent decision only",
+      "proposed_answer": "$1 total technical experiment within $5/month overall; 8 engineering hours/7 days. Interview first wave separately $0 and 6 founder hours."
     },
     {
       "id": "Q004",
@@ -195,7 +199,8 @@
       "status": "open",
       "answer": null,
       "blocking": false,
-      "notes": "Does not block independent desk research; blocks the dependent decision only"
+      "notes": "Does not block independent desk research; blocks the dependent decision only",
+      "proposed_answer": "Technical: one owner, two controlled test identities, Chrome/Safari macOS. Interviews: first five adult DJs in Peru, Spanish default, two approved channels; no identities/contacts chosen."
     },
     {
       "id": "Q005",
@@ -255,7 +260,8 @@
       "status": "open",
       "answer": null,
       "blocking": false,
-      "notes": "Does not block independent desk research; blocks the dependent decision only"
+      "notes": "Does not block independent desk research; blocks the dependent decision only",
+      "proposed_answer": "B2 US East as one engineering test region, actual client network recorded at execution; no latency or legal suitability claim."
     },
     {
       "id": "Q011",
@@ -265,7 +271,8 @@
       "status": "open",
       "answer": null,
       "blocking": false,
-      "notes": "Does not block independent desk research; blocks the dependent decision only"
+      "notes": "Does not block independent desk research; blocks the dependent decision only",
+      "proposed_answer": "Technical resources emptied/deleted by completion or day seven with version/multipart checks; interview records follow separate proposed retention in INTERVIEW_PACKET.md."
     },
     {
       "id": "Q012",
@@ -316,6 +323,28 @@
       "answer": null,
       "blocking": false,
       "notes": "Does not block independent desk research; blocks the dependent decision only"
+    },
+    {
+      "id": "Q017",
+      "question": "Is 8GB and 500 selected tracks per person the accepted cap for the owner, three-person and ten-user trials?",
+      "owner": "Project owner",
+      "impact": "Budget, upload time and test coverage",
+      "status": "open",
+      "answer": null,
+      "blocking": false,
+      "notes": "Precise default prepared under D055; owner acceptance remains absent. No real crate upload implied.",
+      "proposed_answer": "8,000,000,000 bytes AND 500 tracks per person, whichever first; proposed 1/3/10 ordering. First technical spike uses <=1 GB generated fixtures only."
+    },
+    {
+      "id": "Q018",
+      "question": "Does future week-two retention mean six of ten enrolled users or 60% of those activated?",
+      "owner": "Product owner",
+      "impact": "Predeclare later-pilot denominator without relaxing gate",
+      "status": "open",
+      "answer": null,
+      "proposed_answer": "Conservative proposal: at least six of ten enrolled return for a real task in week two; also report returned/activated. Freeze before pilot authorization.",
+      "blocking": false,
+      "notes": "Existing ambiguous PRODUCT_VALIDATION wording preserved with clarification proposal; irrelevant to execution of generated-fixture spike and current unrun EX001."
     }
   ],
   "risks": [
@@ -655,6 +684,100 @@
       "evidence_refs": [
         "OPERATIONS.md"
       ]
+    },
+    {
+      "id": "R021",
+      "title": "Free-plan hard-limit outage",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Workers or D1 reaches a daily free-plan request, row or storage limit",
+      "mitigation": "Instrument use, alert below 70%, fail closed for security and require approval before a paid upgrade",
+      "gate": "G009",
+      "status": "open",
+      "owner": "Engineering/operations",
+      "observations": [
+        "Ten-user assumptions use at most 2.5% of modeled free limits, but no workload has been measured"
+      ],
+      "review_trigger": "Authorized personal trial telemetry or provider limit change",
+      "evidence_refs": [
+        "S046",
+        "S047",
+        "economics/calculated.json"
+      ]
+    },
+    {
+      "id": "R022",
+      "title": "Split-provider effort costs more than storage savings",
+      "severity": "medium",
+      "likelihood": "unmeasured",
+      "trigger": "B2 and Cloudflare integration, authentication or incident diagnosis adds more work than the $0.58 monthly ten-user R2 premium",
+      "mitigation": "Time-box the adapter; retain R2 as the one-provider fallback and record actual engineering hours",
+      "gate": "G003",
+      "status": "open",
+      "owner": "Engineering/product",
+      "observations": [
+        "Desk arithmetic only; no adapter built or benchmarked"
+      ],
+      "review_trigger": "Authorized storage spike or changed provider pricing",
+      "evidence_refs": [
+        "STORAGE_COMPARISON.md",
+        "UNIT_ECONOMICS.md"
+      ]
+    },
+    {
+      "id": "R023",
+      "title": "Daily caps and delayed counters mistaken for monthly spend guarantee",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Cap lag, residual transfers or shared-account usage overrun forecast",
+      "mitigation": "Effective daily controls plus independent transfer reservations, conservative billed-egress allowance and cleanup reserve",
+      "gate": "G008",
+      "status": "open",
+      "owner": "Cloud operator",
+      "observations": [
+        "S055 documents up to ten-minute cap propagation"
+      ],
+      "review_trigger": "Account preflight and every run phase",
+      "evidence_refs": [
+        "S051",
+        "S055",
+        "OWNER_SPIKE_PACKET.md"
+      ]
+    },
+    {
+      "id": "R024",
+      "title": "Object version replay or late upload bypasses verified publication/cleanup",
+      "severity": "critical",
+      "likelihood": "unmeasured",
+      "trigger": "GET follows latest key or admitted PUT completes after expiry/deletion",
+      "mitigation": "Pin versionId, fence session generation, revoke upload keys, drain and enumerate every version/part",
+      "gate": "G007",
+      "status": "open",
+      "owner": "Cloud engineering",
+      "observations": [],
+      "review_trigger": "Implementation and adversarial version/cleanup tests",
+      "evidence_refs": [
+        "S056",
+        "S057",
+        "SPIKE_RUNBOOK.md"
+      ]
+    },
+    {
+      "id": "R025",
+      "title": "Narrow generated-fixture test overclaimed as service/demand validation",
+      "severity": "high",
+      "likelihood": "unmeasured",
+      "trigger": "Known-file verification or two owner identities presented as general secure customer ingestion",
+      "mitigation": "Scope readout, fixed denominators, full gates stay unpassed; separate rights, demand and arbitrary-ingestion work",
+      "gate": "G010",
+      "status": "open",
+      "owner": "Product owner",
+      "observations": [],
+      "review_trigger": "Experiment readout and expansion decision",
+      "evidence_refs": [
+        "OWNER_SPIKE_PACKET.md",
+        "INTERVIEW_PACKET.md"
+      ]
     }
   ],
   "paths": [
@@ -907,6 +1030,63 @@
         "PRODUCT_VALIDATION.md"
       ],
       "date": "2026-09-08"
+    },
+    {
+      "id": "P018",
+      "path": "Full-library cloud upload, analysis and mix rendering in the 1/3/10-user trial",
+      "status": "rejected_for_scope",
+      "reason": "It recreates the large upfront cost and onboarding risk before storage/playback demand is established",
+      "reopen_condition": "Personal and three-person evidence passes upload/playback gates and the owner approves a separate processing budget",
+      "gate": "G008",
+      "decision_type": "accepted_planning_constraint",
+      "attempted": false,
+      "evidence": [
+        "UNIT_ECONOMICS.md",
+        "../../DECISION_LOG.md"
+      ],
+      "date": "2026-09-10"
+    },
+    {
+      "id": "P019",
+      "path": "B2 audio storage with Cloudflare Free control plane",
+      "status": "retained_candidate",
+      "reason": "Lowest modeled cash spend: $0.00, $0.10 and $0.50 per month for 1, 3 and 10 users",
+      "reopen_condition": "Replace if a bounded spike shows unacceptable integration, playback, security or support cost",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S001",
+        "S002",
+        "S046",
+        "S047",
+        "S048",
+        "S049",
+        "S050",
+        "S051",
+        "economics/calculated.json"
+      ],
+      "date": "2026-09-10"
+    },
+    {
+      "id": "P020",
+      "path": "R2 plus Cloudflare Free as one-provider trial stack",
+      "status": "retained_alternative",
+      "reason": "Costs only $0.00, $0.23 and $1.08 per month in the modeled stages and may reduce integration effort",
+      "reopen_condition": "Prefer if B2 adapter time or failures outweigh the $0.58 monthly ten-user premium",
+      "gate": "G003",
+      "decision_type": "research_recommendation",
+      "attempted": false,
+      "evidence": [
+        "S001",
+        "S046",
+        "S047",
+        "S048",
+        "S049",
+        "S050",
+        "economics/calculated.json"
+      ],
+      "date": "2026-09-10"
     }
   ],
   "decisions": [
@@ -1041,13 +1221,145 @@
       "supersedes": [],
       "consequences": "See linked domain report and gate before implementation",
       "approval_ref": null
+    },
+    {
+      "id": "CD013",
+      "title": "Use 1, 3 and 10 users for the lean trial cost plan",
+      "status": "accepted_planning_constraint",
+      "evidence": "Owner steer 2026-09-10; UNIT_ECONOMICS.md revision 2.0",
+      "rationale": "The former 100-user and full-analysis scenario did not answer the immediate affordability question",
+      "date": "2026-09-10",
+      "supersedes": [
+        "CD012 for immediate trial sizing only"
+      ],
+      "consequences": "Model selected crates, free tiers, local processing and a $5 monthly cash cap; retain larger economics only as later reference",
+      "approval_ref": "D045"
+    },
+    {
+      "date": "2026-09-12",
+      "supersedes": [],
+      "approval_ref": "D055",
+      "id": "CD014",
+      "title": "Complete staged cloud readiness while preserving execution authority",
+      "status": "accepted_documentation",
+      "evidence": "D055; READINESS_WORKPLAN.md",
+      "problem": "Prepared discovery lacked a concrete review packet and had stale local-track status",
+      "alternatives": [
+        "Repeat broad research",
+        "Prepare bounded next experiment with durable checkpoints"
+      ],
+      "criteria": "Actionable scope, honest evidence, resumable work and no inferred external permission",
+      "rationale": "Finish local preparation before requesting owner execution approval",
+      "consequences": "T025 is draft_ready; experiment/gate states remain unchanged; D046 local status corrected",
+      "scope": "Documentation and offline validation",
+      "reopen_condition": "New user scope or findings"
+    },
+    {
+      "date": "2026-09-12",
+      "supersedes": [],
+      "approval_ref": null,
+      "id": "CD015",
+      "title": "Propose generated-fixture owner spike with exact version and budget controls",
+      "status": "proposed",
+      "evidence": "OWNER_SPIKE_PACKET.md; SPIKE_RUNBOOK.md; S002,S051-S058",
+      "problem": "Generic 8GB trial lacked concrete identity, verification, sample, cap and cleanup mechanics",
+      "alternatives": [
+        "B2 with single protected Worker origin",
+        "R2 fallback",
+        "Full selected-crate/customer ingestion immediately"
+      ],
+      "criteria": "Small reversible experiment, existing D045 affordability, source integrity, measurable playback and cleanup",
+      "rationale": "B2 US East with trusted local fixture verification tests the selected path without a heavy Worker or unreviewed music upload",
+      "consequences": "One owner, two controlled identities, generated fixtures, 6GB ingress/10GB egress, 1GB retained, 8h/7d/$1; no provider actually selected",
+      "scope": "Future separately approved engineering subset of EX003/EX004/EX007",
+      "reopen_condition": "Owner choice, unsupported account caps/auth, budget, source change or failed experiment"
+    },
+    {
+      "date": "2026-09-12",
+      "supersedes": [],
+      "approval_ref": null,
+      "id": "CD016",
+      "title": "Prepare staged EX001 interviews with explicit denominators",
+      "status": "proposed",
+      "evidence": "INTERVIEW_PACKET.md; PRODUCT_VALIDATION.md",
+      "problem": "Existing interview plan lacked ready copy, participant-flow and operational caps",
+      "alternatives": [
+        "First five DJs then review",
+        "All 20 interviews at once"
+      ],
+      "criteria": "Recent behavior, contrary evidence, minimal contact exposure and owner-controlled outreach",
+      "rationale": "Five-session first wave is a manageable learning checkpoint; full 15-DJ/5-collector gates remain distinct",
+      "consequences": "Unsent ES/EN copy, $0/6-hour first wave, 14 days, channel/contact approval required; no invented respondents",
+      "scope": "Proposed research operation only",
+      "reopen_condition": "Recruitment feasibility, owner changes, retention review or protocol amendment"
+    },
+    {
+      "id": "CD017",
+      "date": "2026-09-12",
+      "title": "Implement the isolated local browser player for later deployment",
+      "status": "accepted_implementation",
+      "approval_ref": "D054 \u2014 explicit user request, 2026-09-12",
+      "problem": "Listening surface can be built before hosting/storage services are selected",
+      "alternatives": [
+        "Provider-coupled cloud implementation",
+        "Independent native browser/static consumer"
+      ],
+      "criteria": "Useful local playback, portability, truthful evidence, source isolation and durable stage handoff",
+      "evidence": "../../packages/web-player/docs/VERIFICATION.md; E042",
+      "rationale": "Local browser storage and replaceable catalog/playback adapters provide a testable player without cloud resources",
+      "consequences": "Player built; HTTP backend/auth/uploads/account sync and device/provider verification remain later work",
+      "scope": "Local player only; all empirical cloud gates unchanged",
+      "supersedes": [],
+      "reopen_condition": "Chosen service contracts or actual device evidence require changes"
+    },
+    {
+      "id": "CD018",
+      "date": "2026-09-12",
+      "title": "Prefer stable Cloudflare connections for the private launch plan",
+      "status": "accepted_documentation",
+      "approval_ref": "D057 \u2014 user design/planning steer, 2026-09-12",
+      "problem": "Minimize manual setup repetition and provider migrations as features grow",
+      "alternatives": [
+        "B2 plus Cloudflare lowest cash",
+        "R2 plus Workers/D1/Access under current private scope",
+        "Supabase Auth/Postgres plus Cloudflare for a public product with revised budget"
+      ],
+      "criteria": "Fast private release, repeatable deployment/imports, stable IDs/bindings and existing5USD cap",
+      "evidence": "FAST_CLOUD_LAUNCH.md; S001,S010,S046,S047,S053,S058,S059,S060,S061,S062,S063,S064",
+      "rationale": "R2 removes a second storage provider and likely storage migration; invite authentication and D1 fit the current1\u21923\u219210 private scope",
+      "consequences": "Recommends R2 first; old B2 test protocol must not be executed as current launch recipe. Backend/CLI/CI still require implementation and authorization",
+      "scope": "Planning recommendation only; no provider acceptance, gate waiver, cloud implementation or spending",
+      "supersedes": [],
+      "reopen_condition": "Public consumer accounts, relational/vector requirements, measured limits, budget or provider policy change"
+    },
+    {
+      "id": "CD019",
+      "date": "2026-09-12",
+      "title": "Make the unified playlist listening loop a first-class Resonant product direction",
+      "status": "accepted_scope",
+      "approval_ref": "D058 \u2014 explicit user product/UX steer, 2026-09-12",
+      "problem": "DJs must switch among local files, SoundCloud, Spotify and other apps to audition one set playlist, while existing plans treated player, playlists and mixes as mostly separate surfaces",
+      "alternatives": [
+        "Keep the quick folder-to-mix tool and PlaylistIQ separate",
+        "Offer cloud storage/playback without native playlist workflow",
+        "Unify library, playlist editing, continuous listening, eligible-file download and later mixes behind independent contracts"
+      ],
+      "criteria": "Reduced context switching, editable auditable playlists, clear source capability boundaries, low-frequency download UX and preserved component independence",
+      "evidence": "Explicit owner steer; ../../PLAN.md; PRODUCT_VALIDATION.md; ../../packages/web-player/PLAN.md",
+      "rationale": "A single assemble-listen-revise-take-away loop connects the already built local capabilities to a recurring DJ set-preparation job",
+      "consequences": "Native/manual and PlaylistIQ-assisted playlists plus continuous in-app playback enter the north star. Download playlist files is a secondary ellipsis-menu job for owned/download-authorized audio with manifest and omissions, distinct from JSON export and mix rendering",
+      "scope": "Accepted product and UX direction only; no provider integration, cloud implementation, upload, remote audio, deployment, spending or gate waiver",
+      "supersedes": [
+        "The narrow product framing of only a quick mix utility beside a separate prompt-to-playlist tool"
+      ],
+      "reopen_condition": "User research rejects the workflow, provider capabilities prevent a useful continuous experience, rights review blocks the intended source mix, or measured cost/size/recovery is unacceptable"
     }
   ],
   "experiments": [
     {
       "id": "EX001",
       "title": "Customer workflow interviews",
-      "protocol": "PRODUCT_VALIDATION.md",
+      "protocol": "INTERVIEW_PACKET.md",
       "owner": "Product owner",
       "sample": "15 DJs + 5 collectors, two channels",
       "limitation": "No outreach authorization; not run",
@@ -1056,7 +1368,8 @@
       "authorization_ref": null,
       "results": null,
       "budget_cap": null,
-      "fixtures": null
+      "fixtures": null,
+      "scope_note": "First five DJs may be authorized separately; full 15-DJ/5-collector criteria unchanged. Contact scope and execution approval absent."
     },
     {
       "id": "EX002",
@@ -1084,7 +1397,9 @@
       "authorization_ref": null,
       "results": null,
       "budget_cap": null,
-      "fixtures": null
+      "fixtures": null,
+      "scoped_protocol": "SPIKE_RUNBOOK.md",
+      "scope_note": "Prepared owner-only single-provider generated-fixture subset; not executed and does not replace full protocol coverage."
     },
     {
       "id": "EX004",
@@ -1098,7 +1413,9 @@
       "authorization_ref": null,
       "results": null,
       "budget_cap": null,
-      "fixtures": null
+      "fixtures": null,
+      "scoped_protocol": "SPIKE_RUNBOOK.md",
+      "scope_note": "Prepared owner-only single-provider generated-fixture subset; not executed and does not replace full protocol coverage."
     },
     {
       "id": "EX005",
@@ -1140,7 +1457,53 @@
       "authorization_ref": null,
       "results": null,
       "budget_cap": null,
-      "fixtures": null
+      "fixtures": null,
+      "scoped_protocol": "SPIKE_RUNBOOK.md",
+      "scope_note": "Prepared owner-only single-provider generated-fixture subset; not executed and does not replace full protocol coverage."
+    },
+    {
+      "id": "EX008",
+      "title": "Local web-player state, adapter and browser acceptance",
+      "protocol": "../../packages/web-player/docs/VERIFICATION.md",
+      "owner": "Web-player implementation task",
+      "sample": "30 unit tests, 12 production HTTP checks, generated demo/WAV plus deliberate corrupt fixture; desktop and 390/320px viewports",
+      "limitation": "No real cloud, source corpus, actual mobile or browser-vendor matrix; filesystem download completion unobserved",
+      "gates": [],
+      "status": "completed",
+      "authorization_ref": "D054",
+      "results": {
+        "reference": "../../packages/web-player/docs/verification-0.1.0.json",
+        "unit_passed": 30,
+        "unit_failed": 0,
+        "production_http_checks": 12,
+        "cloud_execution": false
+      },
+      "budget_cap": {
+        "provider_spend_usd": 0
+      },
+      "fixtures": "Generated in-memory demo and /tmp/resonant-player-qa; no original music"
+    },
+    {
+      "id": "EX009",
+      "title": "Reference-led local player responsive and playback regression",
+      "protocol": "../../packages/web-player/docs/VERIFICATION.md",
+      "owner": "Web-player design task",
+      "sample": "30 existing unit tests,15HTTP checks, generated native demo, desktop1280 and390/320 viewport checks",
+      "limitation": "No source corpus, real mobile hardware, deployed backend, cloud ingestion or account sync; prior local import/export evidence belongs to0.1.0",
+      "gates": [],
+      "status": "completed",
+      "authorization_ref": "D057",
+      "results": {
+        "reference": "../../packages/web-player/docs/verification-0.1.1.json",
+        "unit_passed": 30,
+        "unit_failed": 0,
+        "production_http_checks": 15,
+        "cloud_execution": false
+      },
+      "budget_cap": {
+        "provider_spend_usd": 0
+      },
+      "fixtures": "Existing generated demo only; no original music"
     }
   ],
   "tasks": [
@@ -1181,11 +1544,11 @@
       "gates": [
         "G001"
       ],
-      "artifact": "PRODUCT_VALIDATION.md",
-      "status": "done_research",
-      "owner": "unassigned",
-      "authorization_ref": "D043",
-      "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
+      "artifact": "INTERVIEW_PACKET.md",
+      "status": "draft_ready",
+      "owner": "Product owner",
+      "authorization_ref": "D055",
+      "acceptance_criteria": "Prepared EX001 first-wave and full-sample protocol, unsent recruitment/consent, predeclared coding/denominators, retention, caps and private contact-selection boundary; no outreach conducted",
       "estimate": null
     },
     {
@@ -1279,12 +1642,13 @@
         "T005"
       ],
       "gates": [],
-      "artifact": "DELIVERY_PLAN.md",
+      "artifact": "OWNER_SPIKE_PACKET.md",
       "status": "requires_authorization",
       "owner": "unassigned",
       "authorization_ref": null,
       "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
-      "estimate": null
+      "estimate": null,
+      "scope_note": "Existing dependencies describe broad product authorization. A generated-fixture engineering subset may be approved via T025 with explicit scope; this does not resolve launch entity/geography or pass G010."
     },
     {
       "id": "T010",
@@ -1541,6 +1905,109 @@
       "authorization_ref": null,
       "acceptance_criteria": "Domain report plus relevant gate and evidence record; implementation completion cannot be inferred from this draft",
       "estimate": null
+    },
+    {
+      "id": "T025",
+      "title": "Prepare owner-only lean storage and playback spike",
+      "dependencies": [
+        "T001",
+        "T002",
+        "T007"
+      ],
+      "gates": [
+        "G002",
+        "G003",
+        "G007",
+        "G009",
+        "G010"
+      ],
+      "artifact": "OWNER_SPIKE_PACKET.md",
+      "status": "draft_ready",
+      "owner": "Project owner / cloud engineering",
+      "authorization_ref": "D055 (preparation only)",
+      "acceptance_criteria": "Review-ready provider/region/auth/version-pinned verification, exact byte/cash/time caps, sample/acceptance, evidence contracts and cleanup; execution requires actual owner approval",
+      "estimate": "Proposed bounded attempt: 8 engineering hours including cleanup, 7 elapsed days, $1 experiment service ceiling inside $5/month; recurring economics 2.0 unchanged",
+      "execution_authorization_ref": null
+    },
+    {
+      "id": "T026",
+      "title": "Add cost and free-limit instrumentation before any trial",
+      "dependencies": [
+        "T025"
+      ],
+      "gates": [
+        "G008",
+        "G009"
+      ],
+      "artifact": "SPIKE_RUNBOOK.md",
+      "status": "implementation_unauthorized",
+      "owner": "unassigned",
+      "authorization_ref": null,
+      "acceptance_criteria": "Storage, egress, requests, D1 rows, failure counts and founder time are visible; alert threshold is below 70%; paid upgrades require owner approval",
+      "estimate": null,
+      "scope_note": "Instrumentation specification ready in owner-spike-plan.json and runbook; no counters or cloud implementation exist"
+    },
+    {
+      "id": "T027",
+      "title": "Verify readiness artifacts and continuation checkpoint",
+      "dependencies": [
+        "T025",
+        "T003"
+      ],
+      "gates": [],
+      "artifact": "READINESS_WORKPLAN.md",
+      "status": "done",
+      "owner": "Root documentation agent",
+      "authorization_ref": "D055",
+      "acceptance_criteria": "Offline JSON/reference/state/budget/sample checks, independent protocol review, reconciled parent handoffs and recorded failures; no empirical gate change",
+      "estimate": null,
+      "verification_ref": "E043; VERIFICATION.md; verification.json"
+    },
+    {
+      "id": "T028",
+      "title": "Build and verify the independent local web player in stages",
+      "dependencies": [],
+      "gates": [],
+      "artifact": "../../packages/web-player/AGENTS.md",
+      "status": "done",
+      "owner": "Web-player implementation task",
+      "authorization_ref": "D054",
+      "acceptance_criteria": "Local player, safe adapters, tested generated playback, portable artifact and staged agent/service handoff",
+      "estimate": null
+    },
+    {
+      "id": "T029",
+      "title": "Restyle the local player and prepare the low-migration cloud launch plan",
+      "dependencies": [],
+      "gates": [],
+      "artifact": "FAST_CLOUD_LAUNCH.md",
+      "status": "done",
+      "owner": "Web-player design task",
+      "authorization_ref": "D057",
+      "acceptance_criteria": "Reference-led local design, responsive playback verification and practical staged cloud recommendation with stable connection and budget tradeoffs",
+      "estimate": null
+    },
+    {
+      "id": "T030",
+      "title": "Specify and validate unified playlist playback and rights-aware playlist-file download",
+      "dependencies": [
+        "T029"
+      ],
+      "gates": [
+        "G001",
+        "G003",
+        "G004",
+        "G007",
+        "G008",
+        "G010"
+      ],
+      "artifact": "PRODUCT_VALIDATION.md",
+      "status": "implementation_unauthorized",
+      "owner": "Product / cloud / rights",
+      "authorization_ref": "D058 (product direction only)",
+      "acceptance_criteria": "Manual and AI-assisted playlists remain editable; ordered in-app playback exposes source-specific unavailability; bulk download lives in More options, preflights eligible/omitted items and bytes, emits ordered audio plus M3U/JSON manifest, and never exports provider audio without download authority",
+      "estimate": null,
+      "scope_note": "Current player creates/reorders playlists and exports JSON only. CONTRACTS.md and ../../packages/web-player/PLAN.md hold the proposed host/UX boundaries. Account sync, cross-source adapters and audio archives require separately authorized implementation and generated/licensed fixtures first."
     }
   ],
   "failures": [
@@ -1603,6 +2070,80 @@
       "resolution": "S010 controls current scenario",
       "status": "resolved_for_screening",
       "is_product_failure": false
+    },
+    {
+      "id": "F006",
+      "date": "2026-09-10",
+      "category": "planning_communication",
+      "attempt": "Use the revision 1.0 commercial economics model to answer immediate trial affordability",
+      "observed": "The prominent $21,166.67 one-time 100-user acquisition and initial-analysis figure was interpreted as a monthly trial bill",
+      "cause": "The active scenario was too large for the owner's immediate trial and the output emphasized contribution economics before a lean cash budget",
+      "impact": "The model overstated the practical entry barrier and did not provide the requested 1/3/10-user decision",
+      "resolution": "Revision 2.0 leads with 1/3/10 users, selected crates, free tiers, expected monthly cash, founder time and a $5 service cap; the old model is archived",
+      "status": "resolved",
+      "is_product_failure": false
+    },
+    {
+      "id": "F007",
+      "date": "2026-09-12",
+      "category": "documentation_drift",
+      "attempt": "Audit cloud readiness against maintained parent status",
+      "observed": "Cloud authorization said PlaylistIQ paused; takeover cited only two tracks despite D046 and E037/E040",
+      "cause": "Local milestones were not propagated consistently into cloud summaries/register",
+      "impact": "A continuation could pause authorized local work or understate completed evidence",
+      "resolution": "Revision1.2 separates active local PlaylistIQ from held cloud integration and links complete10/37 results",
+      "status": "resolved",
+      "is_product_failure": false
+    },
+    {
+      "id": "F008",
+      "date": "2026-09-12",
+      "category": "research_access",
+      "attempt": "Open guessed B2 regions and Worker Access documentation paths",
+      "observed": "https://www.backblaze.com/docs/cloud-storage-regions and https://developers.cloudflare.com/workers/configuration/access/ returned Internal Error",
+      "cause": "Exact root cause unestablished; successful canonical paths differ",
+      "impact": "Initial two fetches supplied no usable evidence",
+      "resolution": "Used S054 cloud-storage-data-regions and S053 configuration/cloudflare-access/",
+      "status": "resolved_for_screening",
+      "is_product_failure": false
+    },
+    {
+      "id": "F009",
+      "date": "2026-09-12",
+      "category": "protocol_review",
+      "attempt": "Independent audit of initial owner-spike draft",
+      "observed": "19/20 recovery mixed cancellations; large preloads could exceed budget; p95 omitted failures; logout and late-upload handling underspecified; parts concurrency ambiguous",
+      "cause": "Initial protocol did not tie denominators, transfer allocations and session/version lifecycles tightly enough",
+      "impact": "Could falsely pass quality or lose bounded execution/cleanup",
+      "resolution": "Separate16/16 recovery and4/4 cancellation; bounded small-file playback and transfer ledger; include timeouts; session revocation and upload draining; explicit concurrency",
+      "status": "resolved",
+      "is_product_failure": false
+    },
+    {
+      "id": "F010",
+      "date": "2026-09-12",
+      "category": "local_player_implementation",
+      "attempt": "Initial player source, local server and responsive preview",
+      "observed": "Source assets404; paused replacement autoplay; stale seek; M shortcut error; renewal budget; HTTP preference account scoping; narrow overflow/artwork",
+      "cause": "Initial implementation boundary/state/CSS defects, distinct from provider or product evidence",
+      "impact": "Local player could fail loading or unexpectedly play/reuse state until corrected",
+      "resolution": "Normalized server paths; playback intent/epoch/seek fixes; safe event data; progress-based retry budget; HTTP session-only preferences; responsive fixes; 30 tests and browser verification",
+      "status": "resolved",
+      "is_product_failure": false,
+      "evidence_refs": [
+        "../../packages/web-player/WORK_LOG.md",
+        "../../packages/web-player/docs/VERIFICATION.md"
+      ]
     }
-  ]
+  ],
+  "current_release": {
+    "scope": "one_owner_shared_read_only_catalog",
+    "state": "local_web_preview",
+    "tracks": 187,
+    "analysis": "local_only",
+    "visitor_uploads": false,
+    "multi_tenant_accounts": false,
+    "cloud_deployed": false,
+    "evidence": "../../packages/web-player/docs/WEB_EDITION.md"
+  }
 }

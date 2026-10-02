@@ -1,0 +1,6 @@
+{
+  "contract_version": "resonant-player/config/1",
+  "mode": "local",
+  "apiBase": "/api/",
+  "mediaOrigins": []
+}

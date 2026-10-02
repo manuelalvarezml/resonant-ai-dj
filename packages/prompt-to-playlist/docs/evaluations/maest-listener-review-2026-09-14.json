@@ -1,0 +1,398 @@
+{
+  "schema": "resonant/genre-listening-review",
+  "version": 1,
+  "model": "discogs-maest-30s-pw-519l-2",
+  "dataset": "4405fbadd08d109eb73f915fc8e5acb40dde25338abed17485564c2a65c22c8e",
+  "source": "User paste in task on 2026-09-14; genre display separators preserved, HTML spaces decoded, trailing commas trimmed; duplicates and conflicting judgments retained.",
+  "reviews": [
+    {
+      "sha256": "5a1c8259dfb0b2e97818ad5900c6cb958ca00e58171a602338bbb9ea29b4d262",
+      "filename": "(1-1)DON'T DIE YOUNG (FLP INTRO).mp3",
+      "accepted_genre": "Electronic / Bassline, Electronic / Electro House, Electronic / Dance-pop",
+      "notes": "Should have pop here on the 2nd place probably. other than that, the accepted genres complement each other well",
+      "accepted_model_labels": [
+        "Electronic---Bassline",
+        "Electronic---Electro House",
+        "Electronic---Dance-pop"
+      ],
+      "review_caveat": "Pop requested in notes without a specific taxonomy label; do not invent one."
+    },
+    {
+      "sha256": "4023ace31116d892de8d5104710a0634a40a0deb6fdbe2ea519ffc54e5d86ab2",
+      "filename": "(3) It's ok to cry rkt - sophie x plan b.mp3",
+      "accepted_genre": "Latin / Reggaeton, Electronic / Dance-pop, Latin / Cumbia",
+      "notes": "top 4 is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Latin---Reggaeton",
+        "Electronic---Dance-pop",
+        "Latin---Cumbia"
+      ],
+      "review_caveat": "Accepted field lists three labels; notes approve top four."
+    },
+    {
+      "sha256": "5fd6fd15b26077e02fa3107bee72e188c2474dff4ae51f5b28d135fc8d94ec48",
+      "filename": "01 - allah-las - catamaran.mp3",
+      "accepted_genre": "Rock / Psychedelic Rock, Rock / Psychedelic Rock, Rock / Surf",
+      "notes": "Would keep top 3 as perfect and complementary for the full desc and move surf to the 1st or 2nd place",
+      "accepted_model_labels": [
+        "Rock---Psychedelic Rock",
+        "Rock---Psychedelic Rock",
+        "Rock---Surf"
+      ],
+      "review_caveat": "Accepted field repeats Psychedelic Rock and omits Garage Rock; notes approve top three. Preserve both."
+    },
+    {
+      "sha256": "71b8f2fb1aff0341e88b18f87069f59874698efae72a6d363015462f3e08ecfa",
+      "filename": "01 Cumbia a la Luna.mp3",
+      "accepted_genre": "Electronic / Downtempo, Electronic / Ambient, Electronic / Deep House",
+      "notes": "top 1 is perfect and enough for this one, but top 3 makes sense too ",
+      "accepted_model_labels": [
+        "Electronic---Downtempo",
+        "Electronic---Ambient",
+        "Electronic---Deep House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "0a1968b3fe4b22efef8b8f68fc1f8b0545b038dc58e2240a4ab41a77fda86224",
+      "filename": "01 Excursions.mp3",
+      "accepted_genre": "Hip Hop / Boom Bap, Hip Hop / Jazzy Hip-Hop, Hip Hop / Conscious",
+      "notes": "top 3 is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Hip Hop---Boom Bap",
+        "Hip Hop---Jazzy Hip-Hop",
+        "Hip Hop---Conscious"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "c4fa9722112e74661c9a4da26fa386d9a65564da8a3cef25048df25168f31bae",
+      "filename": "01 My Paradise - Edit.mp3",
+      "accepted_genre": "Electronic / House",
+      "notes": "top 1 is perfect and enough. top 3 is ok",
+      "accepted_model_labels": [
+        "Electronic---House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "0d303e2245a762c0e1369932059ce2cc27d96e7e625636449e74e141c0d8cd0d",
+      "filename": "016 - The Beach.mp3",
+      "accepted_genre": "Electronic / House, Electronic / Electro",
+      "notes": "top 2 is perfect and enough",
+      "accepted_model_labels": [
+        "Electronic---House",
+        "Electronic---Electro"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "6b451512f8a34c310cc5ac5db2bc5550a02ff7344c32b5b65efe00f73a4ef5e2",
+      "filename": "02 - What's New Pussy Cat.mp3",
+      "accepted_genre": "Electronic / Synth-pop, Electronic / Electro, Electronic / New Wave, Electronic / Italo-Disco",
+      "notes": "top 4 is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Electronic---Synth-pop",
+        "Electronic---Electro",
+        "Electronic---New Wave",
+        "Electronic---Italo-Disco"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "998656a072ccd44576fc6313feb1ee8e661bdaad4b4bba7ac10e573ccd5e7f5f",
+      "filename": "02 Buggin’ Out.mp3",
+      "accepted_genre": "Hip Hop / Conscious, Hip Hop / Jazzy Hip-Hop, Hip Hop / Boom Bap",
+      "notes": "top 3 is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Hip Hop---Conscious",
+        "Hip Hop---Jazzy Hip-Hop",
+        "Hip Hop---Boom Bap"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "ef90c63da5fb3352752e0c9283cf3ef0d0d8a961b3d4585da5e11ffba2a8a098",
+      "filename": "02 For The Record.mp3",
+      "accepted_genre": "Electronic / House",
+      "notes": "top 1 is perfect and enough",
+      "accepted_model_labels": [
+        "Electronic---House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "39f2eb86e63c778e3d62060938a144248e82f7e47894fe579f8ff5e7820758fc",
+      "filename": "02 Work Out Tonight.mp3",
+      "accepted_genre": "Electronic / Synth-pop, Electronic / Nu-Disco, Electronic / Electro, Electronic / Synthwave",
+      "notes": "top 3 plus Electronic / Synthwave (6th) is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Electronic---Synth-pop",
+        "Electronic---Nu-Disco",
+        "Electronic---Electro",
+        "Electronic---Synthwave"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "5cf55b0dddf181df3496750a8e24d7d10b409d8f56704b09c7d55e94e6fa3c28",
+      "filename": "02. Nick Leon - Bachetrón.mp3",
+      "accepted_genre": "Latin / Guaracha, Latin / Reggaeton, Electronic / Techno, Electronic / Experimental",
+      "notes": "top 4 is perfect and complementary. it definitely cannot leave Electronic / Experimental (4th) out",
+      "accepted_model_labels": [
+        "Latin---Guaracha",
+        "Latin---Reggaeton",
+        "Electronic---Techno",
+        "Electronic---Experimental"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "8f7d37cbbb2ebc28bba6f5e6a7476c97a01bc1ef27bc0be388dd338c0079318f",
+      "filename": "03 - And We Hear I Love You.mp3",
+      "accepted_genre": "Electronic / Synth-pop, Electronic / New Wave, Electronic / Electro, Electronic / Experimental",
+      "notes": "top 3 plus Electronic / Experimental (6th) is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Electronic---Synth-pop",
+        "Electronic---New Wave",
+        "Electronic---Electro",
+        "Electronic---Experimental"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "ba1f70fcb558e4ff5d503ad6eec2fa6d0da0dd6224dfcb8cae2a14a8f309aa5e",
+      "filename": "03 Fantazia.mp3",
+      "accepted_genre": "Electronic / House",
+      "notes": "top 1 is perfect and enough. top 2 is not bad",
+      "accepted_model_labels": [
+        "Electronic---House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "b23cf7fc573254db349ab179fdcc406c5da159186b04b1fe914ff913d83e4ae2",
+      "filename": "04 Listen Over the Ocean.mp3",
+      "accepted_genre": "Rock / New Wave, Electronic / New Wave, Electronic / Synth-pop",
+      "notes": "top 3 is perfect and complement each other for the full description",
+      "accepted_model_labels": [
+        "Rock---New Wave",
+        "Electronic---New Wave",
+        "Electronic---Synth-pop"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "724175437372bdc416e8dadc36c8151e3828b521d33b47ad813362efae76eb2b",
+      "filename": "04 Raw Deal Cocaine Kills.mp3",
+      "accepted_genre": "Electronic / Synth-pop, Electronic / Electro, Funk / Soul / Boogie, Funk / Soul / Funk",
+      "notes": "top 4 is perfect and complementary. it really needs 3th and 4th",
+      "accepted_model_labels": [
+        "Electronic---Synth-pop",
+        "Electronic---Electro",
+        "Funk / Soul---Boogie",
+        "Funk / Soul---Funk"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "9d0f517378c08cc716e499cc8a73c0fd5b81ec92a9de5bee192c251ed62643b4",
+      "filename": "07 - allah-las - ela navega.mp3",
+      "accepted_genre": "Rock / Garage Rock, Rock / Surf",
+      "notes": "top 2 is perfect and complementary",
+      "accepted_model_labels": [
+        "Rock---Garage Rock",
+        "Rock---Surf"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "c4a67f89af1b9ae6bf4be097653f41038d579d4506b42e6aefccc6a818b093cb",
+      "filename": "07 Headhunter V3.0.mp3",
+      "accepted_genre": "Electronic / EBM, Electronic / Industrial",
+      "notes": "top 2 is perfect and complementary",
+      "accepted_model_labels": [
+        "Electronic---EBM",
+        "Electronic---Industrial"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "8af34a243877ce41c72f4b8a704c749415cc3c457e8a6eb514bebd00659c95c1",
+      "filename": "08 Ritmo Actual (T.NO remix).mp3",
+      "accepted_genre": "Electronic / Jungle, Electronic / Footwork, Electronic / Breakbeat",
+      "notes": "top 2 is good and complementary. would include also Electronic / Breakbeat (4th)",
+      "accepted_model_labels": [
+        "Electronic---Jungle",
+        "Electronic---Footwork",
+        "Electronic---Breakbeat"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "80293af4c18d3dd91c8fe7a14e86726b723e3243113a1a051c9dfd2100488b5b",
+      "filename": "08 Work 01.mp3",
+      "accepted_genre": "Electronic / EBM, Electronic / Electro, Electronic / Industrial",
+      "notes": "top 3 is good and complementary. would move Electronic / Industrial (3th) to 2nd place",
+      "accepted_model_labels": [
+        "Electronic---EBM",
+        "Electronic---Electro",
+        "Electronic---Industrial"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "044e6d6dae5d2bc18f6ab8deeb7aa187c0590af3da31ec8976ada0a8b54e76df",
+      "filename": "09 Play.mp3",
+      "accepted_genre": "Electronic / Italodance, Electronic / Trance, Electronic / Techno, Electronic / Hard House",
+      "notes": "Electronic / Italodance is ok but deffinitely needs Electronic / Trance (2), Electronic / Techno (3), and Electronic / Hard House (5)",
+      "accepted_model_labels": [
+        "Electronic---Italodance",
+        "Electronic---Trance",
+        "Electronic---Techno",
+        "Electronic---Hard House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "e73a7a24c635f3b8881b2213008774d1d130f1540ed7dbf4ea3d4225315e79c6",
+      "filename": "11 - Italiani (Remix).mp3",
+      "accepted_genre": "Electronic / Disco, Pop / Europop, Pop / Chanson",
+      "notes": "top 3 is good and complementary. would also include Pop / Chanson (4th)",
+      "accepted_model_labels": [
+        "Electronic---Disco",
+        "Pop---Europop",
+        "Pop---Chanson"
+      ],
+      "review_caveat": "Accepted field omits House (rank 3); notes approve top three plus Chanson."
+    },
+    {
+      "sha256": "d35dea807325fe15963877a963b5e53db638fadf08d866312c3387bd14833b67",
+      "filename": "15_bon_chic_-_lunettes_de_soleil_meme_la_nuit-mwn.mp3",
+      "accepted_genre": "Electronic / Synthwave, Electronic / Chillwave, Electronic / Vaporwave",
+      "notes": "top 3 is perfect and complementary",
+      "accepted_model_labels": [
+        "Electronic---Synthwave",
+        "Electronic---Chillwave",
+        "Electronic---Vaporwave"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "ef6c31ea547c4954d7d755c127fd4c8bd9932c77c8aef9256fca3dddfdca6c85",
+      "filename": "3334 Heart - Magic Man.mp3",
+      "accepted_genre": "Rock / Hard Rock, Rock / Pop Rock, Rock / Prog Rock, Rock / Classic Rock",
+      "notes": "top 4 is perfect and complementary. maybe would move Rock / Hard Rock (1st) to 4th",
+      "accepted_model_labels": [
+        "Rock---Hard Rock",
+        "Rock---Pop Rock",
+        "Rock---Prog Rock",
+        "Rock---Classic Rock"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "37f7dd2e7e84dcb2dadb743d64a96fe55c1c568fba36ca2fdba8979e0f024df4",
+      "filename": "Bladee, Ecco2K & Thaiboy Digital - Victim (Nick León Dembow Edit).mp3",
+      "accepted_genre": "Latin / Reggaeton, Latin / Guaracha, Hip Hop / Trap, Electronic / Experimental",
+      "notes": "top 3 is great and complementary. would add Electronic / Experimental (4th)",
+      "accepted_model_labels": [
+        "Latin---Reggaeton",
+        "Latin---Guaracha",
+        "Hip Hop---Trap",
+        "Electronic---Experimental"
+      ],
+      "review_caveat": "Experimental is rank 5 in saved scores, although notes call it rank 4."
+    },
+    {
+      "sha256": "61729acd08bdd113156aba71339314a33526fb4cbfc34c26a2fc8207cd757312",
+      "filename": "Demi Riquisimo, CLINT - Love State.mp3",
+      "accepted_genre": "Electronic / House",
+      "notes": "top 1 is perfect. Electronic / Progressive House (2nd) is acceptable too",
+      "accepted_model_labels": [
+        "Electronic---House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "d5afdfa310e303d7b22ca34ddfcb7d62e7116dfd9ddb7a538010dad289e1cb12",
+      "filename": "Demi Riquísimo - Certified.mp3",
+      "accepted_genre": "Electronic / House, Electronic / Deep House, Electronic / Electro",
+      "notes": "top 3 is perfect and complementary",
+      "accepted_model_labels": [
+        "Electronic---House",
+        "Electronic---Deep House",
+        "Electronic---Electro"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "b2a28ec1788e87957e84a395803d7a2ce06d7f18ec289ca04ceb48887fae6682",
+      "filename": "Lemon8 - Triple Funk.mp3",
+      "accepted_genre": "Electronic / Progressive House, Electronic / House, Electronic / Trance",
+      "notes": "top 3 is perfect and complementary",
+      "accepted_model_labels": [
+        "Electronic---Progressive House",
+        "Electronic---House",
+        "Electronic---Trance"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "8978a14623be07f3046fb0d4053ece6eb0979eb3b71cec84969e2526a727ea75",
+      "filename": "LinaPary x Naxxo - Te va a encantar.mp3",
+      "accepted_genre": "Electronic / Hard House",
+      "notes": "top 1 is perfect",
+      "accepted_model_labels": [
+        "Electronic---Hard House"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582",
+      "filename": "Pino D’Angiò - Balla! - 01 - Un concerto da strapazzo.mp3",
+      "accepted_genre": "Rock / Pop Rock, Rock / Parody, Pop / Parody, Rock / Rock & Roll",
+      "notes": "top 4 is perfect and complementary",
+      "accepted_model_labels": [
+        "Rock---Pop Rock",
+        "Rock---Parody",
+        "Pop---Parody",
+        "Rock---Rock & Roll"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "01aa4a7342896b361faf29dab013679e85ee96185c0311ddd75cf3a5eff749fb",
+      "filename": "Pino D’Angiò - Balla! - 10 - Ma quale idea.mp3",
+      "accepted_genre": "Electronic / Disco, Funk / Soul / Disco",
+      "notes": "top 5 is perfect and complementary. top 3 also works",
+      "accepted_model_labels": [
+        "Electronic---Disco",
+        "Funk / Soul---Disco"
+      ],
+      "review_caveat": "Accepted field lists two labels; notes approve top five and also top three."
+    },
+    {
+      "sha256": "b0290c23959aaa4819aec0e850657223f3f81d74f383c01b72cba5cb708a785a",
+      "filename": "Rahul.mp3 x Hazboy - Girls Gone Wild (MASTER).mp3",
+      "accepted_genre": "Electronic / Happy Hardcore, Electronic / Hard Techno, Electronic / Tribal",
+      "notes": "top 3 works perfectly",
+      "accepted_model_labels": [
+        "Electronic---Happy Hardcore",
+        "Electronic---Hard Techno",
+        "Electronic---Tribal"
+      ],
+      "review_caveat": null
+    },
+    {
+      "sha256": "70480aad3c6366fe468aacd5ccde0857ac2fdf62e65051d63916697da485d07e",
+      "filename": "Revivis - Surrender The Body EP - 04 - Ruminating.mp3",
+      "accepted_genre": "Electronic / House",
+      "notes": "top 1 is perfect and enough",
+      "accepted_model_labels": [
+        "Electronic---House"
+      ],
+      "review_caveat": null
+    }
+  ]
+}

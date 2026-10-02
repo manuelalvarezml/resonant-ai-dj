@@ -1,0 +1,90 @@
+{
+  "upstream_revision": "c5f7984f78d9928b841f25bd05a47377c12c58ca",
+  "mert_revision": "12af15fef9d0ac838c3f475bfbbf26d2060dd4f5",
+  "assets": [
+    {
+      "path": "J_all.ckpt",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/saved_models/J_all.ckpt",
+      "sha256": "deaceb291f7974deb688167d3639b7f6eb66eb0715824668618393777d1e07a5",
+      "size_bytes": 12958092
+    },
+    {
+      "path": "btc_model_large_voca.pt",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/btc_model_large_voca.pt",
+      "sha256": "1673d23f8f9a55ae7f9e8b80a51da616debb22675b8d8b67ea6ce0ef37b0ab51",
+      "size_bytes": 12229576
+    },
+    {
+      "path": "run_config.yaml",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/run_config.yaml",
+      "sha256": "f1d924d79c781ffdae800dce7818fcac49d9d4887d09541424b93c80d49be2df",
+      "size_bytes": 791
+    },
+    {
+      "path": "chord.json",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/chord.json",
+      "sha256": "cb1d1f46d58db2a2ffd8c55ed558197141cf5a260b25339020d8e8630317cd4c",
+      "size_bytes": 2196
+    },
+    {
+      "path": "chord_inv.json",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/chord_inv.json",
+      "sha256": "fef7b3a06c48164a6b451a2a9da7a5e3299eda10fa99683819b6aec9ef6f0f95",
+      "size_bytes": 2511
+    },
+    {
+      "path": "chord_root.json",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/chord_root.json",
+      "sha256": "0c7bff725b9875bba79915fa08876f47080324c65edfabd456be17d4cc19005f",
+      "size_bytes": 113
+    },
+    {
+      "path": "chord_attr.json",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/chord_attr.json",
+      "sha256": "770602c0709d78823d0573ec998cca2dcbde33548ab47f3134f1a933110ad922",
+      "size_bytes": 150
+    },
+    {
+      "path": "tag_list.npy",
+      "url": "https://raw.githubusercontent.com/AMAAI-Lab/Music2Emotion/c5f7984f78d9928b841f25bd05a47377c12c58ca/inference/data/tag_list.npy",
+      "sha256": "9510e22fca2ac817c8af9287f1fa40dbbbc10c489ead8d7bfc99191c0569d60d",
+      "size_bytes": 22820
+    },
+    {
+      "path": "mert/config.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v1-95M/resolve/12af15fef9d0ac838c3f475bfbbf26d2060dd4f5/config.json",
+      "sha256": "ea2627c4c7825cd66f3c944b6b966331604c35928174e0100cd4a82829424e32",
+      "size_bytes": 1817
+    },
+    {
+      "path": "mert/preprocessor_config.json",
+      "url": "https://huggingface.co/m-a-p/MERT-v1-95M/resolve/12af15fef9d0ac838c3f475bfbbf26d2060dd4f5/preprocessor_config.json",
+      "sha256": "cc5a5e4a5d3b1a758a5ed984b2eaa15bb0522d811d44a9eed82bfca4baa0dc8f",
+      "size_bytes": 211
+    },
+    {
+      "path": "mert/pytorch_model.bin",
+      "url": "https://huggingface.co/m-a-p/MERT-v1-95M/resolve/12af15fef9d0ac838c3f475bfbbf26d2060dd4f5/pytorch_model.bin",
+      "sha256": "a2b8b747f72c06e0595aeae41ae5473f4364938c6b39b2c58be38c48e6bd3fcd",
+      "size_bytes": 377552987
+    },
+    {
+      "path": "danceability-msd-musicnn-1.json",
+      "url": "https://essentia.upf.edu/models/classification-heads/danceability/danceability-msd-musicnn-1.json",
+      "sha256": "9ec56f2b1e710da394c25245524f5caa772905f5978fc585dc1d2f6d248a2b48",
+      "size_bytes": 1948
+    },
+    {
+      "path": "danceability-msd-musicnn-1.pb",
+      "url": "https://essentia.upf.edu/models/classification-heads/danceability/danceability-msd-musicnn-1.pb",
+      "sha256": "874a4b86afc9e12de3f15a47baf9ff1ac676ace109c56203e26103f2259eb95e",
+      "size_bytes": 82458
+    },
+    {
+      "path": "msd-musicnn-1.pb",
+      "url": "https://essentia.upf.edu/models/feature-extractors/musicnn/msd-musicnn-1.pb",
+      "sha256": "cdea0722bcee7f731286843f2233e3aa69887bb5c3e2dce011eff55f38d04f3e",
+      "size_bytes": 3197999
+    }
+  ]
+}

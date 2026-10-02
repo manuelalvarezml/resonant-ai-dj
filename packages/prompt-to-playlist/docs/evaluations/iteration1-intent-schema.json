@@ -1,0 +1,532 @@
+{
+  "$defs": {
+    "BPMConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 400,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "maximum": 400,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Maximum"
+        },
+        "source_span": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Source Span",
+          "type": "string"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum",
+        "source_span"
+      ],
+      "title": "BPMConstraint",
+      "type": "object"
+    },
+    "EvidenceGap": {
+      "additionalProperties": false,
+      "properties": {
+        "concept": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Concept",
+          "type": "string"
+        },
+        "origin": {
+          "description": "explicit_requirement means a HARD user requirement and MUST have blocking=true. Soft explicit wishes use optional_preference. Contextual caveats use inferred_context.",
+          "enum": [
+            "explicit_requirement",
+            "optional_preference",
+            "inferred_context"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "blocking": {
+          "title": "Blocking",
+          "type": "boolean"
+        },
+        "explanation": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "concept",
+        "origin",
+        "blocking",
+        "explanation"
+      ],
+      "title": "EvidenceGap",
+      "type": "object"
+    },
+    "Preference": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "$ref": "#/$defs/AllowedTag"
+        },
+        "direction": {
+          "enum": [
+            "increase",
+            "decrease"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "importance": {
+          "enum": [
+            "primary",
+            "secondary",
+            "optional"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "explicit",
+            "inferred"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "source_span": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Span"
+        }
+      },
+      "required": [
+        "tag",
+        "direction",
+        "importance",
+        "origin",
+        "source_span"
+      ],
+      "title": "Preference",
+      "type": "object"
+    },
+    "TagConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "all",
+            "any",
+            "exclude"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/$defs/AllowedTag"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Tags",
+          "type": "array"
+        },
+        "source_span": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Source Span",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "tags",
+        "source_span"
+      ],
+      "title": "TagConstraint",
+      "type": "object"
+    },
+    "AllowedTag": {
+      "type": "string",
+      "enum": [
+        "genre:house",
+        "genre:techno",
+        "genre:disco",
+        "genre:hip_hop",
+        "genre:ambient",
+        "mood:dark",
+        "mood:uplifting",
+        "mood:warm",
+        "mood:melancholic",
+        "energy:low",
+        "energy:medium",
+        "energy:high",
+        "vocals:vocal",
+        "vocals:instrumental",
+        "genre:electronic",
+        "genre:rock",
+        "genre:pop",
+        "genre:jazz",
+        "genre:funk-soul",
+        "genre:folk-world-country",
+        "genre:latin",
+        "genre:reggae",
+        "genre:blues",
+        "genre:classical",
+        "genre:stage-screen",
+        "genre:childrens",
+        "genre:brass-military",
+        "genre:non-music",
+        "mood:happy",
+        "mood:sad",
+        "mood:relaxed",
+        "mood:aggressive",
+        "danceability:danceable",
+        "genre:euro-house",
+        "genre:euro-disco",
+        "genre:funk",
+        "genre:italodance",
+        "genre:trance",
+        "genre:hard-house",
+        "genre:tribal",
+        "genre:breakbeat",
+        "genre:tech-trance",
+        "genre:pop-rock",
+        "genre:parody",
+        "genre:rock-roll",
+        "genre:chanson",
+        "genre:new-wave",
+        "genre:guaracha",
+        "genre:reggaeton",
+        "genre:experimental",
+        "genre:trap",
+        "genre:electro",
+        "genre:idm",
+        "genre:abstract",
+        "genre:glitch",
+        "genre:grime",
+        "genre:dubstep",
+        "genre:donk",
+        "genre:dance-pop",
+        "genre:jumpstyle",
+        "genre:electro-house",
+        "genre:eurodance",
+        "genre:boom-bap",
+        "genre:jazzy-hip-hop",
+        "genre:conscious",
+        "genre:pop-rap",
+        "genre:downtempo",
+        "genre:tech-house",
+        "genre:deep-house",
+        "genre:psy-trance",
+        "genre:progressive-trance",
+        "genre:minimal",
+        "genre:hardstyle",
+        "genre:hard-trance",
+        "genre:hardcore",
+        "genre:drone",
+        "genre:hard-techno",
+        "genre:schranz",
+        "genre:acid",
+        "genre:ghetto",
+        "genre:juke",
+        "genre:tribal-house",
+        "genre:synth-pop",
+        "genre:nu-disco",
+        "genre:synthwave",
+        "genre:uk-garage",
+        "genre:broken-beat",
+        "genre:cumbia",
+        "genre:ethno-pop",
+        "genre:bass-music",
+        "genre:jungle",
+        "genre:drum-n-bass",
+        "genre:ghetto-house",
+        "genre:ghettotech",
+        "genre:bassline",
+        "genre:ragga-hiphop",
+        "genre:europop",
+        "genre:italo-disco",
+        "genre:breaks",
+        "genre:dancehall",
+        "genre:baltimore-club",
+        "genre:boogie",
+        "genre:progressive-house",
+        "genre:garage-rock",
+        "genre:psychedelic-rock",
+        "genre:surf",
+        "genre:beat",
+        "genre:mod",
+        "genre:lo-fi",
+        "genre:italo-house",
+        "genre:speed-garage",
+        "genre:gabber",
+        "genre:future-jazz",
+        "genre:ebm",
+        "genre:industrial",
+        "genre:new-beat",
+        "genre:happy-hardcore",
+        "genre:dub",
+        "genre:footwork",
+        "genre:hands-up",
+        "genre:african",
+        "genre:hardcore-hip-hop",
+        "genre:rockabilly",
+        "genre:makina",
+        "genre:alternative-rock",
+        "genre:art-rock",
+        "genre:poetry",
+        "genre:prog-rock",
+        "genre:blues-rock",
+        "genre:cloud-rap",
+        "genre:tropical-house",
+        "genre:halftime",
+        "genre:breakcore",
+        "genre:chillwave",
+        "genre:vaporwave",
+        "genre:acid-house",
+        "genre:mambo",
+        "genre:hard-rock",
+        "genre:classic-rock",
+        "genre:soft-rock",
+        "genre:dub-techno",
+        "genre:ballad"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "playlist-intent-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "ready",
+        "partial_support",
+        "needs_clarification",
+        "unsupported"
+      ],
+      "title": "Disposition",
+      "type": "string"
+    },
+    "interpretation": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Interpretation",
+      "type": "string"
+    },
+    "occasion": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Occasion"
+    },
+    "activity": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Activity"
+    },
+    "recipient": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Recipient"
+    },
+    "emotional_goal": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Emotional Goal"
+    },
+    "constraints": {
+      "description": "Explicit hard requirements only. EMPTY for ordinary creative mood/activity/occasion prompts. any mode accepts genre alternatives only.",
+      "items": {
+        "$ref": "#/$defs/TagConstraint"
+      },
+      "maxItems": 30,
+      "title": "Constraints",
+      "type": "array"
+    },
+    "bpm": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/BPMConstraint"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "preferences": {
+      "items": {
+        "$ref": "#/$defs/Preference"
+      },
+      "maxItems": 30,
+      "title": "Preferences",
+      "type": "array"
+    },
+    "count": {
+      "maximum": 100,
+      "minimum": 1,
+      "title": "Count",
+      "type": "integer"
+    },
+    "count_source": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Count Source"
+    },
+    "order": {
+      "enum": [
+        "relevance",
+        "bpm_ascending",
+        "bpm_descending"
+      ],
+      "title": "Order",
+      "type": "string"
+    },
+    "order_source": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Order Source"
+    },
+    "excluded_track_ids": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 100,
+      "title": "Excluded Track Ids",
+      "type": "array"
+    },
+    "assumptions": {
+      "items": {
+        "maxLength": 500,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "evidence_gaps": {
+      "items": {
+        "$ref": "#/$defs/EvidenceGap"
+      },
+      "maxItems": 20,
+      "title": "Evidence Gaps",
+      "type": "array"
+    },
+    "clarification": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Clarification"
+    }
+  },
+  "required": [
+    "schema_version",
+    "disposition",
+    "interpretation",
+    "occasion",
+    "activity",
+    "recipient",
+    "emotional_goal",
+    "constraints",
+    "bpm",
+    "preferences",
+    "count",
+    "count_source",
+    "order",
+    "order_source",
+    "excluded_track_ids",
+    "assumptions",
+    "evidence_gaps",
+    "clarification"
+  ],
+  "title": "IntentPlan",
+  "type": "object"
+}

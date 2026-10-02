@@ -32,6 +32,7 @@ class OpenAISettings(StrictModel):
     )
     key_source_file: str | None = Field(default=None, min_length=1)
     timeout_s: float = Field(default=30.0, gt=0, le=120)
+    intent_reasoning_effort: Literal["none", "low", "medium", "high", "xhigh"] | None = None
 
     @field_validator("model", "key_source_file")
     @classmethod

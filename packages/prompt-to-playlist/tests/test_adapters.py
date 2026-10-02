@@ -171,7 +171,7 @@ def test_safe_native_round_trip_and_no_overwrite(tmp_path):
 @pytest.mark.parametrize(
     "relative",
     ["export.MP3", "export.wav", "Music/export.json", "test_folder_10_house_tracks/new/out.json",
-     "test_tracks_folder_mp3/out.json", "audio/export.json"],
+     "test_tracks_folder_mp3/out.json", "audio/export.json", "test_music/new_albums/out.json"],
 )
 def test_save_refuses_audio_targets_and_named_music_folders(tmp_path, relative):
     destination = tmp_path / relative

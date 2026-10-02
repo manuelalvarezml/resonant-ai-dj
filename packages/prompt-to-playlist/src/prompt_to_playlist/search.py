@@ -19,7 +19,7 @@ def _validate_catalog(catalog: Catalog, vocabulary: Vocabulary) -> Catalog:
     known = {item.id for item in vocabulary.descriptors}
     axes = {tag.split(":", 1)[0] for tag in known}
     for track in catalog.tracks:
-        unknown = {item.tag for item in track.tags} - known
+        unknown = ({item.tag for item in track.tags} | {tag for item in track.tags for tag in item.parent_tags} | set(track.preference_scores)) - known
         if unknown:
             raise ValueError(f"Catalog contains unknown descriptors: {', '.join(sorted(unknown))}")
         if set(track.complete_tag_axes) - axes:
@@ -38,7 +38,7 @@ def get_tracks(catalog: Catalog, track_ids: list[str]) -> list[CatalogTrack]:
     return [indexed[track_id].model_copy(deep=True) for track_id in track_ids]
 
 
-def search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary) -> SearchResult:
+def _legacy_search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary) -> SearchResult:
     """All required constraints must be evidenced; never relax a hard filter."""
     query = validate_query(query, vocabulary)
     catalog = _validate_catalog(catalog, vocabulary)
@@ -52,6 +52,7 @@ def search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary
     if banned_ids - available_ids:
         warnings.append("Some excluded track IDs are absent from this catalog.")
     usable_catalog_tags = {item.tag for track in catalog.tracks for item in track.tags if item.status in USABLE}
+    usable_catalog_tags |= {tag for track in catalog.tracks for tag,e in track.preference_scores.items() if e.status in USABLE}
     missing_tags = requested - usable_catalog_tags
     if missing_tags:
         warnings.append("No usable catalog evidence for: " + ", ".join(sorted(missing_tags)))
@@ -84,10 +85,12 @@ def search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary
                 continue
             if query.max_bpm is not None and bpm > query.max_bpm:
                 continue
-        matched = sorted(tags & requested)
-        missing = sorted(preferred - tags)
-        score = len(preferred & tags) / len(preferred) if preferred else (1.0 if required else 0.0)
+        continuous = {tag:e.value for tag,e in track.preference_scores.items() if e.status in USABLE and 0 <= e.value <= 1}
+        matched = sorted((tags & requested) | (preferred & continuous.keys()))
+        missing = sorted(preferred - tags - continuous.keys())
+        score = sum(1.0 if tag in tags else continuous.get(tag,0.0) for tag in preferred) / len(preferred) if preferred else (1.0 if required else 0.0)
         reasons = [f"Descriptor evidence: {tag}" for tag in matched]
+        reasons += [f"Scored preference {tag}: {continuous[tag]:.4f} (benchmark estimate)." for tag in sorted(preferred & continuous.keys())]
         if query.min_bpm is not None or query.max_bpm is not None:
             reasons.append(f"BPM {bpm:g} within requested bounds ({track.bpm.authority}).")
         if excluded:
@@ -129,7 +132,24 @@ def search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary
                 warnings=list(dict.fromkeys(warnings)),
                 catalog_digest=digest(catalog.model_dump(mode="json", by_alias=True)),
                 vocabulary_digest=digest(vocabulary.model_dump(mode="json", by_alias=True)), result_id="pending")
+    if any(t.preference_scores for t in catalog.tracks): data["ranking_version"]="scored-preferences-v1"
     result = SearchResult(**data)
     hash_data = result.model_dump(mode="json", by_alias=True, exclude={"result_id"})
     result.result_id = "sha256:" + digest(hash_data)
     return result
+
+
+def search_tracks(catalog: Catalog, query: PlaylistQuery, vocabulary: Vocabulary, *, ranking_version=None) -> SearchResult:
+    """Auto-select probability ranking for MAEST/new intent; preserve legacy replay."""
+    query = validate_query(query, vocabulary)
+    catalog = _validate_catalog(catalog, vocabulary)
+    modern = bool(query.semantic or query.preferences or query.any_tag_groups or query.genre_scope == "taxonomy"
+                  or any("maest" in e.source.casefold() for t in catalog.tracks for e in t.tags))
+    if ranking_version not in {None, "maest-intent-v1", "legacy"}:
+        raise ValueError("Unknown ranking version")
+    if ranking_version == "legacy" and (query.semantic or query.preferences or query.any_tag_groups or query.genre_scope != "exact"):
+        raise ValueError("Legacy replay cannot represent intent query fields")
+    if ranking_version == "maest-intent-v1" or (modern and ranking_version != "legacy"):
+        from .ranking import rank_tracks
+        return rank_tracks(catalog, query, vocabulary)
+    return _legacy_search_tracks(catalog, query, vocabulary)

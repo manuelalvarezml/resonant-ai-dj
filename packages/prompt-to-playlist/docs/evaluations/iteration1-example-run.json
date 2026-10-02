@@ -1,0 +1,518 @@
+{
+  "schema": "prompt-playlist/run",
+  "schema_version": "0.2.0",
+  "translation": {
+    "schema": "prompt-playlist/translation",
+    "schema_version": "0.2.0",
+    "request_text": "Music for my mom.",
+    "query": {
+      "required_tags": [
+        "genre:rock"
+      ],
+      "preferred_tags": [],
+      "excluded_tags": [],
+      "min_bpm": null,
+      "max_bpm": null,
+      "limit": 2,
+      "excluded_track_ids": [],
+      "order": "relevance",
+      "any_tag_groups": [],
+      "preferences": [],
+      "genre_scope": "taxonomy"
+    },
+    "provider": "openai",
+    "model": "gpt-5.4-mini-2026-03-17",
+    "prompt_version": "playlist-intent-v1.3",
+    "vocabulary_id": "maest-top6-v1+discogs-parents-v1",
+    "authority": "llm_proposal",
+    "unresolved": [],
+    "warnings": [],
+    "plan": {
+      "schema_version": "playlist-intent-v1",
+      "disposition": "ready",
+      "interpretation": "Rock for your mom",
+      "occasion": null,
+      "activity": null,
+      "recipient": "my mom",
+      "emotional_goal": null,
+      "constraints": [
+        {
+          "mode": "all",
+          "tags": [
+            "genre:rock"
+          ],
+          "source_span": "Rock"
+        }
+      ],
+      "bpm": null,
+      "preferences": [],
+      "count": 2,
+      "count_source": "Give me 2 tracks",
+      "order": "relevance",
+      "order_source": null,
+      "excluded_track_ids": [],
+      "assumptions": [
+        "Interpreted the clarification as a direct genre request for rock.",
+        "No additional mood or style preference was provided."
+      ],
+      "evidence_gaps": [],
+      "clarification": null
+    },
+    "proposed_plan": {
+      "schema_version": "playlist-intent-v1",
+      "disposition": "ready",
+      "interpretation": "Rock for your mom",
+      "occasion": null,
+      "activity": null,
+      "recipient": "my mom",
+      "emotional_goal": null,
+      "constraints": [
+        {
+          "mode": "all",
+          "tags": [
+            "genre:rock"
+          ],
+          "source_span": "Rock"
+        }
+      ],
+      "bpm": null,
+      "preferences": [],
+      "count": 2,
+      "count_source": "Give me 2 tracks",
+      "order": "relevance",
+      "order_source": null,
+      "excluded_track_ids": [],
+      "assumptions": [
+        "Interpreted the clarification as a direct genre request for rock.",
+        "No additional mood or style preference was provided."
+      ],
+      "evidence_gaps": [],
+      "clarification": null
+    },
+    "clarifications": [
+      {
+        "question": "What mood or style does your mom like?",
+        "answer": "Rock. Give me 2 tracks."
+      }
+    ],
+    "compiler_version": "intent-compiler-v1.1",
+    "prompt_digest": "6148f605abf00de884f4af9b1ff2456a7ba83c2a86ad3a6093fbc238742779ad",
+    "reasoning_effort": "low"
+  },
+  "result": {
+    "schema": "prompt-playlist/result",
+    "schema_version": "0.2.0",
+    "catalog_id": "maest-top6-v1",
+    "vocabulary_id": "maest-top6-v1+discogs-parents-v1",
+    "query": {
+      "required_tags": [
+        "genre:rock"
+      ],
+      "preferred_tags": [],
+      "excluded_tags": [],
+      "min_bpm": null,
+      "max_bpm": null,
+      "limit": 2,
+      "excluded_track_ids": [],
+      "order": "relevance",
+      "any_tag_groups": [],
+      "preferences": [],
+      "genre_scope": "taxonomy"
+    },
+    "ranking_version": "maest-intent-v1",
+    "matches": [
+      {
+        "track": {
+          "track_id": "5fd6fd15b26077e02fa3107bee72e188c2474dff4ae51f5b28d135fc8d94ec48",
+          "title": "Cached track 5fd6fd15b260",
+          "artist": null,
+          "bpm": {
+            "value": 120,
+            "authority": "benchmark_estimate",
+            "source": "beat-this",
+            "status": "warning",
+            "confidence": null
+          },
+          "duration_s": {
+            "value": 213.062625,
+            "authority": "encoded_fact",
+            "source": "ffprobe",
+            "status": "passed",
+            "confidence": null
+          },
+          "tags": [
+            {
+              "tag": "genre:garage-rock",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.6690986191679258,
+              "source_label": "Rock---Garage Rock",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:psychedelic-rock",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.4522075937129557,
+              "source_label": "Rock---Psychedelic Rock",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:surf",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.23442518051160732,
+              "source_label": "Rock---Surf",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:beat",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.18360394683622872,
+              "source_label": "Rock---Beat",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:mod",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.10080385623450638,
+              "source_label": "Rock---Mod",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:lo-fi",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.09037478154641576,
+              "source_label": "Rock---Lo-Fi",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            }
+          ],
+          "preference_scores": {
+            "mood:happy": {
+              "value": 0.8963908671410145,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/happy",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:sad": {
+              "value": 0.20883924205935447,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/sad",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:relaxed": {
+              "value": 0.36101662950746927,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/relaxed",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:aggressive": {
+              "value": 0.02598938457931666,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/aggressive",
+              "status": "warning",
+              "confidence": null
+            },
+            "vocals:vocal": {
+              "value": 0.8955418913229151,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/vocal_profile",
+              "status": "warning",
+              "confidence": null
+            },
+            "vocals:instrumental": {
+              "value": 0.1044581145132869,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/vocal_profile",
+              "status": "warning",
+              "confidence": null
+            },
+            "danceability:danceable": {
+              "value": 0.4703466852595943,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/danceability",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:low": {
+              "value": 0.4468011608426,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:medium": {
+              "value": 0.8936023216852,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:high": {
+              "value": 0.5531988391574,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            }
+          },
+          "complete_tag_axes": [],
+          "warnings": [
+            "MAEST top-six candidates, no threshold; missing genre is not proof of absence."
+          ]
+        },
+        "score": 0.669099,
+        "matched_tags": [
+          "genre:rock"
+        ],
+        "missing_preferred_tags": [],
+        "reasons": [
+          "increase genre:rock: support 0.6691, weight 1.0000, contribution 0.6691"
+        ],
+        "score_contributions": [
+          {
+            "tags": [
+              "genre:rock"
+            ],
+            "group": "genre",
+            "direction": "increase",
+            "origin": "explicit",
+            "evidence_value": 0.6690986191679258,
+            "utility": 0.6690986191679258,
+            "weight": 1,
+            "contribution": 0.6690986191679258,
+            "source": "maest-top6-v1 [Rock---Garage Rock]"
+          }
+        ]
+      },
+      {
+        "track": {
+          "track_id": "4dc60e9c560522042f0473a8bcdfadd38b4c34c8adc5f7c8e2d71dfbd8424f4c",
+          "title": "Cached track 4dc60e9c5605",
+          "artist": null,
+          "bpm": {
+            "value": 166.66666666666694,
+            "authority": "benchmark_estimate",
+            "source": "beat-this",
+            "status": "warning",
+            "confidence": null
+          },
+          "duration_s": {
+            "value": 240.085714,
+            "authority": "encoded_fact",
+            "source": "ffprobe",
+            "status": "passed",
+            "confidence": null
+          },
+          "tags": [
+            {
+              "tag": "genre:pop-rock",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.3978816755115986,
+              "source_label": "Rock---Pop Rock",
+              "parent_tags": [
+                "genre:rock"
+              ]
+            },
+            {
+              "tag": "genre:synth-pop",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.36505890182322925,
+              "source_label": "Electronic---Synth-pop",
+              "parent_tags": [
+                "genre:electronic"
+              ]
+            },
+            {
+              "tag": "genre:europop",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.3037927090190351,
+              "source_label": "Pop---Europop",
+              "parent_tags": [
+                "genre:pop"
+              ]
+            },
+            {
+              "tag": "genre:disco",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.2831364882489045,
+              "source_label": "Funk / Soul---Disco",
+              "parent_tags": [
+                "genre:funk-soul"
+              ]
+            },
+            {
+              "tag": "genre:disco",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.26986187427408165,
+              "source_label": "Electronic---Disco",
+              "parent_tags": [
+                "genre:electronic"
+              ]
+            },
+            {
+              "tag": "genre:italo-disco",
+              "authority": "benchmark_estimate",
+              "source": "maest-top6-v1",
+              "status": "warning",
+              "confidence": 0.15459281922731963,
+              "source_label": "Electronic---Italo-Disco",
+              "parent_tags": [
+                "genre:electronic"
+              ]
+            }
+          ],
+          "preference_scores": {
+            "mood:happy": {
+              "value": 0.9671169379687408,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/happy",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:sad": {
+              "value": 0.051306767798805636,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/sad",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:relaxed": {
+              "value": 0.14432482397438826,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/relaxed",
+              "status": "warning",
+              "confidence": null
+            },
+            "mood:aggressive": {
+              "value": 0.19667545558220062,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/aggressive",
+              "status": "warning",
+              "confidence": null
+            },
+            "vocals:vocal": {
+              "value": 0.775335572845461,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/vocal_profile",
+              "status": "warning",
+              "confidence": null
+            },
+            "vocals:instrumental": {
+              "value": 0.22466442484555466,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/vocal_profile",
+              "status": "warning",
+              "confidence": null
+            },
+            "danceability:danceable": {
+              "value": 0.7545072284113631,
+              "authority": "benchmark_estimate",
+              "source": "discogs-effnet/danceability",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:low": {
+              "value": 0.4065678991377354,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:medium": {
+              "value": 0.8131357982754708,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            },
+            "energy:high": {
+              "value": 0.5934321008622646,
+              "authority": "benchmark_estimate",
+              "source": "deam-arousal-linear-preference-v1-unvalidated",
+              "status": "warning",
+              "confidence": null
+            }
+          },
+          "complete_tag_axes": [],
+          "warnings": [
+            "MAEST top-six candidates, no threshold; missing genre is not proof of absence."
+          ]
+        },
+        "score": 0.397882,
+        "matched_tags": [
+          "genre:rock"
+        ],
+        "missing_preferred_tags": [],
+        "reasons": [
+          "increase genre:rock: support 0.3979, weight 1.0000, contribution 0.3979"
+        ],
+        "score_contributions": [
+          {
+            "tags": [
+              "genre:rock"
+            ],
+            "group": "genre",
+            "direction": "increase",
+            "origin": "explicit",
+            "evidence_value": 0.3978816755115986,
+            "utility": 0.3978816755115986,
+            "weight": 1,
+            "contribution": 0.3978816755115986,
+            "source": "maest-top6-v1 [Rock---Pop Rock]"
+          }
+        ]
+      }
+    ],
+    "eligible_count": 3,
+    "excluded_count": 0,
+    "warnings": [
+      "Scores measure estimated musical fit, not calibrated probabilities or listening quality. The 65/35 genre-feature blend and 3/2/1 priorities are provisional. Order is not a DJ mix plan."
+    ],
+    "catalog_digest": "823ce0a4cf7593a19ece1756b962fb5e95293c02c409a542ad78af1233b0ed09",
+    "vocabulary_digest": "5235c151748f978ea075597371a2c39cf81edad4a271013a53bdb39ae8061107",
+    "result_id": "sha256:ee46e62a02069c1811b9065dcf83526a6e62ebcebf1730285a6bdc2fb124b6e7",
+    "eligible_track_ids": [
+      "5fd6fd15b26077e02fa3107bee72e188c2474dff4ae51f5b28d135fc8d94ec48",
+      "4dc60e9c560522042f0473a8bcdfadd38b4c34c8adc5f7c8e2d71dfbd8424f4c",
+      "057f2425b4ba94f0621c53d4db0cfdc2870b75754aa6a8c48e80e3e31a959582"
+    ],
+    "taxonomy_version": "discogs-parents-v1"
+  },
+  "status": "matched",
+  "warnings": []
+}

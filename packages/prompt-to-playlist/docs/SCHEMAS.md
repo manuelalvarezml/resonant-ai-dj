@@ -1,10 +1,31 @@
-# Prompt-playlist contracts — 0.1.0
+# PlaylistIQ contracts — package 0.3.0
+
+## Current contracts — 2026-09-22
+
+Catalog, translation, search result and playlist run write **0.3.0**, retaining readers for 0.1.0 and 0.2.0. Package release is 0.4.0; descriptor-run schema remains independent. Exact validation lives in [models.py](../src/prompt_to_playlist/models.py).
+
+- `CatalogTrack.semantic_audio`: encoder identity, sampling policy, 1–3 segments with start/end seconds and finite, normalized 512-dimensional vectors.
+- `PlaylistQuery.semantic`: positive `description`, up to three `avoid` descriptions, optional encoder identity and vectors (one per phrase). Unencoded queries remain valid and disclose fallback. New replay writes retain vectors; `search` does no inference.
+- `IntentPlan.musical_description` and `avoid_descriptions`: audible English retrieval targets, separate from user-language interpretation/assumptions. `playlist-intent-v1.6` uses available-catalog descriptor IDs for soft preferences; full vocabulary for explicit constraints. Local validation rejects unavailable soft fields. Compiler is `intent-compiler-v1.2`.
+- `CatalogTrack.preference_scores`: full `theme:*`, `instrument:*`, `valence:positive/negative` evidence plus existing scores. These are soft objectives, never automatically hard tags.
+- `ScoreContribution.score_kind`: `model_support` or `relative_similarity`; `detail` preserves phrase, raw positive mean/range, negative contrast and relative-rank meaning. Groups now include `semantic`.
+- `SearchResult.ranking_version`: `hybrid-semantic-v1` when fusion actually occurs; otherwise structured `maest-intent-v1` with warnings. Service reports `partial_support` when requested semantic evidence cannot be used.
+
+For each eligible candidate, semantic contrast is mean positive cosine minus 0.25 times mean negative cosine. Midrank utility is `(strictly lower + 0.5 × tied) / eligible_count`, with a 1e-9 tie tolerance. Contributions use 30% semantic / 70% structured when both exist, or semantic alone without structured objectives. Explicit BPM ordering still precedes fit. New numeric objectives are removed for every eligible candidate when any lacks evidence, then remaining structured weights are normalized. Replay rejects explicit legacy ranking when semantic data would be discarded.
+
+See [implementation and replay evidence](ESTIMATOR_UPGRADE.md). Earlier schema descriptions below are historical.
 
 `models.py` implements these contracts. Extra properties, coercion from
 strings/booleans to numbers, non-finite values and unknown schema versions
 are rejected. Standalone artifacts identify `schema` and `schema_version`;
 queries and evidence objects are embedded values. Changes to valid data or
 meaning require an explicit schema-version change and consumer migration.
+PlaylistIQ is the product name; existing serialized names remain stable.
+
+Parent D058 changes only the future consumer narrative. Saved playlists,
+source-specific playback/download capabilities and playlist-file archive
+manifests belong to Resonant's host schema family, not `prompt-playlist/*`.
+No package contract version changes here.
 
 ## Catalog
 
@@ -180,3 +201,124 @@ and vocabulary identity, creation time, request count, overall pass/fail and
 six case results in the current evaluation set. Each completed case has expected query fields/status,
 observed versioned run, checks and elapsed seconds. It contains no credentials.
 Execution is explicit and uses real API calls; regular test runs do not invoke it.
+
+## Descriptor run (package 0.3.0, schema 0.1.0)
+
+`prompt-playlist/descriptor-run` is the durable output of `analyze-folder`.
+It is a sidecar, not a `Catalog`, and therefore does not silently change the
+current UI/search behavior. It records pipeline/run identity, input/selection
+bounds, requested algorithms and CPU threads, host/tool versions, pinned model
+assets, tracks, per-algorithm projections, a combined sequential-pipeline
+projection, source-preservation results, failures and warnings.
+
+Each descriptor track has a SHA-256-based ID, relative path/display filename,
+size and hashes before/after, duration, algorithm results, warnings, and a
+controlled `descriptor_document` prepared for later lexical/text-embedding
+experiments. Algorithm results retain implementation/version, authority,
+passed/warning/failed state, raw values, warnings/error, and `StageMetrics`.
+The semantic result keeps all class probabilities and aggregation details;
+thresholded catalog tags are intentionally not invented.
+
+`StageMetrics` records process-tree wall time; user/system/total CPU seconds;
+raw and host-normalized CPU utilization; sampled peak RSS/VMS, threads and child
+count; I/O counters where available; minimum available RAM; swap; audio length,
+real-time factor and throughput; exit code; telemetry interval/sample count;
+and errors. Raw CPU may exceed 100% on multicore work. Requested thread count
+is not a runtime guarantee; measured telemetry is authoritative. RSS, not macOS
+VMS, is used for capacity projections.
+
+Algorithm projections retain observed totals/mean/median/max, CPU, peak RSS and
+threads, wall minutes per audio hour, CPU core-hours per audio hour, projected
+serial minutes per 100 same-length tracks, and memory-only worker limits on
+8/16/32 GB hosts with 35% worker headroom and 25% host reserve. The combined
+projection sums the sequential stages without double-counting audio duration
+and includes the pinned model-cache size. Every projection warns that a small
+Mac sample is not a target-VM benchmark.
+
+Failed attempts remain in each track's `AlgorithmResult` and `StageMetrics`,
+but are excluded from capacity extrapolation. `measured_tracks` counts attempts;
+`passed_tracks` and `failed_tracks` expose their outcome. A combined pipeline
+projection includes only tracks whose requested stages all succeeded. This
+prevents fast initialization/decoder failures from making an incomplete
+pipeline look cheaper than a working one.
+
+`prompt-playlist/performance-report` 0.1.0 repeats host, combined and algorithm
+projections plus per-track stage metrics and descriptor artifact sizing. The
+Markdown report is a human-readable projection, not another data contract.
+`.checkpoints` files are internal resume state keyed by source hash plus pipeline,
+algorithm, tool versions, model hashes and CPU-thread configuration.
+They are portable across explicitly supplied prior descriptor outputs through
+`--reuse-from` only when the prior run passed both source-preservation gates and
+the complete checkpoint identity still matches. Imported checkpoints are
+copied into the new output; prior artifacts are not changed. Reuse is an
+execution optimization, not a new serialized schema or evidence authority.
+
+The existing `CatalogTrack` still has numeric evidence only for BPM and duration
+plus categorical `TagEvidence`. A deliberate catalog-schema migration is still
+required before model scores can drive the UI without discarding thresholds,
+confidence or abstention. Do not squeeze probabilities into `TagEvidence` or
+call model coverage a complete tag axis. The plan is maintained in
+[`AUDIO_FEATURES.md`](AUDIO_FEATURES.md).
+
+Later CLAP vectors, descriptor-document TF-IDF/BM25 representations, text
+embeddings, and hybrid retrieval scores must use separate versioned index/run
+contracts referencing the immutable descriptor snapshot. They are not fields
+to improvise inside the next extraction artifact.
+
+## 2026-09-13 — MAEST Discogs519
+
+Added opt-in `genre_maest` with all 519 mean sigmoid scores in the existing
+algorithm values and a separate `prompt-playlist/genre-review` 0.1.0
+`genre-top10.json`. It retains failed tracks and source-preservation gates.
+No catalog integration or replacement of existing genre evidence.
+See [MAEST setup, aggregation and command](MAEST_DISCOGS519.md).
+
+## 2026-09-13 — MAEST listening-review checkpoint
+
+The user-run MAEST diverse-37 output has 33 genre results and four RAM-limit
+failures; fresh source hashes all match. A standalone `listening-review.html`
+is now beside those outputs. See the DJ project’s `tools/genre-review/README.md`
+for regeneration, review semantics and verification limits. No audio analysis
+was rerun. The earlier “full run not executed” checkpoint is superseded by
+this audit; no genre-quality acceptance or model replacement is implied.
+
+## 2026-09-15 — MAEST top-six and local player integration
+
+CatalogTrack adds optional `preference_scores` (default empty), with `scored-preferences-v1` ranking for continuous mood, vocals and danceability preferences. DEAM arousal uses a provisional, unvalidated linear soft-preference mapping, not categorical energy labels. Hard unknown constraints are not relaxed. Only top-six genre candidates enter matching; no inferred parent expansion, legacy genre fallback or accepted-review overrides. Server/browser feature records retain all 519 scores. Full contract and workflow: [WEB_INTEGRATION.md](WEB_INTEGRATION.md).
+
+## 2026-09-19 — Iteration 1 contracts
+
+New writes of catalog, translation, result and run use 0.2.0; both 0.1.0 and 0.2.0 are readable. Historical records are not rewritten. Vocabulary format remains 0.1.0; identity includes `discogs-parents-v1`. Earlier catalog/genre hold descriptions above are superseded.
+
+- TagEvidence: `source_label` and `parent_tags` retain the original selected Discogs label and documented family.
+- PlaylistQuery: `any_tag_groups`, `preferences` (tag/direction/importance/origin/source_span) and `genre_scope`. Old inputs default to empty new fields and exact scope.
+- Translation: normalized `plan`, original `proposed_plan`, clarification history, compiler version, prompt digest and reasoning setting.
+- IntentPlan: `playlist-intent-v1`, with ready/partial_support/needs_clarification/unsupported dispositions; source-anchored hard constraints, BPM, count, order, preferences, assumptions and evidence gaps.
+- TrackMatch: `score_contributions` records group, tags, direction, origin, nullable evidence value, utility, normalized weight, contribution and source.
+- SearchResult: `maest-intent-v1`, ordered eligible IDs and taxonomy version; input digests and content-derived result ID remain.
+- PlaylistRun: adds `partial_support` and `unsupported`. No retrieval for blocking dispositions.
+- Local request: optional `clarifications`, maximum three question (1–500) / answer (1–1000) pairs; prompt (1–4000) and original IDs/hashes stay separate.
+- `search_tracks` allowlist tool version becomes 2; normalize/get remain 1. No tools are passed to the planner.
+
+See [complete contracts and compatibility](ITERATION_1.md), [exact instructions](INTENT_PROMPT.md), [concrete strict schema snapshot](evaluations/iteration1-intent-schema.json) and [example run](evaluations/iteration1-example-run.json). Schema snapshots have the evaluated library vocabulary; runtime enums are generated from the active vocabulary.
+
+## 2026-09-25 — Supervised experimental evidence v1
+
+Existing top-level catalog/run schema 0.3.0 and historical reads remain. Optional algorithm IDs are `emotion_music2emo` and `danceability_musicnn`; comparison-only `estimator_reference` never replaces production reference artifacts. `SampledEstimates` is a strict nested `supervised-estimates-v1` contract; [generated JSON schema](evaluations/supervised-estimates-v1.schema.json).
+
+- `model_id`: code/assets/policy identity; `kind`: music2emo or musicnn-dance. Exact labels/order live in the pinned metadata and `extended_labels.json` (56 themes; dance classes `danceable`, `not_danceable`).
+- `sampling_policy`: supervised-3x30s-v1; `duration_s`, `sampled_seconds`, `coverage_fraction`, and 1–3 timestamped `segments`; no overlap, out-of-track coverage or inconsistent means.
+- `scores`: complete finite 0–1 uncalibrated classifier support, independent theme sigmoids or binary dance softmax. `valence_mean`/`arousal_mean`: required finite raw 1–9-target, unclipped regressions for Music2Emo; absent for danceability.
+- Each segment retains scores/raw VA and optional `detected_key`, `detected_mode`, `encoded_mode`, `chord_events`. These are internal preprocessing provenance, not validated replacement track-key evidence.
+- `score_kind`, `regression_units`, `aggregation` are literal contracts; unknown fields are rejected. Out-of-range raw VA is retained, but does not enter the provisional preference mapping.
+
+Web requests add optional enum `estimator_profile`: reference/music2emo/musicnn-dance/supervised. No field means reference. Result input snapshots retain the request profile and projected catalog identity `+estimators-<profile>-v1`; NumericEvidence sources identify the selected model/mapping. Web feature envelopes add optional `supervised_status` (not_run/partial/complete), preserving base completeness. Notebook attempts add defaultable `estimatorProfile` and `candidateScope`; historical attempts reopen as reference/all.
+
+[Full contracts, fallback and replay behavior](research/SUPERVISED_ESTIMATORS_2026-09-25.md).
+
+
+## 2026-09-25 — Quality-first estimator research and implementation
+
+Quality-first non-genre research and the selected available specialists are delivered locally. The web default selects Music2Emo theme/VA, MusiCNN vocals, VGGish aggression and independent PaSST OpenMIC instrument evidence, retaining EffNet happy/sad/relaxed/danceability. SheetSage2 supplies selected key evidence. MAEST, MuQ and planner weights remain unchanged. Two authorized sources passed 8/8 new stages; retries execute zero stages. Richer nuanced-emotion prediction and listening superiority remain unresolved; do not present encoder-only releases or the same 56 tags as solving that objective.
+
+[Implementation, two research reports, setup, model contracts and verification](TOP_ESTIMATORS_IMPLEMENTATION.md). Final validation: 502 Python tests, 83 web tests, 45 syntax modules, 28-file build, eight successful final audio stages and 26 exact fixed-query replays. No new provider calls or listener judgments. The new optional specialist stages and quality/openmic vocabulary identity preserve reference records and saved-profile replay.
