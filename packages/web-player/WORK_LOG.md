@@ -656,3 +656,7 @@ Verification: 92 web tests pass, including recursive uncached recovery, symlink 
 Web edition runs on port 4174 with layout 3, 187 verified fully analyzed MP3s, a single mix with transition timestamps, and brief white guide cards. Local edition stays on 4173 with layouts 1 and 3. Owner-only APIs are blocked in web mode. A live PlaylistIQ request and main-player playback passed; 95 tests pass. Same private repository, separate edition/config/build; no cloud deployment or audio upload performed. [Architecture, catalog gate, tests and next launch steps](docs/WEB_EDITION.md).
 
 Failures/pivots: HTTP adapter native fetch needed a receiver-safe wrapper; initial guide CSS was placed in an unused file, then moved to the loaded radio stylesheet and visually verified. The cache had 193 current complete records; strict MP3/source eligibility admitted 187, including 8 browser-only copies. No incomplete record was admitted to meet a requested count.
+
+## 2026-10-02 — Web visualization fixed to Falling
+
+Owner requested one visualization in the web edition. Web now selects Falling independently of saved preferences and omits the view-selector markup. Local visualization choices remain available. Syntax and both edition builds verified.

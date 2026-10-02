@@ -1,23 +1,23 @@
 import {splitSpectrumBands} from './spectrum-bands.js';
 // Live frequency × time × amplitude point surface. No decoded-track cache.
-export function attachSpectrogram(audio, canvas, enabled=true) {
+export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={}) {
   const controls=canvas.parentElement.querySelector('.spectrum-modes');
   const paint=canvas.getContext('2d');
-  if(!paint || !enabled){canvas.hidden=true;controls.hidden=true;return;}
+  if(!paint || !enabled){canvas.hidden=true;if(controls)controls.hidden=true;return;}
   let context, analyser, source, bins, highAnalyser, highBins, frame=0, last=0, pauseAt=null, riseAt=null;
   const pauseDuration=2800, riseDuration=1600;
   const amplitudeGain=1.30, pointScale=1.60;
   const rows=[], columns=96, depth=64, extendedDepth=Math.round(depth*1.3);
-  let mode='front';
-  try{const saved=localStorage.getItem('resonant:spectrogram-view');if(['front','isometric','mountain','falling'].includes(saved))mode=saved;}catch{}
+  let mode=fixedMode||'front';
+  try{const saved=!fixedMode&&localStorage.getItem('resonant:spectrogram-view');if(['front','isometric','mountain','falling'].includes(saved))mode=saved;}catch{}
   function selectMode(next){
-    mode=next;
-    for(const button of controls.querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.spectrum===mode));
+    mode=fixedMode||next;
+    for(const button of controls?.querySelectorAll('button')??[])button.setAttribute('aria-pressed',String(button.dataset.spectrum===mode));
     canvas.setAttribute('aria-label',`Live spectrogram: ${mode} view. Logarithmic frequency in Hz; FFT magnitude in dBFS, referenced to the newest time slice.`);
-    try{localStorage.setItem('resonant:spectrogram-view',mode);}catch{}
+    try{if(!fixedMode)localStorage.setItem('resonant:spectrogram-view',mode);}catch{}
     draw();
   }
-  controls.addEventListener('click',event=>{const next=event.target.closest('button')?.dataset.spectrum;if(next)selectMode(next);});
+  controls?.addEventListener('click',event=>{const next=event.target.closest('button')?.dataset.spectrum;if(next)selectMode(next);});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const visible=()=>!document.hidden && canvas.getBoundingClientRect().width>0;
   function draw(){
