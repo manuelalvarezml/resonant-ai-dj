@@ -284,3 +284,49 @@
 .web-edition #playlists-nav,.web-edition .topbar{display:none!important}
 .web-edition .player-tools [data-action=show-queue]{display:none}
 .web-edition .queue-panel{top:25dvh;bottom:0;height:75dvh;max-height:75dvh}
+/* Fourth review: calm controls, useful history and consistent sheet motion. */
+.web-edition #navigation a[href="#playlistiq"]{text-transform:none;color:#789786;font-size:115%}
+.web-edition .collection-footer{display:none!important}
+.web-edition[data-view=playlists] .collection-heading h1,.web-edition[data-view=mixes] .collection-heading h1{display:none}
+.web-edition .tracks .web-card-cell{position:relative;padding:0!important;white-space:normal}
+.web-edition .web-card-cell .web-track-card{padding:18px 4px}
+.web-edition .web-card-cell .track-title,.web-edition .web-card-cell .track-artist{padding-right:48px}
+.web-edition .web-card-cell .web-track-actions{position:absolute;right:0;top:7px;width:40px}
+.web-edition .web-card-cell .web-track-actions .icon-button{width:40px;height:30px;min-height:30px}
+.web-edition .web-track-facts{margin-top:18px}
+.web-edition .web-measures{align-items:flex-end;text-align:right}
+.web-edition .iq-web .iq-submit button{border:0;display:inline-flex;align-items:center;gap:20px;cursor:pointer}
+.web-edition .iq-web .iq-submit button::after{content:'↗';display:inline-block;font-weight:400;transition:transform 180ms ease,color 180ms ease;color:#789786}
+.web-edition .iq-web .iq-submit button:hover::after,.web-edition .iq-web .iq-submit button:focus-visible::after{transform:translate(3px,-3px)}
+.web-edition .iq-web{display:flex;flex-direction:column;min-height:calc(100dvh - 220px);margin-bottom:0}
+.web-edition .profile-links{margin-top:auto;padding-top:32px;border:0;align-items:center;flex-wrap:nowrap;gap:16px}
+.web-edition .profile-links>button{font-size:12px;white-space:nowrap}
+.web-edition .estimator-menu button{text-decoration:none}
+.web-edition .estimator-menu{position:relative;margin-left:auto;flex:0 0 auto}
+.web-edition .estimator-trigger{width:42px;height:42px;display:grid;place-items:center;color:#aaa}
+.web-edition .estimator-trigger svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5}
+.web-edition .estimator-options{top:auto;bottom:calc(100% + 8px);left:auto;right:0;width:min(310px,calc(100vw - 40px));max-height:340px}
+.web-edition .estimator-options button{min-height:44px;padding:12px 14px;width:100%;text-align:left;font-size:13px}
+.web-edition .menu-caption{font-size:12px;letter-spacing:.05em;padding:14px;color:#aaa;border-bottom:1px solid #555}
+.web-edition .prompt-history-item{padding:0 0 16px}
+.web-edition .prompt-history-open{display:block;width:100%;padding:20px 4px;text-align:left;color:inherit;cursor:pointer}
+.web-edition .prompt-history-open:hover{background:#ffffff06}
+.web-edition .prompt-history-open span,.web-edition .prompt-history-open small{font-size:12px;color:#aaa;line-height:1.6}
+.web-edition .prompt-history-open b{float:right;color:#789786}
+.web-edition .history-matches li>details{margin-top:12px}
+.web-edition .history-matches details>p{margin:16px 0;font-size:14px;line-height:1.6}
+.web-edition dialog:not([open]){display:none!important}
+.web-edition .track-scroll:focus:not(:focus-visible){outline:none}
+.web-edition #playback-status{font-size:110%}
+@media(max-width:700px){
+ body.web-edition #navigation a[href="#playlistiq"]{font-size:clamp(12.65px,3.795vw,16.1px)}
+ body.web-edition.radio-layout .search-field,body.web-edition.radio-layout #play-all,body.web-edition.radio-layout #shuffle-all,body.web-edition.radio-layout .library-toolbar #library-filter,body.web-edition .sort-trigger{height:37.4px;min-height:37.4px;padding-top:5px;padding-bottom:5px}
+ body.web-edition.radio-layout .library-toolbar #order-direction{height:30.6px;min-height:30.6px}
+ body.web-edition .iq-web{min-height:calc(100dvh - 220px)}
+ body.web-edition.player-expanded .player{overflow:hidden;transition:transform 660ms cubic-bezier(.32,.72,0,1),border-radius 300ms ease}
+ body.web-edition.player-expanded .player #playback-status{font-size:12.1px}
+ body.web-edition .queue-panel{transition:none}
+}
+
+.web-edition .iq-web #playlistiq-text{field-sizing:content;height:auto;max-height:600px}
+.web-edition .iq-invitation{font-size:14px;color:#aaa;margin-top:-6px;line-height:1.5}

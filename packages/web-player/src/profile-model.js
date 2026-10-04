@@ -15,6 +15,11 @@ export function validateProfileOperation(op,members){
  }else if(op.type==='prompt'){
   if(!validId(op.requestId)||!Number.isSafeInteger(op.requestAt)||op.requestAt<0||typeof op.prompt!=='string'||!op.prompt.trim()||op.prompt.length>4000||!['requested','complete','failed','needs_clarification','unsupported','partial_support'].includes(op.status))fail('Invalid prompt history entry.');
   if(op.trackIds!=null){if(!Array.isArray(op.trackIds)||op.trackIds.length>100)fail('Too many results.');op.trackIds.forEach(track);}
+  if(op.snapshot!=null){
+   const snap=op.snapshot;
+   if(!snap||typeof snap.interpretation!=='string'||snap.interpretation.length>2000||!snap.context||typeof snap.context!=='object'||Array.isArray(snap.context)||Object.keys(snap.context).some(k=>!['occasion','activity','recipient','emotional_goal'].includes(k))||Object.values(snap.context).some(v=>typeof v!=='string'||v.length>500)||!Array.isArray(snap.matches)||snap.matches.length>100||new TextEncoder().encode(JSON.stringify(snap)).length>45000)fail('Invalid saved explanations.');
+   for(const m of snap.matches){track(m.id);if(!Number.isFinite(m.score)||!Array.isArray(m.reasons)||m.reasons.length>5||m.reasons.some(r=>typeof r.label!=='string'||r.label.length>180||!['fit','weight','points'].every(k=>Number.isFinite(r[k]))))fail('Invalid saved match.');}
+  }
   if(op.clarifications!=null&&(!Array.isArray(op.clarifications)||op.clarifications.length>3||op.clarifications.some(a=>!a||typeof a.question!=='string'||a.question.length>1000||typeof a.answer!=='string'||a.answer.length>1000)))fail('Invalid clarification history.');
  }else if(op.type==='listen'){
   track(op.trackId);if(!Number.isFinite(op.seconds)||op.seconds<0||op.seconds>300)fail('Invalid listening duration.');
@@ -45,7 +50,7 @@ export function mutateProfileItem(previous,op,key){
   if(row.trackIds.length>1000)fail('A playlist can hold up to 1,000 tracks.');
   return row;
  }
- if(op.type==='prompt')return {...base,kind:'prompt',id:op.requestId,at:op.requestAt,prompt:op.prompt,status:op.status,trackIds:op.trackIds??old.trackIds??[],elapsedMs:Math.max(0,Math.min(op.elapsedMs??0,3600000)),error:typeof op.error==='string'?op.error.slice(0,1000):null,estimatorProfile:typeof op.estimatorProfile==='string'?op.estimatorProfile.slice(0,40):null,clarifications:op.clarifications?.map(({question,answer})=>({question,answer}))??old.clarifications??[]};
+ if(op.type==='prompt')return {...base,kind:'prompt',id:op.requestId,at:op.requestAt,prompt:op.prompt,status:op.status,snapshot:op.snapshot??old.snapshot??null,trackIds:op.trackIds??old.trackIds??[],elapsedMs:Math.max(0,Math.min(op.elapsedMs??0,3600000)),error:typeof op.error==='string'?op.error.slice(0,1000):null,estimatorProfile:typeof op.estimatorProfile==='string'?op.estimatorProfile.slice(0,40):null,clarifications:op.clarifications?.map(({question,answer})=>({question,answer}))??old.clarifications??[]};
  const row={...base,kind:key.startsWith('state#track#')?'track-stats':key.startsWith('state#request#')?'request-stats':'playlist-stats',id:op.trackId,seconds:(old.seconds??0)+op.seconds};
  for(const field of ['starts','qualified','completed','skipped'])row[field]=(old[field]??0)+(op[field]??0);
  if(row.kind!=='track-stats'){row.id=key.split('#').at(-1);row.heardTrackIds=[...new Set([...(old.heardTrackIds??[]),...(op.seconds>0?[op.trackId]:[])])];row.qualifiedTrackIds=[...new Set([...(old.qualifiedTrackIds??[]),...(op.qualified?[op.trackId]:[])])];}

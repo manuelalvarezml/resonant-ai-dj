@@ -1,5 +1,15 @@
 # Staged web-player build
 
+## 2026-10-04 — History and native spectrum published
+
+The owner-authorized release is live on resonant.lat and CloudFront: green PlaylistIQ tab (+15%), 1.6-second mini-spectrum pause easing, permanent Liked Songs, playable prompt history, prior sheet/UI refinements and real native-playback spectra. API/worker aliases 4/4, admissions enabled; audio/model/password unchanged. 168 web / 22 API / 5 infrastructure checks plus cloud auth, ranges, spectrum protection and profile persistence pass. [Production checkpoint](../../docs/cloud-library/first-release/serverless/HISTORY_SPECTRUM_RELEASE.md). Physical iPhone acceptance remains.
+
+
+## 2026-10-04 — History, likes, sheet motion and real native spectrum
+
+Local 4174 now includes permanent Liked Songs, revised navigation/footer/cards, slower rounded sheets and playable saved prompt results with new explanation snapshots. Replaced iPhone progress-grid fallback with audio-derived frequency files while preserving native playback. **168 web / 22 API tests; 85 syntax modules; 47-file build pass. Not deployed or pushed.** Read [current changes, evidence and publication handoff](docs/WEB_HISTORY_SPECTRUM_REFINEMENT.md). Three existing production prompts retain their ten saved tracks; no history reset. Physical iPhone acceptance remains.
+
+
 ## 2026-10-03 — Discovery and third player refinement
 
 Local 4174: 1.25× taller spectrum, centered title/artist spacing, larger icon-only controls, stable seeking UI, 75%-height queue, two-row mobile navigation, stacked card actions and immediate top-five cosines. Each reload randomizes the library and selects two of 50 examples across ten writing styles. More habits derive from existing profile counters. **165 web tests / 81 syntax modules / 44-file build pass. Not deployed.** [Current behavior and evidence](docs/WEB_DISCOVERY_REFINEMENT.md). Physical iPhone acceptance remains.

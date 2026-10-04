@@ -11,23 +11,36 @@ export function mountMobilePlayer(player,{nativeAudio=false,closeQueue=()=>{}}={
  const home=document.createComment('desktop visualizer');canvas.before(home);
  const stage=document.createElement('div');stage.className='mobile-visualizer';
  const handle=document.createElement('div');handle.className='sheet-handle';handle.setAttribute('aria-hidden','true');
- const mini=document.createElement('canvas');mini.className='mini-spectrum';mini.setAttribute('role','img');mini.setAttribute('aria-label',nativeAudio?'Playback progress':'Live frequency spectrum');
+ const mini=document.createElement('canvas');mini.className='mini-spectrum';mini.setAttribute('role','img');mini.setAttribute('aria-label',nativeAudio?'Audio-derived frequency spectrum':'Live frequency spectrum');
  const expand=document.createElement('button');expand.type='button';expand.className='player-expand';expand.setAttribute('aria-label','Open now playing and visualization');
  const preview=document.createElement('div');preview.className='swipe-preview';preview.setAttribute('aria-hidden','true');
  const viewport=document.createElement('div');viewport.className='swipe-viewport';track.before(viewport);viewport.append(track,preview);
  footer.prepend(handle,stage);footer.append(mini,expand);footer.tabIndex=-1;
  const media=matchMedia('(max-width:700px)'),reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const isOpen=()=>document.body.classList.contains('player-expanded');
+ let sheetAnimation=null;
  function setExpanded(value){
-  const open=value&&media.matches;document.body.classList.toggle('player-expanded',open);expand.setAttribute('aria-expanded',String(open));
-  document.querySelector('#app').inert=open;footer.setAttribute('role',open?'dialog':'contentinfo');footer.setAttribute('aria-label',open?'Now playing. Swipe down or press Escape to minimize.':'Audio player');
-  if(open){footer.setAttribute('aria-modal','true');footer.focus();if(!reduced.matches)footer.animate([{transform:'translate3d(0,85dvh,0)'},{transform:'translate3d(0,0,0)'}],{duration:560,easing:'cubic-bezier(.22,1,.36,1)'});}else{footer.removeAttribute('aria-modal');expand.focus({preventScroll:true});}
+  const open=value&&media.matches,wasOpen=isOpen();sheetAnimation?.cancel();sheetAnimation=null;
+  if(open===wasOpen)return;
+  if(!open&&wasOpen&&media.matches){
+   const current=getComputedStyle(footer).transform;settling=true;
+   sheetAnimation=footer.animate([{transform:current==='none'?'translate3d(0,0,0)':current,borderRadius:getComputedStyle(footer).borderRadius},{transform:'translate3d(0,100dvh,0)',borderRadius:'42px 42px 0 0'}],{duration:reduced.matches?100:660,easing:'cubic-bezier(.32,.72,0,1)',fill:'forwards'});
+   sheetAnimation.finished.then(()=>{apply(false);reset();sheetAnimation?.cancel();sheetAnimation=null;settling=false;}).catch(()=>{settling=false;});return;
+  }
+  const y=footer.getBoundingClientRect().top;apply(open);
+  if(open){footer.getBoundingClientRect();sheetAnimation=footer.animate([{transform:`translate3d(0,${y}px,0)`,borderRadius:'42px 42px 0 0'},{transform:'translate3d(0,0,0)',borderRadius:'0px'}],{duration:reduced.matches?100:780,easing:'cubic-bezier(.32,.72,0,1)'});}
  }
+ function apply(open){
+  document.body.classList.toggle('player-expanded',open);expand.setAttribute('aria-expanded',String(open));
+  document.querySelector('#app').inert=open;footer.setAttribute('role',open?'dialog':'contentinfo');footer.setAttribute('aria-label',open?'Now playing. Swipe down or press Escape to minimize.':'Audio player');
+  if(open){footer.setAttribute('aria-modal','true');footer.focus({preventScroll:true});}else{footer.removeAttribute('aria-modal');expand.focus({preventScroll:true});}
+ }
+
  expand.onclick=()=>setExpanded(true);
  function layout(){if(media.matches){document.body.append(footer);stage.prepend(canvas);}else{home.after(canvas);document.querySelector('.workspace').insertBefore(footer,document.querySelector('main'));setExpanded(false);}}
  media.addEventListener('change',layout);layout();
  let gesture=null,consumeClick=false,settling=false;
- function reset(){track.style.transform='';preview.style.transform='';preview.style.opacity='0';footer.style.transform='';footer.classList.remove('gesture-moving');}
+ function reset(){track.style.transform='';preview.style.transform='';preview.style.opacity='0';footer.style.transform='';footer.style.borderRadius='';footer.classList.remove('gesture-moving');}
  footer.addEventListener('pointerdown',event=>{
   if(!media.matches||settling||event.button>0)return;consumeClick=false;footer.getAnimations().forEach(animation=>animation.cancel());
   if(!isOpen()&&event.target.closest('button,input')!==expand)return;
@@ -40,7 +53,7 @@ export function mountMobilePlayer(player,{nativeAudio=false,closeQueue=()=>{}}={
    if(gesture.axis==='ignore')return;
    footer.setPointerCapture(event.pointerId);footer.classList.add('gesture-moving');consumeClick=true;
   }
-  if(gesture.axis==='y'){event.preventDefault();footer.style.transform=`translate3d(0,${Math.max(0,dy)}px,0)`;}
+  if(gesture.axis==='y'){event.preventDefault();footer.style.transform=`translate3d(0,${Math.max(0,dy)}px,0)`;const radius=42*(1-Math.exp(-Math.max(0,dy)/95));footer.style.borderRadius=`${radius}px ${radius}px 0 0`;}
   if(gesture.axis==='x'){
    event.preventDefault();const direction=dx<0?'next':'previous',next=adjacentTrack(player,direction);
    const shift=next?dx:dx*.22;track.style.transform=`translate3d(${shift}px,0,0)`;
@@ -53,8 +66,7 @@ export function mountMobilePlayer(player,{nativeAudio=false,closeQueue=()=>{}}={
   const dx=event.clientX-g.x,dy=event.clientY-g.y;
   footer.classList.remove('gesture-moving');
   if(g.axis==='y'&&!cancel&&shouldDismiss(dy,performance.now()-g.t)){
-   settling=true;footer.style.transform='translate3d(0,100dvh,0)';
-   setTimeout(()=>{setExpanded(false);reset();settling=false;},reduced.matches?0:460);
+   setExpanded(false);
   }else if(g.axis==='x'&&!cancel&&swipeDirection(dx,dy)&&adjacentTrack(player,dx<0?'next':'previous')){
    settling=true;const direction=dx<0?'next':'previous';track.style.transform=`translate3d(${dx<0?-g.width:g.width}px,0,0)`;preview.style.transform='translate3d(0,0,0)';
    setTimeout(async()=>{try{if(direction==='next')await player.next();else if(player.index===0&&player.repeat==='all'){player.index=player.queue.length-1;await player.load();}else await player.previous(false);}finally{footer.classList.add('gesture-reset');reset();requestAnimationFrame(()=>footer.classList.remove('gesture-reset'));settling=false;}},reduced.matches?0:160);
@@ -81,33 +93,4 @@ export function mountMobilePlayer(player,{nativeAudio=false,closeQueue=()=>{}}={
  const endMousePull=(event,cancel=false)=>{if(!mousePull)return;const close=queueDragged&&!cancel&&shouldDismiss(event.clientY-mousePull.y,performance.now()-mousePull.t);if(queue.hasPointerCapture(mousePull.id))queue.releasePointerCapture(mousePull.id);mousePull=null;queue.classList.remove('gesture-moving');if(close)closeQueue();else queue.style.transform='';};
  queue.addEventListener('pointerup',event=>endMousePull(event));queue.addEventListener('pointercancel',event=>endMousePull(event,true));
  queue.addEventListener('click',event=>{if(queueDragged){event.preventDefault();event.stopPropagation();queueDragged=false;}},true);
- if(nativeAudio)attachMiniProgress(player.audio,mini);
-}
-function attachMiniProgress(audio,canvas){
- const paint=canvas.getContext('2d');const draw=()=>{if(document.hidden||!canvas.clientWidth)return;canvas.width=128;canvas.height=52;paint.clearRect(0,0,128,52);const progress=audio.duration?audio.currentTime/audio.duration:0;
-  for(let i=0;i<24;i++){paint.fillStyle=i/24<=progress?'#eee':'#777';paint.fillRect(i*5,22,2,8);}};
- for(const name of ['timeupdate','loadedmetadata','emptied'])audio.addEventListener(name,draw);new ResizeObserver(draw).observe(canvas);
-}
-
-// This is a transport-progress visualization, deliberately not a simulated FFT.
-export function attachPlaybackDots(audio,canvas){
- const paint=canvas.getContext('2d');if(!paint)return;
- canvas.setAttribute('aria-label','Playback progress dots; native audio output');
- let frame=0;
- function draw(){
-  frame=0;const bounds=canvas.getBoundingClientRect();if(document.hidden||!bounds.width||!bounds.height)return;
-  const ratio=Math.min(devicePixelRatio||1,2);const width=Math.round(bounds.width*ratio),height=Math.round(bounds.height*ratio);if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
-  paint.setTransform(ratio,0,0,ratio,0,0);paint.clearRect(0,0,bounds.width,bounds.height);
-  const count=280,progress=Number.isFinite(audio.duration)&&audio.duration>0?audio.currentTime/audio.duration:0;
-  for(let i=0;i<count;i++){
-   const x=24+(i%28)*(bounds.width-48)/27,y=28+Math.floor(i/28)*(bounds.height-56)/9;
-   paint.fillStyle=i<count*progress?'rgba(235,233,226,.95)':'rgba(235,233,226,.16)';
-   paint.beginPath();paint.arc(x,y,i===Math.floor(count*progress)?3.4:1.5,0,Math.PI*2);paint.fill();
-  }
-  // Native progress changes on timeupdate; no animation loop or audio graph is needed.
- }
- function refresh(){cancelAnimationFrame(frame);draw();}
- for(const event of ['playing','pause','timeupdate','seeking','emptied','loadedmetadata'])audio.addEventListener(event,refresh);
- document.addEventListener('visibilitychange',refresh);window.addEventListener('pageshow',refresh);
- window.addEventListener('pagehide',()=>cancelAnimationFrame(frame));new ResizeObserver(refresh).observe(canvas);draw();
 }

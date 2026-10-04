@@ -9,7 +9,8 @@ FOLDER=ROOT/'output/web-refresh/domain-release'
 def load(p):return json.loads(p.read_text())
 def save(p,v):p.write_text(json.dumps(v,indent=2,default=str)+'\n');p.chmod(0o600)
 def main():
- p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','stage','pause','publish','finish','domain-parameters']);a=p.parse_args();os.umask(0o077);FOLDER.mkdir(exist_ok=True,parents=True)
+ global FOLDER
+ p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','stage','pause','publish','finish','domain-parameters']);p.add_argument('--work-dir',type=Path,default=FOLDER);p.add_argument('--rotate-password',action='store_true');a=p.parse_args();FOLDER=a.work_dir.resolve();assert FOLDER.is_relative_to(ROOT/'output');os.umask(0o077);FOLDER.mkdir(exist_ok=True,parents=True)
  target=load(ROOT/'output/cloud-preparation/aws-target.json');s=boto3.Session(profile_name='manueldev',region_name='us-east-2');cfg=Config(connect_timeout=5,read_timeout=60,retries={'total_max_attempts':2})
  assert s.client('sts',config=cfg).get_caller_identity()['Account']==target['account_id']
  def client(name,region='us-east-2'):return s.client(name,region_name=region,config=cfg)
@@ -49,7 +50,8 @@ def main():
     remote=None
    checksum=base64.b64encode(bytes.fromhex(row['sha256'])).decode()
    if remote and remote.get('ChecksumSHA256')==checksum and remote['ContentLength']==row['bytes']:skipped+=1;continue
-   if row['key'].startswith(('media/','library/')):raise ValueError('Frozen library/audio mismatch; no automatic upload')
+   new_spectrum=not remote and row['key'].startswith('library/spectra/v1/') and row['key'].endswith('.json')
+   if row['key'].startswith(('media/','library/')) and not new_spectrum:raise ValueError('Frozen library/audio mismatch; no automatic upload')
    path=Path(row['localPath']).resolve();assert path.is_relative_to(c/'static');raw=path.read_bytes();assert hashlib.sha256(raw).hexdigest()==row['sha256']
    import mimetypes
    content='text/javascript' if path.suffix=='.js' else mimetypes.guess_type(path)[0] or 'application/octet-stream'
@@ -74,15 +76,16 @@ def main():
    if name=='api':assert function['Configuration']['CodeSha256']==package['codeSha256']
    else:assert function['Code']['ResolvedImageUri']==params['ImageUri']
   if a.action=='publish':
-   ssm=client('ssm');password=load(ROOT/'output/web-refresh/password-rotation/password-hash.json');old=ssm.get_parameter(Name=password['parameter'],WithDecryption=True)['Parameter'];backup=FOLDER/'previous-password.json'
-   if not backup.exists():save(backup,old)
-   if old['Value']!=password['value']:ssm.put_parameter(Name=password['parameter'],Value=password['value'],Type='SecureString',Overwrite=True)
-   (ROOT/'output/cloud-config/first-release/listener-password.txt').write_bytes((ROOT/'output/web-refresh/password-rotation/listener-password.txt').read_bytes())
+   if a.rotate_password:
+    ssm=client('ssm');password=load(ROOT/'output/web-refresh/password-rotation/password-hash.json');old=ssm.get_parameter(Name=password['parameter'],WithDecryption=True)['Parameter'];backup=FOLDER/'previous-password.json'
+    if not backup.exists():save(backup,old)
+    if old['Value']!=password['value']:ssm.put_parameter(Name=password['parameter'],Value=password['value'],Type='SecureString',Overwrite=True)
+    (ROOT/'output/cloud-config/first-release/listener-password.txt').write_bytes((ROOT/'output/web-refresh/password-rotation/listener-password.txt').read_bytes())
    receipt={}
    for key in ['library/current.json','index.html']:
     row=next(r for r in plan['uploads'] if r['key']==key);raw=Path(row['localPath']).read_bytes();assert hashlib.sha256(raw).hexdigest()==row['sha256'];checksum=base64.b64encode(bytes.fromhex(row['sha256'])).decode();result=s3.put_object(Bucket=f['MediaBucket'],Key=key,Body=raw,ContentType='text/html' if key.endswith('.html') else 'application/json',CacheControl=row['cacheControl'],ServerSideEncryption='AES256',ExpectedBucketOwner=target['account_id'],ChecksumSHA256=checksum);receipt[key]=result['VersionId']
    save(FOLDER/'published-pointers.json',receipt)
-   invalidation=client('cloudfront','us-east-1').create_invalidation(DistributionId=e['DistributionId'],InvalidationBatch={'Paths':{'Quantity':3,'Items':['/','/index.html','/library/current.json']},'CallerReference':'resonant-refresh-'+str(time.time_ns())});save(FOLDER/'invalidation.json',{'id':invalidation['Invalidation']['Id']});print('Published new app pointers and rotated requested password.');return
+   invalidation=client('cloudfront','us-east-1').create_invalidation(DistributionId=e['DistributionId'],InvalidationBatch={'Paths':{'Quantity':3,'Items':['/','/index.html','/library/current.json']},'CallerReference':'resonant-refresh-'+str(time.time_ns())});save(FOLDER/'invalidation.json',{'id':invalidation['Invalidation']['Id']});print('Published new app pointers.');return
   record={**active,'pointers':load(FOLDER/'published-pointers.json'),'apiCodeSha256':params['ApiCodeSha'],'runtimeRevision':params['RuntimeRevision'],'aliases':{name:lam.get_alias(FunctionName='resonant-runtime-'+name,Name='live')['FunctionVersion'] for name in ['api','worker']},'activatedAt':int(time.time()),'candidate':str(c),'appId':plan['appId']}
   save(ROOT/'output/serverless-cloud/active-deployment.json',record)
   db.update_item(Key={'pk':'CONFIG#ACTIVE','sk':'META'},UpdateExpression='SET enabled=:yes',ConditionExpression='releaseId=:release',ExpressionAttributeValues={':yes':True,':release':plan['releaseId']});print(json.dumps({'published':True,'playlistIQEnabled':True,'aliases':record['aliases'],'audioChanged':False}));return

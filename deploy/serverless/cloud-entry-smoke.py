@@ -64,6 +64,10 @@ def main():
     checks.append('public login HTML, script and stylesheet load')
     plan = json.loads((args.candidate / 'upload-plan.json').read_text())
     mp3 = next(row for row in plan['uploads'] if row['key'].endswith('.mp3'))
+    spectra = [row for row in plan['uploads'] if row['key'].startswith('library/spectra/v1/')]
+    sampled_spectra = ([spectra[0], next(row for row in spectra if row['key'].endswith('/mix-house-example.json'))] if spectra else [])
+    for row in sampled_spectra:
+        assert request(anonymous, '/' + row['key'])[0] == 403
     for path in ['/library/current.json', '/' + mp3['key']]:
         assert request(anonymous, path)[0] == 403
         assert request(anonymous, path, headers={'Cookie': 'CloudFront-Key-Pair-Id=invalid; CloudFront-Policy=invalid; CloudFront-Signature=invalid'})[0] == 403
@@ -85,6 +89,12 @@ def main():
             expected = source.read(32768)
         assert code == 206 and body == expected
         checks.append('authenticated MP3 seek matches original source bytes')
+        for row in sampled_spectra:
+            code, _, body = request(signed, '/' + row['key'])
+            assert code == 200 and hashlib.sha256(body).hexdigest() == row['sha256']
+            assert json.loads(body)['schema'] == 'resonant-spectrum/1'
+        if sampled_spectra:
+            checks.append('track and mix spectra protected; signed bytes match local measurements')
         assert request(signed, '/api/session')[0] == 200
     finally:
         code, _, _ = request(signed, '/api/session/logout', {}, {'x-resonant-csrf': csrf})

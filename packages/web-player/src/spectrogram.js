@@ -1,11 +1,12 @@
 import {splitSpectrumBands} from './spectrum-bands.js';
 // Live frequency × time × amplitude point surface. No decoded-track cache.
-export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,webEdition=false}={}) {
+export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,webEdition=false,sampleSpectrum=null}={}) {
   const controls=canvas.parentElement.querySelector('.spectrum-modes');
   const paint=canvas.getContext('2d');
   if(!paint || !enabled){canvas.hidden=true;if(controls)controls.hidden=true;return;}
   let context, analyser, source, bins, highAnalyser, highBins, frame=0, last=0, pauseAt=null, riseAt=null;
-  const pauseDuration=2800, riseDuration=1600;
+  const pauseDuration=2800, riseDuration=1600, miniSettleDuration=1600;
+  let miniRow=null;
   const amplitudeGain=1.30, pointScale=1.60;
   const rows=[], columns=96, depth=64, extendedDepth=Math.round(depth*1.3);
   let mode=fixedMode||'front';
@@ -13,7 +14,7 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
   function selectMode(next){
     mode=fixedMode||next;
     for(const button of controls?.querySelectorAll('button')??[])button.setAttribute('aria-pressed',String(button.dataset.spectrum===mode));
-    canvas.setAttribute('aria-label',`Live spectrogram: ${mode} view. Logarithmic frequency in Hz; FFT magnitude in dBFS, referenced to the newest time slice.`);
+    canvas.setAttribute('aria-label',`${sampleSpectrum?'Audio-derived':'Live'} spectrogram: ${mode} view. Logarithmic frequency in Hz; FFT magnitude in dBFS, referenced to the newest time slice.`);
     try{if(!fixedMode)localStorage.setItem('resonant:spectrogram-view',mode);}catch{}
     draw();
   }
@@ -102,10 +103,10 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
     paint.textAlign='right';paint.fillText('Hz',width,height+18);
   }
 
-  function drawMini(row){
+  function drawMini(row,gain=1){
     const el=mini();if(!el?.clientWidth)return;const ctx=el.getContext('2d');if(!ctx)return;
     if(el.width!==128){el.width=128;el.height=52;}ctx.clearRect(0,0,128,52);ctx.fillStyle='#deded5';
-    for(let i=0;i<24;i++){const value=row?Math.max(...row.subarray(i*4,i*4+4)):0,h=Math.max(2,value*48);ctx.fillRect(i*5+4,(52-h)/2,2,h);}
+    for(let i=0;i<24;i++){const value=row?Math.max(...row.subarray(i*4,i*4+4)):0,h=Math.max(2,value*48*gain);ctx.fillRect(i*5+4,(52-h)/2,2,h);}
   }
   function stop(){cancelAnimationFrame(frame);frame=0;}
   function tick(now){
@@ -113,22 +114,25 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
     if(!visible())return;
     if(audio.paused||audio.ended){
       if(pauseAt===null)return;
-      if(now-last>=(reduced.matches?200:50)){last=now;draw();}
-      if(now-pauseAt>=pauseDuration){rows.length=0;pauseAt=null;draw();return;}
+      if(now-last>=(reduced.matches?200:50)){last=now;draw();drawMini(miniRow,reduced.matches?0:(1-Math.min(1,(now-pauseAt)/miniSettleDuration))**3);}
+      if(now-pauseAt>=pauseDuration){rows.length=0;pauseAt=null;miniRow=null;drawMini(null);draw();return;}
       frame=requestAnimationFrame(tick);return;
     }
-    if(analyser && context.state==='running' && now-last>=(reduced.matches?200:50)){
-      last=now;analyser.getFloatFrequencyData(bins);
-      highAnalyser.getFloatFrequencyData(highBins);
-      const row=splitSpectrumBands(bins,highBins,context.sampleRate,columns,webEdition?20:40,webEdition?20000:18000);
-      drawMini(row);
+    if((sampleSpectrum||(analyser && context.state==='running')) && now-last>=(reduced.matches?200:50)){
+      last=now;let row;
+      if(sampleSpectrum)row=sampleSpectrum(audio.currentTime);
+      else{analyser.getFloatFrequencyData(bins);highAnalyser.getFloatFrequencyData(highBins);row=splitSpectrumBands(bins,highBins,context.sampleRate,columns,webEdition?20:40,webEdition?20000:18000);}
+      if(!row){drawMini(null);frame=requestAnimationFrame(tick);return;}
+
+      miniRow=row;drawMini(row);
       rows.unshift(row);if(rows.length>extendedDepth)rows.pop();draw();
     }
     frame=requestAnimationFrame(tick);
   }
-  function start(){if(!frame && analyser && (!audio.paused||pauseAt!==null) && visible())frame=requestAnimationFrame(tick);}
-  function settle(){drawMini(null);if(rows.length && pauseAt===null)pauseAt=performance.now();start();}
+  function start(){if(!frame && (analyser||sampleSpectrum) && (!audio.paused||pauseAt!==null) && visible())frame=requestAnimationFrame(tick);}
+  function settle(){if((rows.length||miniRow)&&pauseAt===null)pauseAt=performance.now();if(pauseAt===null)drawMini(null);start();}
   function unlock(){
+    if(sampleSpectrum){start();return;}
     const Audio=window.AudioContext||window.webkitAudioContext;
     if(!Audio)return;
     try{
@@ -150,9 +154,9 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
   audio.addEventListener('play',()=>{rows.length=0;pauseAt=null;riseAt=performance.now();});
   audio.addEventListener('playing',start);
   audio.addEventListener('pause',settle);audio.addEventListener('ended',settle);
-  for(const event of ['emptied','seeking'])audio.addEventListener(event,()=>{drawMini(null);rows.length=0;pauseAt=null;riseAt=null;draw();});
+  for(const event of ['emptied','seeking'])audio.addEventListener(event,()=>{miniRow=null;drawMini(null);rows.length=0;pauseAt=null;riseAt=null;draw();});
   document.addEventListener('visibilitychange',()=>{stop();start();});
-  new ResizeObserver(()=>{stop();draw();start();}).observe(canvas);
+  new ResizeObserver(()=>{stop();draw();if(audio.paused)drawMini(miniRow,pauseAt===null||reduced.matches?0:(1-Math.min(1,(performance.now()-pauseAt)/miniSettleDuration))**3);start();}).observe(canvas);
   window.addEventListener('pagehide',stop);
   window.addEventListener('pageshow',start);
   selectMode(mode);

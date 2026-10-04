@@ -705,3 +705,12 @@ Implemented the owner's next local review list: 41.667dvh spectrum, icon-only ac
 ## 2026-10-03 — Authorized cloud/domain publication
 
 Reduced expanded visualizer from 1.25× to 1.10× the original height and shifted it right by 12px. Published accumulated web/profile updates with API and worker aliases 3 (same worker image). Added exact custom-origin support, CORS and ACM-backed CloudFront alias for resonant.lat. Rotated the already-requested password privately. 165 web, 22 API and 5 infrastructure checks pass; cloud login/ranges/profile persistence verified. No audio/model modifications or paid AI calls. See DOMAIN_RELEASE.md for DNS cache limitation, receipts and rollback.
+
+## 2026-10-04 — History, likes, sheet motion and real native spectrum
+
+Local 4174 now includes permanent Liked Songs, revised navigation/footer/cards, slower rounded sheets and playable saved prompt results with new explanation snapshots. Replaced iPhone progress-grid fallback with audio-derived frequency files while preserving native playback. **168 web / 22 API tests; 85 syntax modules; 47-file build pass. Not deployed or pushed.** Read [current changes, evidence and publication handoff](docs/WEB_HISTORY_SPECTRUM_REFINEMENT.md). Three existing production prompts retain their ten saved tracks; no history reset. Physical iPhone acceptance remains.
+
+
+## 2026-10-04 — History and native spectrum published
+
+The owner-authorized release is live on resonant.lat and CloudFront: green PlaylistIQ tab (+15%), 1.6-second mini-spectrum pause easing, permanent Liked Songs, playable prompt history, prior sheet/UI refinements and real native-playback spectra. API/worker aliases 4/4, admissions enabled; audio/model/password unchanged. 168 web / 22 API / 5 infrastructure checks plus cloud auth, ranges, spectrum protection and profile persistence pass. [Production checkpoint](../../docs/cloud-library/first-release/serverless/HISTORY_SPECTRUM_RELEASE.md). Physical iPhone acceptance remains.

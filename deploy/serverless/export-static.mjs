@@ -30,6 +30,12 @@ export async function exportStatic({release,output,stateBucket}){
  const html=source.get('index.html').toString().replaceAll('href="./','href="/'+prefix+'/').replaceAll('src="./','src="/'+prefix+'/');
  await put('index.html',html,'no-cache,max-age=0,must-revalidate');
  for(const file of await files(path.join(root,'deploy/serverless/login')))await put('login/'+file,await readFile(path.join(root,'deploy/serverless/login',file)),'public,max-age=300');
+ const spectra=path.join(root,'output/display-spectra/v1'),mixHash=manifest.files.find(f=>f.path===manifest.mixAudioPath).sha256;
+ for(const id of [...catalog.tracks.map(t=>t.fileHash),'mix-house-example']){
+  let bytes;try{bytes=await readFile(path.join(spectra,id+'.json'));}catch(e){if(e.code==='ENOENT')throw Error('Prepare local display spectra before exporting this web release.');throw e;}
+  const data=JSON.parse(bytes);if(data.schema!=='resonant-spectrum/1'||data.sourceHash!==(id==='mix-house-example'?mixHash:id))throw Error('Display spectrum source mismatch');
+  await put('library/spectra/v1/'+id+'.json',bytes);
+ }
  const pages=[];
  for(let i=0;i<catalog.tracks.length;i+=25){const key='library/releases/'+manifest.releaseId+'/page-'+Math.floor(i/25)+'.json';pages.push('/'+key);await put(key,JSON.stringify({releaseId:manifest.releaseId,tracks:catalog.tracks.slice(i,i+25)}));}
  const mix=JSON.parse(await readFile(path.join(release,manifest.mixPath),'utf8')),mixFile=manifest.files.find(f=>f.path===manifest.mixAudioPath),mixKey='media/mix-'+mixFile.sha256+'.m4a';mix.url='/'+mixKey;

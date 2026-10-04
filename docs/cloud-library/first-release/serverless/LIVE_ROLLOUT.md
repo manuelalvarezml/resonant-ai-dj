@@ -1,5 +1,9 @@
 # Private cloud release — 2026-10-03 — D073/E061
 
+## 2026-10-04 — History and native spectrum release
+
+[Current production checkpoint](HISTORY_SPECTRUM_RELEASE.md): latest web refinements and profile API are live, aliases 4/4. Audio-derived iPhone spectra replace the progress fallback. Green PlaylistIQ (+15%) and gradual pause easing included. Domain/CloudFront auth, audio ranges, protected spectra and cross-session saves passed.
+
 ## 2026-10-03 — Web refresh and resonant.lat
 
 [Domain release checkpoint](DOMAIN_RELEASE.md) supersedes this page’s original app/API tuple: refreshed mobile UI, shared profile, requested password rotation, API/worker aliases 3, ACM certificate and Namecheap ALIAS are deployed. Music/model release remains unchanged. Authoritative/public DNS and custom-domain TLS checks passed; local browser DNS cache expiry remains.

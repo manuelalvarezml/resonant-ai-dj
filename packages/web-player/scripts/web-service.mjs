@@ -19,6 +19,8 @@ export function createWebService({manifest,sources}){
     const input=JSON.parse(text),track=byId.get(input.track_id);if(!track||track.sourceVersion!==input.source_version)throw Error('Unknown track version');
     send(200,{contract_version:'resonant-player/playback-session/1',track_id:track.id,source_version:track.sourceVersion,url:`http://${req.headers.host}/api/web/audio/${track.id}`,expires_at:new Date(Date.now()+3600000).toISOString()});return true;
    }
+   const spectrumId=u.pathname.match(/^\/api\/web\/spectrum\/([a-f0-9]{64}|mix-house-example)$/)?.[1];
+   if(req.method==='GET'&&spectrumId&&(byId.has(spectrumId)||spectrumId==='mix-house-example')){const raw=await readFile(path.join(project,'output/display-spectra/v1',spectrumId+'.json'));res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'private,max-age=86400'});res.end(raw);return true;}
    const id=u.pathname.match(/^\/api\/web\/audio\/([a-f0-9]{64})$/)?.[1];
    if(['GET','HEAD'].includes(req.method)&&id&&sources[id]){await serveAudio(req,res,sources[id],'audio/mpeg');return true;}
    if(req.method==='GET'&&u.pathname==='/api/web/mix'){

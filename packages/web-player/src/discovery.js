@@ -25,5 +25,5 @@ export function sessionPromptPlaceholder(storage=globalThis.localStorage){
  if(!sessionPair){let previous=[];try{previous=JSON.parse(storage.getItem('resonant:discovery:prompts')??'[]');if(!Array.isArray(previous))previous=[];}catch{}
   sessionPair=choosePromptPair(previous);try{storage.setItem('resonant:discovery:prompts',JSON.stringify(sessionPair.map(p=>p.id)));}catch{}
  }
- return sessionPair.map(p=>p.text).join(', or ');
+ return sessionPair.map(p=>p.text).join(', or ')+'…';
 }
