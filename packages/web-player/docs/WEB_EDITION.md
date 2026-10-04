@@ -50,6 +50,16 @@ This remains a loopback preview. It is not safe to expose this development serve
 
 ## Simplified cloud launch plan
 
+**Deployment planning handoff, 2026-10-02:** The dedicated
+[first-release plan](../../../docs/cloud-library/first-release/README.md) now
+recommends one Linux VM for app, immutable media and existing PlaylistIQ,
+conditional on personal account and budget confirmation. This supersedes the
+R2-plus-separate-host recommendation below for the ASAP release only. R2 and
+durable resumable prompt jobs are deferred; an interrupted in-flight v1 prompt
+reports failure and requires retry. Completed playlists/favorites remain
+browser-local. This note does not alter the preview implementation or its
+recorded acceptance/push scope.
+
 1. **Accept the preview and freeze the catalog.** Confirm the 187-track selection, playback, phone layout, mix and PlaylistIQ behavior. Export the exact selected MP3 bytes, full versioned feature records and embeddings as one hashed release. Omit private source paths and failed records. Keep a manifest and rollback copy.
 2. **Host one shared read-only library.** Use the previously proposed private R2 object store for audio and large analysis artifacts. Static assets and the small catalog can be served behind one HTTPS app origin. D1/multi-tenant accounts are unnecessary for this first immutable shared collection; add a database only when server-synced editing is required.
 3. **Host prompt planning separately from audio analysis.** Deploy a Node/Python container or VM for the current planner and MuQ text encoder, with provider keys only on the server and the frozen catalog/embeddings mounted read-only. Benchmark its RAM and latency before choosing the compute tier. Do not move all eleven audio estimators into the web service. Persist jobs, restrict their access, bound concurrency and rate-limit/cap LLM calls so a shared link cannot create unbounded spending.

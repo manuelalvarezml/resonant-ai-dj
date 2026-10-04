@@ -1,5 +1,37 @@
 # Staged web-player build
 
+## 2026-10-03 — Discovery and third player refinement
+
+Local 4174: 1.25× taller spectrum, centered title/artist spacing, larger icon-only controls, stable seeking UI, 75%-height queue, two-row mobile navigation, stacked card actions and immediate top-five cosines. Each reload randomizes the library and selects two of 50 examples across ten writing styles. More habits derive from existing profile counters. **165 web tests / 81 syntax modules / 44-file build pass. Not deployed.** [Current behavior and evidence](docs/WEB_DISCOVERY_REFINEMENT.md). Physical iPhone acceptance remains.
+
+## 2026-10-03 — Shared listener profile and second UI polish ready locally
+
+4174 now saves likes/playlists and PlaylistIQ prompt/listening history through a durable local profile, with the matching authenticated cloud API prepared using the existing DynamoDB table. Slower sheets, smaller spectrum, Love/Add controls, themed sort, compact character features and main-player DJ mix are implemented. **Not deployed; local review hold remains.** 156 web / 21 API-edge / 4 infrastructure checks pass; 79 syntax modules and 43-file build. Read [profile behavior, cost, tests and deployment handoff](docs/SINGLE_USER_PROFILE.md). Deployment now needs API/routes/IAM as well as frontend; earlier frontend-only handoff is superseded.
+
+## 2026-10-03 — Full-screen mobile refinement ready locally
+
+The 4174 web preview now has edge-to-edge expanded playback, pull-down dismissal, animated title swipes, a mini spectrum, whole-card playback with musical facts, a current-first queue and shorter PlaylistIQ explanations. **Not deployed; the local-review hold remains.** 143 tests, 72 syntax modules and a 38-file build pass. In-app browser checks cover 320/393px, desktop, mouse drags and synthetic IQ presentation. Real iPhone touch/background acceptance remains; iOS still uses native playback progress instead of FFT. [Current changes and evidence](docs/WEB_REFRESH_2026-10-03.md).
+
+## 2026-10-03 — Web refresh ready for local review
+
+The simplified web UI, 186 distinct recordings, PlaylistIQ deduplication, mobile mini/expanded player and iOS native-audio fix are implemented locally on 4174. Replacement password is privately staged. **Not deployed: owner confirmation required by the current request.** 135 tests, 70 syntax modules and 37-file web build pass; Chrome responsive and transition-seek checks pass. Real iPhone background/lock-screen acceptance remains. [Changes, evidence, limitations and deployment handoff](docs/WEB_REFRESH_2026-10-03.md).
+
+
+## 2026-10-02 — Serverless candidate implemented locally (D072/E060)
+
+[Current implementation checkpoint](../../docs/cloud-library/first-release/serverless/IMPLEMENTATION.md) supersedes the earlier plan-only status. Lambda worker, durable jobs/login, static playback transport, allowlisted export and five infrastructure templates are implemented locally. 123 player / 16 API-edge / 24 Python tests pass; offline Linux preserves all 60 planner cases. A separate preview on 4176 loaded 187 tracks and played/seeked audio with the API deliberately unavailable. Original release/model policy and 4173/4174 servers preserved.
+
+One no-cost AWS quota request is now PENDING: concurrency 1,001 because AWS rejected 200 as below its standard default 1,000, despite the effective account limit of 10. App reservations remain worker=1/API=5. No compute/storage/subscription resource created, upload or paid model call. Final self-contained image export needs more disk (20 GiB free before build). CloudFront Free subscription is explicit in IaC; zero existing subscriptions observed, actual eligibility unproven. Hosted-key choice, alert email, real cloud benchmark/auth/ranges/rollback remain pending. Use the checkpoint and serverless runbook, not the historical VM provisioner. T034 remains in progress.
+
+## 2026-10-02 — Separate production cloud runtime prepared
+
+The immutable 187-track release, production server and frozen planner are ready
+locally; Linux execution and cloud publication remain pending. The existing
+local/preview servers and UI were not restarted or redesigned. AWS profile
+`manueldev` / IAM `manuel-web` is selected. Read the
+[current preparation checkpoint](../../docs/cloud-library/first-release/PREPARATION.md)
+and [deployment operator guide](../../deploy/first-release/README.md).
+
 ## 2026-10-02 — Shared-library web edition preview
 
 Web edition runs on port 4174 with layout 3, 187 verified fully analyzed MP3s, a single mix with transition timestamps, and brief white guide cards. Local edition stays on 4173 with layouts 1 and 3. Owner-only APIs are blocked in web mode. A live PlaylistIQ request and main-player playback passed; 95 tests pass. Same private repository, separate edition/config/build; no cloud deployment or audio upload performed. [Architecture, catalog gate, tests and next launch steps](docs/WEB_EDITION.md).

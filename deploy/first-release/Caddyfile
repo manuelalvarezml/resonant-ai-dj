@@ -1,0 +1,24 @@
+{
+	admin off
+}
+
+{$RESONANT_HOSTNAME} {
+	encode zstd gzip
+	# All HTML, API, media, mix and health paths require the same access password.
+	basic_auth {
+		{$RESONANT_ACCESS_USER} {$RESONANT_ACCESS_PASSWORD_HASH}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "same-origin"
+	}
+	reverse_proxy app:4175 {
+		header_up Host {$RESONANT_HOSTNAME}
+		header_up -Authorization
+		header_up X-Resonant-Proxy-Token {$RESONANT_PROXY_TOKEN}
+		transport http {
+			response_header_timeout 370s
+		}
+	}
+}

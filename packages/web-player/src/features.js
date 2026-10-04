@@ -1,3 +1,4 @@
+import {serverlessTransport} from './serverless.js';
 import {escapeHTML as esc} from './model.js';
 export const GENRE_POLICY='maest-top6-v1';
 export const FEATURE_VERSION='selected-estimators-v3-character120';
@@ -13,6 +14,7 @@ export async function cachedFeatures(hash,request=globalThis.fetch){
  return value;
 }
 export async function localJob(action,body,filename,onProgress=()=>{},options={}){
+ if(action==='playlist'&&serverlessTransport())return serverlessTransport().playlist(body,onProgress);
  const response=await fetch(`/api/local/${action}${filename?'?filename='+encodeURIComponent(filename)+(options.supervised?'&supervised=1':'')+(options.specialists?'&specialists=1':''):''}`,{method:'POST',headers:{'X-Resonant-Local':'1','Content-Type':action==='analyze'?'application/octet-stream':'application/json'},body:action==='analyze'?body:JSON.stringify(body)});
  let job;try{job=await response.json()}catch{throw Error('Restart the local player server to enable analysis and PlaylistIQ.');}
  if(!response.ok)throw Error(job.error||'The local service is unavailable.');

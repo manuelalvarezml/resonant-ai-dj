@@ -1,0 +1,65 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {generateKeyPairSync,createVerify,randomUUID} from 'node:crypto';
+import bcrypt from 'bcryptjs';
+import {canonical,sha,signedCookies,createHandler,playlistRequest} from '../core.mjs';
+const conditional=()=>Object.assign(Error('condition'),{name:'ConditionalCheckFailedException'});
+const key=generateKeyPairSync('rsa',{modulusLength:2048});
+class DB{
+ constructor(){this.rows=new Map();}
+ conditional=e=>e?.name==='ConditionalCheckFailedException';
+ async get(pk){const row=this.rows.get(pk);return row?structuredClone(row):undefined;}
+ async put(row){if(this.rows.has(row.pk))throw conditional();this.rows.set(row.pk,structuredClone(row));}
+ async delete(pk){this.rows.delete(pk);}
+ async update(Key,update,condition,names,values){
+  const row=this.rows.get(Key.pk)??{...Key};
+  if(update.includes('#n')){if((row.count??0)>=values[':limit'])throw conditional();row.count=(row.count??0)+1;row.ttl=values[':ttl'];}
+  else if(update.includes('expires')){if(row.expires<=values[':now'])throw conditional();row.expires=row.ttl=values[':expiry'];}
+  else if(values[':queued']){if(row.status!==values[':dispatching'])throw conditional();row.status=values[':queued'];}
+  else{if(!['dispatching','queued','running'].includes(row.status)||row.deadline>values[':now'])throw conditional();row.status=values[':s'];}
+  this.rows.set(Key.pk,row);
+ }
+ async transact(ops){
+  for(const op of ops){if(op.Put&&this.rows.has(op.Put.Item.pk))throw conditional();if(op.Update){const u=op.Update,r=this.rows.get(u.Key.pk),v=u.ExpressionAttributeValues;if(v[':limit']&&(r?.count??0)>=v[':limit'])throw conditional();if(v[':id']&&(v[':old']?r?.jobId!==v[':old']:r?.jobId))throw conditional();}}
+  for(const op of ops){if(op.Put)this.rows.set(op.Put.Item.pk,structuredClone(op.Put.Item));else{const u=op.Update,r=this.rows.get(u.Key.pk)??{...u.Key},v=u.ExpressionAttributeValues;if(v[':id'])Object.assign(r,{jobId:v[':id'],deadline:v[':deadline']});else Object.assign(r,{count:(r.count??0)+1,ttl:v[':ttl']});this.rows.set(r.pk,r);}}
+ }
+}
+async function harness({send,additionalOrigins=[]}={}){
+ const db=new DB(),store=new Map(),events=[],secret={originSecret:'o'.repeat(40),passwordHash:await bcrypt.hash('listener',4),signingKey:key.privateKey};
+ const config={additionalOrigins,releaseId:'a'.repeat(64),origin:'https://example.cloudfront.net',keyPairId:'KFIXTURE',tracks:[{id:'one',sha256:'b'.repeat(64)}]};
+ db.rows.set('CONFIG#ACTIVE',{enabled:true,releaseId:config.releaseId});
+ let now=2000000000;
+ const handler=createHandler({db,config,secrets:async()=>secret,now:()=>now,dispatch:async e=>{events.push(e);if(send)await send(e);},objects:{async immutableRequest(k,r,digest){if(store.has(k)&&sha(canonical(store.get(k)))!==digest)throw Object.assign(Error('conflict'),{status:409});store.set(k,structuredClone(r));},resultUrl:async k=>'https://state.s3.us-east-2.amazonaws.com/'+k}});
+ const event=(path,method='GET',body,cookie,csrf)=>({rawPath:path,requestContext:{http:{method,sourceIp:'192.0.2.1'}},headers:{'x-resonant-origin':secret.originSecret,origin:config.origin,'content-type':'application/json',...(csrf?{'x-resonant-csrf':csrf}:{})},cookies:cookie?[cookie]:[],body:body?JSON.stringify(body):undefined});
+ const login=await handler(event('/api/session/login','POST',{password:'listener'}));assert.equal(login.statusCode,200);
+ const cookie=login.cookies[0].split(';')[0],csrf=JSON.parse(login.body).csrf;
+ const request=()=>({releaseId:config.releaseId,idempotencyKey:randomUUID(),prompt:'música tranquila 🎶',tracks:config.tracks});
+ return{db,store,events,config,handler,event,login,cookie,csrf,request,advance:n=>{now+=n;}};
+}
+test('canonical request bytes match Python Unicode escaping',()=>assert.equal(canonical({z:'🎶',a:'música'}),'{"a":"m\\u00fasica","z":"\\ud83c\\udfb6"}'));
+test('signed cookies verify cryptographically and include expiry',()=>{const c=signedCookies('https://example.cloudfront.net','KEY',key.privateKey,123456);const decode=v=>Buffer.from(v.replaceAll('-','+').replaceAll('_','=').replaceAll('~','/'),'base64');const policy=decode(c[0].split(';')[0].split('=')[1]);const signature=decode(c[1].split(';')[0].split('=')[1]);assert.ok(createVerify('RSA-SHA1').update(policy).verify(key.publicKey,signature));assert.equal(JSON.parse(policy).Statement[0].Condition.DateLessThan['AWS:EpochTime'],123456);assert.ok(c.every(v=>v.includes('HttpOnly')&&v.includes('Secure')));});
+test('duplicate concurrent submits count once and share immutable request',async()=>{const h=await harness(),r=h.request();const replies=await Promise.all([1,2].map(()=>h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf))));assert.ok(replies.every(r=>r.statusCode===202));assert.equal(JSON.parse(replies[0].body).id,JSON.parse(replies[1].body).id);assert.equal([...h.db.rows.values()].filter(r=>r.pk?.startsWith('DAY#'))[0].count,1);assert.equal(h.store.size,1);});
+test('same key with changed payload is rejected',async()=>{const h=await harness(),r=h.request();await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf));r.prompt='changed';assert.equal((await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf))).statusCode,409);});
+test('three outstanding jobs prevent fourth; expired slot is reclaimed',async()=>{const h=await harness();for(let i=0;i<3;i++)assert.equal((await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf))).statusCode,202);assert.equal((await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf))).statusCode,429);h.advance(1021);assert.equal((await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf))).statusCode,202);});
+test('daily quota and CSRF deny before dispatch',async()=>{const h=await harness();const r=h.request();assert.equal((await h.handler(h.event('/api/playlist','POST',r,h.cookie,'wrong'))).statusCode,403);h.db.rows.set('DAY#'+new Date(2000000000*1000).toISOString().slice(0,10),{count:30});assert.equal((await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf))).statusCode,429);assert.equal(h.events.length,0);});
+test('direct origin and foreign session cannot access a job',async()=>{const h=await harness();const e=h.event('/api/session');delete e.headers['x-resonant-origin'];assert.equal((await h.handler(e)).statusCode,403);const response=await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf));const id=JSON.parse(response.body).id;const second=await h.handler(h.event('/api/session/login','POST',{password:'listener'}));assert.equal((await h.handler(h.event('/api/jobs/'+id,'GET',null,second.cookies[0].split(';')[0]))).statusCode,404);});
+test('result URLs require ownership, and expired sessions fail',async()=>{const h=await harness();const r=await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf));const id=JSON.parse(r.body).id;Object.assign(h.db.rows.get('JOB#'+id),{status:'succeeded',resultKey:'results/'+id+'.json',resultSha256:'c'.repeat(64)});const status=await h.handler(h.event('/api/jobs/'+id,'GET',null,h.cookie));assert.equal(JSON.parse(status.body).status,'complete');h.advance(86401);assert.equal((await h.handler(h.event('/api/jobs/'+id,'GET',null,h.cookie))).statusCode,401);});
+test('invalid member hash is rejected before paid queue',async()=>{const h=await harness(),r=h.request();r.tracks[0]={id:'one',sha256:'d'.repeat(64)};assert.equal((await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf))).statusCode,400);assert.equal(h.events.length,0);});
+
+test('uncertain dispatch retry reuses the job and quota admission',async()=>{let attempts=0;const h=await harness({send:async()=>{if(++attempts===1)throw Error('lost acknowledgement');}}),r=h.request();assert.equal((await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf))).statusCode,503);const retried=await h.handler(h.event('/api/playlist','POST',r,h.cookie,h.csrf));assert.equal(retried.statusCode,202);assert.equal(h.events[0].jobId,h.events[1].jobId);assert.equal([...h.db.rows.values()].find(r=>r.pk?.startsWith('DAY#')).count,1);});
+test('monthly cap prevents admission with remaining daily capacity',async()=>{const h=await harness();h.db.rows.set('MONTH#'+new Date(2000000000*1000).toISOString().slice(0,7),{count:900});assert.equal((await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf))).statusCode,429);assert.equal(h.events.length,0);});
+test('expired paid attempt reports uncertainty without provider replay',async()=>{const h=await harness();const r=await h.handler(h.event('/api/playlist','POST',h.request(),h.cookie,h.csrf)),id=JSON.parse(r.body).id;Object.assign(h.db.rows.get('JOB#'+id),{status:'running',providerStarted:true});h.advance(1021);const reply=await h.handler(h.event('/api/jobs/'+id,'GET',null,h.cookie));assert.equal(JSON.parse(reply.body).status,'failed');assert.match(JSON.parse(reply.body).error,/another AI charge/);assert.equal(h.db.rows.get('JOB#'+id).status,'outcome_unknown');assert.equal(h.events.length,1);});
+test('refresh extends access and logout removes API session',async()=>{const h=await harness();h.advance(100);const refreshed=await h.handler(h.event('/api/session/refresh','POST',{},h.cookie,h.csrf));assert.equal(refreshed.statusCode,200);assert.equal(JSON.parse(refreshed.body).expiresAt,(2000000100+86400)*1000);const logged=await h.handler(h.event('/api/session/logout','POST',{},h.cookie,h.csrf));assert.ok(logged.cookies.every(c=>c.includes('Max-Age=0')));assert.equal((await h.handler(h.event('/api/session','GET',null,h.cookie))).statusCode,401);});
+test('bad password attempts are throttled',async()=>{const h=await harness();for(let i=0;i<9;i++)assert.equal((await h.handler(h.event('/api/session/login','POST',{password:'bad'}))).statusCode,401);assert.equal((await h.handler(h.event('/api/session/login','POST',{password:'listener'}))).statusCode,429);});
+test('profile routes require existing authentication, same-origin POST and CSRF',async()=>{const h=await harness(),body={operations:[{id:randomUUID(),at:1,type:'favorite',trackId:'one',value:true}]};assert.equal((await h.handler(h.event('/api/profile'))).statusCode,401);assert.equal((await h.handler(h.event('/api/profile','POST',body,h.cookie,'wrong'))).statusCode,403);const foreign=h.event('/api/profile','POST',body,h.cookie,h.csrf);foreign.headers.origin='https://foreign.invalid';assert.equal((await h.handler(foreign)).statusCode,403);h.db.profilePage=async pk=>({items:[{key:pk}],cursor:null});const a=await h.handler(h.event('/api/profile','GET',null,h.cookie));const second=await h.handler(h.event('/api/session/login','POST',{password:'listener'}));const b=await h.handler(h.event('/api/profile','GET',null,second.cookies[0].split(';')[0]));assert.equal(a.statusCode,200);assert.deepEqual(JSON.parse(a.body),JSON.parse(b.body));});
+
+test('custom domain signs only its own allowed origin and rejects lookalikes',async()=>{
+ const h=await harness({additionalOrigins:['https://resonant.lat']});
+ const e=h.event('/api/session/login','POST',{password:'listener'});e.headers.origin='https://resonant.lat';
+ const reply=await h.handler(e);assert.equal(reply.statusCode,200);
+ const raw=reply.cookies.find(c=>c.startsWith('CloudFront-Policy=')).split(';')[0].slice('CloudFront-Policy='.length);
+ const policy=JSON.parse(Buffer.from(raw.replaceAll('-','+').replaceAll('_','=').replaceAll('~','/'),'base64'));
+ assert.equal(policy.Statement[0].Resource,'https://resonant.lat/*');
+ for(const origin of ['https://resonant.lat.evil.invalid','https://foreign.invalid','null',undefined]) {e.headers.origin=origin;assert.equal((await h.handler(e)).statusCode,403);}
+ const refresh=h.event('/api/session/refresh','POST',{},h.cookie,h.csrf);refresh.headers.origin='https://resonant.lat';assert.equal((await h.handler(refresh)).statusCode,200);
+});

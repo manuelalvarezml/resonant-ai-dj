@@ -1,3 +1,4 @@
+import {fileProfileStore,profileService} from './profile-service.mjs';
 import {buildWebLibrary,prepareWebAudio} from './web-library.mjs';
 import {createWebService} from './web-service.mjs';
 import {localConversion} from './conversion.mjs';
@@ -12,6 +13,7 @@ const portArg=process.argv.indexOf('--port'),port=portArg<0?4173:Number(process.
 const webEdition=process.argv.includes('--web');
 const webData=webEdition?await buildWebLibrary():null;
 const webService=webData?createWebService(webData):null;
+const profiles=webData?profileService(fileProfileStore(path.resolve(root,'../../output/web-profile/account.json'),new Set(webData.manifest.tracks.map(t=>t.id)))):null;
 if(webData)console.log(`Web catalog: ${webData.manifest.tracks.length} fully analyzed MP3s`);
 const csp="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'";
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.ttf':'font/ttf','.txt':'text/plain; charset=utf-8'};
@@ -22,6 +24,7 @@ const server=http.createServer(async(req,res)=>{
   if(webEdition){
     const pathname=new URL(req.url,'http://localhost').pathname;
     if(pathname==='/config.json'){res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify({contract_version:'resonant-player/config/1',mode:'http',edition:'web',apiBase:'/api/',mediaOrigins:[]}));return;}
+    if(await profiles(req,res))return;
     if(await webService(req,res,port))return;
     if(pathname==='/api/local/playlist'||pathname.startsWith('/api/local/jobs/')){await localFeatures(req,res,port,{playlistTracks:webData.manifest.tracks});return;}
     if(pathname.startsWith('/api/')||pathname==='/app-status.json'||pathname.startsWith('/prepare-web')){res.writeHead(404);res.end('Not available in web edition');return;}

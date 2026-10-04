@@ -1,0 +1,167 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Resonant isolated generic text Lambda benchmark; no public URL or provider key access",
+  "Parameters": {
+    "ImageUri": {
+      "Type": "String",
+      "AllowedPattern": "[0-9]{12}\\.dkr\\.ecr\\.us-east-2\\.amazonaws\\.com/[a-z0-9/_-]+@sha256:[a-f0-9]{64}"
+    },
+    "MemoryMB": {
+      "Type": "Number",
+      "Default": 8192,
+      "AllowedValues": [
+        3008,
+        4096,
+        6144,
+        8192
+      ]
+    },
+    "ReleaseId": {
+      "Type": "String",
+      "AllowedPattern": "[a-f0-9]{64}"
+    }
+  },
+  "Resources": {
+    "ProbeLogs": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Sub": "/aws/lambda/${AWS::StackName}-probe"
+        },
+        "RetentionInDays": 7
+      }
+    },
+    "ProbeRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "ProbeLogsOnly",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "ProbeLogs",
+                      "Arn"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "Probe": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "${AWS::StackName}-probe"
+        },
+        "PackageType": "Image",
+        "Code": {
+          "ImageUri": {
+            "Ref": "ImageUri"
+          }
+        },
+        "ImageConfig": {
+          "Command": [
+            "runtime.benchmark_handler.handler"
+          ],
+          "EntryPoint": [
+            "python",
+            "-m",
+            "awslambdaric"
+          ]
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "ProbeRole",
+            "Arn"
+          ]
+        },
+        "Architectures": [
+          "x86_64"
+        ],
+        "MemorySize": {
+          "Ref": "MemoryMB"
+        },
+        "Timeout": 360,
+        "ReservedConcurrentExecutions": 1,
+        "EphemeralStorage": {
+          "Size": 512
+        },
+        "Environment": {
+          "Variables": {
+            "RESONANT_RELEASE_ID": {
+              "Ref": "ReleaseId"
+            },
+            "PLAYLISTIQ_CPU_THREADS": "2"
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          },
+          {
+            "Key": "Purpose",
+            "Value": "bounded-text-benchmark"
+          }
+        ]
+      }
+    },
+    "ProbeVersion": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Probe"
+        },
+        "Description": {
+          "Fn::Sub": "${ImageUri};memory=${MemoryMB}"
+        }
+      }
+    },
+    "ProbeAlias": {
+      "Type": "AWS::Lambda::Alias",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Probe"
+        },
+        "FunctionVersion": {
+          "Fn::GetAtt": [
+            "ProbeVersion",
+            "Version"
+          ]
+        },
+        "Name": "probe"
+      }
+    }
+  },
+  "Outputs": {
+    "ProbeAlias": {
+      "Value": {
+        "Ref": "ProbeAlias"
+      }
+    }
+  }
+}

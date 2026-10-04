@@ -660,3 +660,48 @@ Failures/pivots: HTTP adapter native fetch needed a receiver-safe wrapper; initi
 ## 2026-10-02 — Web visualization fixed to Falling
 
 Owner requested one visualization in the web edition. Web now selects Falling independently of saved preferences and omits the view-selector markup. Local visualization choices remain available. Syntax and both edition builds verified.
+
+## 2026-10-02 — Immutable cloud release and production server
+
+D070/E058 implements the dedicated cloud entrypoint, frozen exporter and production
+job supervisor, without modifying the local preview UI or restarting 4173/4174.
+187 eligible MP3s and one existing mix are copied with exact hashes. Sessions,
+CSRF/proxy/origin checks, private routes, streaming ranges, persistent quota and
+full child-process-tree timeout cleanup are tested. Initial full suite:115 tests,
+64 syntax modules; final review corrections and deployment evidence are tracked
+in [PREPARATION.md](../../docs/cloud-library/first-release/PREPARATION.md).
+No inference, audio conversion, provider mutation, upload or deployment.
+
+## 2026-10-02 — Serverless candidate implemented locally (D072/E060)
+
+[Current implementation checkpoint](../../docs/cloud-library/first-release/serverless/IMPLEMENTATION.md) supersedes the earlier plan-only status. Lambda worker, durable jobs/login, static playback transport, allowlisted export and five infrastructure templates are implemented locally. 123 player / 16 API-edge / 24 Python tests pass; offline Linux preserves all 60 planner cases. A separate preview on 4176 loaded 187 tracks and played/seeked audio with the API deliberately unavailable. Original release/model policy and 4173/4174 servers preserved.
+
+One no-cost AWS quota request is now PENDING: concurrency 1,001 because AWS rejected 200 as below its standard default 1,000, despite the effective account limit of 10. App reservations remain worker=1/API=5. No compute/storage/subscription resource created, upload or paid model call. Final self-contained image export needs more disk (20 GiB free before build). CloudFront Free subscription is explicit in IaC; zero existing subscriptions observed, actual eligibility unproven. Hosted-key choice, alert email, real cloud benchmark/auth/ranges/rollback remain pending. Use the checkpoint and serverless runbook, not the historical VM provisioner. T034 remains in progress.
+
+## 2026-10-03 — D073/E061 rollout completed; owner acceptance pending
+
+Private 187-track playback and PlaylistIQ are live. Final cloud-only text loader preserves original vectors/planner evidence within 3,008 MB. Five cold plus ten warm AWS probes pass; the single production-key prompt returns ten matches in 63.41 seconds, 2,362 MB peak. Real auth/storage/range checks and paired alias/pointer rollback pass; duplicate terminal POST adds no paid call. Probe stack deleted, Free CDN ACTIVE, current aliases2/2 and AI enabled. Alert-email confirmation and owner desktop/phone listening remain; IAB blocked cloud navigation. No original analysis, source audio, local server or planner policy change. [Identity, failures, scan limits and receipts](../../docs/cloud-library/first-release/serverless/LIVE_ROLLOUT.md).
+
+## 2026-10-03 — Web refresh ready for local review
+
+The simplified web UI, 186 distinct recordings, PlaylistIQ deduplication, mobile mini/expanded player and iOS native-audio fix are implemented locally on 4174. Replacement password is privately staged. **Not deployed: owner confirmation required by the current request.** 135 tests, 70 syntax modules and 37-file web build pass; Chrome responsive and transition-seek checks pass. Real iPhone background/lock-screen acceptance remains. [Changes, evidence, limitations and deployment handoff](docs/WEB_REFRESH_2026-10-03.md).
+
+## 2026-10-03 — Full-screen mobile refinement, local review only
+
+Implemented the owner's second UI refinement: full-screen draggable player, clipped transform-only title/artist previews, shared-analyser mini spectrum, centered 20 Hz–20 kHz web plot, full-card library playback with three genres and three musical facts, concise IQ explanations/plan and bottom estimator icon, and current/upcoming-only queue with pull dismissal. Native iOS audio routing stays intact; progress rendering is now event-driven. Local preview restarted on 4174 after it was found stopped. The first browser reload reached an error page while it was down; a fresh in-app tab recovered once ready. Narrow score columns initially wrapped numbers; nowrap numeric cells and a balanced first column resolved it.
+
+143 tests pass; 72 modules pass syntax; 38-file web build and manifest validation pass. Browser checked 320/393px and desktop, real local playback, next/previous swipes, full-screen geometry, dismissal from plot/text, current-first queue and mouse pull closure. IQ presentation used a temporary synthetic fixture, removed before build. No paid calls or provider mutations. Physical iPhone gestures/background listening remain unverified. [Evidence and continuation](docs/WEB_REFRESH_2026-10-03.md).
+
+
+## 2026-10-03 — Shared listener saves and playback polish
+
+Delivered local profile persistence, prompt history, attributed listening aggregates, Love/Add controls, smaller spectrum, slower sheets, theme-consistent sort, top-five character view and unified mix transport. Browser testing found and fixed mutable-preference aliasing that hid playlist changes from sync; added a regression. Concurrent/ambiguous retries are covered by permanent operation identities and transactional revision checks. 156 web tests, 21 API/edge tests, 4 template assertions, 79 syntax modules, 43-file build pass. No AWS mutation or paid inference. Current evidence and publication requirements: [SINGLE_USER_PROFILE.md](docs/SINGLE_USER_PROFILE.md). Local-review hold persists; physical iPhone acceptance remains.
+
+
+## 2026-10-03 — Discovery and third player refinement
+
+Implemented the owner's next local review list: 41.667dvh spectrum, icon-only actions above enlarged transport, centered track block, 75dvh queue, queue in tabs row, stacked track ellipsis/heart and direct top-five cosines. Randomized library order is stable during a visit; 50 prompt examples cover ten styles and produce a fresh pair per page load. Added derived listening habits. Seeking now distinguishes explicit pause intent and status occupies a fixed area to prevent control movement. 165 tests, 81 syntax modules and 44-file build pass. Checked 320/393/1280 widths, refresh variation, seeking, details and habits. No cloud writes/paid calls/audio changes; local-review hold remains. [Checkpoint](docs/WEB_DISCOVERY_REFINEMENT.md).
+
+## 2026-10-03 — Authorized cloud/domain publication
+
+Reduced expanded visualizer from 1.25× to 1.10× the original height and shifted it right by 12px. Published accumulated web/profile updates with API and worker aliases 3 (same worker image). Added exact custom-origin support, CORS and ACM-backed CloudFront alias for resonant.lat. Rotated the already-requested password privately. 165 web, 22 API and 5 infrastructure checks pass; cloud login/ranges/profile persistence verified. No audio/model modifications or paid AI calls. See DOMAIN_RELEASE.md for DNS cache limitation, receipts and rollback.

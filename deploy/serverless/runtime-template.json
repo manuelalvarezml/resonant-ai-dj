@@ -1,0 +1,934 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Resonant Ohio runtime; durable asynchronous jobs; no idle worker",
+  "Parameters": {
+    "StateTable": {
+      "Type": "String"
+    },
+    "StateBucket": {
+      "Type": "String"
+    },
+    "HttpApiId": {
+      "Type": "String"
+    },
+    "CodeBucket": {
+      "Type": "String"
+    },
+    "CodeKey": {
+      "Type": "String"
+    },
+    "CodeVersion": {
+      "Type": "String"
+    },
+    "KeyPairId": {
+      "Type": "String"
+    },
+    "RuntimeRevision": {
+      "Type": "String",
+      "AllowedPattern": "[a-f0-9]{64}"
+    },
+    "ReleaseId": {
+      "Type": "String",
+      "AllowedPattern": "[a-f0-9]{64}"
+    },
+    "ApiCodeSha": {
+      "Type": "String",
+      "AllowedPattern": "[A-Za-z0-9+/]{43}="
+    },
+    "ImageUri": {
+      "Type": "String",
+      "AllowedPattern": "[0-9]{12}\\.dkr\\.ecr\\.us-east-2\\.amazonaws\\.com/[a-z0-9/_-]+@sha256:[a-f0-9]{64}"
+    },
+    "WebOrigin": {
+      "Type": "String",
+      "AllowedPattern": "https://[a-z0-9]+\\.cloudfront\\.net"
+    },
+    "SecretPrefix": {
+      "Type": "String",
+      "Default": "/resonant/first-release",
+      "AllowedPattern": "/[a-zA-Z0-9/_-]+"
+    },
+    "MemoryMB": {
+      "Type": "Number",
+      "Default": 8192,
+      "AllowedValues": [
+        3008,
+        4096,
+        6144,
+        8192
+      ]
+    },
+    "AlertEmail": {
+      "Type": "String",
+      "AllowedPattern": "[^ @]+@[^ @]+\\.[^ @]+"
+    },
+    "WorkerConcurrency": {
+      "Type": "Number",
+      "Default": 0,
+      "AllowedValues": [
+        0,
+        1
+      ],
+      "Description": "Keep zero until measured worker acceptance; one enables processing."
+    },
+    "AdditionalWebOrigin": {
+      "Type": "String",
+      "Default": "",
+      "AllowedPattern": "(|https://[a-z0-9.-]+)"
+    }
+  },
+  "Resources": {
+    "ApiLogs": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Sub": "/aws/lambda/${AWS::StackName}-api"
+        },
+        "RetentionInDays": 7,
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "WorkerLogs": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Sub": "/aws/lambda/${AWS::StackName}-worker"
+        },
+        "RetentionInDays": 7,
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "Failures": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "MessageRetentionPeriod": 1209600,
+        "SqsManagedSseEnabled": true,
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "Alerts": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ],
+        "Subscription": [
+          {
+            "Protocol": "email",
+            "Endpoint": {
+              "Ref": "AlertEmail"
+            }
+          }
+        ]
+      }
+    },
+    "ApiRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "MinimumRuntimeAccess",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "ApiLogs",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:GetItem",
+                    "dynamodb:Query",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:dynamodb:us-east-2:${AWS::AccountId}:table/${StateTable}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:PutObject",
+                    "s3:GetObject"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/requests/*"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:GetObject",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/results/*"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "ssm:GetParameters",
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/origin"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/password-hash"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/signing-key"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "kms:Decrypt",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:kms:us-east-2:${AWS::AccountId}:key/*"
+                  },
+                  "Condition": {
+                    "StringEquals": {
+                      "kms:ViaService": "ssm.us-east-2.amazonaws.com",
+                      "kms:EncryptionContext:PARAMETER_ARN": [
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/origin"
+                        },
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/password-hash"
+                        },
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/signing-key"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "lambda:InvokeFunction",
+                  "Resource": {
+                    "Ref": "WorkerAlias"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "WorkerRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "MinimumRuntimeAccess",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "WorkerLogs",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "dynamodb:UpdateItem",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:dynamodb:us-east-2:${AWS::AccountId}:table/${StateTable}"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:GetObject",
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/requests/*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/text-cache/*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:PutObject",
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/results/*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/audits/*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}/text-cache/*"
+                    }
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "ssm:GetParameter",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/openai"
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "kms:Decrypt",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:kms:us-east-2:${AWS::AccountId}:key/*"
+                  },
+                  "Condition": {
+                    "StringEquals": {
+                      "kms:ViaService": "ssm.us-east-2.amazonaws.com",
+                      "kms:EncryptionContext:PARAMETER_ARN": [
+                        {
+                          "Fn::Sub": "arn:${AWS::Partition}:ssm:us-east-2:${AWS::AccountId}:parameter${SecretPrefix}/openai"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "sqs:SendMessage",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "Failures",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "s3:ListBucket",
+                  "Resource": {
+                    "Fn::Sub": "arn:${AWS::Partition}:s3:::${StateBucket}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "Worker": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "${AWS::StackName}-worker"
+        },
+        "PackageType": "Image",
+        "Code": {
+          "ImageUri": {
+            "Ref": "ImageUri"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "WorkerRole",
+            "Arn"
+          ]
+        },
+        "Architectures": [
+          "x86_64"
+        ],
+        "MemorySize": {
+          "Ref": "MemoryMB"
+        },
+        "Timeout": 360,
+        "ReservedConcurrentExecutions": {
+          "Ref": "WorkerConcurrency"
+        },
+        "EphemeralStorage": {
+          "Size": 512
+        },
+        "Environment": {
+          "Variables": {
+            "RESONANT_RELEASE_ID": {
+              "Ref": "ReleaseId"
+            },
+            "RESONANT_STATE_TABLE": {
+              "Ref": "StateTable"
+            },
+            "RESONANT_STATE_BUCKET": {
+              "Ref": "StateBucket"
+            },
+            "RESONANT_RUNTIME_REVISION": {
+              "Ref": "RuntimeRevision"
+            },
+            "RESONANT_OPENAI_PARAMETER": {
+              "Fn::Sub": "${SecretPrefix}/openai"
+            },
+            "PLAYLISTIQ_CPU_THREADS": "2"
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "WorkerVersion": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Worker"
+        },
+        "Description": {
+          "Ref": "RuntimeRevision"
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "WorkerAlias": {
+      "Type": "AWS::Lambda::Alias",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Worker"
+        },
+        "FunctionVersion": {
+          "Fn::GetAtt": [
+            "WorkerVersion",
+            "Version"
+          ]
+        },
+        "Name": "live"
+      }
+    },
+    "AsyncPolicy": {
+      "Type": "AWS::Lambda::EventInvokeConfig",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Worker"
+        },
+        "Qualifier": "live",
+        "MaximumEventAgeInSeconds": 600,
+        "MaximumRetryAttempts": 0,
+        "DestinationConfig": {
+          "OnFailure": {
+            "Destination": {
+              "Fn::GetAtt": [
+                "Failures",
+                "Arn"
+              ]
+            }
+          }
+        }
+      },
+      "DependsOn": [
+        "WorkerAlias"
+      ]
+    },
+    "Api": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "${AWS::StackName}-api"
+        },
+        "Runtime": "nodejs24.x",
+        "Handler": "aws.main",
+        "Code": {
+          "S3Bucket": {
+            "Ref": "CodeBucket"
+          },
+          "S3Key": {
+            "Ref": "CodeKey"
+          },
+          "S3ObjectVersion": {
+            "Ref": "CodeVersion"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "ApiRole",
+            "Arn"
+          ]
+        },
+        "Architectures": [
+          "x86_64"
+        ],
+        "MemorySize": 512,
+        "Timeout": 10,
+        "ReservedConcurrentExecutions": 5,
+        "Environment": {
+          "Variables": {
+            "RESONANT_RELEASE_ID": {
+              "Ref": "ReleaseId"
+            },
+            "RESONANT_STATE_TABLE": {
+              "Ref": "StateTable"
+            },
+            "RESONANT_STATE_BUCKET": {
+              "Ref": "StateBucket"
+            },
+            "RESONANT_RUNTIME_REVISION": {
+              "Ref": "RuntimeRevision"
+            },
+            "RESONANT_ORIGIN": {
+              "Ref": "WebOrigin"
+            },
+            "RESONANT_KEY_PAIR_ID": {
+              "Ref": "KeyPairId"
+            },
+            "RESONANT_SECRET_PREFIX": {
+              "Ref": "SecretPrefix"
+            },
+            "RESONANT_WORKER_ALIAS": {
+              "Ref": "WorkerAlias"
+            },
+            "RESONANT_ADDITIONAL_ORIGINS": {
+              "Ref": "AdditionalWebOrigin"
+            }
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "resonant"
+          }
+        ]
+      }
+    },
+    "ApiVersion": {
+      "Type": "AWS::Lambda::Version",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Api"
+        },
+        "CodeSha256": {
+          "Ref": "ApiCodeSha"
+        },
+        "Description": {
+          "Ref": "RuntimeRevision"
+        }
+      },
+      "DeletionPolicy": "Retain",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "ApiAlias": {
+      "Type": "AWS::Lambda::Alias",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "Api"
+        },
+        "FunctionVersion": {
+          "Fn::GetAtt": [
+            "ApiVersion",
+            "Version"
+          ]
+        },
+        "Name": "live"
+      }
+    },
+    "Integration": {
+      "Type": "AWS::ApiGatewayV2::Integration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "IntegrationType": "AWS_PROXY",
+        "IntegrationUri": {
+          "Ref": "ApiAlias"
+        },
+        "PayloadFormatVersion": "2.0",
+        "TimeoutInMillis": 10000
+      }
+    },
+    "ApiInvoke": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "ApiAlias"
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Sub": "arn:${AWS::Partition}:execute-api:us-east-2:${AWS::AccountId}:${HttpApiId}/*"
+        }
+      }
+    },
+    "Route0": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/login",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route1": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "GET /api/session",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route2": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/refresh",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route3": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/logout",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route4": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/playlist",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route5": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "GET /api/jobs/{id}",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route6": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "GET /api/profile",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route7": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/profile",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Stage": {
+      "Type": "AWS::ApiGatewayV2::Stage",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "StageName": "$default",
+        "AutoDeploy": true,
+        "DefaultRouteSettings": {
+          "ThrottlingRateLimit": 10,
+          "ThrottlingBurstLimit": 20
+        },
+        "RouteSettings": {
+          "POST /api/session/login": {
+            "ThrottlingRateLimit": 1,
+            "ThrottlingBurstLimit": 5
+          }
+        }
+      },
+      "DependsOn": [
+        "Route0",
+        "Route1",
+        "Route2",
+        "Route3",
+        "Route4",
+        "Route5",
+        "Route6",
+        "Route7"
+      ]
+    },
+    "ApiErrors": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/ApiGateway",
+        "MetricName": "5xx",
+        "Dimensions": [
+          {
+            "Name": "ApiId",
+            "Value": {
+              "Ref": "HttpApiId"
+            }
+          },
+          {
+            "Name": "Stage",
+            "Value": "$default"
+          }
+        ],
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "Alerts"
+          }
+        ]
+      }
+    },
+    "WorkerErrors": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/Lambda",
+        "MetricName": "Errors",
+        "Dimensions": [
+          {
+            "Name": "FunctionName",
+            "Value": {
+              "Ref": "Worker"
+            }
+          }
+        ],
+        "Statistic": "Sum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "Alerts"
+          }
+        ]
+      }
+    },
+    "AsyncAge": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/Lambda",
+        "MetricName": "AsyncEventAge",
+        "Dimensions": [
+          {
+            "Name": "FunctionName",
+            "Value": {
+              "Ref": "Worker"
+            }
+          }
+        ],
+        "Statistic": "Maximum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 300000,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "Alerts"
+          }
+        ]
+      }
+    },
+    "FailureQueue": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "Namespace": "AWS/SQS",
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Dimensions": [
+          {
+            "Name": "QueueName",
+            "Value": {
+              "Fn::GetAtt": [
+                "Failures",
+                "QueueName"
+              ]
+            }
+          }
+        ],
+        "Statistic": "Maximum",
+        "Period": 300,
+        "EvaluationPeriods": 1,
+        "Threshold": 1,
+        "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+        "TreatMissingData": "notBreaching",
+        "AlarmActions": [
+          {
+            "Ref": "Alerts"
+          }
+        ]
+      }
+    },
+    "Budget": {
+      "Type": "AWS::Budgets::Budget",
+      "Properties": {
+        "Budget": {
+          "BudgetName": {
+            "Fn::Sub": "${AWS::StackName}-account-alert"
+          },
+          "BudgetType": "COST",
+          "TimeUnit": "MONTHLY",
+          "BudgetLimit": {
+            "Amount": 10,
+            "Unit": "USD"
+          }
+        },
+        "NotificationsWithSubscribers": [
+          {
+            "Notification": {
+              "ComparisonOperator": "GREATER_THAN",
+              "NotificationType": "ACTUAL",
+              "Threshold": 5,
+              "ThresholdType": "ABSOLUTE_VALUE"
+            },
+            "Subscribers": [
+              {
+                "SubscriptionType": "EMAIL",
+                "Address": {
+                  "Ref": "AlertEmail"
+                }
+              }
+            ]
+          },
+          {
+            "Notification": {
+              "ComparisonOperator": "GREATER_THAN",
+              "NotificationType": "ACTUAL",
+              "Threshold": 10,
+              "ThresholdType": "ABSOLUTE_VALUE"
+            },
+            "Subscribers": [
+              {
+                "SubscriptionType": "EMAIL",
+                "Address": {
+                  "Ref": "AlertEmail"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "ApiAlias": {
+      "Value": {
+        "Ref": "ApiAlias"
+      }
+    },
+    "WorkerAlias": {
+      "Value": {
+        "Ref": "WorkerAlias"
+      }
+    },
+    "FailureQueue": {
+      "Value": {
+        "Ref": "Failures"
+      }
+    },
+    "Alerts": {
+      "Value": {
+        "Ref": "Alerts"
+      }
+    }
+  }
+}

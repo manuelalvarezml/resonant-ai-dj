@@ -1,0 +1,10 @@
+# AWS deployment adapters only; semantic/runtime pins remain the existing CPU lock.
+awslambdaric==4.1.0
+boto3==1.43.108
+botocore==1.43.108
+jmespath==1.0.1
+s3transfer==0.19.0
+python-dateutil==2.9.0.post0
+six==1.17.0
+simplejson==4.1.2
+snapshot-restore-py==1.0.0

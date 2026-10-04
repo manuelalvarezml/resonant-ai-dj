@@ -2,10 +2,12 @@ import {moveItem, shuffled} from './model.js';
 
 export class Player extends EventTarget {
   constructor(audio,resolver) {
-    super(); this.audio=audio; this.resolver=resolver; this.queue=[]; this.index=-1; this.status='idle'; this.error=''; this.repeat='off'; this.shuffle=false; this.epoch=0; this.wantPlay=false; this.renewals=0;
+    super(); this.audio=audio; this.resolver=resolver; this.queue=[]; this.index=-1; this.status='idle'; this.error=''; this.repeat='off'; this.shuffle=false; this.epoch=0; this.listeningVisit=0; this.wantPlay=false; this.renewals=0; this.manualPause=false; this.seeking=false;
     audio.preload='metadata';
-    audio.addEventListener('playing',()=>{if(this.wantPlay){this.status='playing';this.emit();} else audio.pause();});
-    audio.addEventListener('pause',()=>{if(this.status!=='loading' && this.status!=='error'){this.status='paused';this.emit();}});
+    audio.addEventListener('playing',()=>{if(this.wantPlay){this.status='playing';this.interrupted=false;this.emit();} else audio.pause();});
+    audio.addEventListener('pause',()=>{if(!audio.paused)return;if(this.status!=='loading' && this.status!=='error'){this.interrupted=this.wantPlay&&!audio.ended;this.wantPlay=false;this.status='paused';this.emit();}});
+    audio.addEventListener('seeking',()=>{this.seeking=true;this.emit();});
+    audio.addEventListener('seeked',()=>{this.seeking=false;this.emit();});
     audio.addEventListener('waiting',()=>{if(this.wantPlay){this.status='buffering';this.emit();}});
     audio.addEventListener('timeupdate',()=>{if(this.renewals && this.status==='playing' && audio.currentTime>(this.renewedAt??Infinity)+1)this.renewals=0;this.emit('progress');});
     audio.addEventListener('durationchange',()=>this.emit('progress'));
@@ -13,17 +15,20 @@ export class Player extends EventTarget {
       if(this.pendingSeek != null && Number.isFinite(audio.duration)) { audio.currentTime=Math.min(this.pendingSeek,Math.max(0,audio.duration-0.05)); this.pendingSeek=null; }
       this.emit('progress');
     });
-    audio.addEventListener('ended',()=>this.next(true));
+    audio.addEventListener('ended',()=>{this.emit('trackended');this.next(true);});
     audio.addEventListener('error',()=>this.mediaError());
   }
   get current() { return this.queue[this.index] ?? null; }
   emit(type='change') {this.dispatchEvent(new Event(type));}
-  setQueue(tracks,index=0) {
+  setQueue(tracks,index=0,context=null) {
+    this.listeningContext=context;
     this.queue=[...tracks]; this.index=index;
     if(this.shuffle && this.current) {const first=this.current;this.queue=[first,...shuffled(tracks.filter((_,i)=>i!==index))];this.index=0;}
     this.renewals=0; return this.load(0);
   }
-  async load(position=0,renewal=false,autoplay=true) {
+  async load(position=0,renewal=false,autoplay=true,continuation=false) {
+    if(!renewal&&!continuation)this.listeningVisit++;
+    this.status='loading';this.interrupted=false;this.manualPause=false;this.seeking=false;
     const epoch=++this.epoch; this.controller?.abort(); this.controller=new AbortController();
     this.audio.pause(); this.audio.removeAttribute('src'); this.audio.load(); this.session?.release(); this.session=null;
     if(!this.current) {this.status='idle';this.wantPlay=false;this.pendingSeek=null;this.emit();return;}
@@ -53,9 +58,9 @@ export class Player extends EventTarget {
   }
   toggle() {
     if(!this.current) return;
-    if(this.wantPlay){this.wantPlay=false;this.audio.pause();this.status='paused';this.emit();return;}
-    this.wantPlay=true;
-    if(!this.session || this.status==='error' || (this.session.expiresAt && this.session.expiresAt<=Date.now()+5000)) return this.load(this.audio.currentTime || this.pendingSeek || 0);
+    if(this.wantPlay){this.manualPause=true;this.wantPlay=false;this.audio.pause();this.status='paused';this.emit();return;}
+    this.manualPause=false;this.wantPlay=true;
+    if(!this.session || this.status==='error' || (this.session.expiresAt && this.session.expiresAt<=Date.now()+5000)) return this.load(this.audio.currentTime || this.pendingSeek || 0,false,true,true);
     return this.attemptPlay();
   }
   next(ended=false) {
@@ -65,12 +70,12 @@ export class Player extends EventTarget {
     if(this.repeat==='all'){this.index=0;return this.load(0);}
     this.wantPlay=false;this.audio.pause();this.status='ended';this.emit();
   }
-  previous() {if(this.audio.currentTime>3) return this.seek(0); if(this.index>0){this.index--;return this.load(0);} this.seek(0);}
+  previous(restart=true) {if(restart&&this.audio.currentTime>3) return this.seek(0); if(this.index>0){this.index--;return this.load(0);} this.seek(0);}
   seek(seconds) {
     if(!this.current || !Number.isFinite(seconds)) return;
     const target=Math.max(0,Math.min(seconds,Number.isFinite(this.audio.duration)?this.audio.duration:seconds));
-    if(this.session?.expiresAt && this.session.expiresAt<=Date.now()+5000) return this.load(target,false,this.wantPlay);
-    if(this.audio.readyState>0)this.audio.currentTime=target; else this.pendingSeek=target;
+    if(this.session?.expiresAt && this.session.expiresAt<=Date.now()+5000) return this.load(target,false,this.wantPlay,true);
+    if(this.audio.readyState>0){this.audio.currentTime=target;this.seeking=!!this.audio.seeking;this.emit();}else this.pendingSeek=target;
     this.emit('progress');
   }
   enqueue(track,next=false) {
@@ -91,5 +96,10 @@ export class Player extends EventTarget {
     this.emit();
   }
   toggleShuffle() {this.shuffle=!this.shuffle;if(this.shuffle){this.queue=[...this.queue.slice(0,this.index+1),...shuffled(this.queue.slice(this.index+1))];}this.emit();}
+  reconcile() {
+    if(this.current&&this.audio.paused&&this.wantPlay&&this.status!=='loading'){
+      this.wantPlay=false;this.status='paused';this.interrupted=true;this.emit();
+    } else this.emit('progress');
+  }
   clear() {this.epoch++;this.controller?.abort();this.wantPlay=false;this.audio.pause();this.audio.removeAttribute('src');this.audio.load();this.session?.release();this.session=null;this.queue=[];this.index=-1;this.pendingSeek=null;this.status='idle';this.error='';this.emit();}
 }

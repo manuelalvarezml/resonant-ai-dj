@@ -1,0 +1,8 @@
+.env
+.env.*
+app.env
+caddy.env
+listener-password.txt
+evidence/
+__pycache__/
+*.pyc

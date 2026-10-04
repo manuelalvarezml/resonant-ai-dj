@@ -1,0 +1,68 @@
+name: resonant
+services:
+  app:
+    image: ${RESONANT_IMAGE:?Set an exact built image tag or digest}
+    platform: linux/amd64
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 7g
+    cpus: 2
+    tmpfs: [/tmp:rw,nosuid,nodev,size=128m]
+    env_file:
+      - path: ./app.env
+        format: raw
+    environment:
+      RESONANT_PUBLIC_ORIGIN: https://${RESONANT_HOSTNAME:?Set the public DNS hostname}
+      RESONANT_RELEASE_ROOT: /release
+      RESONANT_STATE_ROOT: /state
+      RESONANT_MODEL_ROOT: /models
+      RESONANT_PYTHON: /opt/venv/bin/python
+      RESONANT_HOST: 0.0.0.0
+      RESONANT_PORT: "4175"
+      RESONANT_DAILY_PROMPT_LIMIT: ${RESONANT_DAILY_PROMPT_LIMIT:-30}
+      RESONANT_JOB_TIMEOUT_SECONDS: ${RESONANT_JOB_TIMEOUT_SECONDS:-360}
+    volumes:
+      - type: bind
+        source: ${RESONANT_RELEASE_DIR:?Set an immutable verified release directory}
+        target: /release
+        read_only: true
+      - type: bind
+        source: ${RESONANT_DATA_ROOT:-/srv/resonant}/models
+        target: /models
+        read_only: true
+      - type: bind
+        source: ${RESONANT_DATA_ROOT:-/srv/resonant}/state
+        target: /state
+    networks: [private]
+    logging:
+      driver: json-file
+      options: {max-size: 5m, max-file: "3"}
+  caddy:
+    image: caddy:2.10.2-alpine
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    ports: ["80:80", "443:443", "443:443/udp"]
+    env_file:
+      - path: ./caddy.env
+        format: raw
+    environment:
+      RESONANT_HOSTNAME: ${RESONANT_HOSTNAME:?Set the public DNS hostname}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [private]
+    logging:
+      driver: json-file
+      options: {max-size: 5m, max-file: "3"}
+networks:
+  private: {}
+volumes:
+  caddy_data: {}
+  caddy_config: {}

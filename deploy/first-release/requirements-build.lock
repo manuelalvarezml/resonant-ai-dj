@@ -1,0 +1,5 @@
+# MuQ 0.1.0 is a 55 KB pure-Python source release with setuptools setup.py.
+# Build it using an explicitly pinned backend, never a copied Mac installation.
+pip==25.2
+setuptools==80.9.0
+wheel==0.45.1

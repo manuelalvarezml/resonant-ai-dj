@@ -1,3 +1,4 @@
+import {configureServerless} from './serverless.js';
 import {readAudioTags,featureTags,applyAudioTags} from './audio-tags.js';
 import { demoTracks, createDemoAudio } from './demo.js';
 import { validateTrack,analysisQuality } from './model.js';
@@ -183,13 +184,14 @@ export function validateConfig(value, locationHref = globalThis.location?.href ?
   if (base.origin !== origin || base.username || base.password || base.search || base.hash || !base.pathname.endsWith('/')) throw new Error('The API must use a same-origin path ending in /.');
   const mediaOrigins = value.mediaOrigins ?? [];
   if (!Array.isArray(mediaOrigins) || mediaOrigins.some(s => {try {const u = new URL(s); return u.protocol !== 'https:' || u.origin !== s;} catch {return true;}})) throw new Error('Media origins must be explicit HTTPS origins.');
-  return {edition:value.edition==='web'?'web':'local',mode:value.mode, apiBase:base.href, mediaOrigins, origin};
+  if(value.serverless===true&&(value.mode!=='http'||value.edition!=='web'))throw new Error('Serverless transport requires the web edition.');
+  return {edition:value.edition==='web'?'web':'local',mode:value.mode, apiBase:base.href, mediaOrigins, origin,...(value.serverless===true?{serverless:true}:{})};
 }
 
 export class HttpLibrary {
   mode = 'http';
   constructor(config, request = (...args)=>globalThis.fetch(...args)) { this.config=config; this.request=request; }
-  async init() {}
+  async init() {if(this.config.serverless)this.cloud=await configureServerless(this.config,this.request);}
   async json(path,options={}) {
     const controller=new AbortController(),cancel=()=>controller.abort(options.signal.reason);
     if(options.signal?.aborted)cancel();else options.signal?.addEventListener('abort',cancel,{once:true});
@@ -203,6 +205,7 @@ export class HttpLibrary {
     } finally {clearTimeout(timeout);options.signal?.removeEventListener('abort',cancel);}
   }
   async listTracks({signal}={}) {
+    if(this.cloud)return this.cloud.listTracks({signal});
     const tracks = [], seen = new Set(), cursors = new Set(); let cursor, revision;
     for(let page=0;page<50;page++) {
       const data = await this.json(`v1/tracks?limit=100${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`,{signal});
@@ -217,6 +220,7 @@ export class HttpLibrary {
     throw new Error('This library exceeds the supported 5,000-track browsing limit.');
   }
   async resolvePlayback(track,{position=0,signal}={}) {
+    if(this.cloud)return this.cloud.resolvePlayback(track,{position,signal});
     const data = await this.json('v1/playback-sessions',{method:'POST',signal,body:JSON.stringify({contract_version:'resonant-player/playback-request/1',track_id:track.id,source_version:track.sourceVersion,position_seconds:position})});
     let url;
     try {url=new URL(data.url);} catch {throw new Error('The service returned an invalid playback session.');}

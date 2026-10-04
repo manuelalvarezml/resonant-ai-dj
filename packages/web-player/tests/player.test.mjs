@@ -64,3 +64,29 @@ test('resolver errors do not advance queue or invent successful playback',async(
 test('late play rejection after a newer selection cannot damage current state',async()=>{
   const {p,audio}=fixture();const pending=deferred();audio.play=()=>pending.promise;const old=p.setQueue([track('a')]);await tick();audio.play=AudioFake.prototype.play;await p.setQueue([track('b')]);pending.resolve();await old;assert.equal(p.current.id,'b');assert.equal(p.status,'playing');
 });
+
+test('native interruption clears play intent and allows explicit resume',async()=>{
+ const {p,audio}=fixture();await p.setQueue([track('a')]);audio.pause();
+ assert.equal(p.status,'paused');assert.equal(p.wantPlay,false);assert.equal(p.interrupted,true);
+ await p.toggle();assert.equal(p.status,'playing');assert.equal(p.interrupted,false);
+});
+test('loading a replacement does not treat its internal pause as interruption',async()=>{
+ const {p}=fixture();await p.setQueue(['a','b'].map(track));await p.next();
+ assert.equal(p.current.id,'b');assert.equal(p.status,'playing');assert.equal(p.interrupted,false);
+});
+test('returning from suspension reconciles a missing pause event without autoplay',async()=>{
+ const {p,audio}=fixture();await p.setQueue([track('a')]);audio.paused=true;p.reconcile();
+ assert.equal(p.wantPlay,false);assert.equal(p.status,'paused');assert.equal(p.interrupted,true);assert.equal(audio.src,'blob:a');
+});
+test('native ended advances the same element, and swipe previous does not restart current',async()=>{
+ const {p,audio}=fixture();await p.setQueue(['a','b'].map(track));audio.dispatchEvent(new Event('ended'));await tick();
+ assert.equal(p.current.id,'b');assert.equal(p.audio,audio);assert.equal(p.status,'playing');audio.currentTime=40;
+ await p.previous(false);assert.equal(p.current.id,'a');assert.equal(p.status,'playing');
+});
+
+test('a queued old pause event cannot undo newly playing media',async()=>{
+ const {p,audio}=fixture();await p.setQueue([track('a')]);audio.dispatchEvent(new Event('pause'));
+ assert.equal(audio.paused,false);assert.equal(p.status,'playing');assert.equal(p.wantPlay,true);
+});
+test('seeking preserves playback intent and never creates a manual pause',async()=>{const{p,audio}=fixture();await p.setQueue([track('a')]);p.seek(45);audio.seeking=true;audio.dispatchEvent(new Event('seeking'));audio.dispatchEvent(new Event('waiting'));assert.equal(p.wantPlay,true);assert.equal(p.manualPause,false);assert.equal(p.seeking,true);audio.seeking=false;audio.dispatchEvent(new Event('seeked'));audio.dispatchEvent(new Event('playing'));assert.equal(p.seeking,false);assert.equal(p.status,'playing');assert.equal(audio.currentTime,45);p.toggle();assert.equal(p.manualPause,true);p.seek(60);assert.equal(p.wantPlay,false);assert.equal(audio.paused,true);});
+test('seeking to the current position cannot leave a permanent seek state',async()=>{const{p,audio}=fixture();await p.setQueue([track('a')]);p.seek(audio.currentTime);assert.equal(p.seeking,false);});

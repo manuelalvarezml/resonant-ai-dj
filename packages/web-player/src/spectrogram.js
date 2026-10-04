@@ -1,6 +1,6 @@
 import {splitSpectrumBands} from './spectrum-bands.js';
 // Live frequency × time × amplitude point surface. No decoded-track cache.
-export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={}) {
+export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,webEdition=false}={}) {
   const controls=canvas.parentElement.querySelector('.spectrum-modes');
   const paint=canvas.getContext('2d');
   if(!paint || !enabled){canvas.hidden=true;if(controls)controls.hidden=true;return;}
@@ -19,17 +19,18 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
   }
   controls?.addEventListener('click',event=>{const next=event.target.closest('button')?.dataset.spectrum;if(next)selectMode(next);});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  const visible=()=>!document.hidden && canvas.getBoundingClientRect().width>0;
+  const mini=()=>webEdition?document.querySelector('.mini-spectrum'):null;
+  const visible=()=>!document.hidden && (canvas.getBoundingClientRect().width>0||(mini()?.clientWidth??0)>0);
   function draw(){
     const bounds=canvas.getBoundingClientRect();
     if(!bounds.width || !bounds.height)return;
-    const width=Math.max(1,bounds.width-68),height=Math.max(1,bounds.height-52);
+    const width=Math.max(1,bounds.width-(webEdition?72:68)),height=Math.max(1,bounds.height-52);
     const ratio=Math.min(devicePixelRatio||1,2);
     if(canvas.width!==Math.round(bounds.width*ratio)||canvas.height!==Math.round(bounds.height*ratio)){
       canvas.width=Math.round(bounds.width*ratio);canvas.height=Math.round(bounds.height*ratio);
     }
     paint.setTransform(ratio,0,0,ratio,0,0);paint.clearRect(0,0,bounds.width,bounds.height);
-    paint.translate(56,24);
+    paint.translate(webEdition?36:56,24);
     const descent=pauseAt===null?0:Math.min(1,(performance.now()-pauseAt)/pauseDuration);
     const rise=riseAt===null?1:Math.min(1,((pauseAt??performance.now())-riseAt)/riseDuration);
     const riseOffset=(1-rise)**3;
@@ -76,7 +77,7 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
     paint.restore();
     // The dBFS axis references the newest slice; historical rows retain perspective.
     const startX=textured?.03:.08, spanX=textured?.94:.82;
-    const maxHz=Math.min(18000,(context?.sampleRate??48000)/2);
+    const maxHz=Math.min(webEdition?20000:18000,(context?.sampleRate??48000)/2);
     paint.font='11px "Geist Mono", monospace';
     paint.fillStyle='rgba(226,226,218,.7)';
     paint.textAlign='right';paint.textBaseline='middle';
@@ -86,12 +87,13 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
       paint.fillRect(-3,y,4,1);
     }
     paint.textAlign='left';paint.textBaseline='alphabetic';
-    paint.fillText('dBFS',-36,-8);
-    const ticks=width<380?[40,100,250,1000,4000,10000]:[40,80,160,315,630,1250,2500,5000,10000,16000];
+    paint.fillText('dBFS',webEdition?-32:-36,-8);
+    const minHz=webEdition?20:40;
+    const ticks=webEdition?(width<380?[20,100,1000,10000,20000]:[20,40,100,250,1000,4000,10000,20000]):width<380?[40,100,250,1000,4000,10000]:[40,80,160,315,630,1250,2500,5000,10000,16000];
     let lastTick=-Infinity;
     for(const hz of ticks){
       if(hz>maxHz)continue;
-      const u=Math.log(hz/40)/Math.log(maxHz/40),x=width*(startX+u*spanX);
+      const u=Math.log(hz/minHz)/Math.log(maxHz/minHz),x=width*(startX+u*spanX);
       if(x-lastTick<28||x>width-24)continue;lastTick=x;
       paint.textAlign=hz===40?'left':'center';
       paint.fillText(hz>=1000?`${hz/1000}k`:String(hz),x,height+18);
@@ -100,6 +102,11 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
     paint.textAlign='right';paint.fillText('Hz',width,height+18);
   }
 
+  function drawMini(row){
+    const el=mini();if(!el?.clientWidth)return;const ctx=el.getContext('2d');if(!ctx)return;
+    if(el.width!==128){el.width=128;el.height=52;}ctx.clearRect(0,0,128,52);ctx.fillStyle='#deded5';
+    for(let i=0;i<24;i++){const value=row?Math.max(...row.subarray(i*4,i*4+4)):0,h=Math.max(2,value*48);ctx.fillRect(i*5+4,(52-h)/2,2,h);}
+  }
   function stop(){cancelAnimationFrame(frame);frame=0;}
   function tick(now){
     frame=0;
@@ -113,13 +120,14 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
     if(analyser && context.state==='running' && now-last>=(reduced.matches?200:50)){
       last=now;analyser.getFloatFrequencyData(bins);
       highAnalyser.getFloatFrequencyData(highBins);
-      const row=splitSpectrumBands(bins,highBins,context.sampleRate,columns);
+      const row=splitSpectrumBands(bins,highBins,context.sampleRate,columns,webEdition?20:40,webEdition?20000:18000);
+      drawMini(row);
       rows.unshift(row);if(rows.length>extendedDepth)rows.pop();draw();
     }
     frame=requestAnimationFrame(tick);
   }
   function start(){if(!frame && analyser && (!audio.paused||pauseAt!==null) && visible())frame=requestAnimationFrame(tick);}
-  function settle(){if(rows.length && pauseAt===null)pauseAt=performance.now();start();}
+  function settle(){drawMini(null);if(rows.length && pauseAt===null)pauseAt=performance.now();start();}
   function unlock(){
     const Audio=window.AudioContext||window.webkitAudioContext;
     if(!Audio)return;
@@ -142,7 +150,7 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null}={
   audio.addEventListener('play',()=>{rows.length=0;pauseAt=null;riseAt=performance.now();});
   audio.addEventListener('playing',start);
   audio.addEventListener('pause',settle);audio.addEventListener('ended',settle);
-  for(const event of ['emptied','seeking'])audio.addEventListener(event,()=>{rows.length=0;pauseAt=null;riseAt=null;draw();});
+  for(const event of ['emptied','seeking'])audio.addEventListener(event,()=>{drawMini(null);rows.length=0;pauseAt=null;riseAt=null;draw();});
   document.addEventListener('visibilitychange',()=>{stop();start();});
   new ResizeObserver(()=>{stop();draw();start();}).observe(canvas);
   window.addEventListener('pagehide',stop);

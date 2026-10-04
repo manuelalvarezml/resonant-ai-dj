@@ -1,24 +1,34 @@
+import {canonicalAudioHash} from './recording-identity.js';
 export const AUTHORITIES = new Set(['encoded_fact', 'standardized_measurement', 'deterministic_measurement', 'benchmark_estimate', 'user_verified', 'llm_proposal', 'executed_action']);
 export const formatTime = value => Number.isFinite(value) && value >= 0 ? `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, '0')}` : '—';
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 // Audio identity is content, never a title or filename. Stored IDs stay intact for playlists.
 export function audioIdentity(track) {
   const hash=track.fileHash??track.features?.sha256;
-  return track.kind==='local'&&/^[a-f0-9]{64}$/.test(hash??'')?hash:null;
+  return track.kind!=='demo'&&/^[a-f0-9]{64}$/.test(hash??'')?(track.kind==='cloud'?canonicalAudioHash(hash):hash):null;
 }
 export function analysisQuality(features) {
   if(features?.policy!=='maest-top6-v1')return 0;
   return 1+(features.status==='complete'?1000:0)+(features.status==='complete'&&features.feature_version==='selected-estimators-v3-character120'?2000:0)+(features.genres?.length?100:0)+(features.algorithms??[]).filter(a=>['passed','warning'].includes(a.status)).length;
 }
 export function uniqueAudioTracks(tracks) {
-  const result=[],positions=new Map();
+  const result=[],positions=new Map(),ids=new Set();
   for(const track of tracks){
     const hash=audioIdentity(track);
+    if(ids.has(track.id))continue;ids.add(track.id);
     if(!hash||!positions.has(hash)){if(hash)positions.set(hash,result.length);result.push(track);continue;}
     const index=positions.get(hash),prior=result[index];
     if(analysisQuality(track.features)>analysisQuality(prior.features))result[index]=track;
   }
   return result;
+}
+// Remap saved web collection references when a verified duplicate is hidden.
+// Unknown IDs are preserved so a temporarily absent catalog cannot erase them.
+export function deduplicateCollection(tracks,preferences) {
+  const unique=uniqueAudioTracks(tracks),byIdentity=new Map(unique.map(t=>[audioIdentity(t)||t.id,t.id]));
+  const aliases=new Map(tracks.map(t=>[t.id,byIdentity.get(audioIdentity(t)||t.id)]));
+  const remap=ids=>[...new Set(ids.map(id=>aliases.get(id)||id))];
+  return {tracks:unique,preferences:{...preferences,favorites:remap(preferences.favorites),playlists:preferences.playlists.map(p=>({...p,trackIds:remap(p.trackIds)}))}};
 }
 export function filterTracks(tracks, { search = '', sort = 'recent', favorites, ids } = {}) {
   const terms = search.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -50,7 +60,7 @@ export function cleanPreferences(value) {
   const strings = x => Array.isArray(x) ? [...new Set(x.filter(s => typeof s === 'string' && /^[\w-]{1,128}$/.test(s)))].slice(0,5000) : [];
   return {
     favorites: strings(v.favorites),
-    playlists: Array.isArray(v.playlists) ? v.playlists.filter(p => p && typeof p.id === 'string' && /^[\w-]{1,128}$/.test(p.id) && typeof p.name === 'string' && p.name.trim()).slice(0,100).map(p => ({id:p.id, name:p.name.slice(0,80), trackIds:strings(p.trackIds)})) : [],
+    playlists: Array.isArray(v.playlists) ? v.playlists.filter(p => p && typeof p.id === 'string' && /^[\w-]{1,128}$/.test(p.id) && typeof p.name === 'string' && p.name.trim()).slice(0,100).map(p => ({id:p.id, name:p.name.slice(0,80), trackIds:strings(p.trackIds),...(typeof p.requestId==='string'&&/^[\w-]{1,128}$/.test(p.requestId)?{requestId:p.requestId}:{})})) : [],
     volume: Number.isFinite(v.volume) ? Math.min(1, Math.max(0, v.volume)) : 0.65,
     repeat: ['off','all','one'].includes(v.repeat) ? v.repeat : 'off',
     shuffle: v.shuffle === true

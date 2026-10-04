@@ -1,0 +1,241 @@
+[
+  {
+    "service": "AmazonDynamoDB",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/current/us-east-2/index.json",
+    "publicationDate": "2026-09-11T12:44:22Z",
+    "rates": [
+      {
+        "usage": "USE2-TimedStorage-ByteHrs",
+        "operation": "",
+        "unit": "GB-Mo",
+        "usd": "0.0000000000",
+        "description": "$0.00 per GB-Month of storage for first 25 free GB-Months",
+        "beginRange": "0",
+        "endRange": "25"
+      },
+      {
+        "usage": "USE2-ReplWriteRequestUnits",
+        "operation": "PayPerRequestThroughput",
+        "unit": "ReplicatedWriteRequestUnits",
+        "usd": "0.0000006250",
+        "description": "$0.625 per million replicated write request units (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-ReadRequestUnits",
+        "operation": "PayPerRequestThroughput",
+        "unit": "ReadRequestUnits",
+        "usd": "0.0000001250",
+        "description": "$0.125 per million read request units (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-WriteRequestUnits",
+        "operation": "PayPerRequestThroughput",
+        "unit": "WriteRequestUnits",
+        "usd": "0.0000006250",
+        "description": "$0.625 per million write request units (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      }
+    ]
+  },
+  {
+    "service": "AmazonSQS",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonSQS/current/us-east-2/index.json",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "service": "AmazonEC2ContainerRegistry",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2ContainerRegistry/current/us-east-2/index.json",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "service": "AWSSecretsManager",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSSecretsManager/current/us-east-2/index.json",
+    "publicationDate": "2026-09-11T12:46:10Z",
+    "rates": [
+      {
+        "usage": "USE2-AWSSecretsManagerAPIRequest",
+        "operation": "",
+        "unit": "API Requests",
+        "usd": "0.0000050000",
+        "description": "$0.05 per 10000 API Requests",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-AWSSecretsManager-Secrets",
+        "operation": "",
+        "unit": "Secrets",
+        "usd": "0.4000000000",
+        "description": "$0.40 per Secret",
+        "beginRange": "0",
+        "endRange": "Inf"
+      }
+    ]
+  },
+  {
+    "service": "AWSQueueService",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSQueueService/current/us-east-2/index.json",
+    "publicationDate": "2026-09-11T12:46:07Z",
+    "rates": [
+      {
+        "usage": "USE2-Requests-FIFO-Tier1",
+        "operation": "",
+        "unit": "Requests",
+        "usd": "0.0000005000",
+        "description": "$0.50 per million Amazon SQS FIFO requests in Tier1 in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "100000000000"
+      },
+      {
+        "usage": "Global-Requests",
+        "operation": "",
+        "unit": "Requests",
+        "usd": "0.0000000000",
+        "description": "First 1,000,000 Amazon SQS Requests per month are free",
+        "beginRange": "0",
+        "endRange": "1000000"
+      },
+      {
+        "usage": "USE2-Requests-Tier1",
+        "operation": "",
+        "unit": "Requests",
+        "usd": "0.0000004000",
+        "description": "$0.40 per million Amazon SQS standard requests in Tier1 in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "100000000000"
+      },
+      {
+        "usage": "USE2-Requests-Fair-Tier1",
+        "operation": "",
+        "unit": "Requests",
+        "usd": "0.0000001000",
+        "description": "$0.10 per million Amazon SQS fair queue requests in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      }
+    ]
+  },
+  {
+    "service": "AmazonECR",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECR/current/us-east-2/index.json",
+    "publicationDate": "2026-09-11T12:44:25Z",
+    "rates": [
+      {
+        "usage": "USE2-Retrieval-Archive",
+        "operation": "",
+        "unit": "GB",
+        "usd": "0.0300000000",
+        "description": "$0.03 per GB for Retrieval-Archive in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-AsyncActions-ImageSigning",
+        "operation": "",
+        "unit": "Count",
+        "usd": "0.0200000000",
+        "description": "$0.02 per Count for AsyncActions-ImageSigning in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-TimedStorage-ByteHrs",
+        "operation": "",
+        "unit": "GB-Mo",
+        "usd": "0.1000000000",
+        "description": "$0.10 per GB-month of data storage",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-TimedStorage-Archive-ByteHrs",
+        "operation": "",
+        "unit": "GB-Mo",
+        "usd": "0.1000000000",
+        "description": "$0.10 per GB-Mo from 0 to 153,600 for TimedStorage-Archive-ByteHrs in US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "153600"
+      }
+    ]
+  },
+  {
+    "service": "AWSLambda",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSLambda/current/us-east-2/index.json",
+    "publicationDate": "2026-10-01T18:47:46Z",
+    "rates": [
+      {
+        "usage": "USE2-Request",
+        "operation": "",
+        "unit": "Request",
+        "usd": "0.0000002000",
+        "description": "AWS Lambda - Total Requests - US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-Lambda-Storage-GB-Second",
+        "operation": "",
+        "unit": "GB-Seconds",
+        "usd": "0.0000000309",
+        "description": "AWS Lambda - Ephemeral Storage - US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-Lambda-GB-Second",
+        "operation": "",
+        "unit": "Lambda-GB-Second",
+        "usd": "0.0000166667",
+        "description": "AWS Lambda - Total Compute - US East (Ohio)-Tier-1",
+        "beginRange": "0",
+        "endRange": "6000000000"
+      }
+    ]
+  },
+  {
+    "service": "AmazonApiGateway",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonApiGateway/current/us-east-2/index.json",
+    "publicationDate": "2026-09-21T23:14:04Z",
+    "rates": [
+      {
+        "usage": "USE2-ApiGatewayHttpRequest",
+        "operation": "ApiGatewayHttpApi",
+        "unit": "Requests",
+        "usd": "0.0000010000",
+        "description": "$1/million requests - API Gateway HTTP API (first 300 million)",
+        "beginRange": "0",
+        "endRange": "300000000"
+      }
+    ]
+  },
+  {
+    "service": "AmazonCloudWatch",
+    "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/us-east-2/index.json",
+    "publicationDate": "2026-09-22T02:17:15Z",
+    "rates": [
+      {
+        "usage": "USE2-CW:AlarmMonitorUsage",
+        "operation": "",
+        "unit": "Alarms",
+        "usd": "0.1000000000",
+        "description": "$0.10 per alarm metric month (standard resolution) - US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      },
+      {
+        "usage": "USE2-DataProcessing-Bytes",
+        "operation": "PutLogEvents",
+        "unit": "GB",
+        "usd": "0.5000000000",
+        "description": "$0.50 per GB custom log data ingested in Standard log class - US East (Ohio)",
+        "beginRange": "0",
+        "endRange": "Inf"
+      }
+    ]
+  }
+]

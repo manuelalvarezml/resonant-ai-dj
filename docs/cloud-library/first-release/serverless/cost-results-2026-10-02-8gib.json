@@ -1,0 +1,161 @@
+{
+  "as_of": "2026-10-02",
+  "scope": "CloudFront Free eligible; OpenAI excluded; modeled AWS usage only",
+  "mp3_gib": 1.7797436006367207,
+  "scenarios": [
+    {
+      "label": "Idle",
+      "jobs": 0,
+      "worker_billed_seconds": 0,
+      "api_calls": 1000,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.009000000000000001,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 0.0,
+        "lambda_requests": 0.00019999999999999998,
+        "api_compute": 0.000833335,
+        "http_api": 0.001,
+        "dynamodb": 0.000125,
+        "sqs": 0.0
+      },
+      "total_without_storage_credit_usd": 1.325158335,
+      "total_with_storage_credit_usd": 1.210158335
+    },
+    {
+      "label": "Occasional",
+      "jobs": 100,
+      "worker_billed_seconds": 30,
+      "api_calls": 1900,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.0112,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 0.40000080000000005,
+        "lambda_requests": 0.00039999999999999996,
+        "api_compute": 0.0015833365,
+        "http_api": 0.0019,
+        "dynamodb": 0.0014875,
+        "sqs": 1.2e-06
+      },
+      "total_without_storage_credit_usd": 1.7305728365000002,
+      "total_with_storage_credit_usd": 1.6155728365000002
+    },
+    {
+      "label": "Regular",
+      "jobs": 300,
+      "worker_billed_seconds": 30,
+      "api_calls": 3700,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.015600000000000001,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 1.2000024,
+        "lambda_requests": 0.0007999999999999999,
+        "api_compute": 0.0030833395,
+        "http_api": 0.0036999999999999997,
+        "dynamodb": 0.0042125,
+        "sqs": 3.6e-06
+      },
+      "total_without_storage_credit_usd": 2.5414018395,
+      "total_with_storage_credit_usd": 2.4264018395000004
+    },
+    {
+      "label": "Daily cap average",
+      "jobs": 900,
+      "worker_billed_seconds": 30,
+      "api_calls": 9100,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.028800000000000003,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 3.6000072000000003,
+        "lambda_requests": 0.002,
+        "api_compute": 0.007583348500000001,
+        "http_api": 0.0091,
+        "dynamodb": 0.012387500000000001,
+        "sqs": 1.08e-05
+      },
+      "total_without_storage_credit_usd": 4.973888848500001,
+      "total_with_storage_credit_usd": 4.8588888485
+    },
+    {
+      "label": "Slower requests",
+      "jobs": 900,
+      "worker_billed_seconds": 60,
+      "api_calls": 14500,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.028800000000000003,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 7.200014400000001,
+        "lambda_requests": 0.00308,
+        "api_compute": 0.012083357500000001,
+        "http_api": 0.014499999999999999,
+        "dynamodb": 0.013062500000000001,
+        "sqs": 1.08e-05
+      },
+      "total_without_storage_credit_usd": 8.5855510575,
+      "total_with_storage_credit_usd": 8.4705510575
+    },
+    {
+      "label": "Cold/slow stress",
+      "jobs": 900,
+      "worker_billed_seconds": 300,
+      "api_calls": 57700,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.028800000000000003,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 36.000072,
+        "lambda_requests": 0.01172,
+        "api_compute": 0.048083429500000004,
+        "http_api": 0.057699999999999994,
+        "dynamodb": 0.0184625,
+        "sqs": 1.08e-05
+      },
+      "total_without_storage_credit_usd": 37.4788487295,
+      "total_with_storage_credit_usd": 37.3638487295
+    },
+    {
+      "label": "Timeout-duration stress",
+      "jobs": 900,
+      "worker_billed_seconds": 360,
+      "api_calls": 68500,
+      "components_usd": {
+        "s3_storage": 0.184,
+        "s3_requests": 0.028800000000000003,
+        "ecr": 0.6000000000000001,
+        "logs_ingest": 0.05,
+        "alarms": 0.4,
+        "ancillary_allowance": 0.08,
+        "worker_compute": 43.2000864,
+        "lambda_requests": 0.01388,
+        "api_compute": 0.0570834475,
+        "http_api": 0.06849999999999999,
+        "dynamodb": 0.0198125,
+        "sqs": 1.08e-05
+      },
+      "total_without_storage_credit_usd": 44.702173147500005,
+      "total_with_storage_credit_usd": 44.5871731475
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/us-east-2/index.json",
+  "publicationDate": "2026-09-28T23:04:16Z",
+  "rates": [
+    {
+      "usage": "USE2-Requests-Tier1",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "group": "S3-API-Tier1",
+        "groupDescription": "PUT/COPY/POST or LIST requests",
+        "usagetype": "USE2-Requests-Tier1",
+        "operation": "",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "Requests",
+      "usd": "0.0000050000",
+      "beginRange": "0",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-Retrieval-SIA",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "group": "S3-API-SIA-Retrieval",
+        "groupDescription": "Object Retrieval in Standard-Infrequent Access",
+        "usagetype": "USE2-Retrieval-SIA",
+        "operation": "",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB",
+      "usd": "0.0100000000",
+      "beginRange": "0",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-Requests-Tier2",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "group": "S3-API-Tier2",
+        "groupDescription": "GET and all other requests",
+        "usagetype": "USE2-Requests-Tier2",
+        "operation": "",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "Requests",
+      "usd": "0.0000004000",
+      "beginRange": "0",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "99.99%",
+        "storageClass": "General Purpose",
+        "volumeType": "Standard",
+        "usagetype": "USE2-TimedStorage-ByteHrs",
+        "operation": "",
+        "durability": "99.999999999%",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0230000000",
+      "beginRange": "0",
+      "endRange": "51200"
+    },
+    {
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "99.99%",
+        "storageClass": "General Purpose",
+        "volumeType": "Standard",
+        "usagetype": "USE2-TimedStorage-ByteHrs",
+        "operation": "",
+        "durability": "99.999999999%",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0220000000",
+      "beginRange": "51200",
+      "endRange": "512000"
+    },
+    {
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "99.99%",
+        "storageClass": "General Purpose",
+        "volumeType": "Standard",
+        "usagetype": "USE2-TimedStorage-ByteHrs",
+        "operation": "",
+        "durability": "99.999999999%",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0210000000",
+      "beginRange": "512000",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-Monitoring-Automation-INT",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "feeCode": "S3-Monitoring and Automation-ObjectCount",
+        "feeDescription": "Per object per month monitoring and automation fee for objects in Intelligent-Tiering",
+        "usagetype": "USE2-Monitoring-Automation-INT",
+        "operation": "",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "Objects",
+      "usd": "0.0000025000",
+      "beginRange": "0",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-TimedStorage-SIA-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "99.9%",
+        "storageClass": "Infrequent Access",
+        "volumeType": "Standard - Infrequent Access",
+        "usagetype": "USE2-TimedStorage-SIA-ByteHrs",
+        "operation": "",
+        "durability": "99.999999999%",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0125000000",
+      "beginRange": "0",
+      "endRange": "Inf"
+    },
+    {
+      "usage": "USE2-TimedStorage-INT-FA-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "N/A",
+        "storageClass": "Intelligent-Tiering",
+        "volumeType": "Intelligent-Tiering Frequent Access",
+        "usagetype": "USE2-TimedStorage-INT-FA-ByteHrs",
+        "operation": "",
+        "durability": "N/A",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0230000000",
+      "beginRange": "0",
+      "endRange": "51200"
+    },
+    {
+      "usage": "USE2-TimedStorage-INT-FA-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "N/A",
+        "storageClass": "Intelligent-Tiering",
+        "volumeType": "Intelligent-Tiering Frequent Access",
+        "usagetype": "USE2-TimedStorage-INT-FA-ByteHrs",
+        "operation": "",
+        "durability": "N/A",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0220000000",
+      "beginRange": "51200",
+      "endRange": "512000"
+    },
+    {
+      "usage": "USE2-TimedStorage-INT-FA-ByteHrs",
+      "attributes": {
+        "servicecode": "AmazonS3",
+        "location": "US East (Ohio)",
+        "locationType": "AWS Region",
+        "availability": "N/A",
+        "storageClass": "Intelligent-Tiering",
+        "volumeType": "Intelligent-Tiering Frequent Access",
+        "usagetype": "USE2-TimedStorage-INT-FA-ByteHrs",
+        "operation": "",
+        "durability": "N/A",
+        "regionCode": "us-east-2",
+        "servicename": "Amazon Simple Storage Service"
+      },
+      "unit": "GB-Mo",
+      "usd": "0.0210000000",
+      "beginRange": "512000",
+      "endRange": "Inf"
+    }
+  ]
+}
