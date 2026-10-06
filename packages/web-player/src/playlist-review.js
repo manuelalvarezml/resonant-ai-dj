@@ -1,3 +1,4 @@
+import {serverlessTransport} from './serverless.js';
 import {escapeHTML as esc} from './model.js';
 export const reviewPrompts=[
  ['Sparse','House.','Does one word produce a useful interpretation without inventing extra constraints?'],
@@ -25,13 +26,13 @@ export const reviewPrompts=[
  ,['Intimate evening','Música para una noche íntima y romántica en el sofá después de una cita.','Quiet intimacy is not guaranteed by low arousal alone.']
  ,['Celebration','Joyful music for a celebration with friends.','Joy and communal celebration do not automatically mean maximum danceability.']
 ].map(([kind,prompt,check],i)=>({id:`P${String(i+1).padStart(2,'0')}`,kind,prompt,check}));
-const key='resonant:playlist-review-v1';
+const key=()=>serverlessTransport()?.user?`resonant:account:v1:${serverlessTransport().user.id}:review`:'resonant:playlist-review-v1';
 let session;
 function state(){
- if(!session){try{const value=JSON.parse(localStorage.getItem(key)||'null');session=value?.version===1&&Array.isArray(value.attempts)?value:null;}catch{}session??={version:1,attempts:[]};}
+ if(!session){try{const value=JSON.parse(localStorage.getItem(key())||'null');session=value?.version===1&&Array.isArray(value.attempts)?value:null;}catch{}session??={version:1,attempts:[]};}
  return session;
 }
-function persist(){try{localStorage.setItem(key,JSON.stringify(state()));return true;}catch{return false;}}
+function persist(){try{localStorage.setItem(key(),JSON.stringify(state()));return true;}catch{return false;}}
 export function recordReviewAttempt({prompt,clarifications=[],run,error,candidates,elapsedMs,estimatorProfile='reference',candidateScope='all'}){
  const entry={id:crypto.randomUUID(),at:new Date().toISOString(),benchmarkVersion:'playlistiq-iteration1-v1',estimatorProfile,candidateScope,clarifications,testId:reviewPrompts.find(p=>p.prompt===prompt)?.id??'custom',prompt,elapsedMs,catalog:candidates.map(t=>({id:t.id,sha256:t.features.sha256,title:t.title,artist:t.artist})),run:run??null,error:error??null,verdict:'',notes:''};
  state().attempts.push(entry);return {entry,saved:persist()};

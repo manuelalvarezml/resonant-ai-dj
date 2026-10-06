@@ -866,3 +866,7 @@ changes update their relevant decision, experiment, and changelog records in
 the same commit. Private visibility does not authorize committing secrets or
 redistributing audio. This decision changes recordkeeping only; all engine,
 playlist, source-audio, cloud, and automatic-planning boundaries remain.
+
+## 2026-10-06 — Individual hosted accounts and full spectrum override
+
+Owner explicitly requested implementation, deployment, Git push, a simple test account and reset of current live stats/playlists/PlaylistIQ results. Use the existing cloud stack, account-scoped durable state and browser caches, secure remembered sessions, native password-manager fields, and an owner-only aggregate behavior dashboard. Preserve the shared music/analysis library and global cost controls. Collect bounded disclosed product events rather than keystrokes or form content. Google sign-in/linking is implemented but requires the owner's Google web client configuration. See [account release](packages/web-player/docs/ACCOUNTS_RELEASE.md).

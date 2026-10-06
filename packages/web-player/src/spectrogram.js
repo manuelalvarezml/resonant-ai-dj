@@ -1,14 +1,19 @@
+import {spectrumMotion} from './spectrum-preference.js';
 import {splitSpectrumBands} from './spectrum-bands.js';
+import {advanceSpectrumFrame} from './spectrum-timing.js';
 // Live frequency × time × amplitude point surface. No decoded-track cache.
 export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,webEdition=false,sampleSpectrum=null}={}) {
   const controls=canvas.parentElement.querySelector('.spectrum-modes');
   const paint=canvas.getContext('2d');
   if(!paint || !enabled){canvas.hidden=true;if(controls)controls.hidden=true;return;}
-  let context, analyser, source, bins, highAnalyser, highBins, frame=0, last=0, pauseAt=null, riseAt=null;
+  let context, analyser, source, bins, highAnalyser, highBins, frame=0, last=0, lastHistory=0, pauseAt=null, riseAt=null;
   const pauseDuration=2800, riseDuration=1600, miniSettleDuration=1600;
   let miniRow=null;
   const amplitudeGain=1.30, pointScale=1.60;
   const rows=[], columns=96, depth=64, extendedDepth=Math.round(depth*1.3);
+  // Grain is fixed by point/history index, not audio or time. Compute it once
+  // on the first visible textured frame, retaining the exact existing design.
+  let grainX,grainY;
   let mode=fixedMode||'front';
   try{const saved=!fixedMode&&localStorage.getItem('resonant:spectrogram-view');if(['front','isometric','mountain','falling'].includes(saved))mode=saved;}catch{}
   function selectMode(next){
@@ -20,6 +25,9 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
   }
   controls?.addEventListener('click',event=>{const next=event.target.closest('button')?.dataset.spectrum;if(next)selectMode(next);});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let followSystem=spectrumMotion()==='system';
+  const reduceSpectrum=()=>followSystem&&reduced.matches;
+  window.addEventListener('spectrum-motion-change',()=>{followSystem=spectrumMotion()==='system';});
   const mini=()=>webEdition?document.querySelector('.mini-spectrum'):null;
   const visible=()=>!document.hidden && (canvas.getBoundingClientRect().width>0||(mini()?.clientWidth??0)>0);
   function draw(){
@@ -37,6 +45,10 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
     const riseOffset=(1-rise)**3;
     const pauseFade=1-descent*descent*(3-2*descent);
     const falling=mode==='falling', textured=mode==='mountain'||falling;
+    if(textured&&!grainX){
+      grainX=Array.from({length:extendedDepth},(_,z)=>Float64Array.from({length:columns*3},(_,x)=>Math.sin(x*127.1+z*311.7)*.65));
+      grainY=Array.from({length:extendedDepth},(_,z)=>Float64Array.from({length:columns*3},(_,x)=>Math.cos(x*73.3+z*19.7)*.8));
+    }
     const visibleDepth=falling?extendedDepth:depth;
     const base=falling?.78:textured?.91:.9;
     const vertical=Math.min(base-.05,(textured?(falling?.6:.73):.55)*amplitudeGain);
@@ -65,9 +77,8 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
         }else if(textured){
           // Interpolate the measured dB values without artistic magnitude taper.
           if(energy<.012)continue;
-          const grain=Math.sin(x*127.1+z*311.7);
-          px=width*(.03+u*.94)+grain*.65;
-          py=height*(base-distance*.12-energy*vertical+fall*fall*.32)+(Math.cos(x*73.3+z*19.7))*.8;
+          px=width*(.03+u*.94)+grainX[z][x];
+          py=height*(base-distance*.12-energy*vertical+fall*fall*.32)+grainY[z][x];
         }
         py+=(height*1.06-py)*riseOffset;
         py+=height*1.1*descent*descent;
@@ -112,20 +123,27 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
   function tick(now){
     frame=0;
     if(!visible())return;
+    const next=advanceSpectrumFrame(last,now,reduceSpectrum()?200:sampleSpectrum?1000/30:50);
     if(audio.paused||audio.ended){
       if(pauseAt===null)return;
-      if(now-last>=(reduced.matches?200:50)){last=now;draw();drawMini(miniRow,reduced.matches?0:(1-Math.min(1,(now-pauseAt)/miniSettleDuration))**3);}
+      if(next!==null){last=next;draw();drawMini(miniRow,reduceSpectrum()?0:(1-Math.min(1,(now-pauseAt)/miniSettleDuration))**3);}
       if(now-pauseAt>=pauseDuration){rows.length=0;pauseAt=null;miniRow=null;drawMini(null);draw();return;}
       frame=requestAnimationFrame(tick);return;
     }
-    if((sampleSpectrum||(analyser && context.state==='running')) && now-last>=(reduced.matches?200:50)){
-      last=now;let row;
+    if((sampleSpectrum||(analyser && context.state==='running')) && next!==null){
+      last=next;let row;
       if(sampleSpectrum)row=sampleSpectrum(audio.currentTime);
       else{analyser.getFloatFrequencyData(bins);highAnalyser.getFloatFrequencyData(highBins);row=splitSpectrumBands(bins,highBins,context.sampleRate,columns,webEdition?20:40,webEdition?20000:18000);}
       if(!row){drawMini(null);frame=requestAnimationFrame(tick);return;}
 
       miniRow=row;drawMini(row);
-      rows.unshift(row);if(rows.length>extendedDepth)rows.pop();draw();
+      // Paint interpolated native data at 30 fps, but retain the existing
+      // 20-slice/s history window rather than speeding up the falling trail.
+      const history=advanceSpectrumFrame(lastHistory,now,reduceSpectrum()?200:50);
+      if(history!==null||!rows.length){
+        lastHistory=history??now;rows.unshift(row);if(rows.length>extendedDepth)rows.pop();
+      }else rows[0]=row;
+      draw();
     }
     frame=requestAnimationFrame(tick);
   }
@@ -151,12 +169,12 @@ export function attachSpectrogram(audio, canvas, enabled=true,{fixedMode=null,we
   }
   document.addEventListener('pointerdown',unlock,{capture:true});
   document.addEventListener('keydown',unlock,{capture:true});
-  audio.addEventListener('play',()=>{rows.length=0;pauseAt=null;riseAt=performance.now();});
+  audio.addEventListener('play',()=>{rows.length=0;pauseAt=null;riseAt=performance.now();last=riseAt;lastHistory=riseAt;});
   audio.addEventListener('playing',start);
   audio.addEventListener('pause',settle);audio.addEventListener('ended',settle);
   for(const event of ['emptied','seeking'])audio.addEventListener(event,()=>{miniRow=null;drawMini(null);rows.length=0;pauseAt=null;riseAt=null;draw();});
   document.addEventListener('visibilitychange',()=>{stop();start();});
-  new ResizeObserver(()=>{stop();draw();if(audio.paused)drawMini(miniRow,pauseAt===null||reduced.matches?0:(1-Math.min(1,(performance.now()-pauseAt)/miniSettleDuration))**3);start();}).observe(canvas);
+  new ResizeObserver(()=>{stop();draw();if(audio.paused)drawMini(miniRow,pauseAt===null||reduceSpectrum()?0:(1-Math.min(1,(performance.now()-pauseAt)/miniSettleDuration))**3);start();}).observe(canvas);
   window.addEventListener('pagehide',stop);
   window.addEventListener('pageshow',start);
   selectMode(mode);

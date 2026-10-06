@@ -30,7 +30,7 @@ def main():
  if a.action=='stage':
   snapshot=FOLDER/'before.json'
   if not snapshot.exists():
-   before={'active':active,'config':db.get_item(Key={'pk':'CONFIG#ACTIVE','sk':'META'},ConsistentRead=True)['Item'],'pointers':{key:s3.head_object(Bucket=f['MediaBucket'],Key=key,ExpectedBucketOwner=target['account_id'])['VersionId'] for key in ['index.html','library/current.json']},'aliases':{name:lam.get_alias(FunctionName='resonant-runtime-'+name,Name='live')['FunctionVersion'] for name in ['api','worker']},'parameters':{name:stack['Parameters'] for name,stack in stacks.items()}}
+   before={'active':active,'config':db.get_item(Key={'pk':'CONFIG#ACTIVE','sk':'META'},ConsistentRead=True)['Item'],'pointers':{key:s3.head_object(Bucket=f['MediaBucket'],Key=key,ExpectedBucketOwner=target['account_id'])['VersionId'] for key in ['index.html','library/current.json','login/index.html','login/login.js','login/style.css']},'aliases':{name:lam.get_alias(FunctionName='resonant-runtime-'+name,Name='live')['FunctionVersion'] for name in ['api','worker']},'parameters':{name:stack['Parameters'] for name,stack in stacks.items()}}
    save(snapshot,before)
   raw=(c/'api.zip').read_bytes();assert hashlib.sha256(raw).hexdigest()==package['sha256'];key='api/'+package['sha256']+'.zip'
   try:head=s3.head_object(Bucket=f['ArtifactBucket'],Key=key,ExpectedBucketOwner=target['account_id'],ChecksumMode='ENABLED')
@@ -42,7 +42,7 @@ def main():
   foundation=[{'ParameterKey':r['ParameterKey'],'UsePreviousValue':True} for r in stacks['resonant-data']['Parameters'] if r['ParameterKey']!='AdditionalWebOrigin'];foundation.append({'ParameterKey':'AdditionalWebOrigin','ParameterValue':'https://resonant.lat'});save(FOLDER/'foundation-parameters.json',foundation)
   uploaded=[];skipped=0
   for row in plan['uploads']:
-   if row['key'] in ['index.html','library/current.json']:continue
+   if row['key'] in ['index.html','library/current.json'] or row['key'].startswith('login/'):continue
    try:
     remote=s3.head_object(Bucket=f['MediaBucket'],Key=row['key'],ExpectedBucketOwner=target['account_id'],ChecksumMode='ENABLED')
    except s3.exceptions.ClientError as error:
@@ -82,10 +82,10 @@ def main():
     if old['Value']!=password['value']:ssm.put_parameter(Name=password['parameter'],Value=password['value'],Type='SecureString',Overwrite=True)
     (ROOT/'output/cloud-config/first-release/listener-password.txt').write_bytes((ROOT/'output/web-refresh/password-rotation/listener-password.txt').read_bytes())
    receipt={}
-   for key in ['library/current.json','index.html']:
-    row=next(r for r in plan['uploads'] if r['key']==key);raw=Path(row['localPath']).read_bytes();assert hashlib.sha256(raw).hexdigest()==row['sha256'];checksum=base64.b64encode(bytes.fromhex(row['sha256'])).decode();result=s3.put_object(Bucket=f['MediaBucket'],Key=key,Body=raw,ContentType='text/html' if key.endswith('.html') else 'application/json',CacheControl=row['cacheControl'],ServerSideEncryption='AES256',ExpectedBucketOwner=target['account_id'],ChecksumSHA256=checksum);receipt[key]=result['VersionId']
+   for key in [row['key'] for row in plan['uploads'] if row['key'].startswith('login/')]+['library/current.json','index.html']:
+    row=next(r for r in plan['uploads'] if r['key']==key);raw=Path(row['localPath']).read_bytes();assert hashlib.sha256(raw).hexdigest()==row['sha256'];checksum=base64.b64encode(bytes.fromhex(row['sha256'])).decode();result=s3.put_object(Bucket=f['MediaBucket'],Key=key,Body=raw,ContentType='text/html' if key.endswith('.html') else 'text/javascript' if key.endswith('.js') else 'text/css' if key.endswith('.css') else 'application/json',CacheControl=row['cacheControl'],ServerSideEncryption='AES256',ExpectedBucketOwner=target['account_id'],ChecksumSHA256=checksum);receipt[key]=result['VersionId']
    save(FOLDER/'published-pointers.json',receipt)
-   invalidation=client('cloudfront','us-east-1').create_invalidation(DistributionId=e['DistributionId'],InvalidationBatch={'Paths':{'Quantity':3,'Items':['/','/index.html','/library/current.json']},'CallerReference':'resonant-refresh-'+str(time.time_ns())});save(FOLDER/'invalidation.json',{'id':invalidation['Invalidation']['Id']});print('Published new app pointers.');return
+   invalidation=client('cloudfront','us-east-1').create_invalidation(DistributionId=e['DistributionId'],InvalidationBatch={'Paths':{'Quantity':4,'Items':['/','/index.html','/library/current.json','/login/*']},'CallerReference':'resonant-refresh-'+str(time.time_ns())});save(FOLDER/'invalidation.json',{'id':invalidation['Invalidation']['Id']});print('Published new app pointers.');return
   record={**active,'pointers':load(FOLDER/'published-pointers.json'),'apiCodeSha256':params['ApiCodeSha'],'runtimeRevision':params['RuntimeRevision'],'aliases':{name:lam.get_alias(FunctionName='resonant-runtime-'+name,Name='live')['FunctionVersion'] for name in ['api','worker']},'activatedAt':int(time.time()),'candidate':str(c),'appId':plan['appId']}
   save(ROOT/'output/serverless-cloud/active-deployment.json',record)
   db.update_item(Key={'pk':'CONFIG#ACTIVE','sk':'META'},UpdateExpression='SET enabled=:yes',ConditionExpression='releaseId=:release',ExpressionAttributeValues={':yes':True,':release':plan['releaseId']});print(json.dumps({'published':True,'playlistIQEnabled':True,'aliases':record['aliases'],'audioChanged':False}));return

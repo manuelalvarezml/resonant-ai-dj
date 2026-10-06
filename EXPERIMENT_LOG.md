@@ -1423,3 +1423,7 @@ automatic MixPlan generation, resumption of playlist development, or changes
 to the accepted v2 transition baseline. Large audio requires its own
 rights-appropriate backup; hashes establish identity but cannot restore lost
 audio bytes.
+
+## 2026-10-06 — Account isolation, migration and motion verification
+
+[Account checkpoint](packages/web-player/docs/ACCOUNTS_RELEASE.md) owns final production receipts. Preflight: 173 player tests, 31 API tests, 93-module syntax and web build; five infrastructure guards pass. Isolated mobile Chrome verifies signup/login/logout, account switching, owner analytics visibility and full animation under Reduce Motion. Real AWS exposed an empty sort-key prefix rejected by DynamoDB; fixed the adapter to omit the prefix predicate for whole-partition queries and verified the owner query against AWS. Added a dedicated SDK-boundary regression, bringing API checks to 32. Source audio/model/planner unchanged; no OpenAI or audio-analysis calls. Physical iPhone FPS and real Google-provider acceptance remain pending.

@@ -42,7 +42,7 @@ export async function exportStatic({release,output,stateBucket}){
  await put('library/releases/'+manifest.releaseId+'/mix.json',JSON.stringify(mix));
  await put('library/current.json',JSON.stringify({contract_version:'resonant-player/static-library/1',releaseId:manifest.releaseId,appId,trackCount:manifest.trackCount,pages,resultOrigin:'https://'+stateBucket+'.s3.us-east-2.amazonaws.com'}),'no-cache,max-age=0,must-revalidate');
  for(const file of manifest.files.filter(f=>f.path.startsWith('media/')))uploads.push({key:file.path===manifest.mixAudioPath?mixKey:file.path,localPath:path.join(release,file.path),bytes:file.bytes,sha256:file.sha256,cacheControl:'public,max-age=31536000,immutable'});
- await mkdir(path.join(output,'api'));for(const file of ['aws.mjs','core.mjs','profile.mjs','package.json','package-lock.json'])await copyFile(path.join(root,'deploy/serverless/api',file),path.join(output,'api',file));
+ await mkdir(path.join(output,'api'));for(const file of ['aws.mjs','core.mjs','profile.mjs','accounts.mjs','analytics.mjs','package.json','package-lock.json'])await copyFile(path.join(root,'deploy/serverless/api',file),path.join(output,'api',file));
  await copyFile(path.join(web,'src/profile-model.js'),path.join(output,'api/profile-model.js'));
  const profileSource=await readFile(path.join(output,'api/profile.mjs'),'utf8');await writeFile(path.join(output,'api/profile.mjs'),profileSource.replace('../../../packages/web-player/src/profile-model.js','./profile-model.js'));
  await writeFile(path.join(output,'api/membership.json'),JSON.stringify({releaseId:manifest.releaseId,tracks:catalog.tracks.map(t=>({id:t.id,sha256:t.fileHash}))}));

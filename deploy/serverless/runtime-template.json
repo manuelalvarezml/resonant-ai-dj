@@ -717,6 +717,78 @@
         }
       }
     },
+    "Route8": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/signup",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route9": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/google",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route10": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "GET /api/auth/config",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route11": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/events",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route12": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "GET /api/admin/analytics",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
+    "Route13": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "HttpApiId"
+        },
+        "RouteKey": "POST /api/session/link-google",
+        "Target": {
+          "Fn::Sub": "integrations/${Integration}"
+        }
+      }
+    },
     "Stage": {
       "Type": "AWS::ApiGatewayV2::Stage",
       "Properties": {
@@ -744,7 +816,13 @@
         "Route4",
         "Route5",
         "Route6",
-        "Route7"
+        "Route7",
+        "Route8",
+        "Route9",
+        "Route10",
+        "Route11",
+        "Route12",
+        "Route13"
       ]
     },
     "ApiErrors": {

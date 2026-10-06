@@ -5,24 +5,27 @@ export async function configureServerless(config,request=globalThis.fetch.bind(g
  const transport=new ServerlessTransport(config,request);await transport.init();active=transport;return transport;
 }
 export class ServerlessTransport{
- constructor(config,request){this.config=config;this.request=request;this.csrf=null;this.expiresAt=0;this.tracks=new Map();this.pending=new Map();try{this.pending=new Map(JSON.parse(globalThis.sessionStorage?.getItem('resonant:pending-cloud-jobs')??'[]'));}catch{}}
+ constructor(config,request){this.config=config;this.request=request;this.csrf=null;this.expiresAt=0;this.tracks=new Map();this.pending=new Map();}
  async fetchJSON(path,options={}){
   const url=new URL(path,this.config.origin);if(url.origin!==this.config.origin||url.username||url.password)throw Error('Invalid library address.');
-  const response=await this.request(url,{credentials:'same-origin',cache:'no-store',redirect:'error',...options,signal:options.signal??AbortSignal.timeout(15000)});
+  const response=await this.request(url,{credentials:'same-origin',cache:'no-store',redirect:'error',...options,headers:{...(this.user?{'X-Resonant-User':this.user.id}:{}),...(options.headers??{})},signal:options.signal??AbortSignal.timeout(15000)});
+  if(response.status===401&&typeof location!=='undefined')location.replace('/login/index.html');
   let data;try{data=await response.json();}catch{throw Error('The service response could not be read.');}
   if(!response.ok)throw Object.assign(Error(data.error||(response.status===403||response.status===401?'Your access has expired. Open the sign-in page to continue.':'The service is temporarily unavailable.')),{status:response.status});
   return data;
  }
- async session(){const session=await this.fetchJSON('/api/session');this.csrf=session.csrf;this.expiresAt=session.expiresAt;return session;}
- async refresh(){if(!this.csrf)await this.session();const s=await this.fetchJSON('/api/session/refresh',{method:'POST',headers:{'Content-Type':'application/json','X-Resonant-CSRF':this.csrf},body:'{}'});this.csrf=s.csrf;this.expiresAt=s.expiresAt;}
+ async session(){const session=await this.fetchJSON('/api/session');if(this.user&&this.user.id!==session.user?.id){location.replace('/login/index.html');throw Error('Account changed. Reload to continue.');}this.user=session.user;this.csrf=session.csrf;this.expiresAt=session.expiresAt;return session;}
+ async refresh(){if(!this.csrf)await this.session();const s=await this.fetchJSON('/api/session/refresh',{method:'POST',headers:{'Content-Type':'application/json','X-Resonant-CSRF':this.csrf},body:'{}'});this.csrf=s.csrf;this.expiresAt=s.expiresAt;this.mediaRefreshed=Date.now();}
  async init(){
   this.manifest=await this.fetchJSON('/library/current.json');const m=this.manifest;
   if(m.contract_version!=='resonant-player/static-library/1'||!/^[a-f0-9]{64}$/.test(m.releaseId)||!Array.isArray(m.pages)||!m.pages.length||m.pages.length>200||!Number.isInteger(m.trackCount)||m.trackCount<1||m.trackCount>5000||m.pages.some(p=>!new RegExp('^/library/releases/'+m.releaseId+'/page-[0-9]+\\.json$').test(p)))throw Error('Invalid published library.');
   // Authentication is enforced by CloudFront. An API outage must not prevent
   // loading already-authorized static media/catalogs.
-  void this.session().catch(()=>{});
+  await this.session();
+  this.pendingKey='resonant:pending-cloud-jobs:'+this.user.id;
+  try{this.pending=new Map(JSON.parse(globalThis.sessionStorage?.getItem(this.pendingKey)??'[]'));}catch{}
   if(typeof window!=='undefined'){
-   this.timer=setInterval(()=>{if(this.expiresAt&&this.expiresAt-Date.now()<300000&&!document.hidden)void this.refresh().catch(()=>{});},60000);
+   this.timer=setInterval(()=>{if(this.expiresAt&&(this.expiresAt-Date.now()<300000||Date.now()-(this.mediaRefreshed??0)>12*3600000)&&!document.hidden)void this.refresh().catch(()=>{});},60000);
    window.addEventListener('pagehide',()=>clearInterval(this.timer),{once:true});
   }
  }
@@ -48,7 +51,7 @@ export class ServerlessTransport{
   const fingerprint=[...new Uint8Array(await crypto.subtle.digest('SHA-256',raw))].map(b=>b.toString(16).padStart(2,'0')).join('');
   const saved=this.pending.get(fingerprint),idempotencyKey=saved?.until>Date.now()?saved.key:crypto.randomUUID();
   this.pending.set(fingerprint,{key:idempotencyKey,until:Date.now()+86400000});
-  const persist=()=>{for(const [key,row]of this.pending)if(row.until<=Date.now())this.pending.delete(key);while(this.pending.size>10)this.pending.delete(this.pending.keys().next().value);try{globalThis.sessionStorage?.setItem('resonant:pending-cloud-jobs',JSON.stringify([...this.pending]));}catch{}};
+  const persist=()=>{for(const [key,row]of this.pending)if(row.until<=Date.now())this.pending.delete(key);while(this.pending.size>10)this.pending.delete(this.pending.keys().next().value);try{globalThis.sessionStorage?.setItem(this.pendingKey,JSON.stringify([...this.pending]));}catch{}};
   const clear=()=>{this.pending.delete(fingerprint);persist();};persist();
   const payload={...body,releaseId:this.manifest.releaseId,idempotencyKey};
   // A network retry within this submission must retain its key. Never restart

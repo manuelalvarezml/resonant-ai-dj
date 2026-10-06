@@ -1,5 +1,9 @@
 # Staged web-player build
 
+## 2026-10-06 — Individual accounts and spectrum motion
+
+[Account release](docs/ACCOUNTS_RELEASE.md) replaces shared hosted state with email/username/password accounts, private playlists/PlaylistIQ results/listening counters, owner-only bounded analytics and a full-spectrum motion override. Google sign-in/linking is implemented but activation and real-provider acceptance await a Google web client ID. Owner authorized deployment, a test user, live-history reset and Git push. Current rollout receipt and limitations are maintained in the linked checkpoint; audio, saved analysis and planner policy are preserved.
+
 ## 2026-10-04 — History and native spectrum published
 
 The owner-authorized release is live on resonant.lat and CloudFront: green PlaylistIQ tab (+15%), 1.6-second mini-spectrum pause easing, permanent Liked Songs, playable prompt history, prior sheet/UI refinements and real native-playback spectra. API/worker aliases 4/4, admissions enabled; audio/model/password unchanged. 168 web / 22 API / 5 infrastructure checks plus cloud auth, ranges, spectrum protection and profile persistence pass. [Production checkpoint](../../docs/cloud-library/first-release/serverless/HISTORY_SPECTRUM_RELEASE.md). Physical iPhone acceptance remains.

@@ -3,8 +3,8 @@ import {serverlessTransport} from './serverless.js';
 const opPrefix='resonant:owner:pending:',cacheKey='resonant:owner:cache',migrationKey='resonant:owner:imported-v1';
 const clone=x=>JSON.parse(JSON.stringify(x));
 export class UserProfile{
- constructor({storage=globalThis.localStorage,request=globalThis.fetch.bind(globalThis),onChange=()=>{},onError=()=>{},preferences={favorites:[],playlists:[]}}={}){
-  Object.assign(this,{storage,request,onChange,onError});this.previous=clone(preferences);this.items=[];this.syncing=null;this.timer=null;try{this.items=JSON.parse(storage.getItem(cacheKey)??'[]');this.lastAt=Math.max(0,...this.pending().map(op=>op.at));}catch{}
+ constructor({storage=globalThis.localStorage,request=globalThis.fetch.bind(globalThis),onChange=()=>{},onError=()=>{},preferences={favorites:[],playlists:[]},importLegacy=true}={}){
+  Object.assign(this,{storage,request,onChange,onError,importLegacy});this.previous=clone(preferences);this.items=[];this.syncing=null;this.timer=null;try{this.items=JSON.parse(storage.getItem(cacheKey)??'[]');this.lastAt=Math.max(0,...this.pending().map(op=>op.at));}catch{}
  }
  pending(){const rows=[];for(let i=0;i<this.storage.length;i++){const key=this.storage.key(i);if(key?.startsWith(opPrefix)){const value=this.storage.getItem(key);if(value)rows.push(JSON.parse(value));}}return rows.sort((a,b)=>a.at-b.at||a.id.localeCompare(b.id));}
  projected(){const rows=new Map(this.items.map(r=>[r.key,r]));for(const op of this.pending())for(const key of profileTargets(op))if(key.startsWith('state#'))rows.set(key,mutateProfileItem(rows.get(key),op,key));return [...rows.values()];}
@@ -28,7 +28,7 @@ export class UserProfile{
   const response=await this.request('/api/profile'+query,{credentials:'same-origin',cache:'no-store',signal:AbortSignal.timeout(15000),...(operations?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({operations})}:{})});const data=await response.json();if(!response.ok)throw Error(data.error??'Your saves could not sync.');return data;
  }
  async init(){
-  if(!this.storage.getItem(migrationKey)){
+  if(this.importLegacy&&!this.storage.getItem(migrationKey)){
    for(const id of this.previous.favorites)this.enqueue({type:'favorite',trackId:id,value:true});
    for(const p of this.previous.playlists)this.enqueue({type:'playlist',playlistId:p.id,action:'create',name:p.name,trackIds:p.trackIds,requestId:p.requestId??null});
    let old;try{old=JSON.parse(this.storage.getItem('resonant:playlist-review-v1')??'null');}catch{}

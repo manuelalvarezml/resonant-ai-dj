@@ -1,0 +1,46 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {attachSpectrogram} from '../src/spectrogram.js';
+
+test('native display paints both canvases at 30 Hz despite Reduce Motion, sleeps when hidden and settles on pause',t=>{
+ const originals=new Map();
+ const install=(name,value)=>{originals.set(name,Object.getOwnPropertyDescriptor(globalThis,name));Object.defineProperty(globalThis,name,{value,configurable:true,writable:true});};
+ t.after(()=>{for(const [name,descriptor] of originals){if(descriptor)Object.defineProperty(globalThis,name,descriptor);else delete globalThis[name];}});
+ let now=0,id=0,mainPaints=0,miniPaints=0,samples=0,trig=0;
+ const pending=new Map(),audio=new EventTarget(),document=new EventTarget(),window=new EventTarget();
+ const noop=()=>{};
+ const context=()=>({setTransform:noop,clearRect:()=>mainPaints++,translate:noop,save:noop,beginPath:noop,rect:noop,clip:noop,fillRect:noop,restore:noop,fillText:noop});
+ const main=context(),miniContext={...context(),clearRect:()=>miniPaints++};
+ let bounds={width:390,height:260};
+ const canvas={parentElement:{querySelector:()=>null},getContext:()=>main,getBoundingClientRect:()=>bounds,setAttribute:noop};
+ const mini={clientWidth:128,getContext:()=>miniContext};
+ Object.assign(audio,{paused:false,ended:false,currentTime:0});
+ document.hidden=false;document.querySelector=()=>mini;
+ install('document',document);install('window',window);install('devicePixelRatio',3);
+ install('performance',{now:()=>now});install('matchMedia',()=>({matches:true}));
+ install('localStorage',{getItem:()=>null});
+ install('ResizeObserver',class{observe(){}});
+ install('requestAnimationFrame',fn=>{pending.set(++id,fn);return id;});
+ install('cancelAnimationFrame',key=>pending.delete(key));
+ const sin=Math.sin,cos=Math.cos;
+ t.mock.method(Math,'sin',x=>{trig++;return sin(x);});t.mock.method(Math,'cos',x=>{trig++;return cos(x);});
+ attachSpectrogram(audio,canvas,true,{fixedMode:'falling',webEdition:true,sampleSpectrum:()=>{samples++;return new Float32Array(96).fill(.5);}});
+ const setupTrig=trig;
+ assert.ok(setupTrig>0);
+ audio.dispatchEvent(new Event('play'));audio.dispatchEvent(new Event('playing'));
+ const step=()=>{now+=1000/30;audio.currentTime=now/1000;const callbacks=[...pending.values()];pending.clear();callbacks.forEach(fn=>fn(now));};
+ mainPaints=0;miniPaints=0;
+ for(let n=0;n<60;n++)step();
+ assert.equal(samples,60);assert.equal(mainPaints,60);assert.equal(miniPaints,60);
+ assert.equal(trig,setupTrig,'static grain must not repeat trig work every frame');
+ assert.equal(canvas.width,780,'retain existing capped retina resolution');
+ document.hidden=true;document.dispatchEvent(new Event('visibilitychange'));
+ const sampled=samples;step();assert.equal(samples,sampled);assert.equal(pending.size,0);
+ document.hidden=false;document.dispatchEvent(new Event('visibilitychange'));step();assert.equal(samples,sampled+1);
+ // The collapsed main canvas must not repaint or stop the mini display.
+ bounds={width:0,height:0};const painted=mainPaints,small=miniPaints;step();
+ assert.equal(mainPaints,painted);assert.equal(miniPaints,small+1);
+ audio.paused=true;audio.dispatchEvent(new Event('pause'));const pausedSamples=samples;
+ for(let n=0;n<90;n++)step();
+ assert.equal(samples,pausedSamples);assert.equal(pending.size,0);
+});

@@ -1,5 +1,9 @@
 # DJ Engine V1 Data Contracts
 
+## 2026-10-06 — Individual accounts and spectrum motion
+
+[Account release](../packages/web-player/docs/ACCOUNTS_RELEASE.md) replaces shared hosted state with email/username/password accounts, private playlists/PlaylistIQ results/listening counters, owner-only bounded analytics and a full-spectrum motion override. Google sign-in/linking is implemented but activation and real-provider acceptance await a Google web client ID. Owner authorized deployment, a test user, live-history reset and Git push. Current rollout receipt and limitations are maintained in the linked checkpoint; audio, saved analysis and planner policy are preserved.
+
 ## Status
 
 - Schema family: `dj-engine`

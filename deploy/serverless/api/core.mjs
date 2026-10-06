@@ -1,6 +1,7 @@
+import {recordEvents,adminAnalytics} from './analytics.mjs';
 import {createProfileStore} from './profile.mjs';
 import {createHash,randomBytes,createSign,timingSafeEqual} from 'node:crypto';
-import bcrypt from 'bcryptjs';
+import {createAccounts,publicUser,verifyGoogle,identityKey} from './accounts.mjs';
 export const canonical=value=>JSON.stringify(Array.isArray(value)?value.map(v=>JSON.parse(canonical(v))):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,JSON.parse(canonical(value[k]))])):value).replace(/[\u007f-\uffff]/g,c=>'\\u'+c.charCodeAt(0).toString(16).padStart(4,'0'));
 export const sha=value=>createHash('sha256').update(value).digest('hex');
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
@@ -24,8 +25,23 @@ export function playlistRequest(body,member){
 export function createHandler({db,objects,dispatch,secrets,config,now=()=>Math.floor(Date.now()/1000)}){
  const members=new Map(config.tracks.map(t=>[t.id,t]));
  const allowedOrigins=new Set([config.origin,...(config.additionalOrigins??[])]);
- const profile=createProfileStore(db,new Set(members.keys()));
+ const accounts=createAccounts(db,now);
+ const cookieValue=(event,headers,name)=>(event.cookies??[headers.cookie??'']).join(';').split(';').map(x=>x.trim()).find(x=>x.startsWith(name+'='))?.slice(name.length+1);
+ async function sessionFor(user,origin,values){
+  const token=randomBytes(32).toString('base64url'),csrf=randomBytes(32).toString('base64url'),expires=now()+30*86400;
+  await db.put({pk:'SESSION#'+sha(token),sk:'META',userId:user.id,csrf,expires,ttl:expires});
+  return response(200,{csrf,expiresAt:expires*1000,user:publicUser(user)},[cookie('__Host-resonant_session',token,30*86400),...signedCookies(origin,config.keyPairId,values.signingKey,now()+86400)]);
+ }
  const response=(status,body,cookies)=>({statusCode:status,headers:{'content-type':'application/json','cache-control':'private,no-store','x-content-type-options':'nosniff'},...(cookies?{cookies}:{}),body:JSON.stringify(body)});
+ async function googleIdentity(event,headers,body){
+  const auth=await db.get('AUTH#CONFIG'),nonce=cookieValue(event,headers,'__Host-resonant_nonce');
+  if(!auth?.googleClientId)fail(503,'Google sign-in is not configured yet. Use email and password.');
+  if(!nonce||nonce.length!==43||typeof body.credential!=='string'||body.credential.length>10000)fail(401,'Restart Google sign-in.');
+  const saved=await db.get('NONCE#'+sha(nonce));if(!saved||saved.ttl<=now())fail(401,'Restart Google sign-in.');
+  const g=await verifyGoogle(body.credential,auth.googleClientId,nonce);
+  try{await db.update({pk:saved.pk,sk:'META'},'SET used = :yes','attribute_not_exists(used)',{}, {':yes':true});}catch(e){if(db.conditional(e))fail(401,'Restart Google sign-in.');throw e;}
+  return g;
+ }
  async function expire(job){
   if(!job||terminal.has(job.status)||job.deadline>now())return job;
   const status=job.providerStarted?'outcome_unknown':'expired';
@@ -72,28 +88,49 @@ export function createHandler({db,objects,dispatch,secrets,config,now=()=>Math.f
    if(bytes.length>65536)fail(413,'Request too large.');
    let body={};if(bytes.length){if(!headers['content-type']?.toLowerCase().startsWith('application/json'))fail(415,'JSON required.');try{body=JSON.parse(bytes.toString('utf8'));}catch{fail(400,'Invalid JSON.');}}
    if(!body||typeof body!=='object'||Array.isArray(body))fail(400,'Invalid JSON object.');
-   if(method==='POST'&&path==='/api/session/login'){
-    if(typeof body.password!=='string'||body.password.length>200)fail(400,'Enter the shared password.');
+   if(method==='GET'&&path==='/api/auth/config'){
+    const auth=await db.get('AUTH#CONFIG'),nonce=randomBytes(32).toString('base64url');
+    await db.put({pk:'NONCE#'+sha(nonce),sk:'META',ttl:now()+600});
+    return response(200,{googleClientId:auth?.googleClientId??null,nonce},[cookie('__Host-resonant_nonce',nonce,600)]);
+   }
+   if(method==='POST'&&['/api/session/login','/api/session/signup','/api/session/google'].includes(path)){
     const throttle='LOGIN#'+sha(values.originSecret+'\n'+(headers['x-forwarded-for']?.split(',').at(-1).trim()||event.requestContext.http.sourceIp))+'#'+Math.floor(now()/300);
-    try{await db.update({pk:throttle,sk:'META'},'SET #n = if_not_exists(#n,:zero) + :one, #ttl = :ttl','attribute_not_exists(#n) OR #n < :limit',{'#n':'count','#ttl':'ttl'},{':zero':0,':one':1,':ttl':now()+600,':limit':10});}catch(e){if(db.conditional(e))fail(429,'Too many login attempts. Wait a few minutes.');throw e;}
-    if(!await bcrypt.compare(body.password,values.passwordHash))fail(401,'Password not recognized.');
-    const token=randomBytes(32).toString('base64url'),owner=sha(token),csrf=randomBytes(32).toString('base64url'),expires=now()+86400;
-    await db.put({pk:'SESSION#'+owner,sk:'META',csrf,expires,ttl:expires});
-    return response(200,{csrf,expiresAt:expires*1000},[cookie('__Host-resonant_session',token),...signedCookies(headers.origin,config.keyPairId,values.signingKey,expires)]);
+    try{await db.update({pk:throttle,sk:'META'},'SET #n = if_not_exists(#n,:zero) + :one, #ttl = :ttl','attribute_not_exists(#n) OR #n < :limit',{'#n':'count','#ttl':'ttl'},{':zero':0,':one':1,':ttl':now()+600,':limit':10});}catch(e){if(db.conditional(e))fail(429,'Too many sign-in attempts. Wait a few minutes.');throw e;}
+    let user;
+    if(path.endsWith('/signup'))user=await accounts.register({email:body.email,username:body.username,password:body.password});
+    else if(path.endsWith('/google')){
+     const g=await googleIdentity(event,headers,body);
+     user=await accounts.lookup('google',g.sub);
+     if(!user){if(await accounts.lookup('email',g.email.toLowerCase()))fail(409,'An email/password account already uses this email. Sign in with your password.');user=await accounts.register({email:g.email,username:body.username||('dj_'+sha(g.sub).slice(0,10)),googleSub:g.sub});}
+     if(user.disabled)fail(401,'This account is unavailable.');
+    }else user=await accounts.login(body.identifier,body.password);
+    return sessionFor(user,headers.origin,values);
    }
    const raw=(event.cookies??[headers.cookie??'']).join(';').split(';').map(x=>x.trim()).find(x=>x.startsWith('__Host-resonant_session='))?.slice('__Host-resonant_session='.length);
    if(!raw||!/^[A-Za-z0-9_-]{43}$/.test(raw))fail(401,'Sign in to continue.');
-   const owner=sha(raw),session=await db.get('SESSION#'+owner);
-   if(!session||session.expires<=now())fail(401,'Your session has expired. Sign in again.');
+   const session=await db.get('SESSION#'+sha(raw));
+   if(!session?.userId||session.expires<=now())fail(401,'Your session has expired. Sign in again.');
+   const user=await db.get('USER#'+session.userId);if(!user||user.disabled)fail(401,'Sign in to continue.');
+   if(!path.startsWith('/api/session')&&!equal(headers['x-resonant-user'],user.id))fail(401,'Account changed. Sign in to continue.');
+   const owner=user.id,profile=createProfileStore(db,new Set(members.keys()),'PROFILE#'+owner);
    if(method==='POST'&&!equal(headers['x-resonant-csrf'],session.csrf))fail(403,'Refresh the page before retrying.');
-   if(method==='GET'&&path==='/api/session')return response(200,{csrf:session.csrf,expiresAt:session.expires*1000});
+   if(method==='GET'&&path==='/api/session')return response(200,{csrf:session.csrf,expiresAt:session.expires*1000,user:publicUser(user)});
    if(method==='POST'&&path==='/api/session/refresh'){
-    const expires=now()+86400;await db.update({pk:session.pk,sk:'META'},'SET expires = :expiry, #ttl = :expiry','expires > :now',{'#ttl':'ttl'},{':expiry':expires,':now':now()});
-    return response(200,{csrf:session.csrf,expiresAt:expires*1000},[cookie('__Host-resonant_session',raw),...signedCookies(headers.origin,config.keyPairId,values.signingKey,expires)]);
+    const expires=now()+30*86400;await db.update({pk:session.pk,sk:'META'},'SET expires = :expiry, #ttl = :expiry','expires > :now',{'#ttl':'ttl'},{':expiry':expires,':now':now()});
+    return response(200,{csrf:session.csrf,expiresAt:expires*1000,user:publicUser(user)},[cookie('__Host-resonant_session',raw,30*86400),...signedCookies(headers.origin,config.keyPairId,values.signingKey,now()+86400)]);
    }
    if(method==='POST'&&path==='/api/session/logout'){
     await db.delete(session.pk);return response(200,{signedOut:true},['__Host-resonant_session','CloudFront-Policy','CloudFront-Signature','CloudFront-Key-Pair-Id'].map(n=>cookie(n,'',0)));
    }
+   if(path==='/api/session/link-google'&&method==='POST'){
+    const g=await googleIdentity(event,headers,body);if(g.email.toLowerCase()!==user.email)fail(400,'Choose the Google account with the same email as your Resonant account.');
+    if(user.googleSub===g.sub)return response(200,{linked:true});
+    if(user.googleSub)fail(409,'A Google account is already linked.');
+    try{await db.transact([{Put:{Item:{pk:identityKey('google',g.sub),sk:'META',userId:user.id},ConditionExpression:'attribute_not_exists(pk)'}},{Update:{Key:{pk:user.pk,sk:'META'},UpdateExpression:'SET googleSub = :sub',ConditionExpression:'googleSub = :empty',ExpressionAttributeValues:{':sub':g.sub,':empty':null}}}]);}catch(e){if(db.conditional(e))fail(409,'This Google account is already linked.');throw e;}
+    return response(200,{linked:true});
+   }
+   if(path==='/api/events'&&method==='POST')return response(200,await recordEvents(db,owner,sha(raw),body,now()));
+   if(path==='/api/admin/analytics'&&method==='GET'){if(user.role!=='owner')fail(403,'Owner access required.');return response(200,await adminAnalytics(db,now()));}
    if(path==='/api/profile'&&method==='GET')return response(200,await profile.list(event.queryStringParameters?.kind??'state',event.queryStringParameters?.cursor??''));
    if(path==='/api/profile'&&method==='POST')return response(200,await profile.apply(body.operations));
    if(method==='POST'&&path==='/api/playlist')return response(202,await submit(body,owner));

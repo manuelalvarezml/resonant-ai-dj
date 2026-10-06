@@ -330,3 +330,8 @@
 
 .web-edition .iq-web #playlistiq-text{field-sizing:content;height:auto;max-height:600px}
 .web-edition .iq-invitation{font-size:14px;color:#aaa;margin-top:-6px;line-height:1.5}
+
+/* Account control stays reachable on the mobile brand row. */
+.web-edition .sidebar{position:relative}
+.web-edition .sidebar>.account-button{position:absolute;right:18px;top:18px;font-size:12px;min-height:44px;z-index:4}
+@media(max-width:700px){body.web-edition .sidebar>.account-button{right:16px;top:12px;font-size:11px}}

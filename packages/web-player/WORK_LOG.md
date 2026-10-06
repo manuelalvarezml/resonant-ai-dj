@@ -714,3 +714,7 @@ Local 4174 now includes permanent Liked Songs, revised navigation/footer/cards, 
 ## 2026-10-04 — History and native spectrum published
 
 The owner-authorized release is live on resonant.lat and CloudFront: green PlaylistIQ tab (+15%), 1.6-second mini-spectrum pause easing, permanent Liked Songs, playable prompt history, prior sheet/UI refinements and real native-playback spectra. API/worker aliases 4/4, admissions enabled; audio/model/password unchanged. 168 web / 22 API / 5 infrastructure checks plus cloud auth, ranges, spectrum protection and profile persistence pass. [Production checkpoint](../../docs/cloud-library/first-release/serverless/HISTORY_SPECTRUM_RELEASE.md). Physical iPhone acceptance remains.
+
+## 2026-10-06 — Individual accounts, motion preference and owner analytics
+
+Implemented the owner's requested hosted-account release with isolated server/browser state, email/username/password access, Google integration pending client configuration, remembered secure sessions, password-manager fields and a bounded private-trial analytics dashboard. Full spectrum animation overrides OS Reduce Motion by default, with a user-selectable system option. Old shared history reset is privately backed up. [Account release](docs/ACCOUNTS_RELEASE.md) records tests, live migration, failure/fix, credentials locations and pending acceptance. Existing unrelated workspace edits are excluded from the scoped publication.

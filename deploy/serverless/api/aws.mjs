@@ -17,11 +17,11 @@ export function awsDependencies(env){
   async get(pk){return(await database.send(new GetCommand({TableName:table,Key:{pk,sk:'META'},ConsistentRead:true}))).Item;},
   async put(Item){await database.send(new PutCommand({TableName:table,Item,ConditionExpression:'attribute_not_exists(pk)'}));},
   async delete(pk){await database.send(new DeleteCommand({TableName:table,Key:{pk,sk:'META'}}));},
-  async update(Key,UpdateExpression,ConditionExpression,ExpressionAttributeNames,ExpressionAttributeValues){return database.send(new UpdateCommand({TableName:table,Key,UpdateExpression,ConditionExpression,ExpressionAttributeNames,ExpressionAttributeValues}));},
+  async update(Key,UpdateExpression,ConditionExpression,ExpressionAttributeNames,ExpressionAttributeValues){return database.send(new UpdateCommand({TableName:table,Key,UpdateExpression,ConditionExpression,...(Object.keys(ExpressionAttributeNames??{}).length?{ExpressionAttributeNames}:{}),ExpressionAttributeValues}));},
   async transact(operations){return database.send(new TransactWriteCommand({TransactItems:operations.map(op=>{const [type,value]=Object.entries(op)[0];return{[type]:{TableName:table,...value}};})}));}
  };
  db.profileGet=async(pk,sk)=>(await database.send(new GetCommand({TableName:table,Key:{pk,sk},ConsistentRead:true}))).Item;
- db.profilePage=async(pk,prefix,cursor,ascending)=>{const page=await database.send(new QueryCommand({TableName:table,KeyConditionExpression:'pk = :pk AND begins_with(sk,:prefix)',ExpressionAttributeValues:{':pk':pk,':prefix':prefix},ConsistentRead:true,Limit:100,ScanIndexForward:ascending,...(cursor?{ExclusiveStartKey:{pk,sk:cursor}}:{})}));return{items:(page.Items??[]).map(r=>r.data),cursor:page.LastEvaluatedKey?.sk??null};};
+ db.profilePage=async(pk,prefix,cursor,ascending)=>{const page=await database.send(new QueryCommand({TableName:table,KeyConditionExpression:prefix?'pk = :pk AND begins_with(sk,:prefix)':'pk = :pk',ExpressionAttributeValues:{':pk':pk,...(prefix?{':prefix':prefix}:{})},ConsistentRead:true,Limit:100,ScanIndexForward:ascending,...(cursor?{ExclusiveStartKey:{pk,sk:cursor}}:{})}));return{items:(page.Items??[]).map(r=>r.data),cursor:page.LastEvaluatedKey?.sk??null};};
  const objects={
   async immutableRequest(Key,request,digest){
    try{await s3.send(new PutObjectCommand({Bucket:bucket,Key,Body:canonical(request),ContentType:'application/json',CacheControl:'private,no-store',ServerSideEncryption:'AES256',IfNoneMatch:'*'}));}

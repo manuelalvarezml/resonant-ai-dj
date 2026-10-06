@@ -1,3 +1,7 @@
+import {serverlessTransport} from './serverless.js';
+import {accountStorage,purgeLegacyHostedCaches} from './account-storage.js';
+import {showAccount} from './account-view.js';
+import {attachProductEvents} from './product-events.js';
 import {recordedSpectrum} from './recorded-spectrum.js';
 import {freshLibraryOrder} from './discovery.js';
 import {UserProfile} from './user-profile.js';
@@ -28,11 +32,11 @@ import {mountMobilePlayer,isIOSWebKit} from './mobile-player.js';
 import {bindPlaybackLifecycle} from './playback-lifecycle.js';
 
 const $ = selector => document.querySelector(selector);
-let profile, library, player, tracks=[], prefs, config, search='', sort='recent', loading=true, loadError='', busy=false;
+let telemetry, profile, library, player, tracks=[], prefs, config, search='', sort='recent', loading=true, loadError='', busy=false;
 let featureColumns=false,libraryOrder=new Map();
 let libraryFilters=emptyFilters(),orderDirection='desc',librarySort='recent';
 let view=location.hash.slice(1), noticeTimer, activeDialogTrack=null, dialogObjectUrl=null;
-const storageKey = () => `resonant-player:preferences:1:${config.mode}`;
+const storageKey = () => config.serverless?`resonant:account:v1:${serverlessTransport()?.user?.id}:preferences`:`resonant-player:preferences:1:${config.mode}`;
 const button = (action,label,symbol,extra='') => `<button class="icon-button" data-action="${action}" aria-label="${esc(label)}" title="${esc(label)}" ${extra}>${icon(symbol)}</button>`;
 const artwork = (track,cls='') => `<span class="artwork color-${track?.color ?? 0} ${cls}" aria-hidden="true"><span>${track ? esc(track.title.slice(0,1).toUpperCase()) : icon('music')}</span></span>`;
 function rememberFocus() {
@@ -42,6 +46,7 @@ function rememberFocus() {
   return ()=>{if(active.isConnected)return;const root=document.getElementById(parent?.id);const match=[...(root?.querySelectorAll('button[data-action]')??[])].find(el=>Object.entries(data).every(([key,value])=>el.dataset[key]===value));if(match&&!match.disabled)match.focus({preventScroll:true});else root?.querySelector('button:not(:disabled)')?.focus({preventScroll:true});};
 }
 function notice(message,error=false) {
+  if(error)telemetry?.error();
   const node=$('#notice'); if(!node)return; clearTimeout(noticeTimer);node.textContent=message;node.classList.toggle('error',error);node.hidden=false;
   noticeTimer=setTimeout(()=>node.hidden=true,error?14000:5500);
 }
@@ -74,14 +79,14 @@ function shell() {
   <div class="workspace">
     <aside class="sidebar" aria-label="Main navigation">
       <a class="brand" href="#library"><span class="brand-mark">${icon('brand')}</span>resonant<span class="brand-period">.</span></a>
-      <div class="sidebar-label">YOUR SPACE</div>
+      <div class="sidebar-label">YOUR SPACE</div>${config.edition==='web'?'<button class="text-button account-button" data-action="account">Account</button>':''}
       <nav id="navigation"></nav>
       <div class="playlist-heading" ${config.edition==='web'?'hidden':''}><span class="sidebar-label">${config.edition==='web'?'PLAYLIST':'PLAYLISTS'}</span>${button('new-playlist','Create playlist','plus')}${config.edition==='web'?button('show-queue','Show queue','queue','class-unused="" aria-controls="queue-panel"'):''}</div>
       <nav id="playlists-nav" aria-label="Playlists"></nav>
       <div class="sidebar-bottom"><div class="front-switch" ${config.edition==='web'?'hidden':''} role="group" aria-label="Front end option"><button data-action="set-front" data-front="studio" aria-pressed="false">Option 1</button><button data-action="set-front" data-front="radio-wide" aria-pressed="false">Option 3</button></div><div class="device-note">${icon('music')}<div><strong>${config.mode==='local'?'Made for your music':'Private library'}</strong><span>${config.mode==='local'?'Saved in this browser':'Connected to your library'}</span></div></div>${config.edition==='web'?'':`<button class="text-button" data-action="about">${icon('info')}Library information</button>`}</div>
     </aside>
     <main id="main" tabindex="-1">
-      <header class="topbar"><div class="breadcrumb">Your space <span>/</span> <span id="breadcrumb-current">Library</span></div><div class="topbar-actions"><span class="mode-badge">${config.mode==='local'?'On this device':'Private library'}</span>${button('show-queue','Show queue','queue','aria-controls="queue-panel" aria-expanded="true"')}</div></header>
+      <header class="topbar"><div class="breadcrumb">Your space <span>/</span> <span id="breadcrumb-current">Library</span></div><div class="topbar-actions">${config.edition==='web'?'<button class="text-button account-button" data-action="account">Account</button>':''}<span class="mode-badge">${config.mode==='local'?'On this device':'Private library'}</span>${button('show-queue','Show queue','queue','aria-controls="queue-panel" aria-expanded="true"')}</div></header>
       <section class="library-content">
         <div class="collection-heading"><div><p class="eyebrow" id="eyebrow">YOUR COLLECTION</p><h1 id="view-title">Your library</h1><p id="view-description" class="muted"></p></div><div class="collection-actions"><button class="button secondary" data-action="recover-batch" id="recover-batch">Restore saved batch</button><button class="button secondary" data-action="add-files" id="add-files">${icon('plus')}Add music</button><button id="analysis-start" class="button secondary analysis-start" data-action="analyze-tracks" hidden>${icon('analyze')}Analyze Tracks</button><button id="convert-m4a" class="button secondary" data-action="convert-m4a" hidden>Convert M4A to MP3</button></div>${config.edition==='web'?'':`<div class="spectrum-modes" role="group" aria-label="Spectrogram view"><button type="button" data-spectrum="isometric" aria-pressed="false">Isometric</button><button type="button" data-spectrum="front" aria-pressed="true">Front</button><button type="button" data-spectrum="mountain" aria-pressed="false">Mountain</button><button type="button" data-spectrum="falling" aria-pressed="false">Falling</button></div>`}<canvas class="spectrum-accent" role="img" aria-label="Live 3D spectrogram: frequency, time and amplitude" width="420" height="360"></canvas></div>
         <div class="analysis-toolbar"><span id="analysis-progress" role="status"></span></div><div class="library-toolbar"><button class="button primary" data-action="play-all" id="play-all">${icon('play')}Play all</button><button class="button secondary" data-action="shuffle-all" id="shuffle-all">${icon('shuffle')}Shuffle</button><button class="button secondary" data-action="toggle-features" id="toggle-features" aria-pressed="false">${icon('columns')}Feature columns</button><div class="search-field">${icon('search')}<input id="search" type="search" placeholder="Search your music" aria-label="Search tracks" autocomplete="off"></div><button class="button secondary" id="library-filter" data-action="library-filter" aria-haspopup="dialog">Filter</button><label class="sort-field"><span class="sr-only">Order by</span><select id="sort">${(config.edition==='web'?[['random','Random order'],...orderFields]:orderFields).map(([value,label])=>`<option value="${value}">${label}</option>`).join('')}</select>${icon('down')}</label><button class="button secondary order-direction" id="order-direction" data-action="order-direction" aria-label="Descending order" title="Descending order">↓</button><button class="icon-button" data-action="collection-options" id="collection-options" aria-label="Playlist options">${icon('more')}</button></div>
@@ -265,7 +270,7 @@ function trackOptions(id) {
 }
 function playlistForm(trackId=null,edit=false) {
   const p=edit?playlist():null;
-  openDialog(edit?'Rename playlist':'A new place for your music',`<form id="playlist-form"><label class="form-label" for="playlist-name">Playlist name</label><input class="text-input" id="playlist-name" name="name" required maxlength="80" placeholder="Late night selections" value="${esc(p?.name??'')}"><p class="muted">${config.edition==='web'?'Saved to your shared library profile.':config.mode==='local'?'Saved on this browser. Export a copy to keep it.':'Kept for this session.'}</p><button class="button primary" type="submit">${edit?'Save name':'Create playlist'}</button></form>`);
+  openDialog(edit?'Rename playlist':'A new place for your music',`<form id="playlist-form"><label class="form-label" for="playlist-name">Playlist name</label><input class="text-input" id="playlist-name" name="name" required maxlength="80" placeholder="Late night selections" value="${esc(p?.name??'')}"><p class="muted">${config.edition==='web'?'Saved privately to your account.':config.mode==='local'?'Saved on this browser. Export a copy to keep it.':'Kept for this session.'}</p><button class="button primary" type="submit">${edit?'Save name':'Create playlist'}</button></form>`);
   $('#playlist-form').onsubmit=event=>{event.preventDefault();const name=$('#playlist-name').value.trim();if(!name)return;
     if(p)p.name=name;else{if(prefs.playlists.length>=100){notice('You can save up to 100 playlists in this browser.',true);return;}const created={id:crypto.randomUUID(),name,trackIds:trackId?[trackId]:[]};prefs.playlists.push(created);view=`playlist/${created.id}`;location.hash=view;}
     save();closeDialog();renderLibrary();notice(p?'Playlist renamed.':'Playlist created.');};
@@ -443,7 +448,8 @@ async function action(action,el) {
       busy=true;el.disabled=true;$('#add-files').disabled=true;
       try{
         const summary=await recoverAnalyzedTracks(library,message=>notice(message));
-        tracks=await library.listTracks();search='';$('#search').value='';libraryFilters=emptyFilters();
+        if(config.serverless){purgeLegacyHostedCaches(localStorage);prefs=restore();window.addEventListener('storage',e=>{if(e.key==='resonant:account-change'){player?.clear();location.replace('/login/index.html');}});window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});}
+    tracks=await library.listTracks();search='';$('#search').value='';libraryFilters=emptyFilters();
         const message=`${summary.added} tracks restored · ${summary.omitted} already in your library · saved analysis reused where available`;
         if(summary.errors.length)openDialog('Recovery summary',`<p>${esc(message)}</p><ul>${summary.errors.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>`);
         else notice(message);
@@ -502,15 +508,17 @@ async function action(action,el) {
     case 'confirm-remove':openDialog('Remove this track?',`<p>The browser’s saved copy will be removed. The original file on your device stays untouched.</p><button class="button danger-button" data-action="remove-track" data-id="${id}">Remove track</button>`);break;
     case 'remove-track':if(t?.kind==='local') {await library.removeTrack(id);if(player.current?.id===id)player.clear();else for(let i=player.queue.length-1;i>=0;i--)if(player.queue[i].id===id)await player.remove(i);tracks=tracks.filter(t=>t.id!==id);prefs.favorites=prefs.favorites.filter(i=>i!==id);prefs.playlists.forEach(p=>p.trackIds=p.trackIds.filter(i=>i!==id));save();closeDialog();renderLibrary();notice('Removed from this browser.');}break;
     case 'clear-search':search='';$('#search').value='';renderLibrary();$('#search').focus();break;
+    case 'account':await showAccount({cloud:serverlessTransport(),profile,player,openDialog});break;
     case 'about':openDialog('Library information',`<h3>Front end</h3><div class="dialog-actions" ${config.edition==='web'?'hidden':''}><button class="button ${front==='studio'?'primary':'secondary'}" data-action="set-front" data-front="studio">01 / Studio</button><button class="button ${front==='radio-wide'?'primary':'secondary'}" data-action="set-front" data-front="radio-wide">03 / Visualization</button></div><p>${config.mode==='local'?'Music you add is copied into this browser’s storage. Analysis sends a temporary copy to the local service on this computer. Audio is not sent to a cloud provider. Your original files stay untouched.':'Tracks are loaded from the configured private library service.'}</p><p>${config.mode==='local'?'Playlists, favorites and volume are saved in this browser. Clearing site data removes them. Browser storage is not a backup of your originals.':'Playlists and favorites are saved in this browser. Everyone can explore the same published collection.'}</p><h3>Keyboard shortcuts</h3><dl class="shortcuts"><dt>Space</dt><dd>Play / pause</dd><dt>← / →</dt><dd>Seek 5 seconds</dd><dt>M</dt><dd>Mute / unmute</dd><dt>/</dt><dd>Search your music</dd></dl><p class="muted">${config.mode==='local'?'The demo collection contains six generated tone studies with fictional titles. Cloud hosting, uploads and account sync are not connected.':'Analysis and library updates are managed locally by the owner.'}</p>`);break;
   }
 }
 async function boot() {
   try {
     const response=await fetch(new URL('../config.json',import.meta.url),{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!response.ok)throw new Error('Player configuration could not be loaded.');
-    config=validateConfig(await response.json());if(config.edition==='web'){sort=librarySort='random';orderDirection='asc';}front=releaseFront(config.edition,requestedFront);prefs=restore();
+    config=validateConfig(await response.json());if(config.edition==='web'){sort=librarySort='random';orderDirection='asc';}front=releaseFront(config.edition,requestedFront);prefs=config.serverless?cleanPreferences(null):restore();
     library=config.mode==='local'?new LocalLibrary():new HttpLibrary(config);
     let initError;try{await library.init();}catch(error){if(config.mode!=='local')throw error;initError=error.message;}
+    if(config.serverless){purgeLegacyHostedCaches(localStorage);prefs=restore();window.addEventListener('storage',e=>{if(e.key==='resonant:account-change'){player?.clear();location.replace('/login/index.html');}});window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});}
     tracks=await library.listTracks();if(config.edition==='web'){const collection=deduplicateCollection(tracks,prefs);tracks=collection.tracks;prefs=collection.preferences;save();}const restored=config.mode==='local'?await library.restoreCachedFeatures(hash=>cachedFeatures(hash)):0;if(restored)tracks=await library.listTracks();loading=false;
     if(config.edition==='web'){let prior='';try{prior=localStorage.getItem('resonant:discovery:first')??'';}catch{}libraryOrder=freshLibraryOrder(tracks,prior);try{localStorage.setItem('resonant:discovery:first',[...libraryOrder.keys()][0]??'');}catch{}}
     if(!view)view=config.mode==='local'&&!tracks.some(t=>t.kind==='local')?'demo':'library';
@@ -542,8 +550,8 @@ async function boot() {
     if('mediaSession' in navigator)for(const [name,handler] of Object.entries({play:()=>{if(!player.wantPlay)player.toggle();},pause:()=>{if(player.wantPlay)player.toggle();},nexttrack:()=>player.next(),previoustrack:()=>player.previous(),seekto:event=>player.seek(event.seekTime),seekbackward:event=>player.seek(player.audio.currentTime-(event.seekOffset??10)),seekforward:event=>player.seek(player.audio.currentTime+(event.seekOffset??10))}))try{navigator.mediaSession.setActionHandler(name,handler);}catch{}
     if(config.edition==='web'){
       bindPlaybackLifecycle(player);mountMobilePlayer(player,{nativeAudio:isIOSWebKit()||new URLSearchParams(location.search).get('spectrum')==='recorded',closeQueue:()=>queueVisibility(false)});
-      profile=new UserProfile({preferences:prefs,onError:message=>notice(message,true),onChange:next=>{const changed=JSON.stringify([prefs.favorites,prefs.playlists])!==JSON.stringify([next.favorites,next.playlists]);prefs={...prefs,favorites:next.favorites,playlists:next.playlists};try{localStorage.setItem(storageKey(),JSON.stringify(prefs));}catch{}if(changed){renderNavigation();if(!['playlistiq','mixes'].includes(view))renderLibrary();renderPlayer();}}});
-      attachListeningStats(player,profile);void profile.init().catch(e=>notice(e.message,true));
+      profile=new UserProfile({...(config.serverless?{storage:accountStorage(localStorage,serverlessTransport().user.id),importLegacy:false}:{}),preferences:prefs,onError:message=>notice(message,true),onChange:next=>{const changed=JSON.stringify([prefs.favorites,prefs.playlists])!==JSON.stringify([next.favorites,next.playlists]);prefs={...prefs,favorites:next.favorites,playlists:next.playlists};try{localStorage.setItem(storageKey(),JSON.stringify(prefs));}catch{}if(changed){renderNavigation();if(!['playlistiq','mixes'].includes(view))renderLibrary();renderPlayer();}}});
+      attachListeningStats(player,profile);if(config.serverless)telemetry=attachProductEvents(serverlessTransport());void profile.init().catch(e=>notice(e.message,true));
     }
     else window.addEventListener('pagehide',()=>player.clear());
   }catch(error){$('#app').innerHTML=`<main class="fatal"><span class="brand-mark">${icon('brand')}</span><h1>The library couldn’t open</h1><p>${esc(error.message)}</p><button id="retry-boot" class="button primary">Try again</button></main>`;$('#retry-boot').onclick=()=>location.reload();}

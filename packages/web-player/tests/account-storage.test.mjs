@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {accountStorage,clearHostedPrivateCaches} from '../src/account-storage.js';
+import {UserProfile} from '../src/user-profile.js';
+function storage(){const m=new Map();return{get length(){return m.size;},key:i=>[...m.keys()][i]??null,getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k)};}
+test('accounts see only their own browser caches and outbox; legacy is not imported',async()=>{const raw=storage();raw.setItem('resonant:owner:cache',JSON.stringify([{kind:'playlist',id:'old'}]));raw.setItem('resonant:owner:pending:old','secret');const a=accountStorage(raw,'a'),b=accountStorage(raw,'b');a.setItem('resonant:owner:cache','[{"kind":"playlist","id":"a"}]');assert.equal(b.getItem('resonant:owner:cache'),null);assert.equal(b.length,0);const profile=new UserProfile({storage:b,importLegacy:false,preferences:{favorites:[],playlists:[]},request:async()=>new Response(JSON.stringify({items:[],cursor:null}))});await profile.init();assert.deepEqual(profile.items,[]);assert.deepEqual(profile.pending(),[]);assert.equal(a.length,1);raw.setItem('unrelated','preserve');clearHostedPrivateCaches(raw);assert.equal(a.length,0);assert.equal(raw.getItem('resonant:owner:cache'),null);assert.equal(raw.getItem('unrelated'),'preserve');});

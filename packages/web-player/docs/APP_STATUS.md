@@ -1,11 +1,12 @@
 # App status
 
-Maintained snapshot: 2026-10-01.
+Maintained snapshot: 2026-10-06.
 
 Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimators. Musical character now compares 120 prepared descriptions against cached audio embeddings; a bank refresh reuses compatible audio vectors. Listening quality remains under evaluation.
 
 ## Available now
 
+- Hosted accounts use email/username and password, with private playlists, PlaylistIQ results and listening stats over the shared music/analysis library. The owner can inspect bounded product analytics. Google sign-in and linking are implemented but require the owner’s Google web client configuration. Spectrum animation defaults to full motion; Account settings can follow the device Reduce Motion preference.
 - Browser-saved audio, library search and sorting, favorites, playlists, queue, playback and live visualizations. Title, artist and album use embedded tags when available, with filename and Unknown artist fallbacks. Existing MP3s are refreshed on load with bounded ID3 reads; other formats use tags captured by analysis. App status shows metadata coverage for the loaded library.
 - Three interface options. Option 3 gives Your Library a larger visualization and a narrower song list; it otherwise follows Option 2. The compact Analysis player banner is shared by every other tab. Analysis puts playback, search and sort controls in its heading row; App status fills the available width with an asymmetric dashboard.
 - Analysis tab and optional feature columns show genres, BPM, key, loudness, arousal, mood, vocals, danceability and missing features.
@@ -63,10 +64,11 @@ Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimato
 - The vertical reference is FFT-bin magnitude in dBFS, displayed from −90 to 0. It is not LUFS or a sample/true-peak meter. Web Audio uses a Blackman window and temporal smoothing; two FFTs split at 350 Hz: 8192 samples below (~5–6 Hz spacing), 2048 samples at and above (~21.5–23.4 Hz, the nearest standard FFT setting to 20 Hz). Narrow display bands interpolate dB values between bins; wider bands retain peaks with interpolated boundaries. The bass window spans about 171–186 ms; the upper range spans 43–46 ms. The crossover is a display boundary, not an audio filter.
 - The dBFS scale references the newest slice. Historical perspective, falling motion and pause/start animation reposition older slices. Previous artistic magnitude taper has been removed so numeric dBFS labels correspond to the sampled spectrum.
 - Points use the restored 1.6× original baseline size, with no additional increment. Normal views retain 64 time slices, Falling 83. Vertical drawing span retains the 1.3× expansion where it fits, with headroom to keep the newest 0 dBFS reference on canvas.
+- Hosted native audio-derived spectra target 30 display frames per second with phase-preserving timing, a 20-slice-per-second history and cached point geometry. Full animation is the default even with OS Reduce Motion; Account settings can follow the OS at 5 fps. Real iPhone 12 performance still requires owner confirmation.
 
 ## Known limits
 
-- This is a local integration, not a deployed cloud service. Shared accounts, cloud audio storage and remote analysis are not connected.
+- The private web release supports hosted library playback, PlaylistIQ and an existing rendered mix. Automatic playlist-to-mix compilation and on-demand cloud mix rendering remain planned; audio analysis stays local.
 - The historical 37-track MAEST run had 33 results and four RAM-limit failures. These are historical experiment counts, not the current browser library’s status. Existing acoustic stages retain a 4096 MiB worker limit; the separately monitored MuQ worker uses 6000 MiB, one worker at a time.
 - The fresh genre-export crash was fixed; prior temporary results discarded by that crash require a retry. Invalid worker output is now reported as a failed stage instead of aborting the whole track.
 - Model estimates and preference scores are not calibrated certainty. Strict vocal/energy requirements and negative genre constraints may return no matches. Playlist order is not a validated DJ mix order.
@@ -74,11 +76,14 @@ Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimato
 
 ## Next steps
 
+- Prioritize creating DJ mixes from selected playlists, with playback before rendering finishes. The plan is ready; automatic mix creation and on-demand online rendering still need implementation and listening/device checks.
 - Finish reviewing the loaded library’s analysis and retry incomplete tracks; use the Analysis table to inspect exceptions.
 - Review the twenty-prompt PlaylistIQ lab on a fixed analyzed library, including picnic, birthday dancing, breakup mood and recipient clarification. Export your listening verdicts. Software checks do not replace musical-quality acceptance.
-- Prepare the private web/cloud trial after its hosting, storage, authentication and execution decisions are approved. Deployment and remote audio need a separate implementation step.
+- Private web playback and PlaylistIQ are live. Extend that release with tested mix generation, while preserving the current library and listening experience.
 - Keep MAEST top-six genre matching as the working policy. Revisiting the rule is a low-priority Later task, not a launch blocker.
 - Compare both retained mood estimators on listening prompts. Music2Emo selection does not prove listening superiority. FIGMA remains a future challenger. YAML versus JSON, diversity and personalization remain separate follow-ups.
+- Later, compare BPM and genre plus the strongest three or five description matches against the current full ranking. This is a planned listening experiment; no ranking policy has changed.
+- After the DJ mix is ready and accepted, revisit who Resonant serves best, two-song transition previews, adoption barriers and possible DJ/influencer-curated collections. These are saved ideas, not current features.
 
 ## Maintenance contract
 
