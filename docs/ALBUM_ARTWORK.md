@@ -1,6 +1,7 @@
-# Album artwork — local implementation and handoff
+# Album artwork — implementation and deployment
 
-2026-10-17. Implements the locally authorized Stage 5 slice. **Not deployed.**
+2026-10-17. Stage 5 local processing and the existing shared-library artwork
+are implemented. **Shared-library covers and compact UI are live on resonant.lat.**
 Personal cloud uploads remain unimplemented; their stored-object lifecycle was
 not fabricated. No changes to source audio, acoustic analysis, PlaylistIQ
 ranking, DJ transitions, tempo/beat logic or progressive mix playback.
@@ -144,10 +145,13 @@ or verified upload-completion route. Remaining work belongs to Stage 3/cloud
 integration: verified completion → durable dispatch; owner-derived scope;
 worker image/dependencies; private derivative storage and authorized image/
 manifest delivery; lifecycle deletion/retention and quotas; catalog capability
-publication and end-to-end ownership/retry tests. None is deployed or verified.
+publication and end-to-end ownership/retry tests for personal uploads. These
+personal-upload dependencies are not deployed or verified.
 The loopback `/api/artwork/*` routes are **not cloud authentication** and must
-not be published as-is. Hosted serverless configuration explicitly disables the
-local artwork companion client until that contract exists.
+not be published as-is. Hosted serverless configuration enables only a validated
+immutable manifest and image namespace under signed `/library/artwork/`. The
+local intake client stays disabled. This release publishes a frozen default-library
+snapshot; it does not run cloud provider jobs or automatically publish local retries.
 
 Shared-file edits are limited to:
 
@@ -243,3 +247,61 @@ No deployment is included in the requested commit/push.
 The isolated staged commit also passes **178 player tests**, **97 JavaScript
 module syntax checks**, and local/web builds (56/54 assets). Those counts exclude
 the separate uncommitted transition work present in the main working preview.
+
+## Shared-library deployment — 2026-10-17
+
+The owner subsequently authorized deployment. This supersedes the earlier local-only
+receipts above. Built from the verified October 13 live app, applying only the
+reviewed artwork overlay. All 56 previous app files matched their live S3 bytes.
+The later local transition, tempo and progressive-mix work was not published.
+
+- Live app: `b33e6123d52b049e19015827d90fae834cd77dcd70dd4589a102b5e58e69c833`.
+- Previous app/rollback: `9b2f72178c4f9994ccf6bc8f28b27e6ae3cee2ef8a5bcd6286e4d3eaf1917dd0`.
+- Artwork manifest: `f67960ecc3b6362f92c1e57d11fdbd6d5b07ae04faaa88ed30c565409a88205a`.
+- Music/model release stays `4a4bb92196ed75cc95ac19ec6a25bd5062ed31cdabb0eb30ebca0f83d5b5ff57`.
+- API/PlaylistIQ aliases **11/11**, mix **5**, unchanged. No backend or edge-policy deployment.
+- 165/187 tracks ready: 156 embedded and 9 CAA. The other 22 remain placeholders.
+  118 deduplicated image objects, 58 app assets and one manifest: 177 immutable
+  objects verified by SHA-256, plus two conditional entry-point writes; 5,148,113 bytes.
+- Private `/library/*` signed-cookie protection covers manifests/images. Both
+  embedded and CAA 500/96 derivatives match locally exported bytes; unsigned
+  access fails with 403. No new credential required and no cloud intake endpoint.
+- Live smoke verified 13 exact app assets, unchanged catalog and exact 1024-byte
+  MP3 range, plus unsigned-audio denial. Actual authenticated browser playback
+  progressed; compact library thumbnails loaded. Main and mini spectrograms retained.
+- 26 Python tests (21 processing + 5 export), 35 relevant player tests against
+  the exact deployed candidate, and 47 deployed JavaScript syntax checks passed.
+  Browser viewports 1280/390/320 checked; physical iPhone acceptance remains pending.
+
+New deployment integration is confined to `src/artwork.js` (validated private
+manifest/images, no hosted enqueue), `src/adapters.js` (validated config),
+`src/app.js` (hosted artwork startup), the artwork test, and
+`tools/artwork/export-hosted.py` with five export tests. The exporter verifies
+source identities and hashes, requires the entire reviewed app overlay, and
+emits a `publishKeys` allowlist that excludes source media, catalog pages and
+acoustic analysis. Existing base inventory is retained only for later tooling.
+Do not pass the complete inventory to a generic uploader.
+
+Reproduction uses the frozen verified live candidate and reviewed overlay, not
+the mixed working tree:
+
+```sh
+tools/artwork/.venv/bin/python tools/artwork/export-hosted.py \
+  --base output/mix-refinement-20261013/candidate \
+  --app-source output/artwork-deploy-20261017/app-overlay \
+  --cache output/artwork --output output/artwork-deploy-20261017/new-candidate
+```
+
+Private receipts and screenshots: `output/artwork-deploy-20261017/`.
+`release/` is the published candidate; earlier draft directories are not releases.
+`before/` and `rollback-deployment.json` retain the prior entry bytes/tuple,
+`published-pointers.json` the new S3 versions, and `deployed.json` the final tuple.
+CloudFront invalidation completed. A local receipt serialization error occurred
+after both pointers succeeded; recovery verified their versions/checksums and
+reused the same invalidation caller reference without rewriting either pointer.
+`output/serverless-cloud/active-deployment.json` now records this release.
+
+Remaining: implement the actual personal-upload lifecycle, then wire verified
+stored-object dispatch, owner-derived scope, private per-owner derivatives,
+retention/quotas and end-to-end isolation/retry checks. Future local backfills
+require another reviewed snapshot publication to update the hosted library.

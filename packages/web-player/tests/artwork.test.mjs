@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {artworkThumbnail,matchingArtwork,notifyStoredArtwork} from '../src/artwork.js';
+import {artworkThumbnail,matchingArtwork,notifyStoredArtwork,artworkDelivery} from '../src/artwork.js';
 import {trackCardHTML,webIntentHTML} from '../src/web-presentation.js';
 import {promptResultsHTML} from '../src/profile-views.js';
 
@@ -20,4 +20,11 @@ test('library and fresh/saved playlist results place compact artwork before the 
 });
 test('stored artwork notification returns immediately without starting audio analysis',()=>{
  assert.equal(notifyStoredArtwork({id:'a'}),undefined);
+});
+
+test('hosted artwork only accepts the protected immutable library namespace',()=>{
+ const value={manifestURL:'/library/artwork/releases/'+'a'.repeat(64)+'/manifest.json',imageBase:'/library/artwork/images/'};
+ assert.deepEqual(artworkDelivery(value),value);
+ for(const manifestURL of ['https://evil.test/manifest.json','/api/artwork/manifest','/library/artwork/releases/../manifest.json'])assert.throws(()=>artworkDelivery({...value,manifestURL}));
+ assert.throws(()=>artworkDelivery({...value,imageBase:'https://evil.test/'}));
 });

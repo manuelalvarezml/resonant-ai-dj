@@ -1,4 +1,4 @@
-import {notifyStoredArtwork} from './artwork.js';
+import {notifyStoredArtwork,artworkDelivery} from './artwork.js';
 import {configureServerless} from './serverless.js';
 import {readAudioTags,featureTags,applyAudioTags} from './audio-tags.js';
 import { demoTracks, createDemoAudio } from './demo.js';
@@ -191,7 +191,7 @@ export function validateConfig(value, locationHref = globalThis.location?.href ?
   const mediaOrigins = value.mediaOrigins ?? [];
   if (!Array.isArray(mediaOrigins) || mediaOrigins.some(s => {try {const u = new URL(s); return u.protocol !== 'https:' || u.origin !== s;} catch {return true;}})) throw new Error('Media origins must be explicit HTTPS origins.');
   if(value.serverless===true&&(value.mode!=='http'||value.edition!=='web'))throw new Error('Serverless transport requires the web edition.');
-  return {edition:value.edition==='web'?'web':'local',mode:value.mode, apiBase:base.href, mediaOrigins, origin,...(value.serverless===true?{serverless:true}:{})};
+  return {edition:value.edition==='web'?'web':'local',mode:value.mode, apiBase:base.href, mediaOrigins, origin,...(value.serverless===true?{serverless:true,...(value.artwork?{artwork:artworkDelivery(value.artwork)}:{})}:{})};
 }
 
 export class HttpLibrary {

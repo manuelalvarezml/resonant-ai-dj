@@ -1,8 +1,8 @@
 # Agent takeover — DJ Collection Set Builder
 
-## 2026-10-17 — Album artwork, local only
+## 2026-10-17 — Shared-library artwork live
 
-[Artwork checkpoint](docs/ALBUM_ARTWORK.md): embedded-first extraction, conservative MusicBrainz/CAA fallback, album/negative caches, provenance, 500/96px derivatives, post-storage local import hook and resumable backfill are implemented. Only compact library/result/minimized-player thumbnails; both spectrograms preserved. No deployment. Personal cloud upload lifecycle, private derivative delivery and physical iPhone acceptance remain pending. Transition, analysis and ranking work is unchanged.
+[Artwork checkpoint](docs/ALBUM_ARTWORK.md): shared-library covers and compact queue/library/results/minimized-player layouts are live on resonant.lat. 165/187 tracks have covers; both spectrograms remain. Protected image delivery, audio playback and mobile/desktop layout checks pass. API/PlaylistIQ 11/11 and mix 5 are unchanged; the later transition candidate was not deployed. Personal cloud uploads and their automatic processing remain pending, as does physical iPhone acceptance.
 
 ## 2026-10-06 — Individual accounts and spectrum motion
 

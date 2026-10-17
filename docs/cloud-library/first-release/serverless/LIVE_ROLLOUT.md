@@ -1,5 +1,9 @@
 # Private cloud release — 2026-10-03 — D073/E061
 
+## 2026-10-17 — Shared-library artwork live
+
+[Artwork checkpoint](../../../ALBUM_ARTWORK.md): shared-library covers and compact queue/library/results/minimized-player layouts are live on resonant.lat. 165/187 tracks have covers; both spectrograms remain. Protected image delivery, audio playback and mobile/desktop layout checks pass. API/PlaylistIQ 11/11 and mix 5 are unchanged; the later transition candidate was not deployed. Personal cloud uploads and their automatic processing remain pending, as does physical iPhone acceptance.
+
 ## 2026-10-04 — History and native spectrum release
 
 [Current production checkpoint](HISTORY_SPECTRUM_RELEASE.md): latest web refinements and profile API are live, aliases 4/4. Audio-derived iPhone spectra replace the progress fallback. Green PlaylistIQ (+15%) and gradual pause easing included. Domain/CloudFront auth, audio ranges, protected spectra and cross-session saves passed.

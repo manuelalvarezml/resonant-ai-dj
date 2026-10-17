@@ -745,3 +745,7 @@ isolated test servers stopped. No deployment, commit, audio/analysis/ranking/
 transition changes or physical-device claim.
 
 Owner follow-up before commit: added queue thumbnails, 52px row / 40px mini-player covers, smaller 18px desktop / 16px mobile titles and single-line title/artist ellipses. Verified 1280/390/320 layouts, both spectra retained, 19 targeted tests, syntax and builds. Git scope excludes other uncommitted work; see the artwork checkpoint.
+
+## 2026-10-17 — Shared-library artwork deployment
+
+Owner authorized deployment after artwork/UI commit f86879d. Applied the reviewed artwork overlay to the byte-verified October 13 live app, preserving the later local transition work. Published 177 immutable app/image/manifest assets plus two entry pointers; 165/187 tracks have covers. Signed access and unsigned rejection, exact audio range/catalog preservation, actual browser playback and both spectrograms pass. API/PlaylistIQ 11/11 and mix 5 unchanged. A local JSON datetime receipt error after pointer publication was recovered using the same invalidation caller reference, without republishing pointers. See ../../docs/ALBUM_ARTWORK.md for release IDs, validation and remaining personal-upload dependencies.

@@ -1,7 +1,11 @@
 import {escapeHTML as esc} from './model.js';
 
 // Artwork is a display sidecar, never part of feature/ranking or audio records.
-let records={},catalog=()=>[],storedHandler=()=>{};
+let records={},catalog=()=>[],storedHandler=()=>{},imageBase='/api/artwork/images/';
+export function artworkDelivery(value){
+ if(!value||!/^\/library\/artwork\/releases\/[a-f0-9]{64}\/manifest\.json$/.test(value.manifestURL??'')||value.imageBase!=='/library/artwork/images/')throw Error('Invalid artwork delivery configuration.');
+ return {manifestURL:value.manifestURL,imageBase:value.imageBase};
+}
 export function notifyStoredArtwork(track){
  // Storage has committed. Never await artwork on the import/playback/analysis path.
  setTimeout(()=>storedHandler(track),0);
@@ -29,19 +33,21 @@ export function hydrateArtwork(root=document){
   node.dataset.artworkRendered=key;node.replaceChildren();
   const fallback=document.createElement('span');fallback.textContent='♪';node.append(fallback);
   node.title=valid?(record.provider==='embedded'?'Embedded album artwork':'Cover Art Archive / MusicBrainz · exact artist and album match'):'Artwork unavailable';
-  if(valid){const image=document.createElement('img');image.alt='';image.width=36;image.height=36;image.loading='lazy';image.decoding='async';image.src='/api/artwork/images/'+file;image.onerror=()=>image.remove();node.append(image);}
+  if(valid){const image=document.createElement('img');image.alt='';image.width=36;image.height=36;image.loading='lazy';image.decoding='async';image.src=imageBase+file;image.onerror=()=>image.remove();node.append(image);}
  }
 }
-export function startArtwork({library,getTracks,enabled=true,request=fetch}){
+export function startArtwork({library,getTracks,enabled=true,delivery=null,request=fetch}){
  catalog=getTracks;
+ const hosted=delivery?artworkDelivery(delivery):null;
+ imageBase=hosted?.imageBase??'/api/artwork/images/';
  const observer=new MutationObserver(()=>hydrateArtwork());observer.observe(document.body,{childList:true,subtree:true});
- // Deployed serverless API does not expose artwork yet; don't pretend it does.
+ // Hosted delivery is a signed static sidecar. It never enables the local intake API.
  if(!enabled)return()=>observer.disconnect();
  let stopped=false,refreshing=false,queue=Promise.resolve();const pending=new Set();
- const refresh=async()=>{if(stopped||refreshing)return;refreshing=true;try{const response=await request('/api/artwork/manifest',{signal:AbortSignal.timeout(10000)});if(response.ok){const data=await response.json();if(data.contract_version==='resonant/artwork/1'){records=data.tracks??{};hydrateArtwork();}}}catch{}finally{refreshing=false;}};
+ const refresh=async()=>{if(stopped||refreshing)return;refreshing=true;try{const response=await request(hosted?.manifestURL??'/api/artwork/manifest',{signal:AbortSignal.timeout(10000)});if(response.ok){const data=await response.json();if(data.contract_version==='resonant/artwork/1'){records=data.tracks??{};hydrateArtwork();}}}catch{}finally{refreshing=false;}};
  const enqueue=track=>{
   const key=track.id+':'+track.sourceVersion;
-  if(stopped||track.kind!=='local'||pending.has(key)||matchingArtwork(track,records))return;
+  if(hosted||stopped||track.kind!=='local'||pending.has(key)||matchingArtwork(track,records))return;
   pending.add(key);
   queue=queue.then(async()=>{
    if(stopped||track.kind!=='local'||matchingArtwork(track,records))return;

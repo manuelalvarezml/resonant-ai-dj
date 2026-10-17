@@ -527,7 +527,7 @@ async function boot() {
     if(config.mode!=='local'&&view==='demo')view='library';
     shell();player=new Player($('#audio'),(track,options)=>track.kind==='mix'?resolveMixPlayback(track):library.resolvePlayback(track,options));player.repeat=prefs.repeat;player.shuffle=prefs.shuffle;player.audio.volume=prefs.volume;
     renderLibrary();renderPlayer();queueVisibility(!document.body.classList.contains('queue-hidden'));
-    const stopArtwork=startArtwork({library,getTracks:()=>tracks,enabled:!config.serverless});
+    const stopArtwork=startArtwork({library,getTracks:()=>tracks,enabled:!config.serverless||Boolean(config.artwork),delivery:config.artwork});
     window.addEventListener('pagehide',stopArtwork,{once:true});
     if(initError)notice(initError,true);else if(restored)notice(`Restored saved analysis for ${restored} track${restored===1?'':'s'}.`);
     player.addEventListener('change',renderPlayer);player.addEventListener('progress',updateProgress);
