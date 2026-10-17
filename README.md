@@ -277,3 +277,7 @@ then test the same baseline on a larger manual set. All-In-One host/model
 refinements are backlog (D031). Automatic MixPlan generation remains deferred.
 The independent playlist package has its own next checkpoint in
 [`AGENTS.md`](AGENTS.md) and package documentation.
+
+## Local album artwork
+
+[Artwork implementation and operator commands](docs/ALBUM_ARTWORK.md) cover local imports, resumable existing-library backfill, MusicBrainz/CAA matching and compact thumbnails. Both spectrograms remain. Cloud upload integration and deployment are pending.

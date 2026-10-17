@@ -1,3 +1,4 @@
+import {artworkThumbnail} from './artwork.js';
 import {mountEstimatorMenu} from './estimator-menu.js';
 import {promptSnapshot} from './prompt-snapshot.js';
 import {sessionPromptPlaceholder} from './discovery.js';
@@ -34,7 +35,7 @@ export function intentHTML(run){
  ${plan?`<p class="iq-interpretation">${esc(plan.interpretation)}</p>${plan.assumptions.length?`<details><summary>Musical assumptions</summary><ul>${plan.assumptions.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></details>`:''}`:''}
  ${run.status==='needs_clarification'&&plan?.clarification?`<form data-iq-clarification><label for="playlistiq-answer">${esc(plan.clarification)}</label><textarea id="playlistiq-answer" class="text-input" maxlength="1000" required></textarea><button class="button primary" type="submit">Continue</button></form>`:''}
  ${warnings.length?`<details><summary>Evidence and limitations</summary><ul>${[...new Set(warnings)].map(w=>`<li>${esc(w)}</li>`).join('')}</ul></details>`:''}
- <ol class="iq-matches">${matches.map((m,index)=>`<li><button type="button" class="button secondary iq-play" data-iq-play="${esc(m.track.track_id)}" aria-label="Play ${esc(m.track.title)}">▶ Play</button><strong>${esc(m.track.title)}</strong> <span>${esc(m.track.artist??'')}</span><details><summary>Why this track · ${(m.score*100).toFixed(2)} / 100</summary>${matchExplanationHTML(m,run,index)}</details></li>`).join('')}</ol>
+ <ol class="iq-matches">${matches.map((m,index)=>`<li><button type="button" class="button secondary iq-play" data-iq-play="${esc(m.track.track_id)}" aria-label="Play ${esc(m.track.title)}">▶ Play</button>${artworkThumbnail(m.track)}<strong>${esc(m.track.title)}</strong> <span>${esc(m.track.artist??'')}</span><details><summary>Why this track · ${(m.score*100).toFixed(2)} / 100</summary>${matchExplanationHTML(m,run,index)}</details></li>`).join('')}</ol>
  <details><summary>Plan, structured query and score evidence</summary><pre>${esc(JSON.stringify({plan:plan??null,proposed_plan:run.translation?.proposed_plan,prompt_version:run.translation?.prompt_version,prompt_digest:run.translation?.prompt_digest,reasoning_effort:run.translation?.reasoning_effort,query:run.translation?.query,ranking:run.result?.ranking_version,compiler:run.translation?.compiler_version,clarifications:run.translation?.clarifications,matches:matches.map(m=>({id:m.track.track_id,score:m.score,contributions:m.score_contributions}))},null,2))}</pre></details>`;
 }
 export function mountPlaylistIQ(root,{candidates,total,localJob,onSave,onPlay,notice=()=>{},webEdition=false,onRecordPrompt=()=>{},onHistory=()=>{},onStats=()=>{}}){

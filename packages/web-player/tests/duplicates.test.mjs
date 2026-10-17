@@ -28,7 +28,7 @@ test('replacement preserves identity and analysis only for identical content',as
   const file=new File(['audio'],'song.wav'),hash=await fileHash(file),features={sha256:hash,policy:'maest-top6-v1'};
   const lib=new LocalLibrary();lib.read=async()=>({id:'existing',addedAt:1,color:2,features});
   let records;
-  lib.db={transaction(){const tx={objectStore(name){return {put(value,key){records[name]=value;}}}};records={};setTimeout(()=>tx.oncomplete(),0);return tx;}};
+  lib.db={transaction(){const tx={objectStore(name){return {put(value,key){records[name]=value;},delete(){}}}};records={};setTimeout(()=>tx.oncomplete(),0);return tx;}};
   const same=await lib.importFile(file,{replaceId:'existing',hash});
   assert.equal(same.id,'existing');assert.equal(same.features,features);assert.equal(same.addedAt,1);assert.equal(records.audio,file);
   const changed=await lib.importFile(new File(['different'],'song.wav'),{replaceId:'existing'});

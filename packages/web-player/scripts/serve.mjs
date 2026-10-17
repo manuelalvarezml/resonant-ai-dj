@@ -1,3 +1,4 @@
+import {createArtworkService} from './artwork-service.mjs';
 import {fileProfileStore,profileService} from './profile-service.mjs';
 import {buildWebLibrary,prepareWebAudio} from './web-library.mjs';
 import {createWebService} from './web-service.mjs';
@@ -11,6 +12,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(fileURLToPath(new URL('..',import.meta.url))),built=process.argv.includes('--dist');
 const portArg=process.argv.indexOf('--port'),port=portArg<0?4173:Number(process.argv[portArg+1]);
 const webEdition=process.argv.includes('--web');
+const artworkService=createArtworkService({webEdition});
 const webData=webEdition?await buildWebLibrary():null;
 const webService=webData?createWebService(webData):null;
 const profiles=webData?profileService(fileProfileStore(path.resolve(root,'../../output/web-profile/account.json'),new Set(webData.manifest.tracks.map(t=>t.id)))):null;
@@ -21,6 +23,7 @@ const server=http.createServer(async(req,res)=>{
   res.setHeader('Content-Security-Policy',csp);res.setHeader('Referrer-Policy','no-referrer');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Cache-Control','no-store');
   res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');
   if(req.headers.host!==`127.0.0.1:${port}`&&req.headers.host!==`localhost:${port}`){res.writeHead(403);res.end('Invalid host');return;}
+  if(await artworkService(req,res,port))return;
   if(webEdition){
     const pathname=new URL(req.url,'http://localhost').pathname;
     if(pathname==='/config.json'){res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify({contract_version:'resonant-player/config/1',mode:'http',edition:'web',apiBase:'/api/',mediaOrigins:[]}));return;}
@@ -49,5 +52,5 @@ const server=http.createServer(async(req,res)=>{
 server.listen(port,'127.0.0.1',()=>console.log(`Resonant ${built?'production preview':'development'}: http://127.0.0.1:${port}`));
 server.on('error',error=>{console.error(error.message);process.exitCode=1;});
 
-process.on('SIGTERM',()=>{mixService.close();server.close();});
-process.on('SIGINT',()=>{mixService.close();server.close();});
+process.on('SIGTERM',()=>{artworkService.close();mixService.close();server.close();});
+process.on('SIGINT',()=>{artworkService.close();mixService.close();server.close();});

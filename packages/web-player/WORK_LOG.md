@@ -718,3 +718,30 @@ The owner-authorized release is live on resonant.lat and CloudFront: green Playl
 ## 2026-10-06 — Individual accounts, motion preference and owner analytics
 
 Implemented the owner's requested hosted-account release with isolated server/browser state, email/username/password access, Google integration pending client configuration, remembered secure sessions, password-manager fields and a bounded private-trial analytics dashboard. Full spectrum animation overrides OS Reduce Motion by default, with a user-selectable system option. Old shared history reset is privately backed up. [Account release](docs/ACCOUNTS_RELEASE.md) records tests, live migration, failure/fix, credentials locations and pending acceptance. Existing unrelated workspace edits are excluded from the scoped publication.
+# 2026-10-17 artwork checkpoint
+
+Owner authorized Stage 5 artwork independently of concurrent DJ work. Added
+isolated embedded-first extraction, conservative MusicBrainz/CAA matching,
+scoped SQLite album/negative caches, durable jobs, provenance/confidence,
+500/96px images, rate limiting/backoff and resumable backfill. Browser imports
+notify after storage. Original M4A artwork is preserved separately because the
+existing converter drops pictures; manual conversion also retains this artwork
+source and notifies after committing. Both spectrograms remain unchanged;
+only compact library/result/minimized-player thumbnails are added.
+
+[Commands, provider terms, changed files and evidence](../../docs/ALBUM_ARTWORK.md).
+21 Python / 192 player / 6 board tests pass; 103-module syntax; 61-file local and
+59-file web build hashes verified. Legacy verify-build rejects the pre-existing
+hls.LICENSE extension and is left unchanged. Browser checks cover web desktop
+1280, mobile 390/320, expanded spectrum, fresh/saved result fixtures and MP3/M4A
+post-storage artwork plus reload. Snapshot: 165/187 ready, 20 placeholders,
+2 retries; 187/187 source hashes exact. Initial sandbox DNS/loopback failures
+were rerun with permission. Real HTTP 503 recovered through persisted retries.
+An older IndexedDB test double needed delete support for auxiliary-source cleanup.
+
+Board NEXT-UPLOAD-ARTWORK records completed local work and remains blocked on
+personal cloud uploads/private derivative delivery. Main preview 4177 remains;
+isolated test servers stopped. No deployment, commit, audio/analysis/ranking/
+transition changes or physical-device claim.
+
+Owner follow-up before commit: added queue thumbnails, 52px row / 40px mini-player covers, smaller 18px desktop / 16px mobile titles and single-line title/artist ellipses. Verified 1280/390/320 layouts, both spectra retained, 19 targeted tests, syntax and builds. Git scope excludes other uncommitted work; see the artwork checkpoint.

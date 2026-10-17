@@ -1,5 +1,9 @@
 # Web player takeover
 
+## 2026-10-17 — Album artwork, local only
+
+[Artwork checkpoint](../../docs/ALBUM_ARTWORK.md): embedded-first extraction, conservative MusicBrainz/CAA fallback, album/negative caches, provenance, 500/96px derivatives, post-storage local import hook and resumable backfill are implemented. Only compact library/result/minimized-player thumbnails; both spectrograms preserved. No deployment. Personal cloud upload lifecycle, private derivative delivery and physical iPhone acceptance remain pending. Transition, analysis and ranking work is unchanged.
+
 ## 2026-10-06 — Individual accounts and spectrum motion
 
 [Account release](docs/ACCOUNTS_RELEASE.md) replaces shared hosted state with email/username/password accounts, private playlists/PlaylistIQ results/listening counters, owner-only bounded analytics and a full-spectrum motion override. Google sign-in/linking is implemented but activation and real-provider acceptance await a Google web client ID. Owner authorized deployment, a test user, live-history reset and Git push. Current rollout receipt and limitations are maintained in the linked checkpoint; audio, saved analysis and planner policy are preserved.

@@ -1,6 +1,6 @@
 # App status
 
-Maintained snapshot: 2026-10-06.
+Maintained snapshot: 2026-10-17.
 
 Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimators. Musical character now compares 120 prepared descriptions against cached audio embeddings; a bank refresh reuses compatible audio vectors. Listening quality remains under evaluation.
 
@@ -19,6 +19,7 @@ Analyze Tracks runs the selected 11-stage pipeline, retaining both mood estimato
 - DJ mixes now renders saved or imported manual MixPlans from the existing DJ analysis collection. Listen while a single render prepares a lossless WAV and AAC listening copy. Completed mixes support seeking, download and verified cache reuse. Source hashes, duration and master/AAC peaks are checked. This local service does not automatically turn a PlaylistIQ playlist into a MixPlan.
 - Quality-selected specialist profile, one-track upgrade/retry, source-hash cache restoration and a specialist-only candidate scope. PaSST adds 20 separately attributed OpenMIC scores, including five additional instrument names. Exactly two authorized tracks have complete specialist coverage; no new bulk analysis was run.
 - Default pipeline acceptance on 2026-10-01: two tracks passed 22/22 fresh stages in 2:09 and 3:02, with peak worker RSS 3.6 GiB and zero-inference retries. HTTP analysis and Chrome display were verified. This is bounded execution evidence, not a guarantee for every source or a listening-quality verdict.
+- Local album artwork: embedded covers first, then conservative MusicBrainz/Cover Art Archive matching; cached 500px covers and compact thumbnails. Browser imports queue artwork after storage independently of analysis. Library, playlist results and minimized player show thumbnails while both spectrograms remain. Cloud personal-upload wiring and publication are pending.
 
 ## Analysis models and tools
 

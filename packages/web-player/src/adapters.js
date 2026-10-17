@@ -1,3 +1,4 @@
+import {notifyStoredArtwork} from './artwork.js';
 import {configureServerless} from './serverless.js';
 import {readAudioTags,featureTags,applyAudioTags} from './audio-tags.js';
 import { demoTracks, createDemoAudio } from './demo.js';
@@ -66,7 +67,7 @@ export class LocalLibrary {
     }
     return result;
   }
-  async importFile(file,{replaceId=null,hash=null}={}) {
+  async importFile(file,{replaceId=null,hash=null,artworkSource=file}={}) {
     if (!this.db) throw new Error('Browser storage is unavailable. Allow site storage, then reload.');
     if (!/\.(mp3|m4a|aac|ogg|oga|opus|wav|flac|aif|aiff)$/i.test(file.name)) throw new Error('Choose an MP3, M4A, AAC, Ogg, WAV, FLAC or AIFF audio file.');
     if (!file.size || file.size > 512*1024*1024) throw new Error('Each audio file must be between 1 byte and 512 MB.');
@@ -86,8 +87,11 @@ export class LocalLibrary {
     await new Promise((resolve,reject) => {
       const tx = this.db.transaction(['tracks','audio'],'readwrite');
       tx.objectStore('tracks').put(track); tx.objectStore('audio').put(file,id);
+      if(artworkSource!==file)tx.objectStore('audio').put(artworkSource,'artwork-source:'+id);
+      else tx.objectStore('audio').delete('artwork-source:'+id);
       tx.oncomplete = resolve; tx.onabort = tx.onerror = () => reject(new Error('Could not save this file. Browser storage may be full or disabled. Free space and try again.'));
     });
+    notifyStoredArtwork(track);
     return track;
   }
   async saveFeatures(id,features) {
@@ -117,6 +121,7 @@ export class LocalLibrary {
         if(!current||!original||current.fileHash!==expectedHash){const e=new Error('Track changed during conversion; original audio was kept.');e.code='LIBRARY_TRACK_CHANGED';reject(e);tx.abort();return;}
         // Backup and replacement commit together; no database schema migration is needed.
         audio.put({audio:original,track:current},'conversion-backup:'+id+':'+expectedHash);
+        audio.put(original,'artwork-source:'+id);
         updated={...current,fileHash:hash,sourceVersion:crypto.randomUUID(),duration,features:null,
           conversion:{originalHash:expectedHash,originalName:original.name,profile:'ffmpeg-libmp3lame-vbr2'},
           evidence:[...current.evidence,{field:'Audio conversion',value:'M4A to MP3; original browser audio backed up',authority:'executed_action',source:'ffmpeg-libmp3lame-vbr2'}]};
@@ -125,6 +130,7 @@ export class LocalLibrary {
       tr.onsuccess=ar.onsuccess=ready;
       tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(tx.error||new Error('Could not save conversion; original audio was kept.'));
     }));
+    notifyStoredArtwork(updated);
     return validateTrack(updated);
   }
   async restoreCachedFeatures(resolve) {
@@ -148,7 +154,7 @@ export class LocalLibrary {
   async removeTrack(id) {
     if (id.startsWith('demo-')) throw new Error('Demo tracks cannot be removed.');
     await new Promise((resolve,reject) => {
-      const tx = this.db.transaction(['tracks','audio'],'readwrite'); tx.objectStore('tracks').delete(id); tx.objectStore('audio').delete(id);
+      const tx = this.db.transaction(['tracks','audio'],'readwrite'); tx.objectStore('tracks').delete(id); tx.objectStore('audio').delete(id); tx.objectStore('audio').delete('artwork-source:'+id);
       tx.oncomplete = resolve; tx.onerror = tx.onabort = () => reject(new Error('The track could not be removed.'));
     });
   }
