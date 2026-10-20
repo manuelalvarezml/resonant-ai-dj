@@ -1,3 +1,17 @@
+# Resonant — AI Music Discovery & DJ Mixing
+
+Resonant is a music application connecting natural-language requests to explainable playlists and DJ mixes.
+
+**Product status:** active development, with an AWS-hosted private trial at [resonant.lat](https://resonant.lat). The trial requires an approved account; it is not a public signup or a claim of broad adoption.
+
+**Repository scope:** the source snapshot below was last published in September 2026. The later October private deployment adds accounts, durable owner-scoped jobs and private progressive mix playback; those later changes have not all been synchronized to this public snapshot. See the [current case study](https://manuelalvarez.cc/project-resonant) for the deployed product's capabilities and boundaries.
+
+Core engineering work includes semantic retrieval, deterministic ranking, musical-feature analysis, explainable playlist construction and audio rendering. Acoustic analysis remains local; cloud deployment uses exported catalog evidence and text inference.
+
+Built by [Manuel Alvarez](https://manuelalvarez.cc/). [Contact / request a walkthrough](https://manuelalvarez.cc/contact).
+
+---
+
 # DJ Collection Set Builder
 
 Local-first DJ engine that analyzes a folder of owned music, plans compatible
